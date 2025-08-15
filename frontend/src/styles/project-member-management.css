@@ -1,0 +1,317 @@
+/* Project Member Management Styles */
+
+.project-member-management-modal .ant-modal-body {
+  padding: 16px;
+}
+
+.project-member-management-modal .ant-table {
+  background: transparent;
+}
+
+.project-member-management-modal .ant-table-thead > tr > th {
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: 600;
+}
+
+.project-member-management-modal .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 8px;
+}
+
+.project-member-management-modal .ant-table-tbody > tr:hover > td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Member info styles */
+.member-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.member-info .ant-avatar {
+  flex-shrink: 0;
+}
+
+.member-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.member-name {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-email {
+  font-size: 12px;
+  color: #8c8c8c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Role tag styles */
+.role-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.role-tag.admin {
+  background: #fff1f0;
+  border: 1px solid #ffccc7;
+  color: #cf1322;
+}
+
+.role-tag.project-manager {
+  background: #f0f5ff;
+  border: 1px solid #bae0ff;
+  color: #1890ff;
+}
+
+.role-tag.bim-manager {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  color: #52c41a;
+}
+
+.role-tag.contributor {
+  background: #fff7e6;
+  border: 1px solid #ffd591;
+  color: #fa8c16;
+}
+
+.role-tag.viewer {
+  background: #f9f0ff;
+  border: 1px solid #d3adf7;
+  color: #722ed1;
+}
+
+.role-tag.user {
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  color: #595959;
+}
+
+/* Permission management styles */
+.permission-management-modal .ant-modal-body {
+  padding: 20px;
+}
+
+.permission-table .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  text-align: center;
+}
+
+.permission-table .ant-table-tbody > tr > td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.permission-resource {
+  font-weight: 500;
+  color: #262626;
+}
+
+.permission-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.permission-switch {
+  margin: 0 auto;
+}
+
+/* Search and filter styles */
+.member-search-filter {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.member-search-filter .ant-input-search {
+  flex: 1;
+}
+
+.member-search-filter .ant-select {
+  min-width: 150px;
+}
+
+/* Action buttons styles */
+.member-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.member-actions .ant-btn {
+  padding: 4px 8px;
+  height: auto;
+  font-size: 12px;
+}
+
+/* Badge styles */
+.permission-badge .ant-badge-count {
+  background: #52c41a;
+  font-size: 10px;
+  min-width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .project-member-management-modal .ant-table-thead > tr > th {
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid #303030;
+}
+
+[data-theme="dark"] .project-member-management-modal .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #303030;
+}
+
+[data-theme="dark"] .project-member-management-modal .ant-table-tbody > tr:hover > td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .member-name {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .member-email {
+  color: #a6a6a6;
+}
+
+[data-theme="dark"] .permission-resource {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .permission-table .ant-table-thead > tr > th {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .project-member-management-modal .ant-modal {
+    width: 95% !important;
+    max-width: none;
+  }
+  
+  .member-search-filter {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .member-search-filter .ant-input-search,
+  .member-search-filter .ant-select {
+    width: 100%;
+  }
+  
+  .member-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .member-actions .ant-btn {
+    width: 100%;
+  }
+  
+  .permission-table .ant-table {
+    font-size: 12px;
+  }
+  
+  .permission-table .ant-table-thead > tr > th,
+  .permission-table .ant-table-tbody > tr > td {
+    padding: 8px 4px;
+  }
+}
+
+/* Tablet responsive styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-member-management-modal .ant-modal {
+    width: 90% !important;
+  }
+  
+  .member-search-filter {
+    gap: 8px;
+  }
+  
+  .member-search-filter .ant-select {
+    min-width: 120px;
+  }
+}
+
+/* Animation styles */
+.permission-switch {
+  transition: all 0.3s ease;
+}
+
+.permission-switch:hover {
+  transform: scale(1.05);
+}
+
+.role-tag {
+  transition: all 0.3s ease;
+}
+
+.role-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading states */
+.member-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.member-loading .ant-spin {
+  color: #1890ff;
+}
+
+/* Empty states */
+.member-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8c8c8c;
+}
+
+.member-empty .ant-empty-description {
+  color: #8c8c8c;
+}
+
+/* Success/Error states */
+.member-success {
+  color: #52c41a;
+}
+
+.member-error {
+  color: #ff4d4f;
+}
+
+/* Tooltip styles */
+.member-tooltip .ant-tooltip-inner {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .member-tooltip .ant-tooltip-inner {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+}

@@ -1,0 +1,168 @@
+/* Dashboard Action Buttons Responsive Styles */
+
+.dashboard-action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .dashboard-action-buttons {
+    gap: 4px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .dashboard-action-buttons .ant-btn {
+    min-width: 40px;
+    height: 32px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  
+  .dashboard-action-buttons .ant-btn .anticon {
+    font-size: 14px;
+  }
+}
+
+/* Tablet landscape styles */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .dashboard-action-buttons {
+    gap: 6px;
+  }
+  
+  .dashboard-action-buttons .ant-btn {
+    min-width: 44px;
+    height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1367px) {
+  .dashboard-action-buttons {
+    gap: 8px;
+  }
+  
+  .dashboard-action-buttons .ant-btn {
+    min-width: 48px;
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}
+
+/* Button states */
+.dashboard-action-buttons .ant-btn-loading {
+  pointer-events: none;
+}
+
+.dashboard-action-buttons .ant-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Dark theme adjustments */
+.ant-theme-dark .dashboard-action-buttons .ant-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ant-theme-dark .dashboard-action-buttons .ant-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ant-theme-dark .dashboard-action-buttons .ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  color: #ffffff;
+}
+
+.ant-theme-dark .dashboard-action-buttons .ant-btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* Animation for loading states */
+@keyframes buttonPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.dashboard-action-buttons .ant-btn-loading {
+  animation: buttonPulse 1.5s ease-in-out infinite;
+}
+
+/* Tooltip styles */
+.dashboard-action-buttons .ant-tooltip {
+  font-size: 12px;
+}
+
+/* Responsive text hiding */
+@media (max-width: 480px) {
+  .dashboard-action-buttons .ant-btn span:not(.anticon) {
+    display: none;
+  }
+  
+  .dashboard-action-buttons .ant-btn {
+    width: 40px;
+    padding: 0;
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 481px) and (max-width: 768px) {
+  .dashboard-action-buttons .ant-btn span:not(.anticon) {
+    display: none;
+  }
+  
+  .dashboard-action-buttons .ant-btn {
+    width: 44px;
+    padding: 0;
+  }
+}
+
+/* Success/Error states */
+.dashboard-action-buttons .ant-btn-success {
+  background: #52c41a;
+  border-color: #52c41a;
+  color: #ffffff;
+}
+
+.dashboard-action-buttons .ant-btn-error {
+  background: #ff4d4f;
+  border-color: #ff4d4f;
+  color: #ffffff;
+}
+
+/* Icon spacing */
+.dashboard-action-buttons .ant-btn .anticon + span {
+  margin-left: 4px;
+}
+
+/* Group buttons */
+.dashboard-action-buttons .ant-btn-group {
+  display: flex;
+  gap: 0;
+}
+
+.dashboard-action-buttons .ant-btn-group .ant-btn {
+  border-radius: 0;
+}
+
+.dashboard-action-buttons .ant-btn-group .ant-btn:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.dashboard-action-buttons .ant-btn-group .ant-btn:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}

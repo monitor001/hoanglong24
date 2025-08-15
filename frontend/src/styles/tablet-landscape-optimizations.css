@@ -1,0 +1,200 @@
+/**
+ * Tablet Landscape Optimizations
+ * 
+ * Tối ưu hóa đặc biệt cho tablet xoay ngang (769px - 1366px landscape)
+ * Đảm bảo:
+ * 1. Stats cards: 4 thẻ trên 1 hàng
+ * 2. Dashboard charts: 2 biểu đồ trên 1 hàng trong tab overview
+ * 3. Task/Issue charts: 2 biểu đồ đầu trên 1 hàng, thứ 3 full width
+ */
+
+/* Tablet Landscape - Specific optimizations */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== STATS CARDS OPTIMIZATION ===== */
+  
+  /* Force 4 columns for stats cards */
+  .dashboard-stats-row .ant-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .dashboard-stats-row .ant-col {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+    padding: 0 4px !important;
+  }
+  
+  /* Ensure stats cards fit nicely */
+  .dashboard-stats-row .ant-card {
+    height: 100%;
+    margin-bottom: 8px;
+  }
+  
+  .dashboard-stats-row .ant-statistic {
+    text-align: center;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title {
+    font-size: 13px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content {
+    font-size: 18px !important;
+  }
+  
+  /* ===== DASHBOARD OVERVIEW CHARTS ===== */
+  
+  /* 2 charts per row in overview tab */
+  .dashboard-overview-charts .ant-row {
+    display: flex !important;
+  }
+  
+  .dashboard-overview-charts .ant-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* ===== TASK CHARTS OPTIMIZATION ===== */
+  
+  /* First 2 task charts: 50% each */
+  .dashboard-task-charts .ant-col:nth-child(1),
+  .dashboard-task-charts .ant-col:nth-child(2) {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Third task chart: full width */
+  .dashboard-task-charts .ant-col:nth-child(3) {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 16px;
+  }
+  
+  /* ===== ISSUE CHARTS OPTIMIZATION ===== */
+  
+  /* First 2 issue charts: 50% each */
+  .dashboard-issue-charts .ant-col:nth-child(1),
+  .dashboard-issue-charts .ant-col:nth-child(2) {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Third issue chart: full width */
+  .dashboard-issue-charts .ant-col:nth-child(3) {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 16px;
+  }
+  
+  /* ===== GENERAL IMPROVEMENTS ===== */
+  
+  /* Better spacing for landscape */
+  .dashboard-container {
+    padding: 16px 20px;
+  }
+  
+  /* Optimize card titles */
+  .ant-card-head-title {
+    font-size: 16px !important;
+    font-weight: 600;
+  }
+  
+  /* Better gutter for charts */
+  .dashboard-task-charts .ant-row,
+  .dashboard-issue-charts .ant-row,
+  .dashboard-overview-charts .ant-row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+  
+  .dashboard-task-charts .ant-col,
+  .dashboard-issue-charts .ant-col,
+  .dashboard-overview-charts .ant-col {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  
+  /* ===== RESPONSIVE TABS OPTIMIZATION ===== */
+  
+  /* Make tabs more compact on tablet landscape */
+  .ant-tabs-nav {
+    margin-bottom: 16px !important;
+  }
+  
+  .ant-tabs-tab {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+  }
+  
+  /* ===== FILTERS OPTIMIZATION ===== */
+  
+  /* Better filter layout for landscape */
+  .dashboard-filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .dashboard-filters .ant-select {
+    min-width: 150px;
+  }
+  
+  /* ===== MOBILE FILTERS OVERRIDE ===== */
+  
+  /* Hide mobile filters on tablet landscape */
+  .mobile-filters {
+    display: none !important;
+  }
+  
+  /* Show responsive filters */
+  .responsive-filters {
+    display: block !important;
+  }
+}
+
+/* ===== DARK THEME ADJUSTMENTS ===== */
+
+/* Dark theme specific adjustments for tablet landscape */
+[data-theme="dark"] @media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  .dashboard-stats-row .ant-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .dashboard-overview-charts .ant-card,
+  .dashboard-task-charts .ant-card,
+  .dashboard-issue-charts .ant-card {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  
+  .ant-statistic-title {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  .ant-statistic-content {
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
+/* ===== PRINT OPTIMIZATIONS ===== */
+
+@media print {
+  .dashboard-stats-row .ant-col {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
+  
+  .dashboard-overview-charts .ant-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}

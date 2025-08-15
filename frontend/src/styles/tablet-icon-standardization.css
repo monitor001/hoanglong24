@@ -1,0 +1,794 @@
+/* Tablet Icon Standardization */
+/* Đồng nhất kích thước icon 32x24 với padding 0.8 cho tablet landscape */
+
+/* =========================
+   TABLET ICON STANDARDS
+   ========================= */
+
+/* Base tablet icon styles - 32x24 with padding 0.8 */
+.tablet-icon-standard {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 0px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+}
+
+.tablet-icon-standard .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   TABLET LANDSCAPE SPECIFIC
+   ========================= */
+
+/* Tablet Landscape - 769px to 1366px landscape */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* =========================
+     UNIVERSAL TABLET ICON STANDARDIZATION
+     ========================= */
+  
+  /* Đồng bộ hóa tất cả các icon trong tablet landscape */
+  .tablet-icon-standard,
+  .tablet-documents-icon-standard,
+  .tablet-issues-icon-standard,
+  .tablet-users-icon-standard,
+  .tablet-notes-icon-standard,
+  .tablet-approval-icon-standard {
+    width: 32px !important;
+    height: 24px !important;
+    padding: 0px 8px !important;
+    border-radius: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid !important;
+  }
+
+  .tablet-icon-standard .anticon,
+  .tablet-documents-icon-standard .anticon,
+  .tablet-issues-icon-standard .anticon,
+  .tablet-users-icon-standard .anticon,
+  .tablet-notes-icon-standard .anticon,
+  .tablet-approval-icon-standard .anticon {
+    font-size: 16px !important;
+  }
+
+  /* =========================
+     UNIVERSAL ACTION COLORS - LIGHT THEME
+     ========================= */
+
+  /* View/Detail Action - Blue */
+  .tablet-icon-view,
+  .tablet-documents-icon-view,
+  .tablet-issues-icon-view,
+  .tablet-users-icon-view,
+  .tablet-notes-icon-view,
+  .tablet-approval-icon-view {
+    color: #1890ff !important;
+    border-color: #1890ff !important;
+    background-color: rgba(24, 144, 255, 0.1) !important;
+  }
+
+  .tablet-icon-view:hover,
+  .tablet-documents-icon-view:hover,
+  .tablet-issues-icon-view:hover,
+  .tablet-users-icon-view:hover,
+  .tablet-notes-icon-view:hover,
+  .tablet-approval-icon-view:hover {
+    background-color: rgba(24, 144, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Edit Action - Green */
+  .tablet-icon-edit,
+  .tablet-documents-icon-edit,
+  .tablet-issues-icon-edit,
+  .tablet-users-icon-edit,
+  .tablet-notes-icon-edit,
+  .tablet-approval-icon-edit {
+    color: #52c41a !important;
+    border-color: #52c41a !important;
+    background-color: rgba(82, 196, 26, 0.1) !important;
+  }
+
+  .tablet-icon-edit:hover,
+  .tablet-documents-icon-edit:hover,
+  .tablet-issues-icon-edit:hover,
+  .tablet-users-icon-edit:hover,
+  .tablet-notes-icon-edit:hover,
+  .tablet-approval-icon-edit:hover {
+    background-color: rgba(82, 196, 26, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Comment Action - Orange */
+  .tablet-icon-comment,
+  .tablet-documents-icon-comment,
+  .tablet-issues-icon-comment,
+  .tablet-users-icon-comment,
+  .tablet-notes-icon-comment,
+  .tablet-approval-icon-comment {
+    color: #fa8c16 !important;
+    border-color: #fa8c16 !important;
+    background-color: rgba(250, 140, 22, 0.1) !important;
+  }
+
+  .tablet-icon-comment:hover,
+  .tablet-documents-icon-comment:hover,
+  .tablet-issues-icon-comment:hover,
+  .tablet-users-icon-comment:hover,
+  .tablet-notes-icon-comment:hover,
+  .tablet-approval-icon-comment:hover {
+    background-color: rgba(250, 140, 22, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Delete Action - Red */
+  .tablet-icon-delete,
+  .tablet-documents-icon-delete,
+  .tablet-issues-icon-delete,
+  .tablet-users-icon-delete,
+  .tablet-notes-icon-delete,
+  .tablet-approval-icon-delete {
+    color: #ff4d4f !important;
+    border-color: #ff4d4f !important;
+    background-color: rgba(255, 77, 79, 0.1) !important;
+  }
+
+  .tablet-icon-delete:hover,
+  .tablet-documents-icon-delete:hover,
+  .tablet-issues-icon-delete:hover,
+  .tablet-users-icon-delete:hover,
+  .tablet-notes-icon-delete:hover,
+  .tablet-approval-icon-delete:hover {
+    background-color: rgba(255, 77, 79, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* History Action - Cyan */
+  .tablet-icon-history,
+  .tablet-documents-icon-history,
+  .tablet-issues-icon-history,
+  .tablet-users-icon-history,
+  .tablet-notes-icon-history,
+  .tablet-approval-icon-history {
+    color: #13c2c2 !important;
+    border-color: #13c2c2 !important;
+    background-color: rgba(19, 194, 194, 0.1) !important;
+  }
+
+  .tablet-icon-history:hover,
+  .tablet-documents-icon-history:hover,
+  .tablet-issues-icon-history:hover,
+  .tablet-users-icon-history:hover,
+  .tablet-notes-icon-history:hover,
+  .tablet-approval-icon-history:hover {
+    background-color: rgba(19, 194, 194, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Export Action - Purple */
+  .tablet-icon-export,
+  .tablet-documents-icon-export,
+  .tablet-issues-icon-export,
+  .tablet-users-icon-export,
+  .tablet-notes-icon-export,
+  .tablet-approval-icon-export {
+    color: #722ed1 !important;
+    border-color: #722ed1 !important;
+    background-color: rgba(114, 46, 209, 0.1) !important;
+  }
+
+  .tablet-icon-export:hover,
+  .tablet-documents-icon-export:hover,
+  .tablet-issues-icon-export:hover,
+  .tablet-users-icon-export:hover,
+  .tablet-notes-icon-export:hover,
+  .tablet-approval-icon-export:hover {
+    background-color: rgba(114, 46, 209, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Team Action - Cyan */
+  .tablet-icon-team,
+  .tablet-documents-icon-team,
+  .tablet-issues-icon-team,
+  .tablet-users-icon-team,
+  .tablet-notes-icon-team,
+  .tablet-approval-icon-team {
+    color: #13c2c2 !important;
+    border-color: #13c2c2 !important;
+    background-color: rgba(19, 194, 194, 0.1) !important;
+  }
+
+  .tablet-icon-team:hover,
+  .tablet-documents-icon-team:hover,
+  .tablet-issues-icon-team:hover,
+  .tablet-users-icon-team:hover,
+  .tablet-notes-icon-team:hover,
+  .tablet-approval-icon-team:hover {
+    background-color: rgba(19, 194, 194, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Permission Action - Purple */
+  .tablet-icon-permission,
+  .tablet-documents-icon-permission,
+  .tablet-issues-icon-permission,
+  .tablet-users-icon-permission,
+  .tablet-notes-icon-permission,
+  .tablet-approval-icon-permission {
+    color: #722ed1 !important;
+    border-color: #722ed1 !important;
+    background-color: rgba(114, 46, 209, 0.1) !important;
+  }
+
+  .tablet-icon-permission:hover,
+  .tablet-documents-icon-permission:hover,
+  .tablet-issues-icon-permission:hover,
+  .tablet-users-icon-permission:hover,
+  .tablet-notes-icon-permission:hover,
+  .tablet-approval-icon-permission:hover {
+    background-color: rgba(114, 46, 209, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Download Action - Purple */
+  .tablet-icon-download,
+  .tablet-documents-icon-download,
+  .tablet-issues-icon-download,
+  .tablet-users-icon-download,
+  .tablet-notes-icon-download,
+  .tablet-approval-icon-download {
+    color: #722ed1 !important;
+    border-color: #722ed1 !important;
+    background-color: rgba(114, 46, 209, 0.1) !important;
+  }
+
+  .tablet-icon-download:hover,
+  .tablet-documents-icon-download:hover,
+  .tablet-issues-icon-download:hover,
+  .tablet-users-icon-download:hover,
+  .tablet-notes-icon-download:hover,
+  .tablet-approval-icon-download:hover {
+    background-color: rgba(114, 46, 209, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Share Action - Cyan */
+  .tablet-icon-share,
+  .tablet-documents-icon-share,
+  .tablet-issues-icon-share,
+  .tablet-users-icon-share,
+  .tablet-notes-icon-share,
+  .tablet-approval-icon-share {
+    color: #13c2c2 !important;
+    border-color: #13c2c2 !important;
+    background-color: rgba(19, 194, 194, 0.1) !important;
+  }
+
+  .tablet-icon-share:hover,
+  .tablet-documents-icon-share:hover,
+  .tablet-issues-icon-share:hover,
+  .tablet-users-icon-share:hover,
+  .tablet-notes-icon-share:hover,
+  .tablet-approval-icon-share:hover {
+    background-color: rgba(19, 194, 194, 0.2) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* =========================
+     UNIVERSAL ACTION COLORS - DARK THEME
+     ========================= */
+
+  /* View/Detail Action - Blue */
+  [data-theme="dark"] .tablet-icon-view,
+  [data-theme="dark"] .tablet-documents-icon-view,
+  [data-theme="dark"] .tablet-issues-icon-view,
+  [data-theme="dark"] .tablet-users-icon-view,
+  [data-theme="dark"] .tablet-notes-icon-view,
+  [data-theme="dark"] .tablet-approval-icon-view {
+    color: #40a9ff !important;
+    border-color: #40a9ff !important;
+    background-color: rgba(64, 169, 255, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-view:hover,
+  [data-theme="dark"] .tablet-documents-icon-view:hover,
+  [data-theme="dark"] .tablet-issues-icon-view:hover,
+  [data-theme="dark"] .tablet-users-icon-view:hover,
+  [data-theme="dark"] .tablet-notes-icon-view:hover,
+  [data-theme="dark"] .tablet-approval-icon-view:hover {
+    background-color: rgba(64, 169, 255, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Edit Action - Green */
+  [data-theme="dark"] .tablet-icon-edit,
+  [data-theme="dark"] .tablet-documents-icon-edit,
+  [data-theme="dark"] .tablet-issues-icon-edit,
+  [data-theme="dark"] .tablet-users-icon-edit,
+  [data-theme="dark"] .tablet-notes-icon-edit,
+  [data-theme="dark"] .tablet-approval-icon-edit {
+    color: #73d13d !important;
+    border-color: #73d13d !important;
+    background-color: rgba(115, 209, 61, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-edit:hover,
+  [data-theme="dark"] .tablet-documents-icon-edit:hover,
+  [data-theme="dark"] .tablet-issues-icon-edit:hover,
+  [data-theme="dark"] .tablet-users-icon-edit:hover,
+  [data-theme="dark"] .tablet-notes-icon-edit:hover,
+  [data-theme="dark"] .tablet-approval-icon-edit:hover {
+    background-color: rgba(115, 209, 61, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Comment Action - Orange */
+  [data-theme="dark"] .tablet-icon-comment,
+  [data-theme="dark"] .tablet-documents-icon-comment,
+  [data-theme="dark"] .tablet-issues-icon-comment,
+  [data-theme="dark"] .tablet-users-icon-comment,
+  [data-theme="dark"] .tablet-notes-icon-comment,
+  [data-theme="dark"] .tablet-approval-icon-comment {
+    color: #ffa940 !important;
+    border-color: #ffa940 !important;
+    background-color: rgba(255, 169, 64, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-comment:hover,
+  [data-theme="dark"] .tablet-documents-icon-comment:hover,
+  [data-theme="dark"] .tablet-issues-icon-comment:hover,
+  [data-theme="dark"] .tablet-users-icon-comment:hover,
+  [data-theme="dark"] .tablet-notes-icon-comment:hover,
+  [data-theme="dark"] .tablet-approval-icon-comment:hover {
+    background-color: rgba(255, 169, 64, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Delete Action - Red */
+  [data-theme="dark"] .tablet-icon-delete,
+  [data-theme="dark"] .tablet-documents-icon-delete,
+  [data-theme="dark"] .tablet-issues-icon-delete,
+  [data-theme="dark"] .tablet-users-icon-delete,
+  [data-theme="dark"] .tablet-notes-icon-delete,
+  [data-theme="dark"] .tablet-approval-icon-delete {
+    color: #ff7875 !important;
+    border-color: #ff7875 !important;
+    background-color: rgba(255, 120, 117, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-delete:hover,
+  [data-theme="dark"] .tablet-documents-icon-delete:hover,
+  [data-theme="dark"] .tablet-issues-icon-delete:hover,
+  [data-theme="dark"] .tablet-users-icon-delete:hover,
+  [data-theme="dark"] .tablet-notes-icon-delete:hover,
+  [data-theme="dark"] .tablet-approval-icon-delete:hover {
+    background-color: rgba(255, 120, 117, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* History Action - Cyan */
+  [data-theme="dark"] .tablet-icon-history,
+  [data-theme="dark"] .tablet-documents-icon-history,
+  [data-theme="dark"] .tablet-issues-icon-history,
+  [data-theme="dark"] .tablet-users-icon-history,
+  [data-theme="dark"] .tablet-notes-icon-history,
+  [data-theme="dark"] .tablet-approval-icon-history {
+    color: #36cfc9 !important;
+    border-color: #36cfc9 !important;
+    background-color: rgba(54, 207, 201, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-history:hover,
+  [data-theme="dark"] .tablet-documents-icon-history:hover,
+  [data-theme="dark"] .tablet-issues-icon-history:hover,
+  [data-theme="dark"] .tablet-users-icon-history:hover,
+  [data-theme="dark"] .tablet-notes-icon-history:hover,
+  [data-theme="dark"] .tablet-approval-icon-history:hover {
+    background-color: rgba(54, 207, 201, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Export Action - Purple */
+  [data-theme="dark"] .tablet-icon-export,
+  [data-theme="dark"] .tablet-documents-icon-export,
+  [data-theme="dark"] .tablet-issues-icon-export,
+  [data-theme="dark"] .tablet-users-icon-export,
+  [data-theme="dark"] .tablet-notes-icon-export,
+  [data-theme="dark"] .tablet-approval-icon-export {
+    color: #b37feb !important;
+    border-color: #b37feb !important;
+    background-color: rgba(179, 127, 235, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-export:hover,
+  [data-theme="dark"] .tablet-documents-icon-export:hover,
+  [data-theme="dark"] .tablet-issues-icon-export:hover,
+  [data-theme="dark"] .tablet-users-icon-export:hover,
+  [data-theme="dark"] .tablet-notes-icon-export:hover,
+  [data-theme="dark"] .tablet-approval-icon-export:hover {
+    background-color: rgba(179, 127, 235, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Team Action - Cyan */
+  [data-theme="dark"] .tablet-icon-team,
+  [data-theme="dark"] .tablet-documents-icon-team,
+  [data-theme="dark"] .tablet-issues-icon-team,
+  [data-theme="dark"] .tablet-users-icon-team,
+  [data-theme="dark"] .tablet-notes-icon-team,
+  [data-theme="dark"] .tablet-approval-icon-team {
+    color: #36cfc9 !important;
+    border-color: #36cfc9 !important;
+    background-color: rgba(54, 207, 201, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-team:hover,
+  [data-theme="dark"] .tablet-documents-icon-team:hover,
+  [data-theme="dark"] .tablet-issues-icon-team:hover,
+  [data-theme="dark"] .tablet-users-icon-team:hover,
+  [data-theme="dark"] .tablet-notes-icon-team:hover,
+  [data-theme="dark"] .tablet-approval-icon-team:hover {
+    background-color: rgba(54, 207, 201, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Permission Action - Purple */
+  [data-theme="dark"] .tablet-icon-permission,
+  [data-theme="dark"] .tablet-documents-icon-permission,
+  [data-theme="dark"] .tablet-issues-icon-permission,
+  [data-theme="dark"] .tablet-users-icon-permission,
+  [data-theme="dark"] .tablet-notes-icon-permission,
+  [data-theme="dark"] .tablet-approval-icon-permission {
+    color: #b37feb !important;
+    border-color: #b37feb !important;
+    background-color: rgba(179, 127, 235, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-permission:hover,
+  [data-theme="dark"] .tablet-documents-icon-permission:hover,
+  [data-theme="dark"] .tablet-issues-icon-permission:hover,
+  [data-theme="dark"] .tablet-users-icon-permission:hover,
+  [data-theme="dark"] .tablet-notes-icon-permission:hover,
+  [data-theme="dark"] .tablet-approval-icon-permission:hover {
+    background-color: rgba(179, 127, 235, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Download Action - Purple */
+  [data-theme="dark"] .tablet-icon-download,
+  [data-theme="dark"] .tablet-documents-icon-download,
+  [data-theme="dark"] .tablet-issues-icon-download,
+  [data-theme="dark"] .tablet-users-icon-download,
+  [data-theme="dark"] .tablet-notes-icon-download,
+  [data-theme="dark"] .tablet-approval-icon-download {
+    color: #b37feb !important;
+    border-color: #b37feb !important;
+    background-color: rgba(179, 127, 235, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-download:hover,
+  [data-theme="dark"] .tablet-documents-icon-download:hover,
+  [data-theme="dark"] .tablet-issues-icon-download:hover,
+  [data-theme="dark"] .tablet-users-icon-download:hover,
+  [data-theme="dark"] .tablet-notes-icon-download:hover,
+  [data-theme="dark"] .tablet-approval-icon-download:hover {
+    background-color: rgba(179, 127, 235, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* Share Action - Cyan */
+  [data-theme="dark"] .tablet-icon-share,
+  [data-theme="dark"] .tablet-documents-icon-share,
+  [data-theme="dark"] .tablet-issues-icon-share,
+  [data-theme="dark"] .tablet-users-icon-share,
+  [data-theme="dark"] .tablet-notes-icon-share,
+  [data-theme="dark"] .tablet-approval-icon-share {
+    color: #36cfc9 !important;
+    border-color: #36cfc9 !important;
+    background-color: rgba(54, 207, 201, 0.15) !important;
+  }
+
+  [data-theme="dark"] .tablet-icon-share:hover,
+  [data-theme="dark"] .tablet-documents-icon-share:hover,
+  [data-theme="dark"] .tablet-issues-icon-share:hover,
+  [data-theme="dark"] .tablet-users-icon-share:hover,
+  [data-theme="dark"] .tablet-notes-icon-share:hover,
+  [data-theme="dark"] .tablet-approval-icon-share:hover {
+    background-color: rgba(54, 207, 201, 0.25) !important;
+    transform: scale(1.05) !important;
+  }
+
+  /* =========================
+     UNIVERSAL CONTAINER STANDARDIZATION
+     ========================= */
+
+  /* Đồng bộ hóa tất cả các container actions */
+  .tablet-actions-container,
+  .tablet-documents-actions-container,
+  .tablet-issues-actions-container,
+  .tablet-users-actions-container,
+  .tablet-notes-actions-container,
+  .tablet-approval-actions-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+
+  .tablet-actions-column,
+  .tablet-documents-actions-column,
+  .tablet-issues-actions-column,
+  .tablet-users-actions-column,
+  .tablet-notes-actions-column,
+  .tablet-approval-actions-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    align-items: center !important;
+  }
+
+  /* Legacy support for existing row layout */
+  .tablet-actions-row,
+  .tablet-documents-actions-row,
+  .tablet-issues-actions-row,
+  .tablet-users-actions-row,
+  .tablet-notes-actions-row,
+  .tablet-approval-actions-row {
+    display: flex !important;
+    gap: 4px !important;
+    justify-content: center !important;
+  }
+
+  /* =========================
+     LEGACY SUPPORT - KEEP EXISTING STYLES
+     ========================= */
+
+  /* Table action buttons for tablet landscape */
+  .tablet-table-actions .ant-btn {
+    width: 32px !important;
+    height: 24px !important;
+    padding: 0px 8px !important;
+    border-radius: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 2px !important;
+  }
+
+  .tablet-table-actions .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+
+  /* Project table specific actions */
+  .projects-table-container .tablet-table-actions {
+    display: flex !important;
+    gap: 4px !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* =========================
+     TOUCH TARGETS & ACCESSIBILITY
+     ========================= */
+
+  /* Ensure minimum touch target size for accessibility */
+  .tablet-table-actions .ant-btn,
+  .tablet-icon-standard,
+  .tablet-documents-icon-standard,
+  .tablet-issues-icon-standard,
+  .tablet-users-icon-standard,
+  .tablet-notes-icon-standard,
+  .tablet-approval-icon-standard {
+    min-width: 32px !important;
+    min-height: 24px !important;
+    position: relative !important;
+  }
+  
+  /* Add invisible padding for better touch targets */
+  .tablet-table-actions .ant-btn::before,
+  .tablet-icon-standard::before,
+  .tablet-documents-icon-standard::before,
+  .tablet-issues-icon-standard::before,
+  .tablet-users-icon-standard::before,
+  .tablet-notes-icon-standard::before,
+  .tablet-approval-icon-standard::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    z-index: -1;
+  }
+
+  /* =========================
+     TRANSITIONS & ANIMATIONS
+     ========================= */
+
+  .tablet-table-actions .ant-btn,
+  .tablet-icon-standard,
+  .tablet-documents-icon-standard,
+  .tablet-issues-icon-standard,
+  .tablet-users-icon-standard,
+  .tablet-notes-icon-standard,
+  .tablet-approval-icon-standard {
+    transition: all 0.2s ease !important;
+  }
+
+  .tablet-table-actions .ant-btn:hover,
+  .tablet-icon-standard:hover,
+  .tablet-documents-icon-standard:hover,
+  .tablet-issues-icon-standard:hover,
+  .tablet-users-icon-standard:hover,
+  .tablet-notes-icon-standard:hover,
+  .tablet-approval-icon-standard:hover {
+    transform: scale(1.05) !important;
+  }
+
+  /* =========================
+     FOCUS STATES FOR ACCESSIBILITY
+     ========================= */
+
+  .tablet-table-actions .ant-btn:focus,
+  .tablet-icon-standard:focus,
+  .tablet-documents-icon-standard:focus,
+  .tablet-issues-icon-standard:focus,
+  .tablet-users-icon-standard:focus,
+  .tablet-notes-icon-standard:focus,
+  .tablet-approval-icon-standard:focus {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px !important;
+  }
+
+  [data-theme="dark"] .tablet-table-actions .ant-btn:focus,
+  [data-theme="dark"] .tablet-icon-standard:focus,
+  [data-theme="dark"] .tablet-documents-icon-standard:focus,
+  [data-theme="dark"] .tablet-issues-icon-standard:focus,
+  [data-theme="dark"] .tablet-users-icon-standard:focus,
+  [data-theme="dark"] .tablet-notes-icon-standard:focus,
+  [data-theme="dark"] .tablet-approval-icon-standard:focus {
+    outline-color: #40a9ff !important;
+  }
+
+  /* =========================
+     LOADING AND DISABLED STATES
+     ========================= */
+
+  .tablet-table-actions .ant-btn:disabled,
+  .tablet-table-actions .ant-btn.ant-btn-loading,
+  .tablet-icon-standard:disabled,
+  .tablet-icon-standard.ant-btn-loading,
+  .tablet-documents-icon-standard:disabled,
+  .tablet-documents-icon-standard.ant-btn-loading,
+  .tablet-issues-icon-standard:disabled,
+  .tablet-issues-icon-standard.ant-btn-loading,
+  .tablet-users-icon-standard:disabled,
+  .tablet-users-icon-standard.ant-btn-loading,
+  .tablet-notes-icon-standard:disabled,
+  .tablet-notes-icon-standard.ant-btn-loading,
+  .tablet-approval-icon-standard:disabled,
+  .tablet-approval-icon-standard.ant-btn-loading {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+  }
+
+  .tablet-table-actions .ant-btn:disabled:hover,
+  .tablet-table-actions .ant-btn.ant-btn-loading:hover,
+  .tablet-icon-standard:disabled:hover,
+  .tablet-icon-standard.ant-btn-loading:hover,
+  .tablet-documents-icon-standard:disabled:hover,
+  .tablet-documents-icon-standard.ant-btn-loading:hover,
+  .tablet-issues-icon-standard:disabled:hover,
+  .tablet-issues-icon-standard.ant-btn-loading:hover,
+  .tablet-users-icon-standard:disabled:hover,
+  .tablet-users-icon-standard.ant-btn-loading:hover,
+  .tablet-notes-icon-standard:disabled:hover,
+  .tablet-notes-icon-standard.ant-btn-loading:hover,
+  .tablet-approval-icon-standard:disabled:hover,
+  .tablet-approval-icon-standard.ant-btn-loading:hover {
+    transform: none !important;
+  }
+
+  /* =========================
+     BADGE ADJUSTMENTS
+     ========================= */
+
+  /* Badge adjustments for new icon sizes */
+  .tablet-table-actions .ant-badge,
+  .tablet-icon-standard .ant-badge,
+  .tablet-documents-icon-standard .ant-badge,
+  .tablet-issues-icon-standard .ant-badge,
+  .tablet-users-icon-standard .ant-badge,
+  .tablet-notes-icon-standard .ant-badge,
+  .tablet-approval-icon-standard .ant-badge {
+    line-height: 1 !important;
+  }
+
+  .tablet-table-actions .ant-badge .ant-badge-count,
+  .tablet-icon-standard .ant-badge .ant-badge-count,
+  .tablet-documents-icon-standard .ant-badge .ant-badge-count,
+  .tablet-issues-icon-standard .ant-badge .ant-badge-count,
+  .tablet-users-icon-standard .ant-badge .ant-badge-count,
+  .tablet-notes-icon-standard .ant-badge .ant-badge-count,
+  .tablet-approval-icon-standard .ant-badge .ant-badge-count {
+    font-size: 10px !important;
+    min-width: 16px !important;
+    height: 16px !important;
+    line-height: 16px !important;
+    padding: 0 4px !important;
+  }
+
+  /* =========================
+     SPECIFIC OVERRIDES
+     ========================= */
+
+  /* Override any existing dropdown buttons */
+  .projects-table-container .ant-dropdown-trigger {
+    display: none !important;
+  }
+
+  /* Show tablet actions instead */
+  .projects-table-container .tablet-table-actions {
+    display: flex !important;
+  }
+
+  /* Hide desktop actions on tablet landscape */
+  .projects-table-container .desktop-table-actions {
+    display: none !important;
+  }
+
+  /* Override existing button styles that might conflict */
+  .projects-table-container .tablet-table-actions .ant-btn {
+    padding: 0px 8px !important;
+    font-size: 9px !important;
+    min-width: 32px !important;
+    height: 24px !important;
+    margin: 0 2px !important;
+  }
+
+  /* Ensure proper spacing in actions column */
+  .projects-table-container .ant-table-tbody tr td:last-child {
+    padding: 6px 4px !important;
+    text-align: center !important;
+  }
+
+  /* Override any existing compact button styles */
+  .projects-table-container .tablet-table-actions .ant-btn {
+    padding: 0px 8px !important;
+    font-size: 16px !important;
+    min-width: 32px !important;
+    height: 24px !important;
+  }
+}
+
+/* =========================
+   RESPONSIVE BEHAVIOR
+   ========================= */
+
+/* Hide tablet actions on other screen sizes */
+@media (max-width: 768px),
+       (min-width: 1367px),
+       (orientation: portrait) {
+  .tablet-table-actions {
+    display: none !important;
+  }
+  
+  .projects-table-container .ant-dropdown-trigger {
+    display: inline-flex !important;
+  }
+  
+  .projects-table-container .desktop-table-actions {
+    display: flex !important;
+  }
+}

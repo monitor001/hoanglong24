@@ -1,0 +1,1104 @@
+/* Approval Kanban Styles */
+.approval-kanban {
+  padding: 24px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+[data-theme='dark'] .approval-kanban {
+  background: linear-gradient(135deg, #1f1f1f 0%, #2d3748 100%);
+}
+
+/* Column Styles */
+.kanban-column {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .kanban-column {
+  background: rgba(45, 55, 72, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.kanban-column:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Column-specific backgrounds */
+.column-design {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.column-kcs {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.column-verification {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.column-appraisal {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Card Styles */
+.kanban-card {
+  margin-bottom: 8px;
+  border: 2px solid #d9d9d9;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.kanban-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1890ff, #52c41a, #faad14, #ff4d4f);
+  opacity: 0.7;
+}
+
+[data-theme='dark'] .kanban-card {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.kanban-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: #1890ff;
+}
+
+.kanban-card.rejected {
+  border: 2px solid #ff4d4f;
+  background: linear-gradient(135deg, #fff2f0 0%, #ffebee 100%);
+}
+
+.kanban-card.rejected::before {
+  background: linear-gradient(90deg, #ff4d4f, #ff7875);
+}
+
+[data-theme='dark'] .kanban-card.rejected {
+  background: #2d1b1b;
+  border-color: #ff7875;
+}
+
+/* Compact Card Header */
+.card-header-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.card-title-compact {
+  margin: 8px 0 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-weight: 600;
+  color: #262626;
+}
+
+[data-theme='dark'] .card-title-compact {
+  color: #e2e8f0;
+}
+
+.card-basic-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-project-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background: rgba(24, 144, 255, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid #1890ff;
+}
+
+.card-expanded-content {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+[data-theme='dark'] .card-expanded-content {
+  border-top-color: #4a5568;
+}
+
+.card-actions-compact {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Priority Tag */
+.priority-tag {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Status Icon */
+.status-icon {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* Card Meta */
+.card-meta {
+  margin-bottom: 4px;
+}
+
+.card-description {
+  font-size: 12px;
+  color: #666;
+  margin: 8px 0;
+}
+
+[data-theme='dark'] .card-description {
+  color: #a0aec0;
+}
+
+/* Droppable Area */
+.droppable-area {
+  min-height: 100%;
+  max-height: calc(100vh - 400px);
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.droppable-area.dragging-over {
+  background: rgba(24, 144, 255, 0.1);
+  border: 2px dashed #1890ff;
+}
+
+[data-theme='dark'] .droppable-area.dragging-over {
+  background: rgba(24, 144, 255, 0.2);
+}
+
+/* Modal Styles */
+.ant-modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .ant-modal-content {
+  background: #2d3748;
+  color: #e2e8f0;
+}
+
+.ant-modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: none;
+}
+
+[data-theme='dark'] .ant-modal-header {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+.ant-modal-title {
+  color: white !important;
+}
+
+/* Rejection Modal Specific Styles */
+.rejection-modal .ant-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .rejection-modal .ant-modal-content {
+  background: #2d3748;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.rejection-modal .ant-modal-header {
+  background: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
+  padding: 20px 24px;
+}
+
+.rejection-modal .ant-modal-body {
+  padding: 24px;
+}
+
+.rejection-modal .ant-form-item-label > label {
+  font-weight: 600;
+  color: #262626;
+}
+
+[data-theme='dark'] .rejection-modal .ant-form-item-label > label {
+  color: #e2e8f0;
+}
+
+.rejection-modal .ant-input {
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .rejection-modal .ant-input {
+  background: #4a5568;
+  border-color: #718096;
+  color: #e2e8f0;
+}
+
+.rejection-modal .ant-input:focus,
+.rejection-modal .ant-input:hover {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+}
+
+.rejection-modal .ant-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Drawer Styles */
+.ant-drawer-content {
+  background: #fff;
+}
+
+[data-theme='dark'] .ant-drawer-content {
+  background: #2d3748;
+}
+
+.ant-drawer-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: none;
+}
+
+[data-theme='dark'] .ant-drawer-header {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+.ant-drawer-title {
+  color: white !important;
+}
+
+/* Comment List Styles */
+.comment-list {
+  margin-top: 16px;
+}
+
+.comment-item {
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .comment-item {
+  background: #4a5568;
+}
+
+.comment-item:hover {
+  background: #e9ecef;
+}
+
+[data-theme='dark'] .comment-item:hover {
+  background: #718096;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: #262626;
+}
+
+[data-theme='dark'] .comment-author {
+  color: #e2e8f0;
+}
+
+.comment-time {
+  font-size: 12px;
+  color: #666;
+}
+
+[data-theme='dark'] .comment-time {
+  color: #a0aec0;
+}
+
+.comment-content {
+  color: #333;
+  line-height: 1.5;
+}
+
+[data-theme='dark'] .comment-content {
+  color: #e2e8f0;
+}
+
+/* History Modal Styles */
+.history-modal .ant-modal-content {
+  background: #fff;
+  border-radius: 16px;
+}
+
+[data-theme='dark'] .history-modal .ant-modal-content {
+  background: #2d3748;
+}
+
+.history-item {
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  margin-bottom: 8px;
+  border-left: 4px solid #1890ff;
+}
+
+[data-theme='dark'] .history-item {
+  background: #4a5568;
+  border-left-color: #3182ce;
+}
+
+.history-item.approved {
+  border-left-color: #52c41a;
+}
+
+.history-item.rejected {
+  border-left-color: #ff4d4f;
+}
+
+/* Mobile Approval Card Styles */
+.mobile-approval-card-container {
+  margin-bottom: 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.mobile-approval-card-container.compact {
+  margin-bottom: 6px;
+  border-radius: 8px;
+}
+
+.mobile-approval-card-container.long-pressed {
+  transform: scale(0.98);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+[data-theme='dark'] .mobile-approval-card-container {
+  background: #141414;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-theme='dark'] .mobile-approval-card-container.long-pressed {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.mobile-approval-card {
+  margin-bottom: 0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.mobile-approval-card .ant-card-body {
+  padding: 12px;
+}
+
+.mobile-approval-card.rejected {
+  border: 2px solid #ff4d4f;
+  background: linear-gradient(135deg, #fff2f0 0%, #ffebee 100%);
+}
+
+[data-theme='dark'] .mobile-approval-card.rejected {
+  background: #2d1b1b;
+  border-color: #ff7875;
+}
+
+/* Swipe animation */
+.mobile-approval-card.swiping {
+  transition: none;
+}
+
+.mobile-approval-card.swiped {
+  transform: translateX(-120px);
+}
+
+/* Enhanced header */
+.mobile-card-header-enhanced {
+  margin-bottom: 8px;
+}
+
+.mobile-card-header-enhanced .ant-tag {
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.mobile-card-header-enhanced .ant-badge {
+  font-size: 8px;
+}
+
+.mobile-card-header-enhanced .ant-btn {
+  transition: all 0.2s ease;
+}
+
+.mobile-card-header-enhanced .ant-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Swipe Actions */
+.mobile-swipe-actions {
+  position: absolute;
+  left: -120px;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid #d9d9d9;
+  padding: 8px 4px;
+  gap: 4px;
+}
+
+[data-theme='dark'] .mobile-swipe-actions {
+  background-color: #4a5568;
+  border-color: #718096;
+}
+
+.mobile-swipe-actions .ant-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Approval List View */
+.mobile-approval-list-view {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+[data-theme='dark'] .mobile-approval-list-view {
+  background: #000;
+}
+
+.mobile-approval-list-view .ant-list-item {
+  padding: 0;
+  border: none;
+  margin-bottom: 8px;
+}
+
+.mobile-approval-list-view .ant-empty {
+  margin: 40px 0;
+}
+
+.mobile-approval-list-view .ant-float-btn {
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+/* Pull to refresh indicator */
+.pull-to-refresh-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(24,144,255,0.1) 0%, rgba(24,144,255,0.3) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Group headers */
+.mobile-list-group-header {
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme='dark'] .mobile-list-group-header {
+  background: #1f1f1f;
+  border-color: #303030;
+}
+
+.mobile-list-group-header .ant-typography {
+  font-weight: 600;
+  margin: 0;
+}
+
+.mobile-list-group-header .ant-badge {
+  font-size: 10px;
+}
+
+/* Mobile Card Header */
+.mobile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mobile-card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-card-title {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mobile-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.mobile-card-meta .ant-typography {
+  font-size: 11px;
+}
+
+.mobile-card-expanded {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+[data-theme='dark'] .mobile-card-expanded {
+  border-top-color: #4a5568;
+}
+
+.mobile-card-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile Kanban Columns */
+.mobile-kanban-column {
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.mobile-kanban-column .ant-card-head {
+  border-radius: 12px 12px 0 0;
+}
+
+.mobile-kanban-column .ant-card-body {
+  transition: all 0.3s ease;
+}
+
+/* Mobile List Cards */
+.mobile-list-card {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.mobile-list-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .mobile-list-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Touch-friendly buttons */
+.mobile-touch-button {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobile-touch-button:hover {
+  transform: scale(1.05);
+}
+
+.mobile-touch-button:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Statistics */
+.mobile-stats-card {
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .mobile-stats-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-stats-legend {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.mobile-stats-legend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.mobile-stats-legend-item:hover {
+  background-color: rgba(24, 144, 255, 0.1);
+}
+
+[data-theme='dark'] .mobile-stats-legend-item:hover {
+  background-color: rgba(24, 144, 255, 0.2);
+}
+
+/* Swipe indicators */
+.mobile-swipe-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  z-index: 1000;
+}
+
+.mobile-swipe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.mobile-swipe-dot.active {
+  background: #1890ff;
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@import './unified-breakpoints.css';
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .approval-kanban {
+    padding: 16px;
+  }
+  
+  .kanban-column {
+    margin-bottom: 16px;
+  }
+  
+  .card-header-compact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .card-actions-compact {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .card-actions-compact .ant-space {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Mobile specific styles */
+  .mobile-approval-card {
+    margin-bottom: 8px;
+  }
+  
+  .mobile-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .mobile-card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .mobile-card-actions .ant-space {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Tab navigation improvements */
+  .ant-tabs-nav {
+    margin-bottom: 16px;
+  }
+
+  .ant-tabs-tab {
+    padding: 12px 16px !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ant-tabs-tab .ant-tabs-tab-btn {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* Mobile form elements */
+  .ant-select-selector {
+    min-height: 44px !important;
+    padding: 8px 12px !important;
+  }
+
+  .ant-input {
+    min-height: 44px !important;
+    padding: 8px 12px !important;
+  }
+
+  .ant-btn {
+    min-height: 44px !important;
+    padding: 8px 16px !important;
+  }
+
+  .ant-btn-sm {
+    min-height: 32px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Mobile modal improvements */
+  .ant-modal {
+    margin: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .ant-modal-content {
+    border-radius: 12px;
+  }
+
+  /* Mobile drawer improvements */
+  .ant-drawer-content {
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* Mobile table improvements */
+  .ant-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .ant-table {
+    min-width: 600px;
+  }
+
+  /* Mobile card improvements */
+  .ant-card {
+    border-radius: 12px;
+  }
+
+  .ant-card-small .ant-card-body {
+    padding: 12px;
+  }
+
+  /* Mobile statistic improvements */
+  .ant-statistic-title {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .ant-statistic-content {
+    font-size: 18px;
+  }
+
+  /* Mobile progress improvements */
+  .ant-progress-line {
+    margin-bottom: 8px;
+  }
+
+  /* Mobile badge improvements */
+  .ant-badge {
+    font-size: 10px;
+  }
+
+  .ant-badge-count {
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 10px;
+  }
+
+  /* Mobile tag improvements */
+  .ant-tag {
+    border-radius: 4px;
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+
+  /* Mobile empty state improvements */
+  .ant-empty {
+    margin: 20px 0;
+  }
+
+  .ant-empty-image {
+    height: 60px;
+  }
+
+  .ant-empty-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) and (orientation: portrait),
+       (max-width: 640px) and (orientation: landscape) and (max-height: 400px) {
+  .approval-kanban {
+    padding: 8px;
+  }
+  
+  .kanban-card {
+    margin-bottom: 6px;
+  }
+  
+  .card-title-compact {
+    font-size: 12px !important;
+  }
+  
+  .priority-tag {
+    font-size: 8px;
+  }
+  
+  /* Mobile specific improvements */
+  .mobile-approval-card {
+    margin-bottom: 6px;
+  }
+  
+  .mobile-card-title {
+    font-size: 13px !important;
+  }
+  
+  .mobile-card-meta .ant-typography {
+    font-size: 10px;
+  }
+  
+  .mobile-card-actions .ant-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+  }
+  
+  .mobile-swipe-actions .ant-btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Hover Effects */
+.kanban-card .ant-btn {
+  transition: all 0.3s ease;
+}
+
+.kanban-card .ant-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Button Styles */
+.kanban-card .ant-btn-text {
+  color: #666;
+  border: none;
+  padding: 4px;
+  min-width: 24px;
+  height: 24px;
+}
+
+[data-theme='dark'] .kanban-card .ant-btn-text {
+  color: #a0aec0;
+}
+
+.kanban-card .ant-btn-text:hover {
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+}
+
+[data-theme='dark'] .kanban-card .ant-btn-text:hover {
+  color: #63b3ed;
+  background: rgba(99, 179, 237, 0.2);
+}
+
+/* Badge Styles */
+.ant-badge-count {
+  background: #1890ff;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+[data-theme='dark'] .ant-badge-count {
+  background: #3182ce;
+  box-shadow: 0 0 0 1px #2d3748;
+}
+
+/* Tab Styles */
+.ant-tabs-tab {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ant-tabs-tab:hover {
+  color: #1890ff;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  font-weight: 600;
+}
+
+/* Statistics Cards - REMOVED: Let individual color files handle this */
+/* .ant-statistic-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.ant-statistic-content {
+  font-size: 24px;
+  font-weight: 600;
+} */
+
+/* Table Styles */
+.ant-table-thead > tr > th {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: rgba(24, 144, 255, 0.05);
+}
+
+/* Mobile Tabs - Icon Only */
+.mobile-tabs .ant-tabs-tab {
+  padding: 12px 8px !important;
+  font-size: 14px !important;
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-tabs .ant-tabs-tab .ant-tabs-tab-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-tabs .ant-tabs-nav {
+  margin-bottom: 8px !important;
+}
+
+.mobile-tabs .ant-tabs-content-holder {
+  padding-top: 0 !important;
+}
+
+/* Mobile Swipe Indicator */
+.mobile-swipe-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.mobile-swipe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.mobile-swipe-dot.active {
+  background-color: #1890ff;
+  transform: scale(1.2);
+}
+
+/* Mobile FAB Button Hover Effect */
+@media (max-width: 768px) {
+  .ant-btn-circle[title="Thêm hồ sơ mới"]:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}

@@ -1,0 +1,337 @@
+/* Dashboard Mobile Optimization */
+/* Tối ưu hóa không gian cho các bộ lọc mobile trong Dashboard */
+
+/* =========================
+   DASHBOARD MOBILE FILTER OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa cho các bộ lọc trong Dashboard */
+.dashboard-container .mobile-filter-button {
+  margin-bottom: 4px !important;
+  height: 30px !important;
+  font-size: 10px !important;
+  padding: 0 8px !important;
+}
+
+.dashboard-container .mobile-filter-button .ant-space {
+  gap: 2px !important;
+}
+
+.dashboard-container .mobile-filter-button .ant-typography {
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+}
+
+/* Tối ưu hóa cho các bộ lọc trong các tab */
+.dashboard-task-charts .mobile-filter-button,
+.dashboard-issue-charts .mobile-filter-button {
+  margin-bottom: 3px !important;
+  height: 28px !important;
+  font-size: 9px !important;
+  padding: 0 6px !important;
+}
+
+.dashboard-task-charts .mobile-filter-button .ant-typography,
+.dashboard-issue-charts .mobile-filter-button .ant-typography {
+  font-size: 9px !important;
+  line-height: 1.1 !important;
+}
+
+/* Tối ưu hóa cho các bộ lọc trong các card */
+.dashboard-chart-card .mobile-filter-button {
+  margin-bottom: 2px !important;
+  height: 26px !important;
+  font-size: 8px !important;
+  padding: 0 4px !important;
+}
+
+.dashboard-chart-card .mobile-filter-button .ant-typography {
+  font-size: 8px !important;
+  line-height: 1.0 !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE DRAWER OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa drawer cho Dashboard */
+.dashboard-container .mobile-filter-drawer {
+  height: 75vh !important;
+}
+
+.dashboard-container .mobile-filter-drawer .ant-drawer-body {
+  padding: 8px !important;
+}
+
+.dashboard-container .mobile-filter-drawer .ant-drawer-header {
+  padding: 8px 10px !important;
+  min-height: 40px !important;
+}
+
+.dashboard-container .mobile-filter-drawer .ant-drawer-header-title {
+  font-size: 12px !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE FILTER ITEMS OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa các item trong Dashboard */
+.dashboard-container .mobile-filter-item {
+  padding: 6px 0 !important;
+}
+
+.dashboard-container .mobile-filter-label {
+  font-size: 10px !important;
+  margin-bottom: 3px !important;
+}
+
+.dashboard-container .mobile-filter-input,
+.dashboard-container .mobile-filter-select {
+  height: 28px !important;
+  font-size: 10px !important;
+}
+
+.dashboard-container .mobile-filter-select .ant-select-selector {
+  height: 28px !important;
+  padding: 3px 6px !important;
+}
+
+.dashboard-container .mobile-filter-select .ant-select-selection-item,
+.dashboard-container .mobile-filter-select .ant-select-selection-placeholder {
+  font-size: 10px !important;
+  line-height: 18px !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE DIVIDER OPTIMIZATIONS
+   ========================= */
+
+.dashboard-container .mobile-filter-divider {
+  margin: 4px 0 !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE ACTIONS OPTIMIZATIONS
+   ========================= */
+
+.dashboard-container .mobile-filter-actions {
+  margin-top: 12px !important;
+  padding-top: 8px !important;
+  gap: 6px !important;
+}
+
+.dashboard-container .mobile-filter-actions .ant-btn {
+  height: 32px !important;
+  font-size: 10px !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE BADGE OPTIMIZATIONS
+   ========================= */
+
+.dashboard-container .mobile-filter-button .ant-badge {
+  font-size: 8px !important;
+}
+
+.dashboard-container .mobile-filter-button .ant-badge .ant-badge-count {
+  min-width: 12px !important;
+  height: 12px !important;
+  line-height: 12px !important;
+  border-radius: 6px !important;
+  font-size: 8px !important;
+  padding: 0 2px !important;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS FOR DASHBOARD
+   ========================= */
+
+@media (max-height: 500px) {
+  .dashboard-container .mobile-filter-drawer {
+    height: 80vh !important;
+  }
+  
+  .dashboard-container .mobile-filter-item {
+    padding: 4px 0 !important;
+  }
+  
+  .dashboard-container .mobile-filter-label {
+    font-size: 9px !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .dashboard-container .mobile-filter-input,
+  .dashboard-container .mobile-filter-select {
+    height: 24px !important;
+  }
+  
+  .dashboard-container .mobile-filter-select .ant-select-selector {
+    height: 24px !important;
+    padding: 2px 4px !important;
+  }
+  
+  .dashboard-container .mobile-filter-actions .ant-btn {
+    height: 28px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .dashboard-container .mobile-filter-drawer .ant-drawer-body {
+    padding: 6px !important;
+  }
+  
+  .dashboard-container .mobile-filter-item {
+    padding: 4px 0 !important;
+  }
+  
+  .dashboard-container .mobile-filter-label {
+    font-size: 9px !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .dashboard-container .mobile-filter-actions {
+    gap: 4px !important;
+    padding-top: 6px !important;
+  }
+}
+
+/* =========================
+   DASHBOARD SPECIFIC COMPACT MODE
+   ========================= */
+
+/* Chế độ compact cho Dashboard */
+.dashboard-compact-mode .mobile-filter-button {
+  height: 26px !important;
+  font-size: 9px !important;
+  margin-bottom: 2px !important;
+}
+
+.dashboard-compact-mode .mobile-filter-button .ant-typography {
+  font-size: 9px !important;
+}
+
+.dashboard-compact-mode .mobile-filter-drawer {
+  height: 70vh !important;
+}
+
+.dashboard-compact-mode .mobile-filter-item {
+  padding: 3px 0 !important;
+}
+
+.dashboard-compact-mode .mobile-filter-label {
+  font-size: 9px !important;
+  margin-bottom: 2px !important;
+}
+
+.dashboard-compact-mode .mobile-filter-input,
+.dashboard-compact-mode .mobile-filter-select {
+  height: 24px !important;
+  font-size: 9px !important;
+}
+
+.dashboard-compact-mode .mobile-filter-select .ant-select-selector {
+  height: 24px !important;
+  padding: 2px 4px !important;
+}
+
+.dashboard-compact-mode .mobile-filter-divider {
+  margin: 3px 0 !important;
+}
+
+.dashboard-compact-mode .mobile-filter-actions {
+  margin-top: 8px !important;
+  padding-top: 6px !important;
+  gap: 4px !important;
+}
+
+.dashboard-compact-mode .mobile-filter-actions .ant-btn {
+  height: 28px !important;
+  font-size: 9px !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE ICON OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa icon cho mobile */
+.dashboard-container .mobile-filter-button .anticon {
+  font-size: 10px !important;
+}
+
+.dashboard-task-charts .mobile-filter-button .anticon,
+.dashboard-issue-charts .mobile-filter-button .anticon {
+  font-size: 9px !important;
+}
+
+.dashboard-chart-card .mobile-filter-button .anticon {
+  font-size: 8px !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE SPACING OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa khoảng cách cho mobile */
+.dashboard-container .mobile-filter-container {
+  gap: 0 !important;
+}
+
+.dashboard-container .mobile-filter-item:first-child {
+  padding-top: 0 !important;
+}
+
+.dashboard-container .mobile-filter-item:last-child {
+  padding-bottom: 0 !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE ANIMATION OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa animation cho mobile */
+.dashboard-container .mobile-filter-button {
+  transition: all 0.15s ease !important;
+}
+
+.dashboard-container .mobile-filter-button:hover {
+  transform: translateY(-0.5px) !important;
+}
+
+.dashboard-container .mobile-filter-input,
+.dashboard-container .mobile-filter-select {
+  transition: all 0.15s ease !important;
+}
+
+/* =========================
+   DASHBOARD MOBILE ACCESSIBILITY
+   ========================= */
+
+/* Cải thiện accessibility cho mobile */
+.dashboard-container .mobile-filter-button:focus {
+  outline: 1px solid #1890ff !important;
+  outline-offset: 1px !important;
+}
+
+.dashboard-container .mobile-filter-input:focus,
+.dashboard-container .mobile-filter-select:focus {
+  outline: 1px solid #1890ff !important;
+  outline-offset: 1px !important;
+}
+
+/* =========================
+   DARK THEME SUPPORT FOR DASHBOARD
+   ========================= */
+
+[data-theme="dark"] .dashboard-container .mobile-filter-button {
+  background: linear-gradient(135deg, #177ddc, #1890ff) !important;
+  border-color: #177ddc !important;
+}
+
+[data-theme="dark"] .dashboard-container .mobile-filter-drawer .ant-drawer-header {
+  background: linear-gradient(135deg, #177ddc, #1890ff) !important;
+}
+
+[data-theme="dark"] .dashboard-container .mobile-filter-badge {
+  background-color: #40a9ff !important;
+}

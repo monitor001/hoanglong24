@@ -1,0 +1,182 @@
+/* Statistics Font Size Optimization
+ * Tối ưu hóa kích thước chữ cho các thẻ thống kê trên tablet landscape và desktop
+ * Mobile rules đã được xử lý trong unified-mobile-cards.css
+ */
+
+/* ===== TABLET LANDSCAPE FONT SIZE OPTIMIZATION (769px-1366px landscape) ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== STATISTICS CARDS FONT SIZE ADJUSTMENTS ===== */
+  
+  /* Title text - Tối ưu kích thước chữ cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
+  
+  /* Value text - Tối ưu kích thước chữ cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  /* Prefix text - Tối ưu kích thước chữ cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 14px !important;
+    margin-right: 6px !important;
+  }
+  
+  /* Icon size cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .stats-container .ant-statistic-content-prefix .anticon,
+  .statistics-row .ant-statistic-content-prefix .anticon {
+    font-size: 14px !important;
+  }
+}
+
+/* ===== DESKTOP FONT SIZE OPTIMIZATION (> 1366px) ===== */
+@media (min-width: 1367px) {
+  
+  /* ===== STATISTICS CARDS FONT SIZE ADJUSTMENTS ===== */
+  
+  /* Title text - Tối ưu kích thước chữ cho desktop */
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
+  
+  /* Value text - Tối ưu kích thước chữ cho desktop */
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  /* Prefix text - Tối ưu kích thước chữ cho desktop */
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 16px !important;
+    margin-right: 8px !important;
+  }
+  
+  /* Icon size cho desktop */
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .stats-container .ant-statistic-content-prefix .anticon,
+  .statistics-row .ant-statistic-content-prefix .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* ===== SUMMARY GRID FONT SIZE OPTIMIZATION ===== */
+
+/* Tablet Landscape Summary Grid */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .summary-grid .ant-statistic-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .summary-grid .ant-statistic-content {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .summary-grid .ant-statistic-content-prefix {
+    font-size: 14px !important;
+  }
+}
+
+/* Desktop Summary Grid */
+@media (min-width: 1367px) {
+  .summary-grid .ant-statistic-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .summary-grid .ant-statistic-content {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .summary-grid .ant-statistic-content-prefix {
+    font-size: 16px !important;
+  }
+}

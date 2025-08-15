@@ -1,0 +1,225 @@
+/* Tablet Landscape Documents Responsive Styles */
+
+/* Tablet Landscape Filters */
+.tablet-documents-filters {
+  padding: 8px 0;
+}
+
+.tablet-documents-filters .ant-row {
+  margin-bottom: 8px;
+}
+
+.tablet-documents-filters .ant-input,
+.tablet-documents-filters .ant-select,
+.tablet-documents-filters .ant-btn {
+  font-size: 13px;
+}
+
+/* Tablet Landscape Document Info Layout */
+.tablet-document-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.tablet-document-row-1 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.tablet-document-project {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #1890ff;
+}
+
+.tablet-document-row-2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #262626;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.tablet-document-row-3 {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.tablet-document-row-4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.tablet-document-original {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #8c8c8c;
+}
+
+.tablet-document-row-5 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #666;
+}
+
+.tablet-document-row-5 span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Tablet Landscape Actions Container */
+.tablet-documents-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  height: 100%;
+}
+
+.tablet-documents-actions-row {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+/* Tablet Landscape Icon Standardization */
+/* Đã được đồng bộ hóa trong tablet-icon-standardization.css */
+
+/* Đã được đồng bộ hóa trong tablet-icon-standardization.css */
+
+/* Dark Theme Adjustments */
+[data-theme="dark"] .tablet-document-row-2 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .tablet-document-row-3,
+[data-theme="dark"] .tablet-document-row-4,
+[data-theme="dark"] .tablet-document-row-5 {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] .tablet-document-project {
+  color: #40a9ff;
+}
+
+[data-theme="dark"] .tablet-document-original {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Responsive adjustments for tablet landscape */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .tablet-document-info {
+    gap: 4px;
+  }
+  
+  .tablet-document-row-1,
+  .tablet-document-row-2,
+  .tablet-document-row-3,
+  .tablet-document-row-4,
+  .tablet-document-row-5 {
+    font-size: 11px;
+  }
+  
+  .tablet-document-row-2 {
+    font-size: 12px;
+  }
+  
+  .tablet-documents-actions-container {
+    gap: 4px;
+  }
+  
+  .tablet-documents-actions-row {
+    gap: 4px;
+  }
+  
+  /* Đã được đồng bộ hóa trong tablet-icon-standardization.css */
+}
+
+/* Animation for status badges */
+.tablet-document-row-1 .ant-tag {
+  animation: none;
+  transition: all 0.3s ease;
+}
+
+.tablet-document-row-1 .ant-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Hover effects for document info */
+.tablet-document-info:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  padding: 4px;
+  margin: -4px;
+}
+
+[data-theme="dark"] .tablet-document-info:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Status badge improvements for tablet landscape */
+.tablet-document-row-1 .ant-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  line-height: 14px;
+  margin: 0;
+  border-radius: 3px;
+}
+
+/* File icon styling */
+.tablet-document-row-2 .anticon {
+  font-size: 12px;
+  color: #52c41a;
+}
+
+.tablet-document-row-4 .anticon {
+  font-size: 10px;
+  color: #8c8c8c;
+}
+
+.tablet-document-row-5 .anticon {
+  font-size: 10px;
+  color: #666;
+}
+
+/* Project icon styling */
+.tablet-document-project .anticon {
+  font-size: 11px;
+  color: #1890ff;
+}
+
+/* Dark theme icon colors */
+[data-theme="dark"] .tablet-document-row-2 .anticon {
+  color: #52c41a;
+}
+
+[data-theme="dark"] .tablet-document-row-4 .anticon {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="dark"] .tablet-document-row-5 .anticon {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] .tablet-document-project .anticon {
+  color: #40a9ff;
+}

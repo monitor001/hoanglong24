@@ -1,0 +1,455 @@
+/* Modern Auth Layout CSS - Thiết kế hiện đại và responsive */
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --header-height: 64px;
+  --footer-height: 60px;
+  --primary-color: #1890ff;
+  --text-primary: #262626;
+  --text-secondary: #8c8c8c;
+  --border-color: #f0f0f0;
+  --background-light: #fafafa;
+  --background-white: #ffffff;
+  --shadow-light: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --border-radius: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== GLOBAL RESET ===== */
+.modern-auth-layout {
+  all: initial;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.modern-auth-layout * {
+  box-sizing: border-box;
+}
+
+.modern-auth-layout {
+  min-height: 100vh;
+  background: var(--background-light);
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark {
+  background: #141414;
+}
+
+.modern-auth-header {
+  background: var(--background-white) !important;
+  box-shadow: var(--shadow-light);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 24px !important;
+  height: var(--header-height) !important;
+  line-height: var(--header-height) !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-auth-header {
+  background: #1f1f1f !important;
+  border-bottom-color: #303030;
+}
+
+.modern-auth-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.modern-auth-brand {
+  display: flex;
+  align-items: center;
+}
+
+.modern-auth-title {
+  margin: 0 !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-auth-title {
+  color: #ffffff !important;
+}
+
+.modern-auth-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ===== THEME TOGGLE HEADER STYLES ===== */
+.modern-theme-toggle-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  background: rgba(24, 144, 255, 0.05);
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-theme-toggle-header {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modern-theme-switch-header {
+  transition: var(--transition);
+}
+
+.modern-theme-switch-header.ant-switch-checked {
+  background-color: var(--primary-color) !important;
+}
+
+.modern-theme-label-header {
+  font-size: 12px !important;
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.modern-auth-layout.dark .modern-theme-label-header {
+  color: #a6a6a6 !important;
+}
+
+/* ===== LANGUAGE SELECT STYLES ===== */
+.modern-language-select {
+  min-width: 120px;
+  transition: var(--transition);
+}
+
+.modern-language-select .ant-select-selector {
+  border-radius: var(--border-radius) !important;
+  border-color: var(--border-color) !important;
+  background: var(--background-white) !important;
+  transition: var(--transition) !important;
+}
+
+.modern-auth-layout.dark .modern-language-select .ant-select-selector {
+  border-color: #434343 !important;
+  background: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+.modern-language-select:hover .ant-select-selector {
+  border-color: var(--primary-color) !important;
+}
+
+.modern-language-select .ant-select-selection-item {
+  color: var(--text-primary) !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-language-select .ant-select-selection-item {
+  color: #ffffff !important;
+}
+
+.modern-language-select .ant-select-arrow {
+  color: var(--text-secondary) !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-language-select .ant-select-arrow {
+  color: #a6a6a6 !important;
+}
+
+.modern-auth-content {
+  flex: 1;
+  padding: 0;
+  background: transparent;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+.modern-auth-content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modern-auth-footer {
+  background: var(--background-white) !important;
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-auth-footer {
+  background: #1f1f1f !important;
+  border-top-color: #303030;
+}
+
+.modern-auth-footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modern-auth-footer-text {
+  margin: 0 !important;
+  color: var(--text-secondary) !important;
+  font-size: 14px !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .modern-auth-footer-text {
+  color: #a6a6a6 !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Desktop (1025px+) */
+@media screen and (min-width: 1025px) {
+  .modern-auth-header {
+    padding: 0 32px !important;
+  }
+  
+  .modern-auth-footer {
+    padding: 20px 32px !important;
+  }
+}
+
+/* Tablet (481px - 1024px) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .modern-auth-header {
+    padding: 0 20px !important;
+  }
+  
+  .modern-auth-footer {
+    padding: 16px 20px !important;
+  }
+  
+  .modern-auth-controls {
+    gap: 12px;
+  }
+  
+  .modern-theme-label-header {
+    font-size: 11px !important;
+  }
+  
+  .modern-language-select {
+    min-width: 100px;
+  }
+}
+
+/* Mobile (up to 480px) */
+@media screen and (max-width: 480px) {
+  .modern-auth-header {
+    padding: 0 16px !important;
+    height: 56px !important;
+    line-height: 56px !important;
+  }
+  
+  .modern-auth-footer {
+    padding: 12px 16px !important;
+  }
+  
+  .modern-auth-controls {
+    gap: 8px;
+  }
+  
+  .modern-theme-toggle-header {
+    padding: 2px 6px;
+  }
+  
+  .modern-theme-label-header {
+    font-size: 10px !important;
+  }
+  
+  .modern-language-select {
+    min-width: 80px;
+  }
+  
+  .modern-auth-title {
+    font-size: 16px !important;
+  }
+}
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+  .modern-theme-toggle-header {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+  }
+  
+  .modern-language-select {
+    min-height: 44px;
+  }
+  
+  .modern-language-select .ant-select-selector {
+    height: 44px !important;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+.modern-theme-switch-header:focus-visible {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+.modern-language-select:focus-visible {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+  .modern-auth-header {
+    border-bottom-width: 2px !important;
+  }
+  
+  .modern-auth-footer {
+    border-top-width: 2px !important;
+  }
+  
+  .modern-language-select .ant-select-selector {
+    border-width: 2px !important;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .modern-auth-layout,
+  .modern-auth-header,
+  .modern-auth-footer,
+  .modern-theme-toggle-header,
+  .modern-language-select {
+    transition: none !important;
+  }
+}
+
+/* ===== ANT DESIGN LAYOUT OVERRIDES ===== */
+.modern-auth-layout .ant-layout {
+  background: var(--background-light);
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .ant-layout {
+  background: #141414;
+}
+
+.modern-auth-layout .ant-layout-header {
+  background: var(--background-white) !important;
+  box-shadow: var(--shadow-light);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 24px !important;
+  height: var(--header-height) !important;
+  line-height: var(--header-height) !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .ant-layout-header {
+  background: #1f1f1f !important;
+  border-bottom-color: #303030;
+}
+
+.modern-auth-layout .ant-layout-content {
+  flex: 1;
+  padding: 0;
+  background: transparent;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+.modern-auth-layout .ant-layout-footer {
+  background: var(--background-white) !important;
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .ant-layout-footer {
+  background: #1f1f1f !important;
+  border-top-color: #303030;
+}
+
+/* ===== ANT DESIGN TYPOGRAPHY OVERRIDES ===== */
+.modern-auth-layout .ant-typography {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .ant-typography {
+  color: #ffffff;
+}
+
+.modern-auth-layout .ant-typography.ant-typography-secondary {
+  color: var(--text-secondary);
+}
+
+.modern-auth-layout.dark .ant-typography.ant-typography-secondary {
+  color: #a6a6a6;
+}
+
+/* ===== ANT DESIGN SWITCH OVERRIDES ===== */
+.modern-auth-layout .ant-switch {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: var(--transition);
+}
+
+.modern-auth-layout .ant-switch-checked {
+  background-color: var(--primary-color);
+}
+
+/* ===== ANT DESIGN SELECT OVERRIDES ===== */
+.modern-auth-layout .ant-select {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: var(--transition);
+}
+
+.modern-auth-layout .ant-select-selector {
+  border-radius: var(--border-radius) !important;
+  border-color: var(--border-color) !important;
+  background: var(--background-white) !important;
+  transition: var(--transition) !important;
+}
+
+.modern-auth-layout.dark .ant-select-selector {
+  border-color: #434343 !important;
+  background: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+.modern-auth-layout .ant-select:hover .ant-select-selector {
+  border-color: var(--primary-color) !important;
+}
+
+.modern-auth-layout .ant-select-selection-item {
+  color: var(--text-primary) !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .ant-select-selection-item {
+  color: #ffffff !important;
+}
+
+.modern-auth-layout .ant-select-arrow {
+  color: var(--text-secondary) !important;
+  transition: var(--transition);
+}
+
+.modern-auth-layout.dark .ant-select-arrow {
+  color: #a6a6a6 !important;
+}
+
+/* ===== ANT DESIGN SPACE OVERRIDES ===== */
+.modern-auth-layout .ant-space {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}

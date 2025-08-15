@@ -1,0 +1,308 @@
+/* Mobile Form Margin Optimization - Tối ưu margin cho form mobile */
+
+/* =========================
+   MOBILE FORM MARGIN OPTIMIZATION
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Giảm margin cho form container */
+  .mobile-edit-form {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho form items */
+  .mobile-edit-form .ant-form-item {
+    margin-bottom: 4px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Giảm margin cho form item row */
+  .mobile-edit-form .ant-form-item-row {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho form item label */
+  .mobile-edit-form .ant-form-item-label {
+    margin: 0 !important;
+    padding: 0 0 2px 0 !important;
+  }
+
+  /* Giảm margin cho form item control */
+  .mobile-edit-form .ant-form-item-control {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho form item control input */
+  .mobile-edit-form .ant-form-item-control-input {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho form item control input content */
+  .mobile-edit-form .ant-form-item-control-input-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho row */
+  .mobile-edit-form .ant-row {
+    margin: 0 -2px !important;
+    row-gap: 4px !important;
+  }
+
+  /* Giảm margin cho col */
+  .mobile-edit-form .ant-col {
+    padding: 0 2px !important;
+    margin: 0 !important;
+  }
+
+  /* Giảm margin cho input fields */
+  .mobile-edit-form .ant-input,
+  .mobile-edit-form .ant-select,
+  .mobile-edit-form .ant-picker {
+    margin: 0 !important;
+    padding: 6px 8px !important;
+  }
+
+  /* Giảm margin cho textarea */
+  .mobile-edit-form .ant-textarea {
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+
+  /* Giảm margin cho select selector */
+  .mobile-edit-form .ant-select-selector {
+    margin: 0 !important;
+    padding: 6px 8px !important;
+  }
+
+  /* Giảm margin cho date picker */
+  .mobile-edit-form .ant-picker-input {
+    margin: 0 !important;
+    padding: 6px 8px !important;
+  }
+
+  /* Giảm margin cho form validation messages */
+  .mobile-edit-form .ant-form-item-explain {
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho form item help */
+  .mobile-edit-form .ant-form-item-extra {
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Tối ưu cho single column layout */
+  .mobile-edit-form .ant-row .ant-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Giảm margin cho form item khi dàn 1 cột */
+  .mobile-edit-form .ant-form-item {
+    margin-bottom: 3px !important;
+  }
+
+  /* Giảm margin cho form item label khi dàn 1 cột */
+  .mobile-edit-form .ant-form-item-label > label {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 20px !important;
+    line-height: 20px !important;
+  }
+
+  /* Giảm margin cho form item control khi dàn 1 cột */
+  .mobile-edit-form .ant-form-item-control {
+    margin-top: 2px !important;
+  }
+}
+
+/* Tablet Landscape form styles đã được gộp vào tablet-landscape-unified-forms.css */
+
+/* =========================
+   SMALL SCREEN OPTIMIZATION
+   ========================= */
+
+@media (max-width: 480px) {
+  /* Giảm margin cho form container */
+  .mobile-edit-form {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm margin cho form items */
+  .mobile-edit-form .ant-form-item {
+    margin-bottom: 3px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Giảm margin cho form item label */
+  .mobile-edit-form .ant-form-item-label {
+    margin: 0 !important;
+    padding: 0 0 1px 0 !important;
+  }
+
+  /* Giảm margin cho form item label text */
+  .mobile-edit-form .ant-form-item-label > label {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 18px !important;
+    line-height: 18px !important;
+    font-size: 12px !important;
+  }
+
+  /* Giảm margin cho form item control */
+  .mobile-edit-form .ant-form-item-control {
+    margin-top: 1px !important;
+  }
+
+  /* Giảm margin cho row */
+  .mobile-edit-form .ant-row {
+    margin: 0 -1px !important;
+    row-gap: 3px !important;
+  }
+
+  /* Giảm margin cho col */
+  .mobile-edit-form .ant-col {
+    padding: 0 1px !important;
+    margin: 0 !important;
+  }
+
+  /* Giảm margin cho input fields */
+  .mobile-edit-form .ant-input,
+  .mobile-edit-form .ant-select,
+  .mobile-edit-form .ant-picker {
+    margin: 0 !important;
+    padding: 5px 6px !important;
+  }
+
+  /* Giảm margin cho textarea */
+  .mobile-edit-form .ant-textarea {
+    margin: 0 !important;
+    padding: 6px !important;
+  }
+
+  /* Giảm margin cho select selector */
+  .mobile-edit-form .ant-select-selector {
+    margin: 0 !important;
+    padding: 5px 6px !important;
+  }
+
+  /* Giảm margin cho date picker */
+  .mobile-edit-form .ant-picker-input {
+    margin: 0 !important;
+    padding: 5px 6px !important;
+  }
+
+  /* Giảm margin cho form validation messages */
+  .mobile-edit-form .ant-form-item-explain {
+    margin: 1px 0 0 0 !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+  }
+
+  /* Giảm margin cho form item help */
+  .mobile-edit-form .ant-form-item-extra {
+    margin: 1px 0 0 0 !important;
+    padding: 0 !important;
+    font-size: 10px !important;
+  }
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait) {
+  [data-theme="dark"] .mobile-edit-form .ant-form-item {
+    margin-bottom: 4px !important;
+  }
+
+  [data-theme="dark"] .mobile-edit-form .ant-form-item-label > label {
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .mobile-edit-form .ant-form-item-explain {
+    color: #ff4d4f !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  [data-theme="dark"] .tablet-landscape-edit-form .ant-form-item {
+    margin-bottom: 6px !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form .ant-form-item-label > label {
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form .ant-form-item-explain {
+    color: #ff4d4f !important;
+  }
+}
+
+/* =========================
+   PERFORMANCE OPTIMIZATIONS
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Tối ưu performance cho form */
+  .mobile-edit-form * {
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Ngăn zoom khi focus input */
+  .mobile-edit-form .ant-input,
+  .mobile-edit-form .ant-select-selector,
+  .mobile-edit-form .ant-picker {
+    font-size: 16px !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Đảm bảo touch target đủ lớn */
+  .mobile-edit-form .ant-input,
+  .mobile-edit-form .ant-select-selector,
+  .mobile-edit-form .ant-picker {
+    min-height: 44px !important;
+  }
+
+  /* Focus states */
+  .mobile-edit-form .ant-input:focus,
+  .mobile-edit-form .ant-select-focused .ant-select-selector,
+  .mobile-edit-form .ant-picker-focused {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  /* Đảm bảo touch target đủ lớn cho tablet */
+  .tablet-landscape-edit-form .ant-input,
+  .tablet-landscape-edit-form .ant-select-selector,
+  .tablet-landscape-edit-form .ant-picker {
+    min-height: 44px !important;
+  }
+
+  /* Focus states cho tablet */
+  .tablet-landscape-edit-form .ant-input:focus,
+  .tablet-landscape-edit-form .ant-select-focused .ant-select-selector,
+  .tablet-landscape-edit-form .ant-picker-focused {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px !important;
+  }
+}

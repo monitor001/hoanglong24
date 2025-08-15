@@ -1,0 +1,275 @@
+/* Responsive Dashboard Styles */
+@import './unified-breakpoints.css';
+
+/* Mobile - Portrait and Landscape */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Full width selects */
+  .ant-select {
+    width: 100% !important;
+  }
+  
+  /* Smaller charts */
+  .chart-container {
+    height: 250px !important;
+  }
+  
+  /* Hide complex tooltips on mobile */
+  .chart-tooltip-extended {
+    display: none;
+  }
+  
+  /* Stack all elements vertically */
+  .dashboard-filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Smaller text for mobile */
+  .dashboard-title {
+    font-size: 18px !important;
+  }
+  
+  /* Full width buttons */
+  .dashboard-button {
+    width: 100% !important;
+  }
+  
+  /* Optimize card spacing */
+  .dashboard-card {
+    margin-bottom: 12px;
+  }
+  
+  /* Reduce padding for mobile */
+  .dashboard-content {
+    padding: 12px;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  /* 2 columns layout for portrait */
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Medium chart size */
+  .chart-container {
+    height: 280px;
+  }
+  
+  /* Optimize filter layout */
+  .dashboard-filters {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  /* Responsive text sizes */
+  .dashboard-title {
+    font-size: 20px;
+  }
+  
+  /* Stats cards: 2 per row for portrait */
+  .dashboard-stats-row .ant-row {
+    --stats-columns: 2;
+  }
+  
+  .dashboard-stats-row .ant-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Tablet Landscape - New optimized layout */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  /* 4 columns layout for stats cards in landscape */
+  .dashboard-stats-row .ant-row {
+    --stats-columns: 4;
+  }
+  
+  .dashboard-stats-row .ant-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  /* 2 charts per row for dashboard overview */
+  .dashboard-overview-charts .ant-row .ant-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  /* Medium chart size optimized for landscape */
+  .chart-container {
+    height: 300px;
+  }
+  
+  /* Optimize filter layout for landscape */
+  .dashboard-filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  
+  /* Responsive text sizes */
+  .dashboard-title {
+    font-size: 22px;
+  }
+  
+  /* Ensure proper spacing for landscape */
+  .dashboard-content {
+    padding: 16px 20px;
+  }
+  
+  /* Task and issue charts: 2 per row for better use of horizontal space */
+  .dashboard-task-charts .ant-col:nth-child(1),
+  .dashboard-task-charts .ant-col:nth-child(2) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .dashboard-task-charts .ant-col:nth-child(3) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .dashboard-issue-charts .ant-col:nth-child(1),
+  .dashboard-issue-charts .ant-col:nth-child(2) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .dashboard-issue-charts .ant-col:nth-child(3) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) and (orientation: portrait),
+       (min-width: 1367px) and (orientation: landscape) {
+  /* Full layout */
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Standard chart size */
+  .chart-container {
+    height: 300px;
+  }
+  
+  /* Full filter layout */
+  .dashboard-filters {
+    flex-direction: row;
+    gap: 16px;
+  }
+  
+  /* Standard text sizes */
+  .dashboard-title {
+    font-size: 24px;
+  }
+}
+
+/* Dark theme responsive adjustments */
+.ant-theme-dark .chart-container {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.ant-theme-dark .dashboard-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Touch-friendly interactions for mobile */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-btn {
+    min-height: 44px; /* Touch target size */
+  }
+  
+  .ant-select-selector {
+    min-height: 44px;
+  }
+  
+  .ant-segmented-item {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Loading states responsive */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-spin-container {
+    padding: 20px;
+  }
+  
+  .ant-empty {
+    padding: 20px;
+  }
+}
+
+/* Dashboard Filter Improvements */
+@media (min-width: 769px) {
+  /* Desktop and Tablet - Improve filter text visibility */
+  .ant-card .ant-typography {
+    color: inherit !important;
+  }
+  
+  /* Dark theme filter text fixes */
+  [data-theme="dark"] .ant-card .ant-typography {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  [data-theme="dark"] .ant-card .ant-typography.ant-typography-secondary {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
+  
+  /* Light theme filter text fixes */
+  body:not([data-theme="dark"]) .ant-card .ant-typography {
+    color: rgba(0, 0, 0, 0.85) !important;
+  }
+  
+  body:not([data-theme="dark"]) .ant-card .ant-typography.ant-typography-secondary {
+    color: rgba(0, 0, 0, 0.65) !important;
+  }
+  
+  /* Reset button alignment fixes */
+  .ant-card .ant-col .ant-space-vertical {
+    width: 100%;
+  }
+  
+  .ant-card .ant-btn {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Print styles */
+@media print {
+  .dashboard-filters,
+  .ant-tabs-nav,
+  .ant-segmented {
+    display: none !important;
+  }
+  
+  .chart-container {
+    height: 200px !important;
+    page-break-inside: avoid;
+  }
+  
+  .dashboard-card {
+    page-break-inside: avoid;
+    margin-bottom: 16px;
+  }
+} 

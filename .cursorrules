@@ -1,0 +1,174 @@
+# MiniCDE Project - Cursor IDE Rules
+# Heroku Test Environment Configuration
+
+## Environment Configuration
+- **Test Environment**: Heroku (Production-like testing environment)
+- **Backend App**: minicde-production
+- **Frontend App**: minicde-frontend
+- **Backend URL**: https://minicde-production-589be4b0d52b.herokuapp.com
+- **Frontend URL**: https://minicde-frontend-833302d6ab3c.herokuapp.com
+- **Main Site**: https://qlda.hoanglong24.com
+
+## Development Rules
+
+### 1. Environment Variables
+- Always use environment variables for configuration
+- Never hardcode API URLs or secrets
+- Use `process.env.NODE_ENV` to distinguish between development and production
+- Heroku environment variables should be set via `heroku config:set`
+
+### 2. Performance Optimization
+- Implement proper memoization for React components and hooks
+- Use `useCallback` and `useMemo` for expensive operations
+- Avoid infinite re-renders by properly managing dependencies
+- Implement request caching and deduplication
+- Use conditional logging (only in development mode)
+
+### 3. Error Handling
+- Implement comprehensive error boundaries
+- Use try-catch blocks for async operations
+- Provide fallback mechanisms for critical operations
+- Log errors appropriately for debugging
+
+### 4. Code Quality
+- Follow TypeScript best practices
+- Use proper type definitions
+- Implement proper authentication and authorization
+- Follow React hooks best practices
+- Use Redux for state management
+
+### 5. Database Operations
+- Use Prisma for database operations
+- Implement proper migrations
+- Use transactions for critical operations
+- Implement proper indexing for performance
+
+### 6. API Design
+- Use RESTful API principles
+- Implement proper HTTP status codes
+- Use JWT for authentication
+- Implement rate limiting for production
+
+### 7. Security
+- Validate all inputs
+- Sanitize data before database operations
+- Use HTTPS in production
+- Implement proper CORS policies
+- Use environment variables for sensitive data
+
+### 8. Testing
+- Write unit tests for critical functions
+- Test API endpoints
+- Test React components
+- Use Heroku as the primary test environment
+
+### 9. Deployment
+- Use Heroku for deployment
+- Implement proper CI/CD pipelines
+- Use environment-specific configurations
+- Monitor application performance
+
+### 10. Monitoring
+- Implement proper logging
+- Monitor API performance
+- Track user interactions
+- Monitor database performance
+
+## Heroku-Specific Rules
+
+### Environment Configuration
+```bash
+# Backend Environment Variables
+NODE_ENV=production
+JWT_SECRET=<generated-secret>
+DATABASE_URL=<heroku-postgres-url>
+
+# Frontend Environment Variables
+REACT_APP_API_URL=https://minicde-production-589be4b0d52b.herokuapp.com/api
+NODE_ENV=production
+GENERATE_SOURCEMAP=false
+```
+
+### Deployment Process
+1. Set environment variables
+2. Deploy backend first
+3. Run database migrations
+4. Deploy frontend
+5. Verify deployment health
+6. Monitor logs for errors
+
+### Performance Considerations
+- Use Heroku's dyno scaling for performance
+- Implement proper caching strategies
+- Optimize database queries
+- Use CDN for static assets
+- Monitor memory usage
+
+### Security Considerations
+- Use Heroku's SSL certificates
+- Implement proper authentication
+- Use environment variables for secrets
+- Regular security updates
+- Monitor for vulnerabilities
+
+## Mobile and Tablet Optimization Rules
+
+### Responsive Design
+- Implement mobile-first design approach
+- Use responsive breakpoints
+- Optimize for tablet landscape mode
+- Ensure touch-friendly interfaces
+
+### Performance for Mobile
+- Optimize bundle size
+- Implement lazy loading
+- Use efficient image formats
+- Minimize network requests
+- Implement offline capabilities
+
+### User Experience
+- Provide intuitive navigation
+- Use appropriate touch targets
+- Implement proper loading states
+- Provide clear error messages
+- Optimize for different screen sizes
+
+## Code Standards
+
+### TypeScript
+- Use strict mode
+- Define proper interfaces
+- Use type guards where appropriate
+- Avoid `any` type when possible
+
+### React
+- Use functional components
+- Implement proper hooks usage
+- Use React.memo for performance
+- Implement proper error boundaries
+
+### Styling
+- Use CSS modules or styled-components
+- Implement responsive design
+- Use consistent color schemes
+- Follow accessibility guidelines
+
+### Testing
+- Write unit tests
+- Implement integration tests
+- Use proper mocking strategies
+- Test error scenarios
+
+## Documentation
+- Maintain up-to-date README files
+- Document API endpoints
+- Provide deployment instructions
+- Document environment setup
+- Keep code comments current
+
+## Version Control
+- Use meaningful commit messages
+- Implement proper branching strategy
+- Use pull requests for code review
+- Maintain clean git history
+- Tag releases appropriately

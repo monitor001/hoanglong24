@@ -1,0 +1,381 @@
+/* Mobile Task Form Spacing Optimization - Tối ưu khoảng cách form mobile */
+
+/* =========================
+   MOBILE FORM SPACING OPTIMIZATION
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Tối ưu khoảng cách giữa label và input */
+  .mobile-task-edit-drawer .ant-form-item-label {
+    padding-bottom: 2px !important; /* Giảm từ 16px xuống 2px */
+    margin-bottom: 0 !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 16px !important;
+    line-height: 16px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #262626 !important;
+  }
+
+  /* Tối ưu khoảng cách form item */
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 4px !important; /* Giảm từ 8px xuống 4px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Tối ưu khoảng cách form item control */
+  .mobile-task-edit-drawer .ant-form-item-control {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Tối ưu khoảng cách action buttons */
+  .mobile-task-edit-drawer .action-buttons {
+    margin-top: 8px !important; /* Giảm từ 16px xuống 8px */
+    padding: 8px 0 !important;
+  }
+
+  /* Tối ưu khoảng cách section */
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 2px !important; /* Giảm từ 4px xuống 2px */
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 4px 8px !important; /* Giảm từ 6px 12px xuống 4px 8px */
+    font-size: 11px !important;
+    min-height: 18px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 4px 8px !important; /* Giảm từ 6px 12px xuống 4px 8px */
+  }
+
+  /* Tối ưu input fields */
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 28px !important; /* Giảm từ 30px xuống 28px */
+    font-size: 12px !important;
+    padding: 2px 6px !important; /* Giảm từ 3px 8px xuống 2px 6px */
+    border-radius: 4px !important;
+    border: 1px solid #d9d9d9 !important;
+    margin: 0 !important;
+  }
+
+  /* Tối ưu textarea */
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 35px !important; /* Giảm từ 40px xuống 35px */
+    font-size: 12px !important;
+    padding: 3px 6px !important; /* Giảm từ 4px 6px xuống 3px 6px */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea .ant-input {
+    min-height: 35px !important;
+    padding: 3px 6px !important;
+  }
+
+  /* Tối ưu form validation messages */
+  .mobile-task-edit-drawer .ant-form-item-explain {
+    font-size: 10px !important;
+    margin-top: 1px !important; /* Giảm từ 2px xuống 1px */
+    line-height: 1.2 !important;
+  }
+}
+
+/* =========================
+   SMALL MOBILE OPTIMIZATION (max-width: 480px)
+   ========================= */
+
+@media (max-width: 480px) {
+  /* Tối ưu khoảng cách giữa label và input cho màn hình nhỏ */
+  .mobile-task-edit-drawer .ant-form-item-label {
+    padding-bottom: 1px !important; /* Giảm từ 2px xuống 1px */
+    margin-bottom: 0 !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 11px !important;
+    height: 14px !important;
+    line-height: 14px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Tối ưu khoảng cách form item cho màn hình nhỏ */
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 2px !important; /* Giảm từ 4px xuống 2px */
+  }
+
+  /* Tối ưu khoảng cách action buttons cho màn hình nhỏ */
+  .mobile-task-edit-drawer .action-buttons {
+    margin-top: 6px !important; /* Giảm từ 8px xuống 6px */
+    padding: 6px 0 !important;
+  }
+
+  /* Tối ưu khoảng cách section cho màn hình nhỏ */
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 1px !important; /* Giảm từ 2px xuống 1px */
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+    font-size: 10px !important;
+    min-height: 16px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+  }
+
+  /* Tối ưu input fields cho màn hình nhỏ */
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 24px !important; /* Giảm từ 28px xuống 24px */
+    font-size: 11px !important;
+    padding: 1px 4px !important; /* Giảm từ 2px 6px xuống 1px 4px */
+    border-radius: 3px !important;
+  }
+
+  /* Tối ưu textarea cho màn hình nhỏ */
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 30px !important; /* Giảm từ 35px xuống 30px */
+    font-size: 11px !important;
+    padding: 2px 4px !important; /* Giảm từ 3px 6px xuống 2px 4px */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea .ant-input {
+    min-height: 30px !important;
+    padding: 2px 4px !important;
+  }
+
+  /* Tối ưu form validation messages cho màn hình nhỏ */
+  .mobile-task-edit-drawer .ant-form-item-explain {
+    font-size: 9px !important;
+    margin-top: 0 !important; /* Giảm từ 1px xuống 0 */
+    line-height: 1.1 !important;
+  }
+}
+
+/* =========================
+   TABLET PORTRAIT OPTIMIZATION (481px - 768px)
+   ========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Tối ưu khoảng cách giữa label và input cho tablet portrait */
+  .mobile-task-edit-drawer .ant-form-item-label {
+    padding-bottom: 3px !important; /* Tăng từ 2px lên 3px cho tablet */
+    margin-bottom: 0 !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 13px !important;
+    height: 18px !important;
+    line-height: 18px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Tối ưu khoảng cách form item cho tablet portrait */
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 6px !important; /* Tăng từ 4px lên 6px cho tablet */
+  }
+
+  /* Tối ưu khoảng cách action buttons cho tablet portrait */
+  .mobile-task-edit-drawer .action-buttons {
+    margin-top: 12px !important; /* Tăng từ 8px lên 12px cho tablet */
+    padding: 12px 0 !important;
+  }
+
+  /* Tối ưu khoảng cách section cho tablet portrait */
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 4px !important; /* Tăng từ 2px lên 4px cho tablet */
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 6px 10px !important; /* Tăng từ 4px 8px lên 6px 10px cho tablet */
+    font-size: 12px !important;
+    min-height: 20px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 6px 10px !important; /* Tăng từ 4px 8px lên 6px 10px cho tablet */
+  }
+
+  /* Tối ưu input fields cho tablet portrait */
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 32px !important; /* Tăng từ 28px lên 32px cho tablet */
+    font-size: 13px !important;
+    padding: 3px 8px !important; /* Tăng từ 2px 6px lên 3px 8px cho tablet */
+    border-radius: 5px !important;
+  }
+
+  /* Tối ưu textarea cho tablet portrait */
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 40px !important; /* Tăng từ 35px lên 40px cho tablet */
+    font-size: 13px !important;
+    padding: 4px 8px !important; /* Tăng từ 3px 6px lên 4px 8px cho tablet */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea .ant-input {
+    min-height: 40px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Tối ưu form validation messages cho tablet portrait */
+  .mobile-task-edit-drawer .ant-form-item-explain {
+    font-size: 11px !important;
+    margin-top: 2px !important; /* Tăng từ 1px lên 2px cho tablet */
+    line-height: 1.3 !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION (769px - 1024px, landscape)
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  /* Tối ưu khoảng cách giữa label và input cho tablet landscape */
+  .mobile-task-edit-drawer .ant-form-item-label {
+    padding-bottom: 4px !important; /* Tăng từ 3px lên 4px cho tablet landscape */
+    margin-bottom: 0 !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 13px !important;
+    height: 18px !important;
+    line-height: 18px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Tối ưu khoảng cách form item cho tablet landscape */
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 6px !important; /* Giữ nguyên 6px cho tablet landscape */
+  }
+
+  /* Tối ưu khoảng cách action buttons cho tablet landscape */
+  .mobile-task-edit-drawer .action-buttons {
+    margin-top: 10px !important; /* Giảm từ 12px xuống 10px cho tablet landscape */
+    padding: 10px 0 !important;
+  }
+
+  /* Tối ưu khoảng cách section cho tablet landscape */
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 4px !important; /* Giữ nguyên 4px cho tablet landscape */
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 6px 10px !important; /* Giữ nguyên 6px 10px cho tablet landscape */
+    font-size: 12px !important;
+    min-height: 20px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 6px 10px !important; /* Giữ nguyên 6px 10px cho tablet landscape */
+  }
+
+  /* Tối ưu input fields cho tablet landscape */
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 32px !important; /* Giữ nguyên 32px cho tablet landscape */
+    font-size: 13px !important;
+    padding: 3px 8px !important; /* Giữ nguyên 3px 8px cho tablet landscape */
+    border-radius: 5px !important;
+  }
+
+  /* Tối ưu textarea cho tablet landscape */
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 40px !important; /* Giữ nguyên 40px cho tablet landscape */
+    font-size: 13px !important;
+    padding: 4px 8px !important; /* Giữ nguyên 4px 8px cho tablet landscape */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea .ant-input {
+    min-height: 40px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Tối ưu form validation messages cho tablet landscape */
+  .mobile-task-edit-drawer .ant-form-item-explain {
+    font-size: 11px !important;
+    margin-top: 2px !important; /* Giữ nguyên 2px cho tablet landscape */
+    line-height: 1.3 !important;
+  }
+}
+
+/* =========================
+   GENERAL FORM SPACING OVERRIDES
+   ========================= */
+
+/* Override any existing 16px margins */
+.mobile-task-edit-drawer .ant-form-item-label[style*="margin-bottom: 16px"],
+.mobile-task-edit-drawer .ant-form-item-label[style*="margin: 16px"],
+.mobile-task-edit-drawer .ant-form-item[style*="margin-bottom: 16px"],
+.mobile-task-edit-drawer .ant-form-item[style*="margin: 16px"],
+.mobile-task-edit-drawer .action-buttons[style*="margin-top: 16px"],
+.mobile-task-edit-drawer .action-buttons[style*="margin: 16px"] {
+  margin: 0 !important;
+  padding-bottom: 2px !important;
+}
+
+/* Override any existing large padding */
+.mobile-task-edit-drawer .ant-form-item-label[style*="padding-bottom: 16px"],
+.mobile-task-edit-drawer .ant-form-item-label[style*="padding: 16px"] {
+  padding-bottom: 2px !important;
+}
+
+/* =========================
+   FOCUS AND INTERACTION STATES
+   ========================= */
+
+/* Focus states optimization */
+.mobile-task-edit-drawer .ant-input:focus,
+.mobile-task-edit-drawer .ant-select-focused .ant-select-selector,
+.mobile-task-edit-drawer .ant-picker-focused {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 1px rgba(24, 144, 255, 0.15) !important;
+  outline: none !important;
+}
+
+/* Touch optimization */
+.mobile-task-edit-drawer .ant-input,
+.mobile-task-edit-drawer .ant-select-selector,
+.mobile-task-edit-drawer .ant-picker {
+  -webkit-appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-form-item-label > label {
+  color: #d9d9d9 !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-input,
+[data-theme="dark"] .mobile-task-edit-drawer .ant-select-selector,
+[data-theme="dark"] .mobile-task-edit-drawer .ant-picker {
+  border-color: #434343 !important;
+  background-color: #141414 !important;
+  color: #d9d9d9 !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-input:focus,
+[data-theme="dark"] .mobile-task-edit-drawer .ant-select-focused .ant-select-selector,
+[data-theme="dark"] .mobile-task-edit-drawer .ant-picker-focused {
+  border-color: #177ddc !important;
+  box-shadow: 0 0 0 1px rgba(23, 125, 220, 0.2) !important;
+}

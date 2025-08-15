@@ -1,0 +1,410 @@
+/* ===== TASK DETAIL RESPONSIVE STYLES ===== */
+
+/* Mobile Task Detail Container */
+.mobile-task-detail-container {
+  padding: 0 !important;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Mobile Task Detail Header */
+.mobile-task-detail-header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile Task Info Card */
+.mobile-task-info-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+}
+
+.mobile-task-info-card .ant-card-body {
+  padding: 16px !important;
+}
+
+.mobile-task-header {
+  margin-bottom: 12px;
+}
+
+.mobile-task-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-task-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mobile-task-tags .ant-tag {
+  margin: 0 !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+.mobile-task-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-task-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-task-detail-item .ant-typography {
+  line-height: 1.4 !important;
+}
+
+/* Mobile Action Buttons Card */
+.mobile-action-buttons-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+}
+
+.mobile-action-buttons-card .ant-card-body {
+  padding: 16px !important;
+}
+
+.mobile-actions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-action-button {
+  height: 48px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+/* Mobile Task Overview */
+.mobile-task-overview {
+  padding: 0 16px;
+}
+
+/* Mobile Task Edit Drawer */
+.mobile-task-edit-drawer {
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.mobile-task-edit-drawer .ant-drawer-content {
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.mobile-task-edit-drawer .ant-drawer-header {
+  border-bottom: 1px solid #f0f0f0 !important;
+  padding: 16px !important;
+}
+
+.mobile-task-edit-drawer .ant-drawer-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.mobile-task-edit-drawer .ant-form-item {
+  margin-bottom: 20px !important;
+}
+
+.mobile-task-edit-drawer .ant-form-item-label > label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #262626 !important;
+}
+
+.mobile-task-edit-drawer .ant-input,
+.mobile-task-edit-drawer .ant-select-selector,
+.mobile-task-edit-drawer .ant-picker {
+  height: 48px !important;
+  border-radius: 8px !important;
+  border: 1px solid #d9d9d9 !important;
+  font-size: 14px !important;
+}
+
+.mobile-task-edit-drawer .ant-input:focus,
+.mobile-task-edit-drawer .ant-select-focused .ant-select-selector,
+.mobile-task-edit-drawer .ant-picker-focused {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.mobile-task-edit-drawer .ant-input::placeholder {
+  color: #bfbfbf !important;
+  font-size: 14px !important;
+}
+
+.mobile-task-edit-drawer .ant-textarea {
+  border-radius: 8px !important;
+  border: 1px solid #d9d9d9 !important;
+}
+
+.mobile-task-edit-drawer .ant-textarea:focus {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+/* Mobile Tabs */
+.mobile-task-detail-container .ant-tabs-nav {
+  margin-bottom: 16px !important;
+  padding: 0 16px !important;
+}
+
+.mobile-task-detail-container .ant-tabs-tab {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+}
+
+.mobile-task-detail-container .ant-tabs-tab-active {
+  font-weight: 600 !important;
+}
+
+.mobile-task-detail-container .ant-tabs-content-holder {
+  padding: 0 16px !important;
+}
+
+/* Mobile Table Improvements */
+.mobile-task-detail-container .ant-table {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.mobile-task-detail-container .ant-table-thead > tr > th {
+  background: #fafafa !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  padding: 12px 8px !important;
+}
+
+.mobile-task-detail-container .ant-table-tbody > tr > td {
+  padding: 12px 8px !important;
+  font-size: 12px !important;
+}
+
+/* Mobile Comments */
+.mobile-task-detail-container .comment-list {
+  padding: 0 !important;
+}
+
+.mobile-task-detail-container .comment-list .ant-comment {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.mobile-task-detail-container .ant-comment-content-author {
+  font-size: 12px !important;
+}
+
+.mobile-task-detail-container .ant-comment-content-detail {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.mobile-task-detail-container .ant-comment-content-datetime {
+  font-size: 11px !important;
+  color: #8c8c8c !important;
+}
+
+/* Mobile Timeline */
+.mobile-task-detail-container .ant-timeline {
+  padding: 0 !important;
+}
+
+.mobile-task-detail-container .ant-timeline-item {
+  padding-bottom: 16px !important;
+}
+
+.mobile-task-detail-container .ant-timeline-item-label {
+  font-size: 11px !important;
+  color: #8c8c8c !important;
+}
+
+.mobile-task-detail-container .ant-timeline-item-content {
+  font-size: 13px !important;
+}
+
+/* Mobile Card Improvements */
+.mobile-task-detail-container .ant-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+}
+
+.mobile-task-detail-container .ant-card-body {
+  padding: 16px !important;
+}
+
+/* Mobile Button Improvements */
+.mobile-task-detail-container .ant-btn {
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  height: 40px !important;
+}
+
+.mobile-task-detail-container .ant-btn-lg {
+  height: 48px !important;
+  font-size: 14px !important;
+}
+
+.mobile-task-detail-container .ant-btn-sm {
+  height: 32px !important;
+  font-size: 12px !important;
+}
+
+/* Mobile Form Improvements */
+.mobile-task-detail-container .ant-form-item {
+  margin-bottom: 16px !important;
+}
+
+.mobile-task-detail-container .ant-form-item-label > label {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #262626 !important;
+}
+
+.mobile-task-detail-container .ant-input,
+.mobile-task-detail-container .ant-select-selector {
+  border-radius: 6px !important;
+  font-size: 13px !important;
+}
+
+/* Mobile Modal Improvements */
+.mobile-task-detail-container .ant-modal {
+  margin: 16px !important;
+  max-width: calc(100vw - 32px) !important;
+}
+
+.mobile-task-detail-container .ant-modal-content {
+  border-radius: 12px !important;
+}
+
+.mobile-task-detail-container .ant-modal-header {
+  border-radius: 12px 12px 0 0 !important;
+  padding: 16px 20px !important;
+}
+
+.mobile-task-detail-container .ant-modal-body {
+  padding: 20px !important;
+}
+
+.mobile-task-detail-container .ant-modal-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .mobile-task-detail-container {
+  background: #141414;
+}
+
+[data-theme="dark"] .mobile-task-detail-header {
+  background: #1f1f1f;
+  border-bottom: 1px solid #303030;
+}
+
+[data-theme="dark"] .mobile-task-info-card,
+[data-theme="dark"] .mobile-action-buttons-card {
+  background: #1f1f1f !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-drawer-content {
+  background: #1f1f1f !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-drawer-header {
+  background: #1f1f1f !important;
+  border-bottom: 1px solid #303030 !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-form-item-label > label {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-input,
+[data-theme="dark"] .mobile-task-edit-drawer .ant-select-selector,
+[data-theme="dark"] .mobile-task-edit-drawer .ant-picker {
+  background: #141414 !important;
+  border-color: #434343 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-task-edit-drawer .ant-input::placeholder {
+  color: #666 !important;
+}
+
+/* Tablet Landscape Adjustments */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .mobile-task-detail-container {
+    padding: 16px !important;
+  }
+  
+  .mobile-task-overview {
+    padding: 0 !important;
+  }
+  
+  .mobile-task-detail-container .ant-tabs-nav {
+    padding: 0 !important;
+  }
+  
+  .mobile-task-detail-container .ant-tabs-content-holder {
+    padding: 0 !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .mobile-task-detail-container .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .mobile-task-detail-container .ant-tag {
+    min-height: 24px !important;
+    padding: 4px 8px !important;
+  }
+  
+  .mobile-task-detail-container .ant-tabs-tab {
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+  }
+  
+  /* Better scrolling */
+  .mobile-task-detail-container {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .mobile-task-edit-drawer .ant-drawer-body {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+}
+
+/* Loading states */
+.mobile-task-detail-container .ant-spin {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 200px !important;
+}
+
+/* Empty states */
+.mobile-task-detail-container .ant-empty {
+  padding: 40px 20px !important;
+}
+
+.mobile-task-detail-container .ant-empty-description {
+  font-size: 14px !important;
+  color: #8c8c8c !important;
+}

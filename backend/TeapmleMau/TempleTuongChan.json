@@ -1,0 +1,562 @@
+{
+  "checklist": {
+    "id": "fb897303-6e78-47fd-87f1-8206c817a721",
+    "name": "Kiểm tra hồ sơ giao thông",
+    "projectId": "d26c351a-9429-4a53-b298-db57f032b2d8",
+    "description": "checklist",
+    "createdById": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+    "createdAt": "2025-08-07T08:08:04.841Z",
+    "updatedAt": "2025-08-07T08:08:04.841Z",
+    "project": {
+      "id": "d26c351a-9429-4a53-b298-db57f032b2d8",
+      "name": "Dự án 1",
+      "code": "PRJ-DN1-754205"
+    },
+    "createdBy": {
+      "id": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+      "name": "NguyenThanh",
+      "email": "nguyenthanhvc@gmail.com"
+    },
+    "items": [
+      {
+        "id": "8213b8e9-fa00-408c-93d4-09981051fa07",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Kiểm tra các số liệu đầu vào",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "bc550336-5843-4784-a5a7-d88b89cb9dba",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Hạng mục & Diễn giải công việc",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "3344877a-03a3-4456-b21f-b23a95475a18",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9bc6ef03-62de-44c2-b8de-22c2c18283f1",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9fd042fb-61b4-4837-8335-4ee0376be352",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      }
+    ],
+    "_count": {
+      "items": 5
+    }
+  },
+  "currentTab": "Tường chắn",
+  "items": [
+    {
+      "id": "9fd042fb-61b4-4837-8335-4ee0376be352",
+      "category": "Tường chắn",
+      "content": "Thuyết minh",
+      "isChecked": false,
+      "order": 1,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.06711892195137514-1",
+      "category": "Tường chắn",
+      "content": "Các quy chuẩn, tiêu chuẩn áp dụng",
+      "order": 2,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.36038029183703835-2",
+      "category": "Tường chắn",
+      "content": "Giải pháp thiết kế",
+      "order": 3,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.02612737374007723-3",
+      "category": "Tường chắn",
+      "content": "Chi tiết kết cấu",
+      "order": 4,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.21500604505700083-4",
+      "category": "Tường chắn",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 5,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.11821915953156825-5",
+      "category": "Tường chắn",
+      "content": "Biện pháp thi công chủ đạo",
+      "order": 6,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.10842277972678183-6",
+      "category": "Tường chắn",
+      "content": "Phụ lục tính toán, kiểm toán (trường hợp vận hành và thi công)",
+      "order": 7,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.12414301665160665-7",
+      "category": "Tường chắn",
+      "content": "Nhiệm vụ thi công và thí nghiệm cọc thử (nếu có)",
+      "order": 8,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.6310807045243586-8",
+      "category": "Tường chắn",
+      "content": "Bản vẽ",
+      "order": 9,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.09010847348020778-9",
+      "category": "Tường chắn",
+      "content": "Khung tên, mẫu chữ có thống nhất không",
+      "order": 10,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.8797436168704563-10",
+      "category": "Tường chắn",
+      "content": "Thông tin dự án; Chủ đầu tư; đơn vị tư vấn; lịch sử bản vẽ; hạng mục công việc; tên bản vẽ; ngày phát hành",
+      "order": 11,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.19041213700458104-11",
+      "category": "Tường chắn",
+      "content": "Thông tin về chủ nhiệm, chủ trì, chữ ký có đúng với hợp đồng, loại chứng chỉ…",
+      "order": 12,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.6381154595071127-12",
+      "category": "Tường chắn",
+      "content": "Mã số kiểm soát bản vẽ",
+      "order": 13,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.2163281014734364-13",
+      "category": "Tường chắn",
+      "content": "Chỉ dẫn vật liệu",
+      "order": 14,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.7578623696349571-14",
+      "category": "Tường chắn",
+      "content": "Kiểm soát về số lượng vật liệu sử dụng có trùng với bản vẽ thể hiện",
+      "order": 15,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.8786290984420425-15",
+      "category": "Tường chắn",
+      "content": "So sánh với thuyết minh về chỉ dẫn kỹ thuật thi công ",
+      "order": 16,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.536421140532913-16",
+      "category": "Tường chắn",
+      "content": "Sơ họa vị trí công trình",
+      "order": 17,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.1341392155335731-17",
+      "category": "Tường chắn",
+      "content": "Bình đồ nhỏ thể hiện vị trí công trình ở tỉnh nào trên bản đồ Việt Nam (chú ý quần đảo Trường Sa và Hoàng Sa), bản đồ lớn thể hiện tương quan vị trí công trình với các quận, huyện, tỉnh lân cận ",
+      "order": 18,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.12511617458198543-18",
+      "category": "Tường chắn",
+      "content": "Bình đồ hiện trạng",
+      "order": 19,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.5425052087247315-19",
+      "category": "Tường chắn",
+      "content": "So sánh với bình đồ khảo sát đã được phê duyệt",
+      "order": 20,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.34456061703401053-20",
+      "category": "Tường chắn",
+      "content": "Tỷ lệ, đường đồng mức có đúng với yêu cầu thiết kế",
+      "order": 21,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.49474819584287966-21",
+      "category": "Tường chắn",
+      "content": "Vecto chỉ hướng; sơ đồ ghép tuyến, ký hiệu, ghi chú, kích thước chữ, số... ",
+      "order": 22,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.5298870360501315-22",
+      "category": "Tường chắn",
+      "content": "Bình đồ thiết kế",
+      "order": 23,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.1909668193588001-23",
+      "category": "Tường chắn",
+      "content": "Xem song song với mặt cắt ngang điển hình, mặt cắt dọc,  về cao độ, chiều dài, chiều rộng, hướng tuyến, những vị trí cong, cua...",
+      "order": 24,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.12491603603071277-24",
+      "category": "Tường chắn",
+      "content": "Xem song song với cắt ngang chi tiết phạm vi đắp, đào",
+      "order": 25,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.7535829469335665-25",
+      "category": "Tường chắn",
+      "content": "Vecto chỉ hướng; sơ đồ ghép tuyến, ký hiệu, ghi chú, kích thước chữ, số... ",
+      "order": 26,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.23495327085625872-26",
+      "category": "Tường chắn",
+      "content": "Bảng tọa độ tim tuyến",
+      "order": 27,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.5572716530406195-27",
+      "category": "Tường chắn",
+      "content": "Bảng tổng hợp khối lượng…",
+      "order": 28,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.8837685960794409-28",
+      "category": "Tường chắn",
+      "content": "Trắc dọc công trình",
+      "order": 29,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.11221104123632719-29",
+      "category": "Tường chắn",
+      "content": "Xem song song với mặt bằng, cắt ngang điển hình kiểm tra về về cao độ đỉnh tường, chân tường, mũi cọc; chiều dài tuyến, lý trình, hướng tuyến, những vị trí cong, cua…;",
+      "order": 30,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.0952324750363458-30",
+      "category": "Tường chắn",
+      "content": "Kiểm tra công trình trên tuyến như cống…; Kích thước ",
+      "order": 31,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.7401150428678468-31",
+      "category": "Tường chắn",
+      "content": "Ký hiệu, ghi chú, kích thước chữ, số... ",
+      "order": 32,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.16090630365273084-32",
+      "category": "Tường chắn",
+      "content": "Cắt ngang điển hình",
+      "order": 33,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.0669651652822345-33",
+      "category": "Tường chắn",
+      "content": "Kiểm tra đã đủ số loại mặt cắt ngang điển hình; Kích thước chi tiết, cao độ đỉnh tường, chân tường, mũi cọc, hệ số mái…và các cấu tạo chi tiết của mái kè, thảm đá, tầng lọc ngược, xử lý nền móng...",
+      "order": 34,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.23805308569824568-34",
+      "category": "Tường chắn",
+      "content": "Ký hiệu, ghi chú, kích thước chữ, số... ",
+      "order": 35,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.1747028834305403-35",
+      "category": "Tường chắn",
+      "content": "Mặt cắt ngang chi tiết",
+      "order": 36,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.3264509755428735-36",
+      "category": "Tường chắn",
+      "content": "Kiểm tra vị trí tim tuyến thiết kế và tim tuyến khảo sát, so sánh với bình đồ tổng thể.",
+      "order": 37,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.4595925857083576-37",
+      "category": "Tường chắn",
+      "content": "Kiểm tra số liệu địa hình",
+      "order": 38,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.3297193582947773-38",
+      "category": "Tường chắn",
+      "content": "Cao độ đường đỏ, đen khớp với trắc dọc và hiện trạng",
+      "order": 39,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.6969067545865865-39",
+      "category": "Tường chắn",
+      "content": "Bảng tổng hợp khối lượng đào, đắp, gia cố",
+      "order": 40,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.8890143658900832-40",
+      "category": "Tường chắn",
+      "content": "Mặt bằng cọc và đơn nguyên tường, chi tiết cọc (nếu có)",
+      "order": 41,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.08767846578161731-41",
+      "category": "Tường chắn",
+      "content": "Quy cách trình bày cọc thẳng, cọc xiên trong từng đơn nguyên, đánh số cọc, bảng tọa độ tim cọc, ghi chú, Dim kích thước…",
+      "order": 42,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148353-0.9400434518513554-42",
+      "category": "Tường chắn",
+      "content": "Bản vẽ chi tiết từng đoạn cọc, tổ hợp cọc, chi tiết thép (nếu có). So sánh với chiều dài cọc tính toán trong phụ lục tính toán",
+      "order": 43,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.9782009258628641-43",
+      "category": "Tường chắn",
+      "content": " Cách bố trí thép có trùng với phụ lục tính toán về lớp trên, lớp dưới, thép chịu lực hay cấu tạo, lớp bê tông bảo vệ…",
+      "order": 44,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.015956408737888617-44",
+      "category": "Tường chắn",
+      "content": "Hình dạng, số lượng thép, mối nối, thép neo,bảng tổng hợp",
+      "order": 45,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.9357681357944843-45",
+      "category": "Tường chắn",
+      "content": "Kích thước, cỡ chữ, ghi chú loại thép dùng có đúng theo tiêu chuẩn hiện hành.",
+      "order": 46,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.1590026333854574-46",
+      "category": "Tường chắn",
+      "content": "Biện pháp thi công chi tiết",
+      "order": 47,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.4049955162178054-47",
+      "category": "Tường chắn",
+      "content": "Mặt bằng thi công",
+      "order": 48,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.6532632001431757-48",
+      "category": "Tường chắn",
+      "content": "Giải pháp tổng quan đã hợp lý, cần bao nhiêu số lượng đội thi công, thi công theo phương pháp cuốn chiếu hay song song",
+      "order": 49,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.3379455311559373-49",
+      "category": "Tường chắn",
+      "content": "Trình tự thi công",
+      "order": 50,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.08088527854719973-50",
+      "category": "Tường chắn",
+      "content": "So sánh với báo cáo chỉ dẫn kỹ thuật thi công",
+      "order": 51,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.8935935082660557-51",
+      "category": "Tường chắn",
+      "content": "Sự hợp lý của các bước thi công",
+      "order": 52,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.1024583477058294-52",
+      "category": "Tường chắn",
+      "content": "Biện pháp thi công chi tiết",
+      "order": 53,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.8585754806187798-53",
+      "category": "Tường chắn",
+      "content": "Xem xét máy xử dụng thi công có hợp lý hay không",
+      "order": 54,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.6407366273745054-54",
+      "category": "Tường chắn",
+      "content": "Đóng cọc thử, đóng cọc đại trà thì sử dụng biện pháp nào để định vị cọc, kích thước, cách tính luân chuyển, đóng cọc âm…",
+      "order": 55,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.07585578256064862-55",
+      "category": "Tường chắn",
+      "content": "Trải vải địa kỹ thuật trên cạn hay trải vải địa kỹ thuật dưới nước, đóng cọc tràm bằng máy hay thủ công; thả thảm đá trên cạn hay dưới nước…",
+      "order": 56,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.904790915920124-56",
+      "category": "Tường chắn",
+      "content": "Mặt bằng khung vây, chi tiết khung vây (nếu có) về cách đóng, luân chuyển, xử lý góc cua",
+      "order": 57,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.2085081048637366-57",
+      "category": "Tường chắn",
+      "content": "Các giải pháp về đảm bảo an toàn giao thông đường thủy, đường bộ (nếu có)",
+      "order": 58,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.753451475005835-58",
+      "category": "Tường chắn",
+      "content": "Tiến độ thi công",
+      "order": 59,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Tường chắn-1754554148354-0.34211702742045746-59",
+      "category": "Tường chắn",
+      "content": "Xem xét số lượng máy móc tham gia, công suất máy, số ca thực hiện, có phù hợp với tiến độ.",
+      "order": 60,
+      "isChecked": false,
+      "notes": ""
+    }
+  ],
+  "columns": [
+    "STT",
+    "Hạng mục",
+    "Check",
+    "Ghi chú"
+  ],
+  "exportDate": "2025-08-07T08:10:02.507Z",
+  "version": "1.0"
+}

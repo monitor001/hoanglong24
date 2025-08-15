@@ -1,0 +1,371 @@
+/**
+ * Tablet Landscape Special Forms CSS
+ * 
+ * Xử lý các trường hợp đặc biệt và tối ưu hóa nâng cao cho tablet landscape
+ * Áp dụng cho các form phức tạp, form động, và các component đặc biệt
+ */
+
+/* ===== TABLET LANDSCAPE BREAKPOINT ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== DYNAMIC FORMS ===== */
+  
+  /* Form arrays và dynamic forms */
+  .dynamic-form,
+  .form-array,
+  .repeatable-form {
+    gap: 2px !important;
+  }
+
+  .dynamic-form .ant-form-item,
+  .form-array .ant-form-item,
+  .repeatable-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* Add/Remove buttons cho dynamic forms */
+  .dynamic-form .ant-btn,
+  .form-array .ant-btn,
+  .repeatable-form .ant-btn {
+    height: 20px !important;
+    padding: 0 4px !important;
+    font-size: 11px !important;
+    min-width: 40px !important;
+  }
+
+  /* ===== COMPLEX FORMS ===== */
+  
+  /* Forms với nhiều tabs */
+  .tabbed-form .ant-tabs-content {
+    padding: 2px !important;
+  }
+
+  .tabbed-form .ant-tabs-tab {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .tabbed-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* Forms với collapsible sections */
+  .collapsible-form .ant-collapse-content-box {
+    padding: 2px !important;
+  }
+
+  .collapsible-form .ant-collapse-header {
+    padding: 2px 8px !important;
+    font-size: 12px !important;
+  }
+
+  /* ===== UPLOAD FORMS ===== */
+  
+  /* File upload components */
+  .upload-form .ant-upload-list {
+    margin-top: 2px !important;
+  }
+
+  .upload-form .ant-upload-list-item {
+    padding: 2px 4px !important;
+    font-size: 11px !important;
+  }
+
+  .upload-form .ant-upload-drag {
+    padding: 8px !important;
+    min-height: 60px !important;
+  }
+
+  .upload-form .ant-upload-drag .ant-upload-drag-container {
+    font-size: 12px !important;
+  }
+
+  /* ===== RICH TEXT EDITORS ===== */
+  
+  /* Rich text editor containers */
+  .rich-text-editor,
+  .wysiwyg-editor {
+    min-height: 80px !important;
+  }
+
+  .rich-text-editor .ql-toolbar,
+  .wysiwyg-editor .ql-toolbar {
+    padding: 2px 4px !important;
+    font-size: 11px !important;
+  }
+
+  .rich-text-editor .ql-editor,
+  .wysiwyg-editor .ql-editor {
+    padding: 4px 6px !important;
+    font-size: 12px !important;
+    min-height: 60px !important;
+  }
+
+  /* ===== SEARCH AND FILTER FORMS ===== */
+  
+  /* Advanced search forms */
+  .advanced-search-form,
+  .complex-filter-form {
+    gap: 2px !important;
+  }
+
+  .advanced-search-form .ant-form-item,
+  .complex-filter-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* Search input groups */
+  .search-input-group {
+    gap: 2px !important;
+  }
+
+  .search-input-group .ant-input-group-addon {
+    padding: 0 4px !important;
+    font-size: 11px !important;
+  }
+
+  /* ===== VALIDATION FORMS ===== */
+  
+  /* Forms với validation messages */
+  .validation-form .ant-form-item-explain {
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+    margin-top: 1px !important;
+  }
+
+  .validation-form .ant-form-item-explain-error {
+    color: #ff4d4f !important;
+  }
+
+  .validation-form .ant-form-item-explain-warning {
+    color: #faad14 !important;
+  }
+
+  /* ===== CONDITIONAL FORMS ===== */
+  
+  /* Forms với conditional fields */
+  .conditional-form .ant-form-item {
+    transition: all 0.2s ease !important;
+  }
+
+  .conditional-form .ant-form-item.hidden {
+    display: none !important;
+  }
+
+  .conditional-form .ant-form-item.collapsed {
+    margin-bottom: 0 !important;
+    opacity: 0.7 !important;
+  }
+
+  /* ===== WIZARD FORMS ===== */
+  
+  /* Multi-step wizard forms */
+  .wizard-form .ant-steps-item {
+    font-size: 11px !important;
+  }
+
+  .wizard-form .ant-steps-item-title {
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+  }
+
+  .wizard-form .ant-steps-item-description {
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+  }
+
+  .wizard-form .ant-steps-content {
+    padding: 4px !important;
+  }
+
+  /* ===== INLINE EDITING FORMS ===== */
+  
+  /* Inline editing forms */
+  .inline-edit-form {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .inline-edit-form .ant-form-item {
+    margin-bottom: 0 !important;
+    flex: 1 !important;
+  }
+
+  .inline-edit-form .ant-form-item-label {
+    display: none !important;
+  }
+
+  .inline-edit-form .ant-input,
+  .inline-edit-form .ant-select {
+    height: 20px !important;
+    font-size: 11px !important;
+    padding: 0 4px !important;
+  }
+
+  /* ===== COMPACT FORMS ===== */
+  
+  /* Ultra-compact forms cho không gian hạn chế */
+  .ultra-compact-form {
+    gap: 1px !important;
+  }
+
+  .ultra-compact-form .ant-form-item {
+    margin-bottom: 0 !important;
+  }
+
+  .ultra-compact-form .ant-form-item-label > label {
+    font-size: 10px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+  }
+
+  .ultra-compact-form .ant-input,
+  .ultra-compact-form .ant-select,
+  .ultra-compact-form .ant-picker {
+    height: 20px !important;
+    font-size: 10px !important;
+    padding: 0 3px !important;
+  }
+
+  .ultra-compact-form .ant-btn {
+    height: 20px !important;
+    padding: 0 3px !important;
+    font-size: 10px !important;
+  }
+
+  /* ===== RESPONSIVE GRID FORMS ===== */
+  
+  /* Forms với responsive grid */
+  .responsive-grid-form .ant-row {
+    margin: 0 -2px !important;
+  }
+
+  .responsive-grid-form .ant-col {
+    padding: 0 2px !important;
+  }
+
+  .responsive-grid-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  /* ===== MODAL FORMS OPTIMIZATION ===== */
+  
+  /* Modal forms với scroll */
+  .modal-form-with-scroll .ant-modal-body {
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    padding: 4px 8px !important;
+  }
+
+  .modal-form-with-scroll .ant-form {
+    gap: 3px !important;
+  }
+
+  /* ===== DRAWER FORMS ===== */
+  
+  /* Drawer forms */
+  .drawer-form .ant-drawer-body {
+    padding: 4px 8px !important;
+  }
+
+  .drawer-form .ant-form {
+    gap: 3px !important;
+  }
+
+  .drawer-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  /* ===== DARK THEME SPECIAL FORMS ===== */
+  
+  [data-theme="dark"] .rich-text-editor .ql-toolbar,
+  [data-theme="dark"] .wysiwyg-editor .ql-toolbar {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .rich-text-editor .ql-editor,
+  [data-theme="dark"] .wysiwyg-editor .ql-editor {
+    background: #141414 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .upload-form .ant-upload-drag {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .upload-form .ant-upload-list-item {
+    background: #141414 !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .tabbed-form .ant-tabs-tab {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .collapsible-form .ant-collapse-header {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  
+  /* Smaller tablets (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .ultra-compact-form .ant-form-item-label > label {
+      font-size: 9px !important;
+    }
+    
+    .ultra-compact-form .ant-input,
+    .ultra-compact-form .ant-select,
+    .ultra-compact-form .ant-picker {
+      font-size: 9px !important;
+    }
+    
+    .ultra-compact-form .ant-btn {
+      font-size: 9px !important;
+    }
+    
+    .rich-text-editor .ql-toolbar,
+    .wysiwyg-editor .ql-toolbar {
+      font-size: 10px !important;
+    }
+    
+    .rich-text-editor .ql-editor,
+    .wysiwyg-editor .ql-editor {
+      font-size: 11px !important;
+    }
+  }
+  
+  /* Larger tablets (1025px - 1366px) */
+  @media (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
+    .ultra-compact-form .ant-form-item-label > label {
+      font-size: 10px !important;
+    }
+    
+    .ultra-compact-form .ant-input,
+    .ultra-compact-form .ant-select,
+    .ultra-compact-form .ant-picker {
+      font-size: 10px !important;
+    }
+    
+    .ultra-compact-form .ant-btn {
+      font-size: 10px !important;
+    }
+    
+    .rich-text-editor .ql-toolbar,
+    .wysiwyg-editor .ql-toolbar {
+      font-size: 11px !important;
+    }
+    
+    .rich-text-editor .ql-editor,
+    .wysiwyg-editor .ql-editor {
+      font-size: 12px !important;
+    }
+  }
+}

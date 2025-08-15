@@ -1,0 +1,34 @@
+/* Import unified breakpoints */
+@import './styles/unified-breakpoints.css';
+@import './styles/tablet-landscape-unified-forms.css';
+@import './styles/statistics-font-size-optimization.css';
+@import './styles/projects-statistics-width-fix.css';
+@import './styles/statistics-responsive-final.css';
+@import './styles/mobile-modal-footer-optimization.css';
+@import './styles/mobile-task-form-spacing-optimization.css';
+@import './styles/project-mobile-optimization-final.css';
+@import './styles/modern-auth.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Hide scrollbar for mobile navigation */
+.mobile-nav-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.mobile-nav-scroll::-webkit-scrollbar {
+  display: none; /* Webkit browsers */
+}

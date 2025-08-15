@@ -1,0 +1,671 @@
+/* Design Checklist Responsive Improvements */
+@import './unified-breakpoints.css';
+
+/* Mobile Optimization */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Mobile Header */
+  .mobile-checklist-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-header-content h1 {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-header-content .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+
+  .mobile-menu-button {
+    color: white !important;
+    font-size: 18px;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .mobile-menu-button:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Mobile Menu Drawer */
+  .mobile-menu-drawer .ant-drawer-content {
+    border-radius: 0;
+  }
+
+  .mobile-menu-content {
+    padding: 0;
+  }
+
+  .mobile-menu-section {
+    margin-bottom: 2rem;
+  }
+
+  .mobile-menu-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .mobile-menu-section .ant-btn {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Hide desktop header on mobile */
+  .checklist-header {
+    display: none !important;
+  }
+
+  /* Mobile Table Styles */
+  .mobile-checklist-card {
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #f0f0f0 !important;
+  }
+
+  .mobile-checklist-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 12px !important;
+  }
+
+  .mobile-checklist-title {
+    flex: 1 !important;
+    margin-right: 8px !important;
+  }
+
+  .mobile-checklist-info {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .mobile-checklist-project {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .mobile-checklist-creator {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .mobile-checklist-progress {
+    margin-bottom: 12px !important;
+  }
+
+  .mobile-checklist-meta {
+    margin-bottom: 12px !important;
+    text-align: center !important;
+  }
+
+  .mobile-checklist-actions {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .mobile-action-btn {
+    min-height: 36px !important;
+    min-width: 36px !important;
+    font-size: 12px !important;
+  }
+
+  .mobile-loading-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 3rem 1rem !important;
+    min-height: 200px !important;
+  }
+
+  .mobile-loading-spinner {
+    width: 40px !important;
+    height: 40px !important;
+    border: 3px solid #f3f3f3 !important;
+    border-top: 3px solid #667eea !important;
+    border-radius: 50% !important;
+    animation: spin 1s linear infinite !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .mobile-empty-state {
+    text-align: center !important;
+    padding: 3rem 1rem !important;
+  }
+
+  .mobile-empty-illustration {
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 auto 1rem !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 2rem !important;
+  }
+
+  /* Hide desktop table on mobile */
+  .desktop-table-container {
+    display: none !important;
+  }
+
+  /* Show mobile table on mobile */
+  .mobile-checklist-list {
+    display: block !important;
+  }
+
+  /* Mobile Drawer Styles */
+  .mobile-checklist-drawer .ant-drawer-content {
+    border-radius: 0 !important;
+  }
+
+  .mobile-drawer-title {
+    padding: 0 !important;
+  }
+
+  .mobile-drawer-content {
+    padding: 0 !important;
+  }
+
+  .mobile-info-card,
+  .mobile-actions-card,
+  .mobile-content-card {
+    border-radius: 8px !important;
+    margin: 0 16px 16px 16px !important;
+  }
+
+  .mobile-info-section {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .mobile-info-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 4px 0 !important;
+  }
+
+  .mobile-actions-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .mobile-action-button {
+    min-height: 48px !important;
+    font-size: 14px !important;
+  }
+
+  /* Mobile Tabs Optimization */
+  .mobile-content-card .ant-tabs-tab {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    min-height: 44px !important;
+  }
+
+  .mobile-content-card .ant-tabs-content {
+    padding: 8px 0 !important;
+  }
+  /* Main container adjustments */
+  .design-checklist-container {
+    padding: 12px !important;
+  }
+
+  /* Header optimizations - removed to match other pages */
+
+  /* Statistics cards - stack vertically */
+  .ant-row .ant-col {
+    margin-bottom: 1rem !important;
+  }
+
+  .ant-row .ant-col:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Table optimizations */
+  .ant-table {
+    font-size: 12px !important;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 8px 4px !important;
+  }
+
+  /* Hide less important columns on mobile */
+  .ant-table-thead > tr > th:nth-child(3),
+  .ant-table-tbody > tr > td:nth-child(3) {
+    display: none !important;
+  }
+
+  .ant-table-thead > tr > th:nth-child(4),
+  .ant-table-tbody > tr > td:nth-child(4) {
+    display: none !important;
+  }
+
+  /* Drawer optimizations */
+  .ant-drawer {
+    width: 100% !important;
+  }
+
+  .ant-drawer-content {
+    border-radius: 0 !important;
+  }
+
+  /* Modal optimizations */
+  .ant-modal {
+    width: 95% !important;
+    margin: 10px !important;
+  }
+
+  .ant-modal-content {
+    border-radius: 8px !important;
+  }
+
+  /* Form optimizations */
+  .ant-form-item {
+    margin-bottom: 1rem !important;
+  }
+
+  .ant-form-item-label > label {
+    font-size: 14px !important;
+  }
+
+  /* Button optimizations for touch */
+  .ant-btn {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+  }
+
+  .ant-btn-sm {
+    min-height: 40px !important;
+    min-width: 40px !important;
+  }
+
+  /* Space component optimizations */
+  .ant-space {
+    gap: 8px !important;
+  }
+
+  .ant-space-vertical {
+    gap: 12px !important;
+  }
+
+  /* Card optimizations */
+  .checklist-card {
+    margin-bottom: 1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .checklist-card .ant-card-body {
+    padding: 1rem !important;
+  }
+
+  /* Breadcrumb optimizations */
+  .breadcrumb-container {
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .breadcrumb-container .ant-breadcrumb {
+    font-size: 12px !important;
+  }
+
+  /* Bulk actions optimizations */
+  .bulk-actions-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+    padding: 1rem !important;
+  }
+
+  .bulk-actions-container .ant-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Tabs optimizations */
+  .ant-tabs-tab {
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .ant-tabs-content {
+    padding: 0.5rem !important;
+  }
+
+  /* Progress bar optimizations */
+  .ant-progress {
+    width: 100% !important;
+  }
+
+  .ant-progress-text {
+    font-size: 12px !important;
+  }
+
+  /* Avatar optimizations */
+  .ant-avatar {
+    flex-shrink: 0 !important;
+  }
+
+  /* Tag optimizations */
+  .ant-tag {
+    font-size: 12px !important;
+    padding: 2px 8px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Empty state optimizations */
+  .empty-state-container {
+    padding: 2rem 1rem !important;
+  }
+
+  .empty-state-illustration {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 2rem !important;
+  }
+
+  .empty-state-title {
+    font-size: 1.2rem !important;
+  }
+
+  .empty-state-description {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Tablet Optimization (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  /* Main container adjustments */
+  .design-checklist-container {
+    padding: 16px !important;
+  }
+
+  /* Header optimizations */
+  .checklist-header {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .checklist-header h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Collapse sidebar on tablet */
+  .checklist-header .ant-col:last-child {
+    flex: 0 0 auto !important;
+  }
+
+  .checklist-header .ant-space {
+    gap: 12px !important;
+  }
+
+  /* Table optimizations */
+  .ant-table {
+    font-size: 13px !important;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 10px 6px !important;
+  }
+
+  /* Hide one less important column on tablet */
+  .ant-table-thead > tr > th:nth-child(4),
+  .ant-table-tbody > tr > td:nth-child(4) {
+    display: none !important;
+  }
+
+  /* Drawer optimizations */
+  .ant-drawer {
+    width: 80% !important;
+  }
+
+  /* Modal optimizations */
+  .ant-modal {
+    width: 90% !important;
+    max-width: 700px !important;
+  }
+
+  /* Button optimizations */
+  .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    font-size: 14px !important;
+  }
+
+  /* Statistics cards - 2 columns on tablet */
+  .ant-row .ant-col {
+    width: 50% !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Card optimizations */
+  .checklist-card .ant-card-body {
+    padding: 1.25rem !important;
+  }
+
+  /* Tabs optimizations */
+  .ant-tabs-tab {
+    padding: 10px 16px !important;
+  }
+
+  /* Show desktop table on tablet */
+  .desktop-table-container {
+    display: block !important;
+  }
+
+  /* Hide mobile table on tablet */
+  .mobile-checklist-list {
+    display: none !important;
+  }
+}
+
+/* Desktop Optimization (min-width: 1025px) */
+@media (min-width: 1025px) and (orientation: portrait),
+       (min-width: 1367px) and (orientation: landscape) {
+  /* Show desktop table on desktop */
+  .desktop-table-container {
+    display: block !important;
+  }
+
+  /* Hide mobile table on desktop */
+  .mobile-checklist-list {
+    display: none !important;
+  }
+
+  /* Hide mobile header on desktop */
+  .mobile-checklist-header {
+    display: none !important;
+  }
+
+  /* Show desktop header on desktop - removed to match other pages */
+}
+
+/* Touch Targets Optimization */
+@media (max-width: 1024px) {
+  /* Ensure minimum touch target size */
+  .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  .ant-checkbox-wrapper {
+    min-height: 44px !important;
+    padding: 8px 0 !important;
+  }
+
+  .ant-radio-wrapper {
+    min-height: 44px !important;
+    padding: 8px 0 !important;
+  }
+
+  .ant-select-selector {
+    min-height: 44px !important;
+  }
+
+  .ant-input {
+    min-height: 44px !important;
+  }
+
+  .ant-input-number {
+    min-height: 44px !important;
+  }
+
+  /* Table row touch targets */
+  .ant-table-tbody > tr > td {
+    min-height: 44px !important;
+  }
+
+  /* Clickable elements */
+  .ant-table-tbody > tr {
+    cursor: pointer !important;
+  }
+
+  .ant-table-tbody > tr:hover > td {
+    background: rgba(102, 126, 234, 0.1) !important;
+  }
+
+  /* Action buttons in table */
+  .ant-table-tbody .ant-btn {
+    margin: 4px !important;
+  }
+
+  /* Form controls */
+  .ant-form-item-control-input {
+    min-height: 44px !important;
+  }
+
+  /* Tabs */
+  .ant-tabs-tab {
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Drawer close button */
+  .ant-drawer-close {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  /* Modal close button */
+  .ant-modal-close {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .ant-row .ant-col {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .checklist-card .ant-card-body {
+    padding: 0.75rem !important;
+  }
+}
+
+/* High DPI Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .ant-btn,
+  .ant-input,
+  .ant-select-selector {
+    border-width: 0.5px !important;
+  }
+
+  .ant-table {
+    border-width: 0.5px !important;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .checklist-card,
+  .ant-btn,
+  .ant-input,
+  .ant-select-selector {
+    transition: none !important;
+  }
+
+  .loading-spinner {
+    animation: none !important;
+  }
+}
+
+/* Focus indicators for keyboard navigation */
+.ant-btn:focus-visible,
+.ant-input:focus-visible,
+.ant-select-selector:focus-visible,
+.ant-checkbox:focus-visible .ant-checkbox-input,
+.ant-radio:focus-visible .ant-radio-input {
+  outline: 2px solid #667eea !important;
+  outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .checklist-card {
+    border: 2px solid #000 !important;
+  }
+
+  .ant-btn {
+    border: 2px solid currentColor !important;
+  }
+
+  .ant-input,
+  .ant-select-selector {
+    border: 2px solid #000 !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .bulk-actions-container,
+  .ant-btn,
+  .ant-drawer,
+  .ant-modal {
+    display: none !important;
+  }
+
+  .checklist-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+
+  .ant-table {
+    border: 1px solid #000 !important;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    border: 1px solid #000 !important;
+  }
+} 

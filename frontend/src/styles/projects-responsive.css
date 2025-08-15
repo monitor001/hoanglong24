@@ -1,0 +1,1669 @@
+/* Projects Page Responsive Styles */
+/*
+  Tablet Landscape Optimizations (v2.1):
+  - Project code moved above project name for better hierarchy
+  - Progress, priority, and status tags moved to same row as project code
+  - Full status name displayed next to priority tag with background colors
+  - Dropdown actions completely removed (replaced with 2-row icon layout)
+  - Click behavior changed to show details table instead of info table
+  - Enhanced status tag styling with gradients and shadows
+  - Improved responsive layout for better tablet usability
+*/
+@import './unified-breakpoints.css';
+
+/* Summary Grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Table Responsive Improvements */
+.ant-table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom table styles for better mobile experience */
+.projects-table-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-table-container .ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Mobile table optimizations */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .projects-table-container {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+  
+  .projects-table-container .ant-table {
+    font-size: 12px;
+  }
+  
+  .projects-table-container .ant-table-thead > tr > th {
+    padding: 8px 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  
+  .projects-table-container .ant-table-tbody > tr > td {
+    padding: 8px 4px;
+    font-size: 11px;
+  }
+  
+  /* Hide less important columns on mobile */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(4),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(4) {
+    display: none;
+  }
+  
+  /* Compact action buttons */
+  .projects-table-container .ant-table-tbody .ant-btn {
+    padding: 2px 4px;
+    font-size: 10px;
+    min-width: 24px;
+    height: 24px;
+  }
+
+  /* Hide tablet actions on mobile */
+  .projects-table-container .tablet-actions-container {
+    display: none !important;
+  }
+
+  /* Show desktop dropdown on mobile */
+  .projects-table-container .desktop-table-actions {
+    display: block !important;
+  }
+  
+  /* Compact tags */
+  .projects-table-container .ant-tag {
+    font-size: 10px;
+    padding: 1px 4px;
+    margin: 0;
+  }
+  
+  /* Compact avatars */
+  .projects-table-container .ant-avatar {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  
+  /* Text truncation for long content */
+  .projects-table-container .ant-table-cell {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Project name column can be wider */
+  .projects-table-container .ant-table-cell:nth-child(2) {
+    max-width: 200px;
+  }
+}
+
+/* Tablet Portrait optimizations */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .projects-table-container .ant-table {
+    font-size: 13px;
+  }
+  
+  .projects-table-container .ant-table-thead > tr > th {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+  
+  .projects-table-container .ant-table-tbody > tr > td {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+  
+  /* Hide priority column on tablet portrait */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(4),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(4) {
+    display: none;
+  }
+
+  /* Hide tablet actions on tablet portrait */
+  .projects-table-container .tablet-actions-container {
+    display: none !important;
+  }
+
+  /* Show desktop dropdown on tablet portrait */
+  .projects-table-container .desktop-table-actions {
+    display: block !important;
+  }
+}
+
+/* Tablet Landscape - Minimal 2-column layout */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .projects-table-container {
+    overflow-x: auto; /* Enable horizontal scroll to check table width */
+  }
+  
+  .projects-table-container .ant-table {
+    font-size: 12px;
+    width: 100%;
+  }
+  
+  /* Temporarily show all columns to check table width */
+  /* .projects-table-container .ant-table-thead > tr > th:nth-child(1), 
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(1),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(3),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(3),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(4),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(4),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(5),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(5) {
+    display: none;
+  } */
+  
+  /* Reset column widths to show natural table sizing */
+  .projects-table-container .ant-table-thead > tr > th,
+  .projects-table-container .ant-table-tbody > tr > td {
+    width: auto;
+    padding: 8px 4px;
+  }
+  
+  /* Actions column - keep compact */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(6),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(6) {
+    width: 80px;
+    padding: 8px 4px;
+    text-align: center;
+  }
+
+  /* Hide desktop dropdown on tablet landscape - completely removed */
+  .projects-table-container .desktop-table-actions {
+    display: none !important;
+  }
+
+  /* Show tablet actions on tablet landscape - only 2-row layout */
+  .projects-table-container .tablet-actions-container {
+    display: flex !important;
+  }
+  
+  /* Enhanced project display for tablet landscape */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div {
+    gap: 12px;
+  }
+  
+  /* Hover effect for clickable project names */
+  .projects-table-container .ant-table-tbody tr:hover td:nth-child(2) > div {
+    background-color: rgba(24, 144, 255, 0.05);
+    border-radius: 6px;
+    padding: 4px;
+    margin: -4px;
+  }
+  
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr:hover td:nth-child(2) > div {
+    background-color: rgba(64, 169, 255, 0.1);
+  }
+
+  /* =========================
+     TABLET LANDSCAPE ENHANCED PROJECT INFO
+     ========================= */
+  
+  /* Project info header with background colors */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    padding: 6px 8px !important;
+    border-radius: 6px !important;
+    margin-bottom: 6px !important;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%) !important;
+    border: 1px solid #d6e4ff !important;
+  }
+
+  /* Left side of project info header */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    border: 1px solid #2a2a3e !important;
+  }
+
+  /* Project code with distinct background */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-code-tag {
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(24, 144, 255, 0.3) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-code-tag {
+    background: linear-gradient(135deg, #40a9ff 0%, #177ddc 100%) !important;
+    box-shadow: 0 1px 3px rgba(64, 169, 255, 0.4) !important;
+  }
+
+  /* Progress with background */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-progress-tag {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(82, 196, 26, 0.3) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-progress-tag {
+    background: linear-gradient(135deg, #73d13d 0%, #49aa19 100%) !important;
+    box-shadow: 0 1px 3px rgba(115, 209, 61, 0.4) !important;
+  }
+
+  /* Priority with distinct backgrounds based on level */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-high {
+    background: linear-gradient(135deg, #ff4d4f 0%, #cf1322 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(255, 77, 79, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-medium {
+    background: linear-gradient(135deg, #faad14 0%, #d48806 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(250, 173, 20, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-low {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(82, 196, 26, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-none {
+    background: linear-gradient(135deg, #d9d9d9 0%, #bfbfbf 100%) !important;
+    color: #666 !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(217, 217, 217, 0.3) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-high {
+    background: linear-gradient(135deg, #ff7875 0%, #a61d24 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 120, 117, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-medium {
+    background: linear-gradient(135deg, #ffc53d 0%, #d89614 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 197, 61, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-low {
+    background: linear-gradient(135deg, #73d13d 0%, #49aa19 100%) !important;
+    box-shadow: 0 1px 3px rgba(115, 209, 61, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) .project-priority-tag.priority-none {
+    background: linear-gradient(135deg, #434343 0%, #303030 100%) !important;
+    color: #bbb !important;
+    box-shadow: 0 1px 3px rgba(67, 67, 67, 0.4) !important;
+  }
+
+  /* Status tag styling for tablet landscape */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 9px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(82, 196, 26, 0.3) !important;
+    margin: 0 !important;
+  }
+
+  /* Status tag colors based on status */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-green"] {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+    box-shadow: 0 1px 3px rgba(82, 196, 26, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-red"] {
+    background: linear-gradient(135deg, #ff4d4f 0%, #cf1322 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 77, 79, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-orange"] {
+    background: linear-gradient(135deg, #fa8c16 0%, #d46b08 100%) !important;
+    box-shadow: 0 1px 3px rgba(250, 140, 22, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-blue"] {
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+    box-shadow: 0 1px 3px rgba(24, 144, 255, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-purple"] {
+    background: linear-gradient(135deg, #722ed1 0%, #531dab 100%) !important;
+    box-shadow: 0 1px 3px rgba(114, 46, 209, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-cyan"] {
+    background: linear-gradient(135deg, #13c2c2 0%, #08979c 100%) !important;
+    box-shadow: 0 1px 3px rgba(19, 194, 194, 0.3) !important;
+  }
+
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-default"] {
+    background: linear-gradient(135deg, #d9d9d9 0%, #bfbfbf 100%) !important;
+    color: #666 !important;
+    box-shadow: 0 1px 3px rgba(217, 217, 217, 0.3) !important;
+  }
+
+  /* Dark theme status tag adjustments */
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-green"] {
+    background: linear-gradient(135deg, #73d13d 0%, #49aa19 100%) !important;
+    box-shadow: 0 1px 3px rgba(115, 209, 61, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-red"] {
+    background: linear-gradient(135deg, #ff7875 0%, #a61d24 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 120, 117, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-orange"] {
+    background: linear-gradient(135deg, #ffa940 0%, #d89614 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 169, 64, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-blue"] {
+    background: linear-gradient(135deg, #40a9ff 0%, #177ddc 100%) !important;
+    box-shadow: 0 1px 3px rgba(64, 169, 255, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-purple"] {
+    background: linear-gradient(135deg, #b37feb 0%, #9254de 100%) !important;
+    box-shadow: 0 1px 3px rgba(179, 127, 235, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-cyan"] {
+    background: linear-gradient(135deg, #36cfc9 0%, #13c2c2 100%) !important;
+    box-shadow: 0 1px 3px rgba(54, 207, 201, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) > div > div:first-child > .ant-tag[class*="ant-tag-default"] {
+    background: linear-gradient(135deg, #434343 0%, #303030 100%) !important;
+    color: #bbb !important;
+    box-shadow: 0 1px 3px rgba(67, 67, 67, 0.4) !important;
+  }
+
+  /* =========================
+     ENHANCED ACTION BUTTONS WITH COLORS - 2 ROWS LAYOUT
+     ========================= */
+
+  /* Container for 2-row action buttons */
+  .projects-table-container .tablet-actions-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    align-items: center !important;
+  }
+
+  /* Row for action buttons */
+  .projects-table-container .tablet-actions-row {
+    display: flex !important;
+    gap: 2px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Enhanced action buttons with distinct colors */
+  .projects-table-container .tablet-table-actions .ant-btn {
+    width: 28px !important;
+    height: 22px !important;
+    padding: 0px 6px !important;
+    border-radius: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid !important;
+    font-weight: 500 !important;
+  }
+
+  .projects-table-container .tablet-table-actions .ant-btn .anticon {
+    font-size: 14px !important;
+  }
+
+  /* View button - Blue */
+  .projects-table-container .tablet-table-actions .tablet-icon-view {
+    color: #1890ff !important;
+    border-color: #1890ff !important;
+    background: linear-gradient(135deg, rgba(24, 144, 255, 0.1) 0%, rgba(24, 144, 255, 0.05) 100%) !important;
+  }
+
+  .projects-table-container .tablet-table-actions .tablet-icon-view:hover {
+    background: linear-gradient(135deg, rgba(24, 144, 255, 0.2) 0%, rgba(24, 144, 255, 0.15) 100%) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3) !important;
+  }
+
+  /* Edit button - Green */
+  .projects-table-container .tablet-table-actions .tablet-icon-edit {
+    color: #52c41a !important;
+    border-color: #52c41a !important;
+    background: linear-gradient(135deg, rgba(82, 196, 26, 0.1) 0%, rgba(82, 196, 26, 0.05) 100%) !important;
+  }
+
+  .projects-table-container .tablet-table-actions .tablet-icon-edit:hover {
+    background: linear-gradient(135deg, rgba(82, 196, 26, 0.2) 0%, rgba(82, 196, 26, 0.15) 100%) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3) !important;
+  }
+
+  /* Team button - Cyan */
+  .projects-table-container .tablet-table-actions .tablet-icon-team {
+    color: #13c2c2 !important;
+    border-color: #13c2c2 !important;
+    background: linear-gradient(135deg, rgba(19, 194, 194, 0.1) 0%, rgba(19, 194, 194, 0.05) 100%) !important;
+  }
+
+  .projects-table-container .tablet-table-actions .tablet-icon-team:hover {
+    background: linear-gradient(135deg, rgba(19, 194, 194, 0.2) 0%, rgba(19, 194, 194, 0.15) 100%) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(19, 194, 194, 0.3) !important;
+  }
+
+  /* Permission button - Purple */
+  .projects-table-container .tablet-table-actions .tablet-icon-permission {
+    color: #722ed1 !important;
+    border-color: #722ed1 !important;
+    background: linear-gradient(135deg, rgba(114, 46, 209, 0.1) 0%, rgba(114, 46, 209, 0.05) 100%) !important;
+  }
+
+  .projects-table-container .tablet-table-actions .tablet-icon-permission:hover {
+    background: linear-gradient(135deg, rgba(114, 46, 209, 0.2) 0%, rgba(114, 46, 209, 0.15) 100%) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(114, 46, 209, 0.3) !important;
+  }
+
+  /* Comment button - Orange */
+  .projects-table-container .tablet-table-actions .tablet-icon-comment {
+    color: #fa8c16 !important;
+    border-color: #fa8c16 !important;
+    background: linear-gradient(135deg, rgba(250, 140, 22, 0.1) 0%, rgba(250, 140, 22, 0.05) 100%) !important;
+  }
+
+  .projects-table-container .tablet-table-actions .tablet-icon-comment:hover {
+    background: linear-gradient(135deg, rgba(250, 140, 22, 0.2) 0%, rgba(250, 140, 22, 0.15) 100%) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(250, 140, 22, 0.3) !important;
+  }
+
+  /* Delete button - Red */
+  .projects-table-container .tablet-table-actions .tablet-icon-delete {
+    color: #ff4d4f !important;
+    border-color: #ff4d4f !important;
+    background: linear-gradient(135deg, rgba(255, 77, 79, 0.1) 0%, rgba(255, 77, 79, 0.05) 100%) !important;
+  }
+
+  .projects-table-container .tablet-table-actions .tablet-icon-delete:hover {
+    background: linear-gradient(135deg, rgba(255, 77, 79, 0.2) 0%, rgba(255, 77, 79, 0.15) 100%) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 77, 79, 0.3) !important;
+  }
+
+  /* Dark theme adjustments for action buttons */
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-view {
+    color: #40a9ff !important;
+    border-color: #40a9ff !important;
+    background: linear-gradient(135deg, rgba(64, 169, 255, 0.15) 0%, rgba(64, 169, 255, 0.08) 100%) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-view:hover {
+    background: linear-gradient(135deg, rgba(64, 169, 255, 0.25) 0%, rgba(64, 169, 255, 0.18) 100%) !important;
+    box-shadow: 0 2px 8px rgba(64, 169, 255, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-edit {
+    color: #73d13d !important;
+    border-color: #73d13d !important;
+    background: linear-gradient(135deg, rgba(115, 209, 61, 0.15) 0%, rgba(115, 209, 61, 0.08) 100%) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-edit:hover {
+    background: linear-gradient(135deg, rgba(115, 209, 61, 0.25) 0%, rgba(115, 209, 61, 0.18) 100%) !important;
+    box-shadow: 0 2px 8px rgba(115, 209, 61, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-team {
+    color: #36cfc9 !important;
+    border-color: #36cfc9 !important;
+    background: linear-gradient(135deg, rgba(54, 207, 201, 0.15) 0%, rgba(54, 207, 201, 0.08) 100%) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-team:hover {
+    background: linear-gradient(135deg, rgba(54, 207, 201, 0.25) 0%, rgba(54, 207, 201, 0.18) 100%) !important;
+    box-shadow: 0 2px 8px rgba(54, 207, 201, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-permission {
+    color: #b37feb !important;
+    border-color: #b37feb !important;
+    background: linear-gradient(135deg, rgba(179, 127, 235, 0.15) 0%, rgba(179, 127, 235, 0.08) 100%) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-permission:hover {
+    background: linear-gradient(135deg, rgba(179, 127, 235, 0.25) 0%, rgba(179, 127, 235, 0.18) 100%) !important;
+    box-shadow: 0 2px 8px rgba(179, 127, 235, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-comment {
+    color: #ffa940 !important;
+    border-color: #ffa940 !important;
+    background: linear-gradient(135deg, rgba(255, 169, 64, 0.15) 0%, rgba(255, 169, 64, 0.08) 100%) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-comment:hover {
+    background: linear-gradient(135deg, rgba(255, 169, 64, 0.25) 0%, rgba(255, 169, 64, 0.18) 100%) !important;
+    box-shadow: 0 2px 8px rgba(255, 169, 64, 0.4) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-delete {
+    color: #ff7875 !important;
+    border-color: #ff7875 !important;
+    background: linear-gradient(135deg, rgba(255, 120, 117, 0.15) 0%, rgba(255, 120, 117, 0.08) 100%) !important;
+  }
+
+  [data-theme="dark"] .projects-table-container .tablet-table-actions .tablet-icon-delete:hover {
+    background: linear-gradient(135deg, rgba(255, 120, 117, 0.25) 0%, rgba(255, 120, 117, 0.18) 100%) !important;
+    box-shadow: 0 2px 8px rgba(255, 120, 117, 0.4) !important;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) and (orientation: portrait),
+       (min-width: 1367px) and (orientation: landscape) {
+  .projects-table-container .ant-table {
+    font-size: 14px;
+  }
+  
+  .projects-table-container .ant-table-thead > tr > th {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+  
+  .projects-table-container .ant-table-tbody > tr > td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  /* Show desktop dropdown on desktop */
+  .projects-table-container .desktop-table-actions {
+    display: block !important;
+  }
+
+  /* Hide tablet actions on desktop */
+  .projects-table-container .tablet-actions-container {
+    display: none !important;
+  }
+}
+
+/* Scroll indicator for mobile */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .projects-table-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.1));
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  [data-theme="dark"] .projects-table-container::after {
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1));
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  /* Mobile-specific card styles */
+  .mobile-project-card {
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+  }
+  
+  .mobile-project-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  /* Mobile filter drawer */
+  .mobile-filter-drawer {
+    border-radius: 16px 16px 0 0;
+  }
+  
+  /* Mobile modal adjustments */
+  .mobile-modal {
+    margin: 0;
+    max-width: 100vw;
+    width: 100% !important;
+  }
+  
+  /* Mobile table alternatives */
+  .mobile-table-alternative {
+    display: block;
+  }
+  
+  .desktop-table {
+    display: none;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .projects-summary-grid,
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+  
+  .mobile-table-alternative {
+    display: none;
+  }
+  
+  .desktop-table {
+    display: block;
+  }
+}
+
+/* Tablet Landscape - 4 cards per row for projects */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .projects-summary-grid,
+  .summary-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px;
+  }
+  
+  /* Smaller card padding for 4-column layout */
+  .projects-summary-grid .ant-card,
+  .summary-grid .ant-card {
+    padding: 12px;
+  }
+  
+  .projects-summary-grid .ant-statistic,
+  .summary-grid .ant-statistic {
+    text-align: center;
+  }
+  
+  .projects-summary-grid .ant-statistic-title,
+  .summary-grid .ant-statistic-title {
+    font-size: 12px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .projects-summary-grid .ant-statistic-content,
+  .summary-grid .ant-statistic-content {
+    font-size: 20px !important;
+  }
+  
+  /* Filter optimization for tablet landscape */
+  .projects-filter-card .ant-row {
+    align-items: center;
+  }
+  
+  .projects-filter-card .ant-col {
+    display: flex;
+    align-items: center;
+  }
+  
+  .projects-filter-card .ant-input,
+  .projects-filter-card .ant-select {
+    height: 36px;
+  }
+  
+  .projects-filter-card .ant-btn {
+    height: 36px;
+    min-width: 120px;
+  }
+  
+  /* Compact filter layout */
+  .projects-filter-card .ant-row {
+    margin: 0 -6px;
+  }
+  
+  .projects-filter-card .ant-col {
+    padding: 0 6px;
+  }
+
+  /* =========================
+     TABLET LANDSCAPE PROJECT CARD ENHANCEMENTS
+     ========================= */
+
+  /* Project card header with enhanced info */
+  .project-card-highlight .ant-card-head {
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%) !important;
+    border-bottom: 1px solid #d6e4ff !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .ant-card-head {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    border-bottom: 1px solid #2a2a3e !important;
+  }
+
+  /* Project code tag in card header */
+  .project-card-highlight .project-code-tag {
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(24, 144, 255, 0.3) !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .project-code-tag {
+    background: linear-gradient(135deg, #40a9ff 0%, #177ddc 100%) !important;
+    box-shadow: 0 1px 3px rgba(64, 169, 255, 0.4) !important;
+  }
+
+  /* Progress tag in card */
+  .project-card-highlight .project-progress-tag {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(82, 196, 26, 0.3) !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .project-progress-tag {
+    background: linear-gradient(135deg, #73d13d 0%, #49aa19 100%) !important;
+    box-shadow: 0 1px 3px rgba(115, 209, 61, 0.4) !important;
+  }
+
+  /* Priority tags in card with distinct backgrounds */
+  .project-card-highlight .project-priority-tag.priority-high {
+    background: linear-gradient(135deg, #ff4d4f 0%, #cf1322 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(255, 77, 79, 0.3) !important;
+  }
+
+  .project-card-highlight .project-priority-tag.priority-medium {
+    background: linear-gradient(135deg, #faad14 0%, #d48806 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(250, 173, 20, 0.3) !important;
+  }
+
+  .project-card-highlight .project-priority-tag.priority-low {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(82, 196, 26, 0.3) !important;
+  }
+
+  .project-card-highlight .project-priority-tag.priority-none {
+    background: linear-gradient(135deg, #d9d9d9 0%, #bfbfbf 100%) !important;
+    color: #666 !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(217, 217, 217, 0.3) !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .project-priority-tag.priority-high {
+    background: linear-gradient(135deg, #ff7875 0%, #a61d24 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 120, 117, 0.4) !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .project-priority-tag.priority-medium {
+    background: linear-gradient(135deg, #ffc53d 0%, #d89614 100%) !important;
+    box-shadow: 0 1px 3px rgba(255, 197, 61, 0.4) !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .project-priority-tag.priority-low {
+    background: linear-gradient(135deg, #73d13d 0%, #49aa19 100%) !important;
+    box-shadow: 0 1px 3px rgba(115, 209, 61, 0.4) !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .project-priority-tag.priority-none {
+    background: linear-gradient(135deg, #434343 0%, #303030 100%) !important;
+    color: #bbb !important;
+    box-shadow: 0 1px 3px rgba(67, 67, 67, 0.4) !important;
+  }
+
+  /* Enhanced card body with better spacing */
+  .project-card-highlight .ant-card-body {
+    padding: 12px !important;
+  }
+
+  /* Progress bar container */
+  .project-card-highlight .ant-progress {
+    margin: 0 !important;
+  }
+
+  .project-card-highlight .ant-progress-text {
+    font-size: 11px !important;
+    color: #666 !important;
+  }
+
+  [data-theme="dark"] .project-card-highlight .ant-progress-text {
+    color: #bbb !important;
+  }
+
+  /* Table optimization for tablet landscape */
+  .projects-table-container {
+    overflow-x: hidden; /* Remove horizontal scroll */
+    width: 100%;
+  }
+  
+  .projects-table-container .ant-table {
+    font-size: 11px;
+    width: 100% !important; /* Ensure table fits container */
+    table-layout: fixed; /* Fixed table layout for consistent column widths */
+  }
+  
+  .projects-table-container .ant-table-wrapper {
+    overflow-x: hidden !important;
+  }
+  
+  .projects-table-container .ant-table-content {
+    overflow-x: hidden !important;
+  }
+  
+  .projects-table-container .ant-table-thead > tr > th {
+    padding: 6px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .projects-table-container .ant-table-tbody > tr > td {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+  
+  /* Compact table cells */
+  .projects-table-container .ant-table-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Compact tags for tablet landscape */
+  .projects-table-container .ant-tag {
+    font-size: 8px;
+    padding: 1px 3px;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  /* Compact avatars */
+  .projects-table-container .ant-avatar {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+  
+  /* Compact buttons - exclude tablet actions */
+  .projects-table-container .ant-btn:not(.tablet-icon-standard) {
+    padding: 1px 3px;
+    font-size: 9px;
+    min-width: 20px;
+    height: 22px;
+  }
+  
+  /* Project name click effect for tablet landscape */
+  .projects-table-container .ant-table-tbody tr td:nth-child(2) div:first-child:hover {
+    color: #1890ff !important;
+    text-decoration: underline;
+  }
+  
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:nth-child(2) div:first-child:hover {
+    color: #40a9ff !important;
+  }
+  
+  /* Ensure actions column is always visible */
+  .projects-table-container .ant-table-tbody tr td:last-child,
+  .projects-table-container .ant-table-thead tr th:last-child {
+    position: sticky;
+    right: 0;
+    background: inherit;
+    z-index: 1;
+  }
+  
+  [data-theme="dark"] .projects-table-container .ant-table-tbody tr td:last-child,
+  [data-theme="dark"] .projects-table-container .ant-table-thead tr th:last-child {
+    background: #1f1f1f;
+  }
+  
+  .mobile-table-alternative {
+    display: none;
+  }
+  
+  .desktop-table {
+    display: block;
+  }
+}
+
+/* Desktop Responsive */
+@media (min-width: 1025px) and (orientation: portrait),
+       (min-width: 1367px) and (orientation: landscape) {
+  .summary-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .mobile-table-alternative {
+    display: none;
+  }
+  
+  .desktop-table {
+    display: block;
+  }
+}
+
+/* Dark Mode Enhancements */
+[data-theme="dark"] .summary-grid .ant-card {
+  background: #1f1f1f;
+  border-color: #303030;
+}
+
+[data-theme="dark"] .mobile-project-card {
+  background: #1f1f1f;
+  border-color: #303030;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .mobile-project-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Dark mode table enhancements */
+[data-theme="dark"] .projects-table-container .ant-table {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-thead > tr > th {
+  background: #262626;
+  border-bottom: 1px solid #434343;
+  color: #fff;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #434343;
+  color: #fff;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-tbody > tr:hover > td {
+  background: #262626;
+}
+
+/* Accessibility Improvements */
+.mobile-project-card:focus-within {
+  outline: 2px solid #1890ff;
+  outline-offset: 2px;
+}
+
+/* Performance Optimizations */
+.mobile-project-card {
+  will-change: transform;
+}
+
+/* Smooth Transitions */
+.summary-grid .ant-card,
+.mobile-project-card,
+.mobile-filter-drawer {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading States */
+.mobile-project-card.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Empty State Styling */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8c8c8c;
+}
+
+[data-theme="dark"] .empty-state {
+  color: #bbb;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .project-title {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  
+  .project-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .project-meta {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .project-title {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  
+  .project-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .project-meta {
+    font-size: 12px;
+  }
+}
+
+/* Filter Section Responsive */
+.filter-section {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .filter-section {
+    margin-bottom: 16px;
+  }
+  
+  .filter-drawer-content {
+    padding: 16px;
+  }
+  
+  .filter-drawer-content .ant-space {
+    width: 100%;
+  }
+  
+  .filter-drawer-content .ant-input,
+  .filter-drawer-content .ant-select {
+    width: 100%;
+  }
+}
+
+/* Table Responsive Enhancements */
+.ant-table-responsive {
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-table-responsive .ant-table {
+    min-width: 600px;
+  }
+}
+
+/* Modal Responsive */
+.responsive-modal {
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .responsive-modal {
+    margin: 0;
+    width: 100% !important;
+    max-width: 100vw;
+  }
+  
+  .responsive-modal .ant-modal-content {
+    border-radius: 0;
+    min-height: 100vh;
+  }
+  
+  .responsive-modal .ant-modal-body {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+}
+
+/* Drawer Responsive */
+.responsive-drawer {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .responsive-drawer {
+    width: 100% !important;
+    height: 80vh !important;
+  }
+  
+  .responsive-drawer .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+  
+  .responsive-drawer .ant-drawer-content {
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+/* Action Buttons Responsive */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .action-buttons {
+    gap: 4px;
+  }
+  
+  .action-buttons .ant-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}
+
+/* Status and Priority Tags Responsive */
+.status-tag,
+.priority-tag {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+@media (min-width: 769px) {
+  .status-tag,
+  .priority-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+}
+
+/* Progress Bar Responsive */
+.progress-container {
+  margin: 12px 0;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .progress-container {
+    margin: 8px 0;
+  }
+  
+  .progress-container .ant-progress-text {
+    font-size: 11px;
+  }
+}
+
+/* Avatar Responsive */
+.responsive-avatar {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .responsive-avatar {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 769px) {
+  .responsive-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Search Input Responsive */
+.search-input-container {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .search-input-container {
+    margin-bottom: 12px;
+  }
+  
+  .search-input-container .ant-input {
+    font-size: 14px;
+  }
+}
+
+/* Header Responsive */
+.page-header {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .page-header {
+    margin-bottom: 16px;
+  }
+  
+  .page-header .ant-typography {
+    text-align: center;
+  }
+  
+  .page-header .ant-space {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Card Content Responsive */
+.card-content {
+  padding: 16px;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .card-content {
+    padding: 12px;
+  }
+}
+
+/* Spacing Utilities */
+.responsive-margin {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .responsive-margin {
+    margin-bottom: 16px;
+  }
+}
+
+.responsive-padding {
+  padding: 24px;
+}
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .responsive-padding {
+    padding: 16px;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Focus States for Accessibility */
+.mobile-project-card:focus,
+.filter-button:focus,
+.action-button:focus {
+  outline: 2px solid #1890ff;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .mobile-project-card {
+    border: 2px solid #000;
+  }
+  
+  [data-theme="dark"] .mobile-project-card {
+    border: 2px solid #fff;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-project-card,
+  .summary-grid .ant-card,
+  .filter-drawer,
+  .responsive-modal {
+    transition: none;
+  }
+  
+  .fade-in,
+  .slide-up {
+    animation: none;
+  }
+} 
+
+/* Projects Table Responsive Optimizations */
+
+/* Desktop optimizations */
+@media (min-width: 1200px) {
+  .projects-table-container .ant-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .projects-table-container .ant-table-wrapper {
+    width: 100%;
+  }
+  
+  /* Ensure table fits screen width */
+  .projects-table-container .ant-table-content {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Optimize column widths for desktop */
+  .projects-table-container .ant-table-thead > tr > th,
+  .projects-table-container .ant-table-tbody > tr > td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Project name column - flexible width */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(2),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(2) {
+    min-width: 300px;
+    max-width: 400px;
+  }
+  
+  /* Status column */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(3),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(3) {
+    min-width: 120px;
+    max-width: 140px;
+  }
+  
+  /* Priority column */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(4),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(4) {
+    min-width: 100px;
+    max-width: 120px;
+  }
+  
+  /* Manager column */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(5),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(5) {
+    min-width: 150px;
+    max-width: 180px;
+  }
+  
+  /* Progress column */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(6),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(6) {
+    min-width: 120px;
+    max-width: 140px;
+  }
+  
+  /* Team size column */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(7),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(7) {
+    min-width: 100px;
+    max-width: 120px;
+  }
+  
+  /* Actions column - fixed width */
+  .projects-table-container .ant-table-thead > tr > th:last-child,
+  .projects-table-container .ant-table-tbody > tr > td:last-child {
+    min-width: 120px;
+    max-width: 120px;
+    position: sticky;
+    right: 0;
+    background: inherit;
+    z-index: 1;
+  }
+}
+
+/* Large desktop screens (1400px+) */
+@media (min-width: 1400px) {
+  .projects-table-container .ant-table {
+    font-size: 14px;
+  }
+  
+  /* Increase column widths for larger screens */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(2),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(2) {
+    min-width: 350px;
+    max-width: 450px;
+  }
+  
+  .projects-table-container .ant-table-thead > tr > th:nth-child(5),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(5) {
+    min-width: 180px;
+    max-width: 200px;
+  }
+}
+
+/* Medium desktop screens (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .projects-table-container .ant-table {
+    font-size: 13px;
+  }
+  
+  /* Reduce column widths for medium screens */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(2),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(2) {
+    min-width: 250px;
+    max-width: 300px;
+  }
+  
+  .projects-table-container .ant-table-thead > tr > th:nth-child(5),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(5) {
+    min-width: 120px;
+    max-width: 140px;
+  }
+}
+
+/* Ensure horizontal scroll works properly */
+.projects-table-container .ant-table-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.projects-table-container .ant-table-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-table-container .ant-table-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.projects-table-container .ant-table-scroll::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.projects-table-container .ant-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .projects-table-container .ant-table-scroll::-webkit-scrollbar-track {
+  background: #303030;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-scroll::-webkit-scrollbar-thumb {
+  background: #595959;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+
+/* Table header styling */
+.projects-table-container .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #262626;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-thead > tr > th {
+  background: #1f1f1f;
+  color: #fff;
+  border-bottom: 1px solid #303030;
+}
+
+/* Table row hover effect */
+.projects-table-container .ant-table-tbody > tr:hover > td {
+  background: #f5f5f5;
+}
+
+[data-theme="dark"] .projects-table-container .ant-table-tbody > tr:hover > td {
+  background: #262626;
+}
+
+/* Project name cell styling */
+.projects-table-container .ant-table-tbody > tr > td:nth-child(2) {
+  padding: 12px 8px;
+}
+
+/* Status and priority tags */
+.projects-table-container .ant-table-tbody .ant-tag {
+  margin: 0;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Progress bar styling */
+.projects-table-container .ant-progress {
+  margin: 0;
+}
+
+.projects-table-container .ant-progress-text {
+  font-size: 12px;
+  color: #666;
+}
+
+[data-theme="dark"] .projects-table-container .ant-progress-text {
+  color: #bbb;
+}
+
+/* Action buttons styling */
+.projects-table-container .ant-table-tbody .ant-btn {
+  padding: 4px 8px;
+  height: 28px;
+  border-radius: 4px;
+}
+
+.projects-table-container .ant-table-tbody .ant-btn-icon-only {
+  width: 28px;
+  padding: 0;
+}
+
+/* Responsive breakpoints for column visibility */
+@media (max-width: 991px) {
+  /* Hide less important columns on smaller screens */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(1),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(1),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(4),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(4),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(6),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(6),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(7),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(7) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* On mobile, show only essential columns */
+  .projects-table-container .ant-table-thead > tr > th:nth-child(3),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(3),
+  .projects-table-container .ant-table-thead > tr > th:nth-child(5),
+  .projects-table-container .ant-table-tbody > tr > td:nth-child(5) {
+    display: none;
+  }
+} 

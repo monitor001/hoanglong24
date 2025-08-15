@@ -1,0 +1,444 @@
+/**
+ * Tablet Landscape All Forms CSS
+ * 
+ * Mở rộng từ tablet-landscape-unified-forms.css
+ * Áp dụng cho tất cả các form trong dự án: Documents, Calendar, Notes, Approval, Users, Settings
+ * Tối ưu margin/padding xuống mức thấp nhất để tiết kiệm không gian
+ */
+
+/* ===== TABLET LANDSCAPE BREAKPOINT ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== DOCUMENTS ISO FORMS ===== */
+  
+  /* Document upload form */
+  .document-upload-form,
+  .iso-metadata-form,
+  .document-edit-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .document-upload-form .ant-form-item,
+  .iso-metadata-form .ant-form-item,
+  .document-edit-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .document-upload-form .ant-form-item-label > label,
+  .iso-metadata-form .ant-form-item-label > label,
+  .document-edit-form .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .document-upload-form .ant-input,
+  .document-upload-form .ant-select,
+  .document-upload-form .ant-picker,
+  .iso-metadata-form .ant-input,
+  .iso-metadata-form .ant-select,
+  .iso-metadata-form .ant-picker,
+  .document-edit-form .ant-input,
+  .document-edit-form .ant-select,
+  .document-edit-form .ant-picker {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* Document filter forms */
+  .document-filter-form,
+  .document-search-form {
+    gap: 3px !important;
+  }
+
+  .document-filter-form .ant-form-item,
+  .document-search-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* ===== CALENDAR FORMS ===== */
+  
+  /* Calendar event form */
+  .calendar-event-form,
+  .event-edit-form,
+  .event-create-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .calendar-event-form .ant-form-item,
+  .event-edit-form .ant-form-item,
+  .event-create-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .calendar-event-form .ant-form-item-label > label,
+  .event-edit-form .ant-form-item-label > label,
+  .event-create-form .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .calendar-event-form .ant-input,
+  .calendar-event-form .ant-select,
+  .calendar-event-form .ant-picker,
+  .event-edit-form .ant-input,
+  .event-edit-form .ant-select,
+  .event-edit-form .ant-picker,
+  .event-create-form .ant-input,
+  .event-create-form .ant-select,
+  .event-create-form .ant-picker {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* Calendar filter forms */
+  .calendar-filter-form {
+    gap: 3px !important;
+  }
+
+  .calendar-filter-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* ===== NOTES FORMS ===== */
+  
+  /* Note create/edit form */
+  .note-form,
+  .note-edit-form,
+  .note-create-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .note-form .ant-form-item,
+  .note-edit-form .ant-form-item,
+  .note-create-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .note-form .ant-form-item-label > label,
+  .note-edit-form .ant-form-item-label > label,
+  .note-create-form .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .note-form .ant-input,
+  .note-form .ant-select,
+  .note-form .ant-picker,
+  .note-edit-form .ant-input,
+  .note-edit-form .ant-select,
+  .note-edit-form .ant-picker,
+  .note-create-form .ant-input,
+  .note-create-form .ant-select,
+  .note-create-form .ant-picker {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* Note textarea */
+  .note-form .ant-textarea,
+  .note-edit-form .ant-textarea,
+  .note-create-form .ant-textarea {
+    min-height: 48px !important;
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+  }
+
+  /* Notes filter forms */
+  .notes-filter-form {
+    gap: 3px !important;
+  }
+
+  .notes-filter-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* ===== APPROVAL FORMS ===== */
+  
+  /* Approval form */
+  .approval-form,
+  .approval-edit-form,
+  .approval-create-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .approval-form .ant-form-item,
+  .approval-edit-form .ant-form-item,
+  .approval-create-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .approval-form .ant-form-item-label > label,
+  .approval-edit-form .ant-form-item-label > label,
+  .approval-create-form .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .approval-form .ant-input,
+  .approval-form .ant-select,
+  .approval-form .ant-picker,
+  .approval-edit-form .ant-input,
+  .approval-edit-form .ant-select,
+  .approval-edit-form .ant-picker,
+  .approval-create-form .ant-input,
+  .approval-create-form .ant-select,
+  .approval-create-form .ant-picker {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* Approval filter forms */
+  .approval-filter-form {
+    gap: 3px !important;
+  }
+
+  .approval-filter-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* ===== USERS FORMS ===== */
+  
+  /* User create/edit form */
+  .user-form,
+  .user-edit-form,
+  .user-create-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .user-form .ant-form-item,
+  .user-edit-form .ant-form-item,
+  .user-create-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .user-form .ant-form-item-label > label,
+  .user-edit-form .ant-form-item-label > label,
+  .user-create-form .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .user-form .ant-input,
+  .user-form .ant-select,
+  .user-form .ant-picker,
+  .user-edit-form .ant-input,
+  .user-edit-form .ant-select,
+  .user-edit-form .ant-picker,
+  .user-create-form .ant-input,
+  .user-create-form .ant-select,
+  .user-create-form .ant-picker {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* User filter forms */
+  .user-filter-form {
+    gap: 3px !important;
+  }
+
+  .user-filter-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* ===== SETTINGS FORMS ===== */
+  
+  /* Settings form */
+  .settings-form,
+  .settings-edit-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .settings-form .ant-form-item,
+  .settings-edit-form .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .settings-form .ant-form-item-label > label,
+  .settings-edit-form .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .settings-form .ant-input,
+  .settings-form .ant-select,
+  .settings-form .ant-picker,
+  .settings-form .ant-switch,
+  .settings-edit-form .ant-input,
+  .settings-edit-form .ant-select,
+  .settings-edit-form .ant-picker,
+  .settings-edit-form .ant-switch {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* Settings filter forms */
+  .settings-filter-form {
+    gap: 3px !important;
+  }
+
+  .settings-filter-form .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+
+  /* ===== GENERAL FORM OPTIMIZATIONS ===== */
+  
+  /* All form containers */
+  .ant-form {
+    gap: 4px !important;
+  }
+
+  /* All form items */
+  .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  /* All form labels */
+  .ant-form-item-label > label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* All form inputs */
+  .ant-input,
+  .ant-select,
+  .ant-picker,
+  .ant-input-number {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* All form textareas */
+  .ant-textarea {
+    min-height: 48px !important;
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+  }
+
+  /* All form buttons */
+  .ant-btn {
+    height: 24px !important;
+    padding: 0 6px !important;
+    font-size: 12px !important;
+  }
+
+  /* All form modals */
+  .ant-modal-body {
+    padding: 2px 8px !important;
+  }
+
+  .ant-modal-header {
+    padding: 1px 8px !important;
+  }
+
+  .ant-modal-footer {
+    padding: 1px 8px 2px !important;
+  }
+
+  /* ===== DARK THEME ADJUSTMENTS ===== */
+  
+  [data-theme="dark"] .ant-form-item-label > label {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-input,
+  [data-theme="dark"] .ant-select-selector,
+  [data-theme="dark"] .ant-picker {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .ant-textarea {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  
+  /* Smaller tablets (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .ant-form-item-label > label {
+      font-size: 11px !important;
+    }
+    
+    .ant-input,
+    .ant-select,
+    .ant-picker,
+    .ant-input-number {
+      font-size: 11px !important;
+    }
+    
+    .ant-btn {
+      font-size: 11px !important;
+    }
+  }
+  
+  /* Larger tablets (1025px - 1366px) */
+  @media (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
+    .ant-form-item-label > label {
+      font-size: 12px !important;
+    }
+    
+    .ant-input,
+    .ant-select,
+    .ant-picker,
+    .ant-input-number {
+      font-size: 12px !important;
+    }
+    
+    .ant-btn {
+      font-size: 12px !important;
+    }
+  }
+}

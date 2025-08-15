@@ -1,0 +1,221 @@
+/* Project Mobile Optimization Final - Tối ưu hóa cuối cùng cho thẻ dự án */
+
+/* =========================
+   MOBILE & TABLET LANDSCAPE OPTIMIZATION
+   ========================= */
+
+/* Base optimization for all project cards */
+.mobile-project-card {
+  margin-bottom: 16px !important;
+}
+
+.mobile-project-card .ant-card-body {
+  padding: 16px !important;
+}
+
+/* Project actions optimization */
+.mobile-project-card .project-actions {
+  margin-top: 12px !important;
+}
+
+/* Action buttons - Final optimization */
+.mobile-project-card .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+/* Remove nested divs completely */
+.mobile-project-card .action-buttons > div {
+  display: none !important;
+}
+
+/* Individual button optimization */
+.mobile-project-card .action-buttons .ant-btn {
+  width: 32px !important;
+  height: 28px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+.mobile-project-card .action-buttons .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION (max-width: 768px)
+   ========================= */
+
+@media (max-width: 768px) {
+  .mobile-project-card .action-buttons {
+    gap: 6px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn {
+    width: 28px !important;
+    height: 24px !important;
+    padding: 3px !important;
+    min-width: 28px !important;
+    min-height: 24px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon {
+    font-size: 14px !important;
+  }
+  
+  /* Touch target optimization */
+  .mobile-project-card .action-buttons .ant-btn {
+    position: relative !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    z-index: -1;
+  }
+}
+
+/* =========================
+   TABLET PORTRAIT OPTIMIZATION (481px - 768px)
+   ========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-project-card .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn {
+    width: 30px !important;
+    height: 26px !important;
+    padding: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon {
+    font-size: 15px !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION (769px - 1024px, landscape)
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .mobile-project-card .project-actions {
+    margin-top: 16px !important;
+  }
+  
+  .mobile-project-card .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn {
+    width: 32px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES (320px - 480px)
+   ========================= */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .mobile-project-card .action-buttons {
+    gap: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn {
+    width: 26px !important;
+    height: 22px !important;
+    padding: 2px !important;
+    min-width: 26px !important;
+    min-height: 22px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon {
+    font-size: 12px !important;
+  }
+}
+
+/* =========================
+   HOVER EFFECTS
+   ========================= */
+
+.mobile-project-card .action-buttons .ant-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mobile-project-card .action-buttons .ant-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+[data-theme="dark"] .mobile-project-card .action-buttons .ant-btn {
+  border-color: #404040 !important;
+}
+
+[data-theme="dark"] .mobile-project-card .action-buttons .ant-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =========================
+   SPECIFIC OVERRIDES
+   ========================= */
+
+/* Override any existing space-between layouts */
+.mobile-project-card .action-buttons[style*="space-between"] {
+  justify-content: flex-start !important;
+}
+
+/* Ensure consistent spacing */
+.mobile-project-card .project-actions,
+.project-actions {
+  margin-top: 12px !important;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS SUMMARY
+   ========================= */
+
+/*
+Extra Small (320px - 480px):
+- Button size: 26x22px
+- Gap: 4px
+- Icon size: 12px
+
+Small (481px - 768px):
+- Button size: 30x26px
+- Gap: 8px
+- Icon size: 15px
+
+Mobile (max-width: 768px):
+- Button size: 28x24px
+- Gap: 6px
+- Icon size: 14px
+
+Tablet Landscape (769px - 1024px, landscape):
+- Button size: 32x28px
+- Gap: 8px
+- Icon size: 16px
+*/

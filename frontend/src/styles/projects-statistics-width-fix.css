@@ -1,0 +1,139 @@
+/* Projects Statistics Width Fix
+ * Điều chỉnh bề rộng thẻ card thống kê trong thẻ dự án cho tablet landscape và desktop
+ * Mobile rules đã được xử lý trong unified-mobile-cards.css
+ */
+
+/* ===== TABLET LANDSCAPE OPTIMIZATION (769px - 1366px landscape) ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  /* Đảm bảo thẻ card thống kê trong projects có bề rộng phù hợp cho tablet landscape */
+  .projects-container .dashboard-stats-row .ant-col,
+  .projects-container .stats-container .ant-col,
+  .projects-container .statistics-row .ant-col {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+    width: 25% !important;
+    padding: 0 6px !important;
+  }
+  
+  /* Đảm bảo thẻ card có kích thước phù hợp cho tablet landscape */
+  .projects-container .dashboard-stats-row .ant-card,
+  .projects-container .stats-container .ant-card,
+  .projects-container .statistics-row .ant-card {
+    width: 100% !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    margin-bottom: 12px !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Card body padding tối ưu cho tablet landscape */
+  .projects-container .dashboard-stats-row .ant-card-body,
+  .projects-container .stats-container .ant-card-body,
+  .projects-container .statistics-row .ant-card-body {
+    padding: 12px 10px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Typography cho tablet landscape */
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .stats-container .ant-statistic-title,
+  .projects-container .statistics-row .ant-statistic-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .stats-container .ant-statistic-content,
+  .projects-container .statistics-row .ant-statistic-content {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .stats-container .ant-statistic-content-prefix,
+  .projects-container .statistics-row .ant-statistic-content-prefix {
+    font-size: 14px !important;
+    margin-right: 6px !important;
+  }
+}
+
+/* ===== DESKTOP OPTIMIZATION (> 1366px) ===== */
+@media (min-width: 1367px) {
+  /* Đảm bảo thẻ card thống kê trong projects có bề rộng phù hợp cho desktop */
+  .projects-container .dashboard-stats-row .ant-col,
+  .projects-container .stats-container .ant-col,
+  .projects-container .statistics-row .ant-col {
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+    width: 20% !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Đảm bảo thẻ card có kích thước phù hợp cho desktop */
+  .projects-container .dashboard-stats-row .ant-card,
+  .projects-container .stats-container .ant-card,
+  .projects-container .statistics-row .ant-card {
+    width: 100% !important;
+    height: 120px !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+    margin-bottom: 16px !important;
+    border-radius: 10px !important;
+  }
+  
+  /* Card body padding tối ưu cho desktop */
+  .projects-container .dashboard-stats-row .ant-card-body,
+  .projects-container .stats-container .ant-card-body,
+  .projects-container .statistics-row .ant-card-body {
+    padding: 16px 12px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Typography cho desktop */
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .stats-container .ant-statistic-title,
+  .projects-container .statistics-row .ant-statistic-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .stats-container .ant-statistic-content,
+  .projects-container .statistics-row .ant-statistic-content {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .stats-container .ant-statistic-content-prefix,
+  .projects-container .statistics-row .ant-statistic-content-prefix {
+    font-size: 16px !important;
+    margin-right: 8px !important;
+  }
+}
+
+/* ===== DARK THEME SUPPORT ===== */
+
+[data-theme="dark"] .projects-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .projects-container .stats-container .ant-card,
+[data-theme="dark"] .projects-container .statistics-row .ant-card {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .projects-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .projects-container .stats-container .ant-card-body,
+[data-theme="dark"] .projects-container .statistics-row .ant-card-body {
+  background: #1f1f1f !important;
+}

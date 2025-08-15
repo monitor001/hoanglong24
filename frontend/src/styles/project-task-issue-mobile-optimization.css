@@ -1,0 +1,590 @@
+/* Project, Task & Issue Mobile Optimization - Consolidated
+ * Gộp tất cả các nhiệm vụ của thẻ dự án, nhiệm vụ và vấn đề vào cùng một file
+ * Tối ưu hóa cho mobile và tablet xoay ngang
+ * Chuẩn: 32x24px với padding 8px, border-radius 4px
+ */
+
+/* =========================
+   BASE MOBILE ICON STANDARDS
+   ========================= */
+
+/* Base mobile icon standard cho tất cả project, task và issue cards */
+.mobile-project-card .ant-btn,
+.mobile-project-card .action-buttons .ant-btn,
+.mobile-project-card .project-actions .ant-btn,
+.mobile-project-card .project-stats .ant-btn,
+.mobile-task-card .ant-btn,
+.mobile-task-card .action-buttons .ant-btn,
+.mobile-task-card .task-actions .ant-btn,
+.mobile-task-card .task-stats .ant-btn,
+.mobile-issue-card .ant-btn,
+.mobile-issue-card .action-buttons .ant-btn,
+.mobile-issue-card .issue-actions .ant-btn,
+.mobile-issue-card .issue-stats .ant-btn,
+.mobile-icon-standard {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 0px 8px !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  min-width: 32px !important;
+  min-height: 24px !important;
+}
+
+/* Icon size standardization */
+.mobile-project-card .ant-btn .anticon,
+.mobile-project-card .action-buttons .ant-btn .anticon,
+.mobile-project-card .project-actions .ant-btn .anticon,
+.mobile-project-card .project-stats .ant-btn .anticon,
+.mobile-task-card .ant-btn .anticon,
+.mobile-task-card .action-buttons .ant-btn .anticon,
+.mobile-task-card .task-actions .ant-btn .anticon,
+.mobile-task-card .task-stats .ant-btn .anticon,
+.mobile-issue-card .ant-btn .anticon,
+.mobile-issue-card .action-buttons .ant-btn .anticon,
+.mobile-issue-card .issue-actions .ant-btn .anticon,
+.mobile-issue-card .issue-stats .ant-btn .anticon,
+.mobile-icon-standard .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   PROJECT, TASK & ISSUE CARD LAYOUT OPTIMIZATION
+   ========================= */
+
+/* Actions container */
+.mobile-project-card .project-actions,
+.mobile-task-card .task-actions,
+.mobile-issue-card .issue-actions {
+  margin-top: 12px !important;
+}
+
+/* Action buttons layout - Changed from space-between to flex-start */
+.mobile-project-card .action-buttons,
+.mobile-task-card .action-buttons,
+.mobile-issue-card .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.mobile-project-card .action-buttons > div,
+.mobile-task-card .action-buttons > div,
+.mobile-issue-card .action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION (768px and below)
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Tăng kích thước touch target cho mobile */
+  .mobile-project-card .ant-btn,
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-project-card .project-actions .ant-btn,
+  .mobile-project-card .project-stats .ant-btn,
+  .mobile-task-card .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-task-card .task-actions .ant-btn,
+  .mobile-task-card .task-stats .ant-btn,
+  .mobile-issue-card .ant-btn,
+  .mobile-issue-card .action-buttons .ant-btn,
+  .mobile-issue-card .issue-actions .ant-btn,
+  .mobile-issue-card .issue-stats .ant-btn,
+  .mobile-icon-standard {
+    min-width: 28px !important;
+    min-height: 24px !important;
+    width: 28px !important;
+    height: 24px !important;
+    padding: 3px !important;
+  }
+
+  /* Tăng icon size cho mobile */
+  .mobile-project-card .ant-btn .anticon,
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-project-card .project-actions .ant-btn .anticon,
+  .mobile-project-card .project-stats .ant-btn .anticon,
+  .mobile-task-card .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .task-actions .ant-btn .anticon,
+  .mobile-task-card .task-stats .ant-btn .anticon,
+  .mobile-issue-card .ant-btn .anticon,
+  .mobile-issue-card .action-buttons .ant-btn .anticon,
+  .mobile-issue-card .issue-actions .ant-btn .anticon,
+  .mobile-issue-card .issue-stats .ant-btn .anticon,
+  .mobile-icon-standard .anticon {
+    font-size: 14px !important;
+  }
+
+  /* Giảm gap cho mobile */
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons,
+  .mobile-issue-card .action-buttons {
+    gap: 6px !important;
+  }
+
+  .mobile-project-card .action-buttons > div,
+  .mobile-task-card .action-buttons > div,
+  .mobile-issue-card .action-buttons > div {
+    gap: 6px !important;
+  }
+
+  /* Tăng dropdown size cho mobile */
+  .mobile-project-header-dropdown,
+  .mobile-task-header-dropdown,
+  .mobile-issue-header-dropdown {
+    min-width: 28px !important;
+    height: 28px !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .tablet-landscape-project-card .project-actions,
+  .tablet-landscape-task-card .task-actions,
+  .tablet-landscape-issue-card .issue-actions {
+    margin-top: 16px !important;
+  }
+
+  .tablet-landscape-project-card .action-buttons,
+  .tablet-landscape-task-card .action-buttons,
+  .tablet-landscape-issue-card .action-buttons {
+    gap: 8px !important;
+  }
+
+  .tablet-landscape-project-card .action-buttons > div,
+  .tablet-landscape-task-card .action-buttons > div,
+  .tablet-landscape-issue-card .action-buttons > div {
+    gap: 8px !important;
+  }
+
+  /* Tối ưu kích thước button cho tablet landscape */
+  .tablet-landscape-project-card .ant-btn,
+  .tablet-landscape-task-card .ant-btn,
+  .tablet-landscape-issue-card .ant-btn {
+    width: 30px !important;
+    height: 26px !important;
+    padding: 4px !important;
+  }
+
+  .tablet-landscape-project-card .ant-btn .anticon,
+  .tablet-landscape-task-card .ant-btn .anticon,
+  .tablet-landscape-issue-card .ant-btn .anticon {
+    font-size: 15px !important;
+  }
+}
+
+/* =========================
+   CARD CONTENT OPTIMIZATION
+   ========================= */
+
+/* Project card content */
+.mobile-project-card .project-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+}
+
+.mobile-project-card .project-description {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.mobile-project-card .project-manager {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-bottom: 8px !important;
+}
+
+.mobile-project-card .project-dates {
+  font-size: 10px !important;
+  color: #999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Task card content */
+.mobile-task-card .task-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+}
+
+.mobile-task-card .task-description {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.mobile-task-card .task-assignee {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-bottom: 8px !important;
+}
+
+.mobile-task-card .task-dates {
+  font-size: 10px !important;
+  color: #999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Issue card content */
+.mobile-issue-card .issue-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+}
+
+.mobile-issue-card .issue-description {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.mobile-issue-card .issue-assignee {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-bottom: 8px !important;
+}
+
+.mobile-issue-card .issue-dates {
+  font-size: 10px !important;
+  color: #999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* =========================
+   PROGRESS & STATUS OPTIMIZATION
+   ========================= */
+
+/* Project progress */
+.mobile-project-card .project-progress {
+  margin-bottom: 12px !important;
+}
+
+.mobile-project-card .project-progress .ant-progress {
+  margin: 0 !important;
+}
+
+/* Task progress */
+.mobile-task-card .task-progress {
+  margin-bottom: 12px !important;
+}
+
+.mobile-task-card .task-progress .ant-progress {
+  margin: 0 !important;
+}
+
+/* Issue status */
+.mobile-issue-card .issue-status {
+  margin-bottom: 12px !important;
+}
+
+.mobile-issue-card .issue-status .ant-tag {
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+}
+
+/* =========================
+   ANIMATION IMPROVEMENTS
+   ========================= */
+
+.mobile-project-card,
+.mobile-task-card,
+.mobile-issue-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.mobile-project-card:hover,
+.mobile-task-card:hover,
+.mobile-issue-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+   ========================= */
+
+/* Extra small devices (phones, 320px and up) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons,
+  .mobile-issue-card .action-buttons {
+    gap: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-issue-card .action-buttons .ant-btn {
+    width: 26px !important;
+    height: 22px !important;
+    padding: 2px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon,
+  .mobile-issue-card .action-buttons .ant-btn .anticon {
+    font-size: 12px !important;
+  }
+}
+
+/* Small devices (landscape phones, 481px and up) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons,
+  .mobile-issue-card .action-buttons {
+    gap: 6px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-issue-card .action-buttons .ant-btn {
+    width: 28px !important;
+    height: 24px !important;
+    padding: 3px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon,
+  .mobile-issue-card .action-buttons .ant-btn .anticon {
+    font-size: 14px !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons,
+  .mobile-issue-card .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-issue-card .action-buttons .ant-btn {
+    width: 32px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon,
+  .mobile-issue-card .action-buttons .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+[data-theme="dark"] .mobile-project-card,
+[data-theme="dark"] .mobile-task-card,
+[data-theme="dark"] .mobile-issue-card {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .mobile-project-card .ant-card-body,
+[data-theme="dark"] .mobile-task-card .ant-card-body,
+[data-theme="dark"] .mobile-issue-card .ant-card-body {
+  background: #1f1f1f !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-title,
+[data-theme="dark"] .mobile-task-card .task-title,
+[data-theme="dark"] .mobile-issue-card .issue-title {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-description,
+[data-theme="dark"] .mobile-task-card .task-description,
+[data-theme="dark"] .mobile-issue-card .issue-description {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-manager .ant-typography,
+[data-theme="dark"] .mobile-task-card .task-assignee .ant-typography,
+[data-theme="dark"] .mobile-issue-card .issue-assignee .ant-typography {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-dates,
+[data-theme="dark"] .mobile-task-card .task-dates,
+[data-theme="dark"] .mobile-issue-card .issue-dates {
+  color: #999 !important;
+}
+
+/* =========================
+   TOUCH-FRIENDLY IMPROVEMENTS
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Ensure minimum touch target size */
+  .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .ant-tag {
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+  }
+  
+  /* Better scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent text selection on touch */
+  .mobile-project-card,
+  .mobile-task-card,
+  .mobile-issue-card {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Smooth animations */
+  .mobile-project-card,
+  .mobile-task-card,
+  .mobile-issue-card {
+    transition: transform 0.2s ease;
+  }
+  
+  .mobile-project-card:active,
+  .mobile-task-card:active,
+  .mobile-issue-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* =========================
+   LOADING STATES
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-spin-container {
+    padding: 16px !important;
+  }
+  
+  .ant-empty {
+    padding: 20px !important;
+  }
+}
+
+/* =========================
+   MODAL AND DRAWER IMPROVEMENTS
+   ========================= */
+
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-modal {
+    margin: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  
+  .ant-drawer {
+    width: 100% !important;
+  }
+  
+  .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+}
+
+/* =========================
+   SPECIFIC OVERRIDES
+   ========================= */
+
+/* Override any existing space-between layouts */
+.mobile-project-card .action-buttons[style*="space-between"],
+.mobile-task-card .action-buttons[style*="space-between"],
+.mobile-issue-card .action-buttons[style*="space-between"] {
+  justify-content: flex-start !important;
+}
+
+/* Ensure consistent spacing across all cards */
+.mobile-project-card .project-actions,
+.mobile-task-card .task-actions,
+.mobile-issue-card .issue-actions,
+.project-actions,
+.task-actions,
+.issue-actions {
+  margin-top: 12px !important;
+}
+
+.mobile-project-card .action-buttons,
+.mobile-task-card .action-buttons,
+.mobile-issue-card .action-buttons,
+.project-actions .action-buttons,
+.task-actions .action-buttons,
+.issue-actions .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+/* =========================
+   COMPACT MODE FOR TABLET LANDSCAPE
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .mobile-project-card .project-actions,
+  .mobile-task-card .task-actions,
+  .mobile-issue-card .issue-actions {
+    margin-top: 8px !important;
+  }
+
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons,
+  .mobile-issue-card .action-buttons {
+    gap: 6px !important;
+  }
+
+  .mobile-project-card .project-title,
+  .mobile-task-card .task-title,
+  .mobile-issue-card .issue-title {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .mobile-project-card .project-description,
+  .mobile-task-card .task-description,
+  .mobile-issue-card .issue-description {
+    font-size: 11px !important;
+    margin-bottom: 6px !important;
+  }
+}

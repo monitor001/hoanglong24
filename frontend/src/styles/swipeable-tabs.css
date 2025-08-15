@@ -1,0 +1,341 @@
+/* Swipeable Tabs Styles */
+.swipeable-tabs-container {
+  margin-top: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.swipeable-tabs-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #f0f0f0;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.swipeable-tabs-progress {
+  height: 100%;
+  background-color: #1890ff;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.swipeable-tabs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.swipeable-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 60px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.swipeable-tab-item:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+.swipeable-tab-item.active {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.swipeable-tab-icon {
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.swipeable-tab-item.active .swipeable-tab-icon {
+  color: #1890ff;
+  transition: color 0.3s ease;
+}
+
+.swipeable-tab-item:not(.active) .swipeable-tab-icon {
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.swipeable-tab-title {
+  font-size: 10px;
+  font-weight: normal;
+  transition: all 0.3s ease;
+}
+
+.swipeable-tab-item.active .swipeable-tab-title {
+  color: #1890ff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.swipeable-tab-item:not(.active) .swipeable-tab-title {
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.swipeable-tabs-content {
+  transition: transform 0.3s ease;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.swipeable-tabs-content.dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.swipeable-tabs-instructions {
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  color: #999;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-top: 8px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Dark theme support */
+.ant-theme-dark .swipeable-tabs-indicator {
+  background-color: #303030;
+}
+
+.ant-theme-dark .swipeable-tabs-progress {
+  background-color: #177ddc;
+}
+
+.ant-theme-dark .swipeable-tabs-header {
+  background-color: #1f1f1f;
+  border-bottom-color: #303030;
+}
+
+.ant-theme-dark .swipeable-tab-item {
+  color: #e8e8e8;
+}
+
+.ant-theme-dark .swipeable-tab-item:hover {
+  background-color: #303030;
+}
+
+.ant-theme-dark .swipeable-tab-item.active {
+  background-color: #177ddc;
+  border-color: #177ddc;
+  box-shadow: 0 2px 8px rgba(23, 125, 220, 0.3);
+}
+
+.ant-theme-dark .swipeable-tab-item.active .swipeable-tab-icon,
+.ant-theme-dark .swipeable-tab-item.active .swipeable-tab-title {
+  color: #ffffff;
+}
+
+.ant-theme-dark .swipeable-tab-item:not(.active) .swipeable-tab-icon,
+.ant-theme-dark .swipeable-tab-item:not(.active) .swipeable-tab-title {
+  color: #bfbfbf;
+}
+
+.ant-theme-dark .swipeable-tabs-instructions {
+  background-color: #1f1f1f;
+  border-color: #303030;
+  color: #bfbfbf;
+}
+
+/* System theme preference support */
+@media (prefers-color-scheme: dark) {
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tabs-indicator {
+    background-color: #303030;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tabs-progress {
+    background-color: #177ddc;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tabs-header {
+    background-color: #1f1f1f;
+    border-bottom-color: #303030;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item {
+    color: #e8e8e8;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item:hover {
+    background-color: #303030;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item.active {
+    background-color: #177ddc;
+    border-color: #177ddc;
+    box-shadow: 0 2px 8px rgba(23, 125, 220, 0.3);
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item.active .swipeable-tab-icon,
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item.active .swipeable-tab-title {
+    color: #ffffff;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item:not(.active) .swipeable-tab-icon,
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tab-item:not(.active) .swipeable-tab-title {
+    color: #bfbfbf;
+  }
+  
+  .swipeable-tabs-container:not(.ant-theme-light) .swipeable-tabs-instructions {
+    background-color: #1f1f1f;
+    border-color: #303030;
+    color: #bfbfbf;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .swipeable-tabs-header {
+    padding: 6px 12px;
+  }
+  
+  .swipeable-tab-item {
+    padding: 6px 8px;
+    min-width: 50px;
+  }
+  
+  .swipeable-tab-title {
+    font-size: 9px;
+  }
+  
+  .swipeable-tabs-instructions {
+    font-size: 11px;
+    padding: 6px;
+  }
+}
+
+/* Tablet optimizations (both portrait and landscape) */
+@media (min-width: 769px) and (max-width: 1366px) {
+  .swipeable-tabs-header {
+    padding: 10px 20px;
+  }
+  
+  .swipeable-tab-item {
+    padding: 10px 16px;
+    min-width: 70px;
+  }
+  
+  .swipeable-tab-title {
+    font-size: 11px;
+  }
+}
+
+/* Tablet portrait specific optimizations */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: portrait) {
+  .swipeable-tabs-header {
+    padding: 8px 16px;
+  }
+  
+  .swipeable-tab-item {
+    padding: 8px 12px;
+    min-width: 60px;
+  }
+  
+  .swipeable-tab-title {
+    font-size: 10px;
+  }
+}
+
+/* Smooth animations */
+.swipeable-tabs-container * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.swipeable-tabs-content {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x; /* Enable horizontal swipe only */
+}
+
+/* Enhanced touch responsiveness for mobile and tablet */
+@media (max-width: 1366px) {
+  .swipeable-tabs-content {
+    touch-action: pan-x;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .swipeable-tab-item {
+    touch-action: manipulation;
+  }
+}
+
+/* Prevent text selection during swipe */
+.swipeable-tabs-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Haptic feedback for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .swipeable-tab-item:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Accessibility improvements */
+.swipeable-tab-item:focus {
+  outline: 2px solid #1890ff;
+  outline-offset: 2px;
+}
+
+.swipeable-tab-item:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .swipeable-tab-item.active {
+    border-width: 2px;
+  }
+  
+  .swipeable-tabs-indicator {
+    height: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .swipeable-tabs-container *,
+  .swipeable-tab-item,
+  .swipeable-tabs-header,
+  .swipeable-tabs-progress,
+  .swipeable-tabs-content {
+    transition: none !important;
+    animation: none !important;
+  }
+}

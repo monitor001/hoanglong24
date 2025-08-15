@@ -1,0 +1,353 @@
+/* Desktop Icon Standardization */
+/* Chuẩn hóa kích thước và màu sắc icon cho desktop với màu sắc tương đồng mobile */
+
+/* =========================
+   DESKTOP ICON STANDARDS
+   ========================= */
+
+/* Base desktop icon styles - 40x32 with proper padding */
+.desktop-icon-standard {
+  width: 40px !important;
+  height: 32px !important;
+  padding: 4px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.desktop-icon-standard .anticon {
+  font-size: 18px !important;
+}
+
+/* =========================
+   DESKTOP ACTION COLORS
+   ========================= */
+
+/* View/Detail Action - Blue */
+.desktop-icon-view {
+  color: #1890ff !important;
+  border: 1px solid #1890ff !important;
+  background-color: rgba(24, 144, 255, 0.05) !important;
+}
+
+.desktop-icon-view:hover {
+  background-color: rgba(24, 144, 255, 0.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .desktop-icon-view {
+  color: #40a9ff !important;
+  border-color: #40a9ff !important;
+  background-color: rgba(64, 169, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .desktop-icon-view:hover {
+  background-color: rgba(64, 169, 255, 0.15) !important;
+}
+
+/* Edit Action - Green */
+.desktop-icon-edit {
+  color: #52c41a !important;
+  border: 1px solid #52c41a !important;
+  background-color: rgba(82, 196, 26, 0.05) !important;
+}
+
+.desktop-icon-edit:hover {
+  background-color: rgba(82, 196, 26, 0.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.2) !important;
+}
+
+[data-theme="dark"] .desktop-icon-edit {
+  color: #73d13d !important;
+  border-color: #73d13d !important;
+  background-color: rgba(115, 209, 61, 0.1) !important;
+}
+
+[data-theme="dark"] .desktop-icon-edit:hover {
+  background-color: rgba(115, 209, 61, 0.15) !important;
+}
+
+/* Delete Action - Red */
+.desktop-icon-delete {
+  color: #ff4d4f !important;
+  border: 1px solid #ff4d4f !important;
+  background-color: rgba(255, 77, 79, 0.05) !important;
+}
+
+.desktop-icon-delete:hover {
+  background-color: rgba(255, 77, 79, 0.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.2) !important;
+}
+
+[data-theme="dark"] .desktop-icon-delete {
+  color: #ff7875 !important;
+  border-color: #ff7875 !important;
+  background-color: rgba(255, 120, 117, 0.1) !important;
+}
+
+[data-theme="dark"] .desktop-icon-delete:hover {
+  background-color: rgba(255, 120, 117, 0.15) !important;
+}
+
+/* Comment Action - Orange */
+.desktop-icon-comment {
+  color: #fa8c16 !important;
+  border: 1px solid #fa8c16 !important;
+  background-color: rgba(250, 140, 22, 0.05) !important;
+}
+
+.desktop-icon-comment:hover {
+  background-color: rgba(250, 140, 22, 0.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(250, 140, 22, 0.2) !important;
+}
+
+[data-theme="dark"] .desktop-icon-comment {
+  color: #faad14 !important;
+  border-color: #faad14 !important;
+  background-color: rgba(250, 173, 20, 0.1) !important;
+}
+
+[data-theme="dark"] .desktop-icon-comment:hover {
+  background-color: rgba(250, 173, 20, 0.15) !important;
+}
+
+/* History Action - Purple */
+.desktop-icon-history {
+  color: #722ed1 !important;
+  border: 1px solid #722ed1 !important;
+  background-color: rgba(114, 46, 209, 0.05) !important;
+}
+
+.desktop-icon-history:hover {
+  background-color: rgba(114, 46, 209, 0.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(114, 46, 209, 0.2) !important;
+}
+
+[data-theme="dark"] .desktop-icon-history {
+  color: #b37feb !important;
+  border-color: #b37feb !important;
+  background-color: rgba(179, 127, 235, 0.1) !important;
+}
+
+[data-theme="dark"] .desktop-icon-history:hover {
+  background-color: rgba(179, 127, 235, 0.15) !important;
+}
+
+/* Approve Action - Green Primary */
+.desktop-icon-approve {
+  color: #ffffff !important;
+  border: 1px solid #52c41a !important;
+  background-color: #52c41a !important;
+}
+
+.desktop-icon-approve:hover {
+  background-color: #73d13d !important;
+  border-color: #73d13d !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3) !important;
+}
+
+/* Reject Action - Red Primary */
+.desktop-icon-reject {
+  color: #ffffff !important;
+  border: 1px solid #ff4d4f !important;
+  background-color: #ff4d4f !important;
+}
+
+.desktop-icon-reject:hover {
+  background-color: #ff7875 !important;
+  border-color: #ff7875 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.3) !important;
+}
+
+/* Send Action - Blue Primary */
+.desktop-icon-send {
+  color: #ffffff !important;
+  border: 1px solid #1890ff !important;
+  background-color: #1890ff !important;
+}
+
+.desktop-icon-send:hover {
+  background-color: #40a9ff !important;
+  border-color: #40a9ff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3) !important;
+}
+
+/* =========================
+   DESKTOP RESPONSIVE
+   ========================= */
+
+/* Apply desktop styles only on desktop screens */
+@media (min-width: 769px) {
+  /* Table action buttons */
+  .ant-table .ant-btn {
+    width: 40px !important;
+    height: 32px !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .ant-table .ant-btn .anticon {
+    font-size: 18px !important;
+  }
+
+  /* Kanban board action buttons */
+  .kanban-card .ant-btn,
+  .approval-card .ant-btn {
+    width: 40px !important;
+    height: 32px !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .kanban-card .ant-btn .anticon,
+  .approval-card .ant-btn .anticon {
+    font-size: 18px !important;
+  }
+
+  /* Form action buttons */
+  .form-actions .ant-btn {
+    height: 40px !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+  }
+
+  .form-actions .ant-btn .anticon {
+    font-size: 16px !important;
+    margin-right: 8px !important;
+  }
+
+  /* Header action buttons */
+  .page-header .ant-btn {
+    height: 36px !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+  }
+
+  .page-header .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   SPECIFIC COMPONENT OVERRIDES
+   ========================= */
+
+/* Tasks page desktop icons */
+@media (min-width: 769px) {
+  .tasks-page .mobile-task-card {
+    display: none !important;
+  }
+  
+  .tasks-page .ant-table-tbody .ant-btn {
+    margin: 0 2px !important;
+  }
+}
+
+/* Users page desktop icons */
+@media (min-width: 769px) {
+  .users-page .mobile-user-card {
+    display: none !important;
+  }
+}
+
+/* Approval page desktop icons */
+@media (min-width: 769px) {
+  .approval-page .mobile-approval-card {
+    display: none !important;
+  }
+  
+  .approval-kanban .kanban-item .ant-btn {
+    margin: 2px !important;
+  }
+}
+
+/* Projects page desktop icons */
+@media (min-width: 769px) {
+  .projects-page .mobile-project-card {
+    display: none !important;
+  }
+}
+
+/* Issues page desktop icons */
+@media (min-width: 769px) {
+  .issues-page .mobile-issue-card {
+    display: none !important;
+  }
+}
+
+/* =========================
+   BUTTON GROUP SPACING
+   ========================= */
+
+@media (min-width: 769px) {
+  .desktop-button-group {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .desktop-button-group .ant-btn {
+    margin: 0 !important;
+  }
+
+  /* Table row action buttons */
+  .ant-table-tbody td .desktop-button-group {
+    justify-content: center !important;
+  }
+
+  /* Card action buttons */
+  .ant-card-actions .desktop-button-group {
+    justify-content: space-around !important;
+  }
+}
+
+/* =========================
+   LOADING AND DISABLED STATES
+   ========================= */
+
+@media (min-width: 769px) {
+  .desktop-icon-standard:disabled,
+  .desktop-icon-standard.ant-btn-loading {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+  }
+
+  .desktop-icon-standard:disabled:hover,
+  .desktop-icon-standard.ant-btn-loading:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* =========================
+   FOCUS STATES FOR ACCESSIBILITY
+   ========================= */
+
+@media (min-width: 769px) {
+  .desktop-icon-standard:focus {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px !important;
+  }
+
+  [data-theme="dark"] .desktop-icon-standard:focus {
+    outline-color: #40a9ff !important;
+  }
+}

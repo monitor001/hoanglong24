@@ -1,0 +1,453 @@
+/**
+ * Tablet Landscape Filter Improvements
+ * 
+ * Cải thiện bố cục bộ lọc cho tất cả các trang trong chế độ tablet landscape
+ * Áp dụng cho: Tasks, Projects, Dashboard, Issues, Documents, etc.
+ */
+
+/* ===== TABLET LANDSCAPE BREAKPOINT ===== */
+
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== GENERAL FILTER IMPROVEMENTS ===== */
+  
+  /* Container spacing */
+  .tasks-container,
+  .projects-container,
+  .dashboard-container,
+  .issues-container,
+  .documents-container {
+    padding: 16px 20px !important;
+  }
+  
+  /* Filter section spacing */
+  .filter-section,
+  .search-filter-section {
+    margin-bottom: 16px !important;
+  }
+  
+  /* ===== STATS CARDS OPTIMIZATION ===== */
+  
+  /* Force 4 columns for stats cards across all pages */
+  .dashboard-stats-row .ant-row,
+  .tasks-stats-row .ant-row,
+  .projects-summary-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .dashboard-stats-row .ant-col,
+  .tasks-stats-row .ant-col {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+    padding: 0 4px !important;
+  }
+  
+  /* Projects summary grid */
+  .projects-summary-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+  }
+  
+  /* Ensure stats cards fit nicely */
+  .dashboard-stats-row .ant-card,
+  .tasks-stats-row .ant-card {
+    height: 100%;
+    margin-bottom: 8px;
+  }
+  
+  .dashboard-stats-row .ant-statistic,
+  .tasks-stats-row .ant-statistic {
+    text-align: center;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-stats-row .ant-statistic-title {
+    font-size: 13px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-stats-row .ant-statistic-content {
+    font-size: 18px !important;
+  }
+  
+  /* ===== CHART LAYOUT OPTIMIZATION ===== */
+  
+  /* 2 charts per row in overview tabs */
+  .dashboard-overview-charts .ant-row,
+  .dashboard-task-charts .ant-row,
+  .dashboard-issue-charts .ant-row {
+    display: flex !important;
+  }
+  
+  .dashboard-overview-charts .ant-col,
+  .dashboard-task-charts .ant-col:nth-child(1),
+  .dashboard-task-charts .ant-col:nth-child(2),
+  .dashboard-issue-charts .ant-col:nth-child(1),
+  .dashboard-issue-charts .ant-col:nth-child(2) {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Third chart: full width */
+  .dashboard-task-charts .ant-col:nth-child(3),
+  .dashboard-issue-charts .ant-col:nth-child(3) {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 16px;
+  }
+  
+  /* ===== TABLE OPTIMIZATION ===== */
+  
+  /* Better table layout for landscape */
+  .ant-table-wrapper {
+    font-size: 13px !important;
+  }
+  
+  .ant-table-thead > tr > th {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+  
+  .ant-table-tbody > tr > td {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+  }
+  
+  /* Compact table actions */
+  .ant-table-tbody .ant-btn {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    height: 28px !important;
+  }
+  
+  /* ===== MOBILE FILTERS OVERRIDE ===== */
+  
+  /* Hide mobile filters on tablet landscape */
+  .mobile-filters {
+    display: none !important;
+  }
+  
+  /* Show responsive filters */
+  .responsive-filters {
+    display: block !important;
+  }
+  
+  /* ===== COLLAPSIBLE FILTERS ENHANCEMENT ===== */
+  
+  /* Enhanced collapsible filter styling */
+  .tablet-landscape-filter-card {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .tablet-landscape-filter-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* Filter header styling */
+  .tablet-landscape-filter-card .ant-card-body > div:first-child {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .tablet-landscape-filter-card .ant-card-body > div:first-child:hover {
+    background-color: #fafafa;
+    border-radius: 6px;
+  }
+  
+  /* Filter items styling */
+  .tablet-filter-item {
+    margin-bottom: 8px;
+  }
+  
+  .tablet-filter-label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #666 !important;
+    margin-bottom: 4px !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Input and Select styling */
+  .tablet-filter-item .ant-input,
+  .tablet-filter-item .ant-select {
+    font-size: 13px !important;
+  }
+  
+  .tablet-filter-item .ant-input::placeholder {
+    font-size: 12px !important;
+    color: #999 !important;
+  }
+  
+  /* Button styling */
+  .tablet-filter-item .ant-btn {
+    font-size: 13px !important;
+    height: 32px !important;
+    border-radius: 6px !important;
+  }
+  
+  /* Switch styling */
+  .tablet-filter-item .ant-switch {
+    min-width: 44px !important;
+    height: 22px !important;
+  }
+  
+  .tablet-filter-item .ant-switch-inner {
+    font-size: 10px !important;
+  }
+  
+  /* ===== RESPONSIVE TABS OPTIMIZATION ===== */
+  
+  /* Make tabs more compact on tablet landscape */
+  .ant-tabs-nav {
+    margin-bottom: 16px !important;
+  }
+  
+  .ant-tabs-tab {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+  }
+  
+  /* ===== GENERAL IMPROVEMENTS ===== */
+  
+  /* Better spacing for landscape */
+  .ant-card {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Optimize card titles */
+  .ant-card-head-title {
+    font-size: 16px !important;
+    font-weight: 600;
+  }
+  
+  /* Better gutter for charts */
+  .dashboard-task-charts .ant-row,
+  .dashboard-issue-charts .ant-row,
+  .dashboard-overview-charts .ant-row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+  
+  .dashboard-task-charts .ant-col,
+  .dashboard-issue-charts .ant-col,
+  .dashboard-overview-charts .ant-col {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  
+  /* ===== ANIMATION EFFECTS ===== */
+  
+  /* Smooth collapse animation */
+  .tablet-landscape-filter-card .ant-collapse-content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  /* Hover effects */
+  .tablet-filter-item .ant-input:hover,
+  .tablet-filter-item .ant-select:hover .ant-select-selector {
+    border-color: #40a9ff !important;
+  }
+  
+  .tablet-filter-item .ant-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* Focus effects */
+  .tablet-filter-item .ant-input:focus,
+  .tablet-filter-item .ant-select-focused .ant-select-selector {
+    border-color: #1890ff !important;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+  }
+  
+  /* Icon animation */
+  .tablet-landscape-filter-card .anticon {
+    transition: all 0.3s ease !important;
+  }
+  
+  .tablet-landscape-filter-card .ant-btn:hover .anticon {
+    transform: scale(1.1) !important;
+  }
+}
+
+/* ===== DARK THEME ADJUSTMENTS ===== */
+
+[data-theme="dark"] @media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  .dashboard-stats-row .ant-card,
+  .tasks-stats-row .ant-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .dashboard-overview-charts .ant-card,
+  .dashboard-task-charts .ant-card,
+  .dashboard-issue-charts .ant-card {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  
+  .ant-statistic-title {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  .ant-statistic-content {
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+  
+  .tablet-landscape-filter-card {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .tablet-landscape-filter-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  .tablet-landscape-filter-card .ant-card-body > div:first-child {
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .tablet-landscape-filter-card .ant-card-body > div:first-child:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+  }
+  
+  .tablet-filter-label {
+    color: rgba(255, 255, 255, 0.65) !important;
+  }
+  
+  .tablet-filter-item .ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+  
+  .tablet-filter-item .ant-input,
+  .tablet-filter-item .ant-select {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  .tablet-filter-item .ant-input:focus,
+  .tablet-filter-item .ant-select-focused .ant-select-selector {
+    border-color: #1890ff !important;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+  }
+  
+  .tablet-filter-item .ant-btn {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  .tablet-filter-item .ant-btn:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+/* Smaller tablets (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  .tablet-filter-label {
+    font-size: 11px !important;
+  }
+  
+  .tablet-filter-item .ant-input,
+  .tablet-filter-item .ant-select,
+  .tablet-filter-item .ant-btn {
+    font-size: 12px !important;
+  }
+  
+  .tablet-filter-item .ant-input::placeholder {
+    font-size: 11px !important;
+  }
+  
+  .tablet-landscape-filter-card .ant-card-body {
+    padding: 10px 12px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-stats-row .ant-statistic-title {
+    font-size: 12px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-stats-row .ant-statistic-content {
+    font-size: 16px !important;
+  }
+}
+
+/* Larger tablets (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  .tablet-filter-label {
+    font-size: 13px !important;
+  }
+  
+  .tablet-filter-item .ant-input,
+  .tablet-filter-item .ant-select,
+  .tablet-filter-item .ant-btn {
+    font-size: 14px !important;
+  }
+  
+  .tablet-filter-item .ant-input::placeholder {
+    font-size: 13px !important;
+  }
+  
+  .tablet-landscape-filter-card .ant-card-body {
+    padding: 14px 18px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-stats-row .ant-statistic-title {
+    font-size: 14px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-stats-row .ant-statistic-content {
+    font-size: 20px !important;
+  }
+}
+
+/* ===== PRINT OPTIMIZATIONS ===== */
+
+@media print {
+  .dashboard-stats-row .ant-col,
+  .tasks-stats-row .ant-col {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
+  
+  .dashboard-overview-charts .ant-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  .tablet-landscape-filter-card {
+    box-shadow: none !important;
+    border: 1px solid #d9d9d9 !important;
+  }
+  
+  .tablet-landscape-filter-card .ant-card-body > div:first-child {
+    border-bottom: 1px solid #d9d9d9 !important;
+  }
+  
+  .tablet-filter-item .ant-btn {
+    border: 1px solid #d9d9d9 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+}

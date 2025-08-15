@@ -1,0 +1,324 @@
+/**
+ * Unified Responsive Breakpoints CSS
+ * 
+ * File CSS chứa breakpoint thống nhất cho toàn bộ dự án
+ * Có xem xét orientation (xoay màn hình) để đảm bảo trải nghiệm tốt
+ */
+
+/* CSS Variables for unified breakpoints */
+:root {
+  --breakpoint-mobile-max: 768px;
+  --breakpoint-tablet-min: 769px;
+  --breakpoint-tablet-max: 1024px;
+  --breakpoint-desktop-min: 1025px;
+  --breakpoint-large-desktop-min: 1440px;
+  
+  --mobile-landscape-max: 1024px;
+  --tablet-landscape-max: 1366px;
+  
+  --touch-target-min-size: 44px;
+  
+  /* Component-specific values */
+  --table-mobile-scroll-x: 600px;
+  --table-tablet-scroll-x: 800px;
+  --table-desktop-scroll-x: 1000px;
+  
+  --chart-mobile-height: 250px;
+  --chart-tablet-height: 280px;
+  --chart-desktop-height: 300px;
+  --chart-large-desktop-height: 350px;
+}
+
+/* 
+ * MOBILE BREAKPOINTS
+ * Mobile: ≤768px portrait HOẶC ≤1024px landscape với height ≤500px
+ */
+
+/* Mobile Portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+  .mobile-portrait-only {
+    display: block;
+  }
+  
+  .hide-mobile-portrait {
+    display: none !important;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .mobile-landscape-only {
+    display: block;
+  }
+  
+  .hide-mobile-landscape {
+    display: none !important;
+  }
+  
+  /* Optimize for limited height */
+  .mobile-landscape-compact {
+    padding: 8px 12px !important;
+    margin: 4px 0 !important;
+  }
+}
+
+/* Mobile Any Orientation */
+@media (max-width: 768px) and (orientation: portrait), 
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  
+  .mobile-only {
+    display: block;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Touch-friendly elements */
+  .touch-target {
+    min-height: var(--touch-target-min-size) !important;
+    min-width: var(--touch-target-min-size) !important;
+  }
+  
+  /* Mobile layout adjustments */
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  .mobile-center {
+    text-align: center !important;
+  }
+  
+  .mobile-padding {
+    padding: 12px !important;
+  }
+  
+  .mobile-margin {
+    margin: 8px 0 !important;
+  }
+}
+
+/* 
+ * TABLET BREAKPOINTS
+ * Tablet: 769-1024px portrait HOẶC 769-1366px landscape
+ */
+
+/* Tablet Portrait */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .tablet-portrait-only {
+    display: block;
+  }
+  
+  .hide-tablet-portrait {
+    display: none !important;
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .tablet-landscape-only {
+    display: block;
+  }
+  
+  .hide-tablet-landscape {
+    display: none !important;
+  }
+}
+
+/* Tablet Any Orientation */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  .tablet-only {
+    display: block;
+  }
+  
+  .hide-tablet {
+    display: none !important;
+  }
+  
+  /* Tablet-specific layouts */
+  .tablet-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .tablet-padding {
+    padding: 16px !important;
+  }
+  
+  .tablet-margin {
+    margin: 12px 0 !important;
+  }
+}
+
+/* 
+ * DESKTOP BREAKPOINTS
+ * Desktop: >1024px portrait HOẶC >1366px landscape
+ */
+
+/* Desktop */
+@media (min-width: 1025px) and (orientation: portrait),
+       (min-width: 1367px) and (orientation: landscape) {
+  
+  .desktop-only {
+    display: block;
+  }
+  
+  .hide-desktop {
+    display: none !important;
+  }
+  
+  /* Desktop-specific layouts */
+  .desktop-three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .desktop-four-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .large-desktop-only {
+    display: block;
+  }
+  
+  .hide-large-desktop {
+    display: none !important;
+  }
+  
+  .large-desktop-five-columns {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+}
+
+/* 
+ * COMBINED BREAKPOINTS
+ */
+
+/* Small Screen (Mobile + Tablet) */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px),
+       (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  .small-screen-only {
+    display: block;
+  }
+  
+  .hide-small-screen {
+    display: none !important;
+  }
+  
+  /* Touch device optimizations */
+  .touch-device-optimized {
+    min-height: var(--touch-target-min-size) !important;
+    padding: 12px 16px !important;
+  }
+}
+
+/* 
+ * UTILITY CLASSES
+ */
+
+/* Visibility helpers */
+.show-mobile-only {
+  display: none;
+}
+
+.show-tablet-only {
+  display: none;
+}
+
+.show-desktop-only {
+  display: none;
+}
+
+/* Responsive text sizes */
+.responsive-text-sm {
+  font-size: 14px;
+}
+
+.responsive-text-md {
+  font-size: 16px;
+}
+
+.responsive-text-lg {
+  font-size: 18px;
+}
+
+/* Mobile text sizes */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  
+  .show-mobile-only {
+    display: block !important;
+  }
+  
+  .responsive-text-sm {
+    font-size: 12px;
+  }
+  
+  .responsive-text-md {
+    font-size: 14px;
+  }
+  
+  .responsive-text-lg {
+    font-size: 16px;
+  }
+}
+
+/* Tablet text sizes */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  .show-tablet-only {
+    display: block !important;
+  }
+  
+  .responsive-text-sm {
+    font-size: 13px;
+  }
+  
+  .responsive-text-md {
+    font-size: 15px;
+  }
+  
+  .responsive-text-lg {
+    font-size: 17px;
+  }
+}
+
+/* Desktop text sizes */
+@media (min-width: 1025px) and (orientation: portrait),
+       (min-width: 1367px) and (orientation: landscape) {
+  
+  .show-desktop-only {
+    display: block !important;
+  }
+  
+  .responsive-text-sm {
+    font-size: 14px;
+  }
+  
+  .responsive-text-md {
+    font-size: 16px;
+  }
+  
+  .responsive-text-lg {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,880 @@
+// This is your Prisma schema file for CDE BIM ISO 19650
+// Learn more about Prisma: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // Connection pooling for Heroku
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id              String          @id @default(uuid())
+  email           String          @unique
+  password        String
+  name            String
+  code            String?         // Employee code
+  middleName      String?         // Middle name
+  gender          String?         // Gender
+  dob             DateTime?       // Date of birth
+  address         String?         // Address
+  phone           String?         // Phone number
+  department      String?         // Department
+  status          String          @default("active") // active, inactive
+  lastLogin       DateTime?       // Last login timestamp
+  role            Role            @default(USER)
+  organization    String?
+  twoFactorSecret String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  projects        ProjectMember[]
+  tasks           Task[]
+  documents       Document[]
+  comments        Comment[]
+  projectNotes    ProjectNote[]   // Relation to project notes
+  activityLogs    ActivityLog[]
+  issuesCreated   Issue[]         @relation("IssueCreatedBy")
+  issuesAssigned  Issue[]         @relation("IssueAssignee")
+  calendarEvents  CalendarEvent[]
+  reports         Report[]
+  calendarEventAttendees CalendarEventAttendee[]
+  
+  // ISO Configuration and System Settings relations
+  isoConfigs      ISOConfig[]
+  systemSettings  SystemSetting[]
+  isoConfigsUpdated ISOConfig[] @relation("ISOConfigUpdatedBy")
+  systemSettingsUpdated SystemSetting[] @relation("SystemSettingUpdatedBy")
+  projectShares   ProjectShare[] @relation("ProjectSharedBy")
+  noteShares      NoteShare[] @relation("NoteSharedBy")
+  sharedNotes     NoteShare[] @relation("NoteSharedWith")
+  notes          Note[]
+  folders        Folder[]
+  designChecklists DesignChecklist[] @relation("ChecklistCreatedBy")
+  designChecklistTemplates DesignChecklistTemplate[] @relation("TemplateCreatedBy")
+  designChecklistCategories DesignChecklistCategory[] @relation("CategoryCreatedBy")
+  approvalDocuments ApprovalDocument[] @relation("ApprovalAssignedTo")
+  approvalHistory ApprovalHistory[] @relation("ApprovalHistoryUser")
+  approvalComments ApprovalComment[] @relation("ApprovalCommentUser")
+  todos          Todo[]
+  sessions       UserSession[]    // User sessions for single device login
+  preferences    UserPreference[] // User preferences
+
+  // Permission relations
+  rolePermissions RolePermission[] @relation("UserRolePermissions")
+  grantedPermissions RolePermission[] @relation("PermissionGrantedBy")
+
+  @@index([email])
+  @@index([organization])
+  @@index([createdAt])
+}
+
+enum Role {
+  ADMIN
+  PROJECT_MANAGER
+  BIM_MANAGER
+  CONTRIBUTOR
+  VIEWER
+  USER
+}
+
+model Project {
+  id          String          @id @default(uuid())
+  code        String          @unique // Project code for easy reference
+  name        String
+  description String?
+  status      ProjectStatus
+  startDate   DateTime?
+  endDate     DateTime?
+  priority    String?         // Project priority: LOW, MEDIUM, HIGH, URGENT
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  members     ProjectMember[]
+  documents   Document[]
+  tasks       Task[]
+  containers  Container[]
+  notes       ProjectNote[]   // Relation to project notes
+  comments    Comment[]       // Relation to project comments
+  issues      Issue[]
+  calendarEvents CalendarEvent[]
+  projectShares ProjectShare[]
+  designChecklists DesignChecklist[]
+  approvalDocuments ApprovalDocument[]
+
+  @@index([status])
+  @@index([priority])
+  @@index([startDate])
+  @@index([endDate])
+  @@index([createdAt])
+  @@index([updatedAt])
+  @@index([name])
+  @@index([code])
+  @@index([status, priority])
+  @@index([startDate, endDate])
+}
+
+// Project Note model for storing notes
+model ProjectNote {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([projectId])
+  @@index([userId])
+  @@index([createdAt])
+  @@index([projectId, createdAt])
+}
+
+enum ProjectStatus {
+  PLANNING
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  ARCHIVED
+}
+
+model ProjectMember {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId String
+  role      Role
+  joinedAt  DateTime @default(now())
+  permissions ProjectPermission[] // Thêm relation đến permissions
+
+  @@unique([userId, projectId])
+  @@index([projectId])
+  @@index([userId])
+}
+
+// Model mới để quản lý quyền chi tiết cho từng thành viên
+model ProjectPermission {
+  id          String        @id @default(uuid())
+  member      ProjectMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  memberId    String
+  resource    String        // PROJECT, DOCUMENTS, TASKS, ISSUES, CALENDAR, COMMENTS, APPROVALS
+  action      String        // VIEW, CREATE, EDIT, DELETE, APPROVE, SHARE, EXPORT
+  granted     Boolean       @default(false)
+  grantedAt   DateTime?
+  grantedBy   String?       // User ID who granted this permission
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([memberId, resource, action])
+  @@index([memberId])
+  @@index([resource])
+  @@index([action])
+  @@index([granted])
+}
+
+model Container {
+  id          String          @id @default(uuid())
+  name        String
+  code        String          // ISO 19650 container code
+  status      ContainerStatus
+  project     Project         @relation(fields: [projectId], references: [id])
+  projectId   String
+  documents   Document[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([projectId])
+  @@index([status])
+  @@index([code])
+  @@index([projectId, status])
+}
+
+enum ContainerStatus {
+  WORK_IN_PROGRESS
+  SHARED
+  PUBLISHED
+  ARCHIVED
+}
+
+model Document {
+  id           String            @id @default(uuid())
+  name         String            // ISO 19650 formatted filename
+  originalName String?           // Original uploaded filename
+  description  String?
+  fileUrl      String
+  shareUrl     String?           // Cloudinary share URL
+  downloadUrl  String?           // Cloudinary download URL
+  cloudinaryId String?           // Cloudinary file ID
+  fileSize     Int
+  fileType     String
+  version      Int               @default(1)
+  revisionCode String?           // ISO 19650 revision code
+  status       DocumentStatus
+  metadata     Json?             // Additional BIM metadata
+  project      Project           @relation(fields: [projectId], references: [id])
+  projectId    String
+  container    Container?        @relation(fields: [containerId], references: [id])
+  containerId  String?
+  uploader     User              @relation(fields: [uploaderId], references: [id])
+  uploaderId   String
+  tasks        TaskDocument[]
+  history      DocumentHistory[]
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@index([projectId])
+  @@index([containerId])
+  @@index([uploaderId])
+  @@index([status])
+  @@index([fileType])
+  @@index([createdAt])
+  @@index([updatedAt])
+  @@index([name])
+  @@index([projectId, status])
+  @@index([projectId, createdAt])
+}
+
+enum DocumentStatus {
+  WORK_IN_PROGRESS
+  SHARED
+  PUBLISHED
+  ARCHIVED
+}
+
+model DocumentHistory {
+  id           String         @id @default(uuid())
+  document     Document       @relation(fields: [documentId], references: [id])
+  documentId   String
+  version      Int
+  fileUrl      String
+  revisionCode String?
+  status       DocumentStatus
+  updatedBy    String
+  comment      String?
+  createdAt    DateTime       @default(now())
+
+  @@index([documentId])
+  @@index([version])
+  @@index([status])
+  @@index([createdAt])
+  @@index([documentId, version])
+}
+
+model Task {
+  id          String         @id @default(uuid())
+  code        String         @unique // Task code for easy reference
+  title       String
+  description String?
+  status      TaskStatus
+  priority    Priority
+  category    String?        @default("OTHER")
+  dueDate     DateTime?
+  assignee    User?          @relation(fields: [assigneeId], references: [id])
+  assigneeId  String?
+  project     Project        @relation(fields: [projectId], references: [id])
+  projectId   String
+  documents   TaskDocument[]
+  comments    Comment[]
+  history     TaskHistory[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  startDate   DateTime?
+
+  @@index([projectId])
+  @@index([assigneeId])
+  @@index([status])
+  @@index([priority])
+  @@index([dueDate])
+  @@index([startDate])
+  @@index([createdAt])
+  @@index([updatedAt])
+  @@index([title])
+  @@index([code])
+  @@index([projectId, status])
+  @@index([projectId, assigneeId])
+  @@index([status, priority])
+  @@index([dueDate, status])
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  COMPLETED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+model TaskDocument {
+  task        Task     @relation(fields: [taskId], references: [id])
+  taskId      String
+  document    Document @relation(fields: [documentId], references: [id])
+  documentId  String
+  createdAt   DateTime @default(now())
+
+  @@id([taskId, documentId])
+  @@index([taskId])
+  @@index([documentId])
+}
+
+model Comment {
+  id         String   @id @default(uuid())
+  content    String
+  task       Task?    @relation(fields: [taskId], references: [id])
+  taskId     String?
+  issue      Issue?   @relation(fields: [issueId], references: [id])
+  issueId    String?
+  project    Project? @relation(fields: [projectId], references: [id])
+  projectId  String?
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  attachments Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([taskId])
+  @@index([issueId])
+  @@index([projectId])
+  @@index([userId])
+  @@index([createdAt])
+  @@index([taskId, createdAt])
+  @@index([projectId, createdAt])
+}
+
+model TaskHistory {
+  id        String   @id @default(uuid())
+  task      Task     @relation(fields: [taskId], references: [id])
+  taskId    String
+  action    String
+  details   String?
+  userId    String
+  createdAt DateTime @default(now())
+
+  @@index([taskId])
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@index([taskId, createdAt])
+}
+
+model ActivityLog {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  action      String   // upload, download, approve, comment, tag, ...
+  objectType  String   // project, document, task, comment, ...
+  objectId    String   // id của đối tượng liên quan
+  description String?
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([objectType])
+  @@index([objectId])
+  @@index([createdAt])
+}
+
+model Issue {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  title       String
+  description String?
+  type        String   // ISSUE, RFI
+  status      String   // NEW, IN_PROGRESS, RESOLVED, CLOSED, OVERDUE
+  priority    String   // HIGH, MEDIUM, LOW
+  dueDate     DateTime? // Hạn xử lý
+  project     Project? @relation(fields: [projectId], references: [id])
+  projectId   String?
+  createdBy   User?    @relation("IssueCreatedBy", fields: [createdById], references: [id])
+  createdById String?
+  assignee    User?    @relation("IssueAssignee", fields: [assigneeId], references: [id])
+  assigneeId  String?
+  comments    Comment[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([dueDate])
+  @@index([projectId])
+  @@index([assigneeId])
+  @@index([status])
+  @@index([priority])
+  @@index([createdAt])
+  @@index([updatedAt])
+}
+
+model CalendarEvent {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  type        String   // MEETING, DEADLINE, MILESTONE, EVENT
+  startDate   DateTime
+  endDate     DateTime
+  location    String?
+  isAllDay    Boolean? @default(false)
+  color       String?
+  reminder    Int?     // minutes before event
+  project     Project? @relation(fields: [projectId], references: [id])
+  projectId   String?
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  createdById String?
+  attendees   CalendarEventAttendee[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CalendarEventAttendee {
+  event     CalendarEvent @relation(fields: [eventId], references: [id])
+  eventId   String
+  user      User          @relation(fields: [userId], references: [id])
+  userId    String
+  // Có thể bổ sung trường trạng thái tham gia (accepted, declined, tentative)
+  status    String?       // ACCEPTED, DECLINED, TENTATIVE, INVITED
+  @@id([eventId, userId])
+  @@index([userId])
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  title       String
+  type        String   // PROGRESS, DOCUMENT, ISSUE, USER, MODEL, ...
+  data        Json
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  createdById String?
+  createdAt   DateTime @default(now())
+}
+
+// ISO 19650 Configuration Models
+model ISOConfig {
+  id          String   @id @default(uuid())
+  key         String   @unique // 'document_statuses', 'metadata_fields', 'approval_steps', 'file_naming'
+  value       Json     // Configuration data
+  description String?
+  isActive    Boolean  @default(true)
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  createdById String?
+  updatedBy   User?    @relation("ISOConfigUpdatedBy", fields: [updatedById], references: [id])
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([key])
+  @@index([isActive])
+  @@index([createdAt])
+}
+
+// System Settings
+model SystemSetting {
+  id          String   @id @default(uuid())
+  key         String   @unique // 'site_name', 'logo_url', 'email_settings', etc.
+  value       String
+  description String?
+  category    String   // system, user, project, etc.
+  isActive    Boolean  @default(true)
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  createdById String?
+  updatedBy   User?    @relation("SystemSettingUpdatedBy", fields: [updatedById], references: [id])
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([key])
+  @@index([category])
+  @@index([isActive])
+}
+
+model ProjectShare {
+  id        String   @id @default(uuid())
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId String
+  sharedBy  User     @relation("ProjectSharedBy", fields: [sharedById], references: [id])
+  sharedById String
+  sharedWith String  // Email of the person being shared with
+  message   String?  // Optional message
+  status    String   @default("PENDING") // PENDING, ACCEPTED, DECLINED, REVOKED
+  expiresAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([projectId])
+  @@index([sharedById])
+  @@index([sharedWith])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Notes and Folders Models
+model Note {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  color       String   @default("#FFD700") // Màu mặc định
+  isPinned    Boolean  @default(false)
+  isArchived  Boolean  @default(false)
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  folder      Folder?  @relation(fields: [folderId], references: [id])
+  folderId    String?
+  shares      NoteShare[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+  @@index([folderId])
+  @@index([isPinned])
+  @@index([isArchived])
+  @@index([createdAt])
+  @@index([updatedAt])
+}
+
+model Folder {
+  id          String   @id @default(uuid())
+  name        String
+  color       String   @default("#4CAF50") // Màu xanh mặc định
+  icon        String   @default("folder") // Icon mặc định
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  notes       Note[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([updatedAt])
+}
+
+model NoteShare {
+  id          String   @id @default(uuid())
+  note        Note     @relation(fields: [noteId], references: [id])
+  noteId      String
+  sharedBy    User     @relation("NoteSharedBy", fields: [sharedById], references: [id])
+  sharedById  String
+  sharedWith  User     @relation("NoteSharedWith", fields: [sharedWithId], references: [id])
+  sharedWithId String
+  permissions String   @default("read") // read, edit, admin
+  message     String?  // Optional message
+  status      String   @default("PENDING") // PENDING, ACCEPTED, DECLINED, REVOKED
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([noteId])
+  @@index([sharedById])
+  @@index([sharedWithId])
+  @@index([permissions])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Design Checklist Models
+model DesignChecklist {
+  id          String   @id @default(uuid())
+  name        String   // Tên checklist
+  project     Project  @relation(fields: [projectId], references: [id])
+  projectId   String
+  description String?  // Mô tả
+  createdBy   User     @relation("ChecklistCreatedBy", fields: [createdById], references: [id])
+  createdById String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  items       DesignChecklistItem[]
+  templates   DesignChecklistTemplate[]
+
+  @@index([projectId])
+  @@index([createdById])
+  @@index([createdAt])
+  @@index([updatedAt])
+}
+
+model DesignChecklistItem {
+  id          String   @id @default(uuid())
+  checklist   DesignChecklist @relation(fields: [checklistId], references: [id], onDelete: Cascade)
+  checklistId String
+  category    String   // Hạng mục kiểm tra (giao thông, san nền, thoát nước mưa...)
+  content     String   // Nội dung cần kiểm tra
+  order       Int      // Thứ tự hiển thị
+  isChecked   Boolean  @default(false)
+  notes       String?  // Ghi chú
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([checklistId])
+  @@index([category])
+  @@index([order])
+  @@index([isChecked])
+}
+
+model DesignChecklistTemplate {
+  id          String   @id @default(uuid())
+  name        String   // Tên mẫu
+  description String?  // Mô tả mẫu
+  checklist   DesignChecklist @relation(fields: [checklistId], references: [id], onDelete: Cascade)
+  checklistId String
+  createdBy   User     @relation("TemplateCreatedBy", fields: [createdById], references: [id])
+  createdById String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  items       DesignChecklistTemplateItem[]
+
+  @@index([checklistId])
+  @@index([createdById])
+  @@index([isActive])
+  @@index([createdAt])
+}
+
+model DesignChecklistTemplateItem {
+  id          String   @id @default(uuid())
+  template    DesignChecklistTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  templateId  String
+  category    String   // Hạng mục kiểm tra
+  content     String   // Nội dung cần kiểm tra
+  order       Int      // Thứ tự hiển thị
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([templateId])
+  @@index([category])
+  @@index([order])
+}
+
+model DesignChecklistCategory {
+  id             String   @id @default(uuid())
+  name           String   @unique // Tên hạng mục (giao thông, san nền, thoát nước mưa...)
+  description    String?  // Mô tả hạng mục
+  color          String   @default("#1890ff") // Màu hiển thị
+  defaultContent Json?    // Nội dung mặc định cho hạng mục này
+  isActive       Boolean  @default(true)
+  createdBy      User     @relation("CategoryCreatedBy", fields: [createdById], references: [id], onDelete: Cascade)
+  createdById    String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([name])
+  @@index([isActive])
+  @@index([createdById])
+  @@index([createdAt])
+}
+
+// Approval Document Models
+model ApprovalDocument {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  project     Project  @relation(fields: [projectId], references: [id])
+  projectId   String
+  assignedUser User    @relation("ApprovalAssignedTo", fields: [assignedToId], references: [id])
+  assignedToId String
+  category    String   @default("Giao Thông") // Hạng mục: Giao Thông, San Nền, Kè hồ
+  status      ApprovalStatus @default(PENDING)
+  currentStage ApprovalStage @default(DESIGN)
+  currentVersion Int    @default(1) // Phiên bản hiện tại (1, 2, 3...)
+  priority    ApprovalPriority @default(MEDIUM)
+  sendDate    DateTime @default(now())
+  signDate    DateTime?
+  rejectionReason String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  history     ApprovalHistory[]
+  comments    ApprovalComment[]
+
+  @@index([projectId])
+  @@index([assignedToId])
+  @@index([category])
+  @@index([status])
+  @@index([currentStage])
+  @@index([currentVersion])
+  @@index([priority])
+  @@index([sendDate])
+  @@index([createdAt])
+}
+
+model ApprovalHistory {
+  id          String   @id @default(uuid())
+  document    ApprovalDocument @relation(fields: [approvalDocumentId], references: [id], onDelete: Cascade)
+  approvalDocumentId String
+  action      String   // created, approved, rejected, version_updated
+  fromStage   String
+  toStage     String
+  fromVersion Int?
+  toVersion   Int?
+  timestamp   DateTime @default(now())
+  user        User     @relation("ApprovalHistoryUser", fields: [userId], references: [id])
+  userId      String
+  comment     String?
+
+  @@index([approvalDocumentId])
+  @@index([userId])
+  @@index([timestamp])
+}
+
+model ApprovalComment {
+  id          String   @id @default(uuid())
+  document    ApprovalDocument @relation(fields: [approvalDocumentId], references: [id], onDelete: Cascade)
+  approvalDocumentId String
+  content     String
+  stage       String
+  timestamp   DateTime @default(now())
+  user        User     @relation("ApprovalCommentUser", fields: [userId], references: [id])
+  userId      String
+
+  @@index([approvalDocumentId])
+  @@index([userId])
+  @@index([timestamp])
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+enum ApprovalStage {
+  DESIGN
+  KCS
+  VERIFICATION
+  APPRAISAL
+}
+
+enum ApprovalPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+// Todo Models
+model Todo {
+  id          String      @id @default(uuid())
+  title       String
+  description String?
+  completed   Boolean     @default(false)
+  priority    TodoPriority @default(MEDIUM)
+  dueDate     DateTime
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([userId])
+  @@index([dueDate])
+  @@index([completed])
+  @@index([priority])
+  @@index([createdAt])
+  @@index([userId, dueDate])
+  @@index([userId, completed])
+}
+
+enum TodoPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+// User Session Management for Single Device Login
+model UserSession {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionId    String   @unique // JWT token ID or unique session identifier
+  deviceInfo   String?  // Browser, OS, device type
+  ipAddress    String?  // IP address of the device
+  userAgent    String?  // Full user agent string
+  isActive     Boolean  @default(true)
+  lastActivity DateTime @default(now())
+  createdAt    DateTime @default(now())
+  expiresAt    DateTime // Session expiration time
+
+  @@index([userId])
+  @@index([sessionId])
+  @@index([isActive])
+  @@index([lastActivity])
+  @@index([expiresAt])
+  @@index([userId, isActive])
+}
+
+// User Preferences Model
+model UserPreference {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  key         String   // 'theme', 'language', 'sidebarCollapsed', 'dashboardLayout', etc.
+  value       String   // JSON string or simple string value
+  category    String   @default("ui") // 'ui', 'dashboard', 'project', 'document', etc.
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, key])
+  @@index([userId])
+  @@index([key])
+  @@index([category])
+  @@index([isActive])
+  @@index([userId, category])
+}
+
+// Permission and Role Management
+model Permission {
+  id          String   @id @default(uuid())
+  code        String   @unique // 'manage_users', 'manage_projects', etc.
+  name        String
+  nameVi      String
+  description String?
+  category    String   // 'user_management', 'project_management', 'document_management', etc.
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  rolePermissions RolePermission[]
+
+  @@index([code])
+  @@index([category])
+  @@index([isActive])
+}
+
+model UserRole {
+  id          String   @id @default(uuid())
+  code        String   @unique // 'admin', 'project_manager', 'editor', 'approver', 'viewer'
+  name        String
+  nameVi      String
+  color       String?
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  rolePermissions RolePermission[]
+
+  @@index([code])
+  @@index([isActive])
+}
+
+model RolePermission {
+  id           String     @id @default(uuid())
+  role         UserRole   @relation(fields: [roleId], references: [id])
+  roleId       String
+  permission   Permission @relation(fields: [permissionId], references: [id])
+  permissionId String
+  granted      Boolean    @default(true)
+  grantedBy    User?      @relation("PermissionGrantedBy", fields: [grantedById], references: [id])
+  grantedById  String?
+  grantedAt    DateTime   @default(now())
+  user         User?      @relation("UserRolePermissions", fields: [userId], references: [id])
+  userId       String?
+
+  @@unique([roleId, permissionId])
+  @@index([roleId])
+  @@index([permissionId])
+  @@index([granted])
+  @@index([grantedAt])
+  @@index([userId])
+}

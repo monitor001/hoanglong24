@@ -1,0 +1,940 @@
+/* Mobile Improvements for Dashboard and Projects */
+@import './unified-breakpoints.css';
+
+/* Dashboard Chart Scroll Improvements */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .dashboard-chart-card .ant-card-body {
+    padding: 8px !important;
+  }
+  
+  .dashboard-chart-card .chart-container {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  /* Smooth scrolling for chart containers */
+  .chart-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Better touch targets for chart interactions */
+  .chart-container canvas {
+    touch-action: manipulation;
+  }
+}
+
+/* Projects Mobile Improvements */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Statistics cards - 2 per row with better spacing */
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Optimize statistic cards for mobile */
+  .summary-grid .ant-card {
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+  }
+  
+  .summary-grid .ant-card-body {
+    padding: 12px !important;
+  }
+  
+  .summary-grid .ant-statistic-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .summary-grid .ant-statistic-content {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .summary-grid .ant-statistic-content-prefix {
+    font-size: 14px !important;
+  }
+  
+  /* Mobile search and filter improvements */
+  .mobile-search-container {
+    margin-bottom: 12px !important;
+  }
+  
+  .mobile-search-container .ant-btn {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Mobile filter drawer improvements */
+  .mobile-filter-drawer .ant-drawer-content {
+    border-radius: 16px 16px 0 0 !important;
+  }
+  
+  .mobile-filter-drawer .ant-drawer-body {
+    padding: 16px !important;
+  }
+  
+  .mobile-filter-drawer .ant-space {
+    width: 100% !important;
+  }
+  
+  .mobile-filter-drawer .ant-input,
+  .mobile-filter-drawer .ant-select {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile project cards container */
+  .mobile-projects-container {
+    max-height: calc(100vh - 280px) !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 8px 0;
+  }
+  
+  /* Enhanced mobile project cards */
+  .mobile-project-card {
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .mobile-project-card:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  }
+  
+  .mobile-project-card .ant-card-body {
+    padding: 12px !important;
+  }
+  
+  /* Project card header with tags */
+  .mobile-project-card .project-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .mobile-project-card .project-tags {
+    display: flex !important;
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .mobile-project-card .project-tags .ant-tag {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Project title and description */
+  .mobile-project-card .project-title {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px !important;
+    color: #262626 !important;
+  }
+  
+  .mobile-project-card .project-description {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    color: #666 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  
+  /* Project manager info */
+  .mobile-project-card .project-manager {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .mobile-project-card .project-manager .ant-avatar {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+  }
+  
+  .mobile-project-card .project-manager .ant-typography {
+    font-size: 10px !important;
+    color: #666 !important;
+  }
+  
+  /* Project dates and priority */
+  .mobile-project-card .project-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .mobile-project-card .project-dates {
+    font-size: 9px !important;
+    color: #999 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+  
+  .mobile-project-card .project-priority {
+    font-size: 8px !important;
+  }
+  
+  /* Progress bar */
+  .mobile-project-card .project-progress {
+    margin-bottom: 8px !important;
+  }
+  
+  .mobile-project-card .ant-progress {
+    margin-bottom: 0 !important;
+  }
+  
+  .mobile-project-card .ant-progress-text {
+    font-size: 10px !important;
+  }
+  
+  /* Project actions */
+  .mobile-project-card .project-actions {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 8px !important;
+  }
+  
+  .mobile-project-card .action-buttons {
+    display: flex !important;
+    gap: 6px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn {
+    font-size: 9px !important;
+    height: 24px !important;
+    padding: 0 8px !important;
+    border-radius: 4px !important;
+  }
+  
+  .mobile-project-card .project-stats {
+    display: flex !important;
+    gap: 4px !important;
+  }
+  
+  .mobile-project-card .project-stats .ant-badge {
+    font-size: 8px !important;
+  }
+  
+  .mobile-project-card .project-stats .ant-btn {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Better touch targets */
+  .mobile-project-card .ant-btn {
+    min-height: 24px !important;
+    min-width: 24px !important;
+  }
+  
+  /* Optimized text sizes for mobile */
+  .mobile-project-card .ant-typography {
+    font-size: 11px !important;
+  }
+  
+  .mobile-project-card .ant-tag {
+    font-size: 9px !important;
+  }
+  
+  /* Progress bar optimization */
+  .mobile-project-card .ant-progress {
+    margin-bottom: 6px !important;
+  }
+  
+  /* Avatar optimization */
+  .mobile-project-card .ant-avatar {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* Tablet Improvements */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+/* Desktop Improvements */
+@media (min-width: 1025px) {
+  .summary-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 20px !important;
+  }
+}
+
+/* Dark theme improvements */
+[data-theme="dark"] .mobile-project-card {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .mobile-project-card .ant-card-body {
+  background: #1f1f1f !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-title {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-description {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-manager .ant-typography {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-dates {
+  color: #999 !important;
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Ensure minimum touch target size */
+  .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .ant-tag {
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+  }
+  
+  /* Better scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent text selection on touch */
+  .mobile-project-card {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Smooth animations */
+  .mobile-project-card {
+    transition: transform 0.2s ease;
+  }
+  
+  .mobile-project-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Loading states for mobile */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-spin-container {
+    padding: 16px !important;
+  }
+  
+  .ant-empty {
+    padding: 20px !important;
+  }
+}
+
+/* Modal and drawer improvements for mobile */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-modal {
+    margin: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  
+  .ant-drawer {
+    width: 100% !important;
+  }
+  
+  .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+}
+
+/* ===== TASKS AND ISSUES MOBILE IMPROVEMENTS ===== */
+
+/* Mobile-specific container improvements */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Main container improvements */
+  .tasks-container,
+  .issues-container {
+    padding: 12px !important;
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Header improvements */
+  .page-header {
+    margin-bottom: 16px !important;
+    padding: 0 !important;
+  }
+
+  .page-header .ant-typography {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* ===== STATISTICS CARDS IMPROVEMENTS ===== */
+  
+  /* Statistics cards rules đã được xử lý trong unified-mobile-cards.css */
+
+  /* ===== FILTER IMPROVEMENTS ===== */
+  
+  /* Mobile filter container */
+  .mobile-filter-container {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Mobile filter card */
+  .mobile-filter-card {
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .mobile-filter-card .ant-card-body {
+    padding: 12px !important;
+  }
+  
+  /* Mobile filter row */
+  .mobile-filter-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  /* Mobile filter inputs */
+  .mobile-filter-row .ant-input,
+  .mobile-filter-row .ant-select {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Mobile filter buttons */
+  .mobile-filter-row .ant-btn {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Mobile filter drawer */
+  .mobile-filter-drawer {
+    border-radius: 16px 16px 0 0 !important;
+  }
+  
+  .mobile-filter-drawer .ant-drawer-body {
+    padding: 16px !important;
+  }
+  
+  .mobile-filter-drawer .ant-space {
+    width: 100% !important;
+  }
+  
+  .mobile-filter-drawer .ant-input,
+  .mobile-filter-drawer .ant-select {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Mobile filter button */
+  .mobile-filter-button {
+    width: 100% !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  /* Mobile search container */
+  .mobile-search-container {
+    margin-bottom: 12px !important;
+  }
+  
+  .mobile-search-container .ant-input {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+  }
+  
+  .mobile-search-container .ant-btn {
+    width: 100% !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    margin-top: 8px !important;
+  }
+
+  /* ===== MOBILE CARD CONTAINERS ===== */
+  
+  /* Mobile task cards container */
+  .mobile-tasks-container {
+    max-height: calc(100vh - 280px) !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 8px 0;
+  }
+
+  /* Enhanced mobile task cards */
+  .mobile-task-card {
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-task-card:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  }
+
+  .mobile-task-card .ant-card-body {
+    padding: 12px !important;
+  }
+
+  /* Task card header with tags */
+  .mobile-task-card .task-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-task-card .task-tags {
+    display: flex !important;
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .mobile-task-card .task-tags .ant-tag {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+  }
+
+  /* Task title and description */
+  .mobile-task-card .task-title {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px !important;
+    color: #262626 !important;
+  }
+
+  .mobile-task-card .task-description {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    color: #666 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Task assignee info */
+  .mobile-task-card .task-assignee {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-task-card .task-assignee .ant-avatar {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+  }
+
+  .mobile-task-card .task-assignee .ant-typography {
+    font-size: 10px !important;
+    color: #666 !important;
+  }
+
+  /* Task dates and priority */
+  .mobile-task-card .task-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 6px !important;
+  }
+
+  .mobile-task-card .task-dates {
+    font-size: 9px !important;
+    color: #999 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+
+  .mobile-task-card .task-priority {
+    font-size: 8px !important;
+  }
+
+  /* Progress bar */
+  .mobile-task-card .task-progress {
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-task-card .ant-progress {
+    margin-bottom: 0 !important;
+  }
+
+  .mobile-task-card .ant-progress-text {
+    font-size: 10px !important;
+  }
+
+  /* Task actions */
+  .mobile-task-card .task-actions {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 8px !important;
+  }
+
+  .mobile-task-card .action-buttons {
+    display: flex !important;
+    gap: 6px !important;
+  }
+
+  .mobile-task-card .action-buttons .ant-btn {
+    font-size: 9px !important;
+    height: 24px !important;
+    padding: 0 8px !important;
+    border-radius: 4px !important;
+  }
+
+  .mobile-task-card .task-stats {
+    display: flex !important;
+    gap: 4px !important;
+  }
+
+  .mobile-task-card .task-stats .ant-badge {
+    font-size: 8px !important;
+  }
+
+  .mobile-task-card .task-stats .ant-btn {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+  }
+
+  /* Mobile issue cards container */
+  .mobile-issues-container {
+    max-height: calc(100vh - 280px) !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 8px 0;
+  }
+
+  /* Enhanced mobile issue cards */
+  .mobile-issue-card {
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-issue-card:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  }
+
+  .mobile-issue-card .ant-card-body {
+    padding: 12px !important;
+  }
+
+  /* Issue card header with tags */
+  .mobile-issue-card .issue-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-issue-card .issue-tags {
+    display: flex !important;
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .mobile-issue-card .issue-tags .ant-tag {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+  }
+
+  /* Issue title and description */
+  .mobile-issue-card .issue-title {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px !important;
+    color: #262626 !important;
+  }
+
+  .mobile-issue-card .issue-description {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    color: #666 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Issue assignee info */
+  .mobile-issue-card .issue-assignee {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-issue-card .issue-assignee .ant-avatar {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+  }
+
+  .mobile-issue-card .issue-assignee .ant-typography {
+    font-size: 10px !important;
+    color: #666 !important;
+  }
+
+  /* Issue dates and priority */
+  .mobile-issue-card .issue-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 6px !important;
+  }
+
+  .mobile-issue-card .issue-dates {
+    font-size: 9px !important;
+    color: #999 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+
+  .mobile-issue-card .issue-priority {
+    font-size: 8px !important;
+  }
+
+  /* Issue actions */
+  .mobile-issue-card .issue-actions {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 8px !important;
+  }
+
+  .mobile-issue-card .action-buttons {
+    display: flex !important;
+    gap: 6px !important;
+  }
+
+  .mobile-issue-card .action-buttons .ant-btn {
+    font-size: 9px !important;
+    height: 24px !important;
+    padding: 0 8px !important;
+    border-radius: 4px !important;
+  }
+
+  .mobile-issue-card .issue-stats {
+    display: flex !important;
+    gap: 4px !important;
+  }
+
+  .mobile-issue-card .issue-stats .ant-badge {
+    font-size: 8px !important;
+  }
+
+  .mobile-issue-card .issue-stats .ant-btn {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+  }
+
+  /* Better touch targets */
+  .mobile-task-card .ant-btn,
+  .mobile-issue-card .ant-btn {
+    min-height: 24px !important;
+    min-width: 24px !important;
+  }
+
+  .mobile-task-card .ant-tag,
+  .mobile-issue-card .ant-tag {
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+  }
+
+  /* Optimized text sizes for mobile */
+  .mobile-task-card .ant-typography,
+  .mobile-issue-card .ant-typography {
+    font-size: 11px !important;
+  }
+
+  .mobile-task-card .ant-tag,
+  .mobile-issue-card .ant-tag {
+    font-size: 9px !important;
+  }
+
+  /* Avatar optimization */
+  .mobile-task-card .ant-avatar,
+  .mobile-issue-card .ant-avatar {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* Dark theme improvements for Tasks and Issues */
+[data-theme="dark"] .mobile-task-card,
+[data-theme="dark"] .mobile-issue-card {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .mobile-task-card .ant-card-body,
+[data-theme="dark"] .mobile-issue-card .ant-card-body {
+  background: #1f1f1f !important;
+}
+
+[data-theme="dark"] .mobile-task-card .task-title,
+[data-theme="dark"] .mobile-issue-card .issue-title {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-task-card .task-description,
+[data-theme="dark"] .mobile-issue-card .issue-description {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-task-card .task-assignee .ant-typography,
+[data-theme="dark"] .mobile-issue-card .issue-assignee .ant-typography {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-task-card .task-dates,
+[data-theme="dark"] .mobile-issue-card .issue-dates {
+  color: #999 !important;
+}
+
+/* Touch-friendly improvements for Tasks and Issues */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Ensure minimum touch target size */
+  .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .ant-tag {
+    min-height: 20px !important;
+    padding: 2px 6px !important;
+  }
+  
+  /* Better scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent text selection on touch */
+  .mobile-task-card,
+  .mobile-issue-card {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Smooth animations */
+  .mobile-task-card,
+  .mobile-issue-card {
+    transition: transform 0.2s ease;
+  }
+  
+  .mobile-task-card:active,
+  .mobile-issue-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Loading states for mobile */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-spin-container {
+    padding: 16px !important;
+  }
+  
+  .ant-empty {
+    padding: 20px !important;
+  }
+}
+
+/* Modal and drawer improvements for mobile */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .ant-modal {
+    margin: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  
+  .ant-drawer {
+    width: 100% !important;
+  }
+  
+  .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+}
+

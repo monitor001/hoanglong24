@@ -1,0 +1,74 @@
+{
+  "name": "MiniCDE BIM ISO 19650",
+  "description": "A comprehensive CDE (Common Data Environment) system for BIM ISO 19650 compliance",
+  "repository": "https://github.com/your-username/minicde-bim-iso19650",
+  "logo": "https://qlda.hoanglong24.com/hoang_long_24_logo.svg",
+  "keywords": ["bim", "iso19650", "cde", "construction", "project-management"],
+  "website": "https://qlda.hoanglong24.com",
+  "success_url": "/",
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment (production/development)",
+      "value": "production",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT token generation",
+      "generator": "secret",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL",
+      "required": true
+    },
+    "REDIS_URL": {
+      "description": "Redis URL for caching and sessions",
+      "required": false
+    },
+    "CORS_ORIGIN": {
+      "description": "Comma-separated list of allowed CORS origins",
+      "value": "https://qlda.hoanglong24.com,https://*.herokuapp.com",
+      "required": false
+    },
+    "AZURE_TENANT_ID": {
+      "description": "Azure AD Tenant ID for OneDrive integration",
+      "required": false
+    },
+    "AZURE_CLIENT_ID": {
+      "description": "Azure AD Client ID for OneDrive integration",
+      "required": false
+    },
+    "AZURE_CLIENT_SECRET": {
+      "description": "Azure AD Client Secret for OneDrive integration",
+      "required": false
+    },
+    "AZURE_REFRESH_TOKEN": {
+      "description": "Azure AD Refresh Token for OneDrive integration",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini",
+      "as": "DATABASE"
+    },
+    {
+      "plan": "heroku-redis:mini",
+      "as": "REDIS"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "npm run db:migrate && npm run db:seed"
+  }
+} 

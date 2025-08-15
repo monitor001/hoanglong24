@@ -1,0 +1,159 @@
+/* Chart-specific styles - Minimal and focused */
+@import './unified-breakpoints.css';
+
+/* Chart container responsive heights */
+.chart-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Mobile chart heights */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .chart-container {
+    height: 300px;
+    min-height: 300px;
+  }
+}
+
+/* Tablet Portrait chart heights */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .chart-container {
+    height: 320px;
+    min-height: 320px;
+  }
+}
+
+/* Tablet Landscape chart heights - optimized for 2 charts per row */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .chart-container {
+    height: 300px;
+    min-height: 300px;
+  }
+  
+  /* Specific optimizations for dashboard overview charts */
+  .dashboard-overview-charts .chart-container {
+    height: 280px;
+    min-height: 280px;
+  }
+  
+  /* Task and issue charts - slightly smaller for 2+1 layout */
+  .dashboard-task-charts .chart-container,
+  .dashboard-issue-charts .chart-container {
+    height: 290px;
+    min-height: 290px;
+  }
+}
+
+/* Desktop chart heights */
+@media (min-width: 992px) {
+  .chart-container {
+    height: 350px;
+    min-height: 350px;
+  }
+}
+
+/* Chart legend responsive adjustments */
+@media (max-width: 575px) {
+  .chartjs-legend {
+    font-size: 10px;
+    padding: 4px;
+  }
+  
+  .chartjs-legend-item {
+    margin: 2px 4px;
+  }
+}
+
+/* Print styles for charts */
+@media print {
+  .chart-container {
+    height: 200px;
+    page-break-inside: avoid;
+  }
+}
+
+/* Dashboard Card styles for dark theme */
+[data-theme="dark"] .ant-card {
+  background: transparent !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-card .ant-card-head {
+  background: transparent !important;
+  border-bottom-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-card .ant-card-body {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-card .ant-card-head-title {
+  color: #e8e8e8 !important;
+}
+
+/* Ensure chart cards have transparent background in dark theme */
+[data-theme="dark"] .dashboard-chart-card {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .dashboard-chart-card .ant-card-body {
+  background: transparent !important;
+}
+
+/* Dashboard Tabs styles for dark theme */
+[data-theme="dark"] .ant-tabs {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-nav {
+  background: transparent !important;
+  border-bottom-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab {
+  background: transparent !important;
+  border-color: #303030 !important;
+  color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab-active {
+  background: transparent !important;
+  border-bottom-color: #1890ff !important;
+  color: #1890ff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-content-holder {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tabpane {
+  background: transparent !important;
+}
+
+/* Segmented control styles for dark theme (mobile tabs) */
+[data-theme="dark"] .ant-segmented {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item-selected {
+  background: #1890ff !important;
+  color: #ffffff !important;
+  border-color: #1890ff !important;
+} 

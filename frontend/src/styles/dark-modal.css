@@ -1,0 +1,277 @@
+/* Dark theme modal styling */
+.dark-modal .ant-modal-content {
+  background-color: #1f1f1f !important;
+  border: 1px solid #303030 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-modal .ant-modal-header {
+  background-color: #1f1f1f !important;
+  border-bottom: 1px solid #303030 !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.dark-modal .ant-modal-body {
+  background-color: #1f1f1f !important;
+  color: #fff !important;
+  padding: 24px !important;
+}
+
+.dark-modal .ant-modal-footer {
+  background-color: #1f1f1f !important;
+  border-top: 1px solid #303030 !important;
+  text-align: center !important;
+  padding: 20px 24px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  border-radius: 0 0 16px 16px !important;
+}
+
+/* Enhanced button styling for all devices */
+.dark-modal .ant-modal-footer .ant-btn {
+  height: 44px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 0 24px !important;
+  margin: 0 !important;
+  border-radius: 10px !important;
+  min-width: 120px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-width: 2px !important;
+}
+
+.dark-modal .ant-modal-footer .ant-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Cancel button styling */
+.dark-modal .ant-modal-footer .ant-btn:not(.ant-btn-primary) {
+  background-color: #434343 !important;
+  border-color: #595959 !important;
+  color: #fff !important;
+}
+
+.dark-modal .ant-modal-footer .ant-btn:not(.ant-btn-primary):hover {
+  background-color: #595959 !important;
+  border-color: #737373 !important;
+  color: #fff !important;
+}
+
+/* OK/Delete button styling */
+.dark-modal .ant-modal-footer .ant-btn-primary {
+  background-color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+.dark-modal .ant-modal-footer .ant-btn-primary:hover {
+  background-color: #ff7875 !important;
+  border-color: #ff7875 !important;
+  box-shadow: 0 8px 25px rgba(255, 77, 79, 0.4) !important;
+}
+
+/* Light theme modal styling */
+.ant-modal-confirm .ant-modal-footer {
+  text-align: center !important;
+  padding: 20px 24px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px !important;
+}
+
+.ant-modal-confirm .ant-modal-footer .ant-btn {
+  height: 44px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 0 24px !important;
+  margin: 0 !important;
+  border-radius: 10px !important;
+  min-width: 120px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-width: 2px !important;
+}
+
+.ant-modal-confirm .ant-modal-footer .ant-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.ant-modal-confirm .ant-modal-footer .ant-btn-primary {
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3) !important;
+}
+
+.ant-modal-confirm .ant-modal-footer .ant-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(255, 77, 79, 0.4) !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .dark-modal .ant-modal,
+  .ant-modal-confirm .ant-modal {
+    margin: 20px !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+  
+  .dark-modal .ant-modal-content,
+  .ant-modal-confirm .ant-modal-content {
+    border-radius: 12px !important;
+  }
+  
+  .dark-modal .ant-modal-body,
+  .ant-modal-confirm .ant-modal-body {
+    padding: 20px !important;
+  }
+  
+  .dark-modal .ant-modal-footer,
+  .ant-modal-confirm .ant-modal-footer {
+    padding: 16px 20px !important;
+    gap: 12px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .dark-modal .ant-modal-footer .ant-btn,
+  .ant-modal-confirm .ant-modal-footer .ant-btn {
+    height: 44px !important;
+    font-size: 14px !important;
+    padding: 0 20px !important;
+    min-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dark-modal .ant-modal,
+  .ant-modal-confirm .ant-modal {
+    margin: 24px !important;
+  }
+  
+  .dark-modal .ant-modal-content,
+  .ant-modal-confirm .ant-modal-content {
+    border-radius: 14px !important;
+  }
+  
+  .dark-modal .ant-modal-footer,
+  .ant-modal-confirm .ant-modal-footer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  
+  .dark-modal .ant-modal-footer .ant-btn,
+  .ant-modal-confirm .ant-modal-footer .ant-btn {
+    height: 42px !important;
+    font-size: 14px !important;
+    padding: 0 22px !important;
+    min-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Small screens in landscape */
+@media (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  .dark-modal .ant-modal,
+  .ant-modal-confirm .ant-modal {
+    margin: 12px !important;
+  }
+  
+  .dark-modal .ant-modal-body,
+  .ant-modal-confirm .ant-modal-body {
+    padding: 16px !important;
+  }
+  
+  .dark-modal .ant-modal-footer,
+  .ant-modal-confirm .ant-modal-footer {
+    padding: 12px 16px !important;
+    gap: 10px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .dark-modal .ant-modal-footer .ant-btn,
+  .ant-modal-confirm .ant-modal-footer .ant-btn {
+    height: 40px !important;
+    font-size: 13px !important;
+    padding: 0 16px !important;
+    min-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 1024px) {
+  .dark-modal .ant-modal-footer .ant-btn,
+  .ant-modal-confirm .ant-modal-footer .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .dark-modal .ant-modal-content,
+  .ant-modal-confirm .ant-modal-content {
+    border-width: 0.5px !important;
+  }
+  
+  .dark-modal .ant-modal-footer .ant-btn,
+  .ant-modal-confirm .ant-modal-footer .ant-btn {
+    border-width: 0.5px !important;
+  }
+}
+
+/* Animation improvements */
+.dark-modal .ant-modal,
+.ant-modal-confirm .ant-modal {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.dark-modal .ant-modal-content,
+.ant-modal-confirm .ant-modal-content {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Focus states for accessibility */
+.dark-modal .ant-modal-footer .ant-btn:focus,
+.ant-modal-confirm .ant-modal-footer .ant-btn:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+/* Loading state improvements */
+.dark-modal .ant-modal-footer .ant-btn-loading,
+.ant-modal-confirm .ant-modal-footer .ant-btn-loading {
+  opacity: 0.8 !important;
+  cursor: not-allowed !important;
+}
+
+.dark-modal .ant-modal-footer .ant-btn-loading:hover,
+.ant-modal-confirm .ant-modal-footer .ant-btn-loading:hover {
+  transform: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Keyboard navigation improvements */
+.dark-modal .ant-modal-content:focus,
+.ant-modal-confirm .ant-modal-content:focus {
+  outline: none !important;
+}
+
+/* Print styles */
+@media print {
+  .dark-modal,
+  .ant-modal-confirm {
+    display: none !important;
+  }
+}

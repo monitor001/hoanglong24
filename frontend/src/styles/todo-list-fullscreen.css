@@ -1,0 +1,133 @@
+/* TodoList Fullscreen Layout Styles */
+
+.todo-list {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden;
+  padding: 0 !important;
+}
+
+/* Override default padding for mobile */
+@media (max-width: 768px) {
+  .todo-list {
+    padding: 0 !important;
+  }
+}
+
+/* Override default padding for tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .todo-list {
+    padding: 12px !important;
+  }
+}
+
+.day-cards-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.day-cards-container .ant-row {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.day-cards-container .ant-col {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 1 0% !important;
+}
+
+.day-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .todo-list {
+    padding: 0 !important;
+  }
+  
+  .day-cards-container {
+    padding: 0 !important;
+  }
+  
+  .day-card {
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* Tablet landscape optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .day-cards-container .ant-col {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  .day-cards-container .ant-col {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+  }
+}
+
+/* Ensure cards take full width */
+.day-card .ant-card-body {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Fix for mobile swiper */
+.swiper-slide {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure proper spacing */
+.ant-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.ant-col {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* Additional fixes for fullscreen layout */
+.day-cards-container .ant-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.day-cards-container .ant-card-body {
+  padding: 12px !important;
+}
+
+/* Fix for mobile layout */
+@media (max-width: 768px) {
+  .day-cards-container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .day-cards-container .ant-card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+}
+
+/* Fix for tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .day-cards-container .ant-col {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+    width: 33.333333% !important;
+  }
+}

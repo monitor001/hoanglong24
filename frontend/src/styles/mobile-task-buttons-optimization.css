@@ -1,0 +1,343 @@
+/* Mobile Task Buttons Optimization - Tối ưu hóa nút Cancel và OK cho mobile */
+
+/* =========================
+   MOBILE ACTION BUTTONS OPTIMIZATION
+   ========================= */
+
+/* Base mobile optimization cho nút */
+@media (max-width: 768px) {
+  .action-buttons {
+    position: sticky !important;
+    bottom: 0 !important;
+    background: #fff !important;
+    padding: 12px 0 !important;
+    margin-top: 16px !important;
+    border-top: 1px solid #f0f0f0 !important;
+    z-index: 10 !important;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .action-buttons .ant-btn {
+    flex: 1 !important;
+    height: 44px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    border: 1px solid #d9d9d9 !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Nút Cancel (nút đầu tiên) */
+  .action-buttons .ant-btn:first-child {
+    background: #f5f5f5 !important;
+    color: #595959 !important;
+    border-color: #d9d9d9 !important;
+  }
+
+  .action-buttons .ant-btn:first-child:hover {
+    background: #e6e6e6 !important;
+    border-color: #bfbfbf !important;
+    color: #262626 !important;
+  }
+
+  .action-buttons .ant-btn:first-child:active {
+    background: #d9d9d9 !important;
+    border-color: #a6a6a6 !important;
+    transform: scale(0.98) !important;
+  }
+
+  /* Nút OK/Save (nút cuối cùng) */
+  .action-buttons .ant-btn:last-child {
+    background: #1890ff !important;
+    color: #fff !important;
+    border-color: #1890ff !important;
+  }
+
+  .action-buttons .ant-btn:last-child:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+  }
+
+  .action-buttons .ant-btn:last-child:active {
+    background: #096dd9 !important;
+    border-color: #096dd9 !important;
+    transform: scale(0.98) !important;
+  }
+
+  /* Container cho các nút */
+  .action-buttons > div {
+    display: flex !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  /* Touch optimization cho nút */
+  .action-buttons .ant-btn {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+  }
+
+  /* Focus states cho accessibility */
+  .action-buttons .ant-btn:focus {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* =========================
+   SMALL MOBILE OPTIMIZATION (max-width: 480px)
+   ========================= */
+
+@media (max-width: 480px) {
+  .action-buttons {
+    padding: 10px 0 !important;
+    margin-top: 12px !important;
+  }
+
+  .action-buttons .ant-btn {
+    height: 40px !important;
+    font-size: 13px !important;
+  }
+
+  .action-buttons > div {
+    gap: 10px !important;
+  }
+}
+
+/* =========================
+   TABLET OPTIMIZATION (481px - 768px)
+   ========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .action-buttons {
+    padding: 16px 0 !important;
+    margin-top: 20px !important;
+  }
+
+  .action-buttons .ant-btn {
+    height: 48px !important;
+    font-size: 15px !important;
+  }
+
+  .action-buttons > div {
+    gap: 16px !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION (769px - 1024px, landscape)
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .action-buttons {
+    padding: 12px 0 !important;
+    margin-top: 16px !important;
+  }
+
+  .action-buttons .ant-btn {
+    height: 42px !important;
+    font-size: 14px !important;
+  }
+
+  .action-buttons > div {
+    gap: 12px !important;
+  }
+}
+
+/* =========================
+   DRAWER SPECIFIC OPTIMIZATIONS
+   ========================= */
+
+/* Drawer specific button optimizations */
+.mobile-task-edit-drawer .action-buttons {
+  position: sticky !important;
+  bottom: 0 !important;
+  background: #fff !important;
+  padding: 12px 0 !important;
+  margin-top: 16px !important;
+  border-top: 1px solid #f0f0f0 !important;
+  z-index: 10 !important;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn {
+  flex: 1 !important;
+  height: 44px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  border: 1px solid #d9d9d9 !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Drawer nút Cancel */
+.mobile-task-edit-drawer .action-buttons .ant-btn:first-child {
+  background: #f5f5f5 !important;
+  color: #595959 !important;
+  border-color: #d9d9d9 !important;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn:first-child:hover {
+  background: #e6e6e6 !important;
+  border-color: #bfbfbf !important;
+  color: #262626 !important;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn:first-child:active {
+  background: #d9d9d9 !important;
+  border-color: #a6a6a6 !important;
+  transform: scale(0.98) !important;
+}
+
+/* Drawer nút OK/Save */
+.mobile-task-edit-drawer .action-buttons .ant-btn:last-child {
+  background: #1890ff !important;
+  color: #fff !important;
+  border-color: #1890ff !important;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn:last-child:hover {
+  background: #40a9ff !important;
+  border-color: #40a9ff !important;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn:last-child:active {
+  background: #096dd9 !important;
+  border-color: #096dd9 !important;
+  transform: scale(0.98) !important;
+}
+
+/* Drawer container cho các nút */
+.mobile-task-edit-drawer .action-buttons > div {
+  display: flex !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+/* Drawer touch optimization */
+.mobile-task-edit-drawer .action-buttons .ant-btn {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Drawer focus states */
+.mobile-task-edit-drawer .action-buttons .ant-btn:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS FOR DRAWER
+   ========================= */
+
+/* Small mobile cho drawer */
+@media (max-width: 480px) {
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 10px 0 !important;
+    margin-top: 12px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 40px !important;
+    font-size: 13px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons > div {
+    gap: 10px !important;
+  }
+}
+
+/* Tablet cho drawer */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 16px 0 !important;
+    margin-top: 20px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 48px !important;
+    font-size: 15px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons > div {
+    gap: 16px !important;
+  }
+}
+
+/* Tablet landscape cho drawer */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 12px 0 !important;
+    margin-top: 16px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 42px !important;
+    font-size: 14px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons > div {
+    gap: 12px !important;
+  }
+}
+
+/* =========================
+   ADDITIONAL OPTIMIZATIONS
+   ========================= */
+
+/* Loading states cho nút */
+.action-buttons .ant-btn-loading {
+  pointer-events: none !important;
+  opacity: 0.7 !important;
+}
+
+/* Disabled states cho nút */
+.action-buttons .ant-btn[disabled] {
+  background: #f5f5f5 !important;
+  color: #bfbfbf !important;
+  border-color: #d9d9d9 !important;
+  cursor: not-allowed !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .action-buttons .ant-btn {
+    border-width: 2px !important;
+  }
+  
+  .action-buttons .ant-btn:first-child {
+    border-color: #000 !important;
+    color: #000 !important;
+  }
+  
+  .action-buttons .ant-btn:last-child {
+    border-color: #000 !important;
+    background: #000 !important;
+    color: #fff !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .action-buttons .ant-btn {
+    transition: none !important;
+  }
+  
+  .action-buttons .ant-btn:active {
+    transform: none !important;
+  }
+}

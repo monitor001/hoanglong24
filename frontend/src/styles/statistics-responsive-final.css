@@ -1,0 +1,553 @@
+/* Statistics Responsive Final
+ * File CSS cuối cùng để đảm bảo tất cả các thẻ thống kê đều có kích thước chữ phù hợp và responsive
+ * Override tất cả các cấu hình cũ để đảm bảo tính nhất quán
+ */
+
+/* ===== GLOBAL STATISTICS FONT SIZE OVERRIDE ===== */
+
+/* Đảm bảo tất cả statistics cards có font size phù hợp */
+.dashboard-stats-row .ant-statistic-title,
+.tasks-container .dashboard-stats-row .ant-statistic-title,
+.issues-container .dashboard-stats-row .ant-statistic-title,
+.documents-container .dashboard-stats-row .ant-statistic-title,
+.projects-container .dashboard-stats-row .ant-statistic-title,
+.calendar-container .dashboard-stats-row .ant-statistic-title,
+.approval-container .dashboard-stats-row .ant-statistic-title,
+.checklist-container .dashboard-stats-row .ant-statistic-title,
+.stats-container .ant-statistic-title,
+.statistics-row .ant-statistic-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+.dashboard-stats-row .ant-statistic-content,
+.tasks-container .dashboard-stats-row .ant-statistic-content,
+.issues-container .dashboard-stats-row .ant-statistic-content,
+.documents-container .dashboard-stats-row .ant-statistic-content,
+.projects-container .dashboard-stats-row .ant-statistic-content,
+.calendar-container .dashboard-stats-row .ant-statistic-content,
+.approval-container .dashboard-stats-row .ant-statistic-content,
+.checklist-container .dashboard-stats-row .ant-statistic-content,
+.stats-container .ant-statistic-content,
+.statistics-row .ant-statistic-content {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+}
+
+.dashboard-stats-row .ant-statistic-content-value,
+.tasks-container .dashboard-stats-row .ant-statistic-content-value,
+.issues-container .dashboard-stats-row .ant-statistic-content-value,
+.documents-container .dashboard-stats-row .ant-statistic-content-value,
+.projects-container .dashboard-stats-row .ant-statistic-content-value,
+.calendar-container .dashboard-stats-row .ant-statistic-content-value,
+.approval-container .dashboard-stats-row .ant-statistic-content-value,
+.checklist-container .dashboard-stats-row .ant-statistic-content-value,
+.stats-container .ant-statistic-content-value,
+.statistics-row .ant-statistic-content-value {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+}
+
+.dashboard-stats-row .ant-statistic-content-prefix,
+.tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+.issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+.documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+.projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+.calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+.approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+.checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+.stats-container .ant-statistic-content-prefix,
+.statistics-row .ant-statistic-content-prefix {
+  font-size: 18px !important;
+  margin-right: 8px !important;
+  opacity: 1 !important;
+}
+
+.dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+.stats-container .ant-statistic-content-prefix .anticon,
+.statistics-row .ant-statistic-content-prefix .anticon {
+  font-size: 18px !important;
+}
+
+/* ===== MOBILE RESPONSIVE OVERRIDE (≤768px) ===== */
+@media (max-width: 768px) {
+  
+  /* Title text - Giảm kích thước chữ cho mobile */
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  
+  /* Value text - Giảm kích thước chữ cho mobile */
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 14px !important;
+    line-height: 1.1 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  /* Value number - Giảm kích thước chữ cho mobile */
+  .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .issues-container .dashboard-stats-row .ant-statistic-content-value,
+  .documents-container .dashboard-stats-row .ant-statistic-content-value,
+  .projects-container .dashboard-stats-row .ant-statistic-content-value,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-value,
+  .approval-container .dashboard-stats-row .ant-statistic-content-value,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-value,
+  .stats-container .ant-statistic-content-value,
+  .statistics-row .ant-statistic-content-value {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Icon size - Giảm kích thước icon cho mobile */
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 12px !important;
+    margin-right: 3px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .stats-container .ant-statistic-content-prefix .anticon,
+  .statistics-row .ant-statistic-content-prefix .anticon {
+    font-size: 12px !important;
+  }
+  
+  /* Tối ưu hiển thị cho màn hình nhỏ hơn */
+  @media (max-width: 480px) {
+    .dashboard-stats-row .ant-statistic-title,
+    .tasks-container .dashboard-stats-row .ant-statistic-title,
+    .issues-container .dashboard-stats-row .ant-statistic-title,
+    .documents-container .dashboard-stats-row .ant-statistic-title,
+    .projects-container .dashboard-stats-row .ant-statistic-title,
+    .calendar-container .dashboard-stats-row .ant-statistic-title,
+    .approval-container .dashboard-stats-row .ant-statistic-title,
+    .checklist-container .dashboard-stats-row .ant-statistic-title,
+    .stats-container .ant-statistic-title,
+    .statistics-row .ant-statistic-title {
+      font-size: 8px !important;
+      line-height: 1.0 !important;
+      margin-bottom: 1px !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content,
+    .tasks-container .dashboard-stats-row .ant-statistic-content,
+    .issues-container .dashboard-stats-row .ant-statistic-content,
+    .documents-container .dashboard-stats-row .ant-statistic-content,
+    .projects-container .dashboard-stats-row .ant-statistic-content,
+    .calendar-container .dashboard-stats-row .ant-statistic-content,
+    .approval-container .dashboard-stats-row .ant-statistic-content,
+    .checklist-container .dashboard-stats-row .ant-statistic-content,
+    .stats-container .ant-statistic-content,
+    .statistics-row .ant-statistic-content {
+      font-size: 12px !important;
+      line-height: 1.0 !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content-value,
+    .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+    .issues-container .dashboard-stats-row .ant-statistic-content-value,
+    .documents-container .dashboard-stats-row .ant-statistic-content-value,
+    .projects-container .dashboard-stats-row .ant-statistic-content-value,
+    .calendar-container .dashboard-stats-row .ant-statistic-content-value,
+    .approval-container .dashboard-stats-row .ant-statistic-content-value,
+    .checklist-container .dashboard-stats-row .ant-statistic-content-value,
+    .stats-container .ant-statistic-content-value,
+    .statistics-row .ant-statistic-content-value {
+      font-size: 12px !important;
+    }
+  }
+  
+  /* Tối ưu cho màn hình rất nhỏ */
+  @media (max-width: 375px) {
+    .dashboard-stats-row .ant-statistic-title,
+    .tasks-container .dashboard-stats-row .ant-statistic-title,
+    .issues-container .dashboard-stats-row .ant-statistic-title,
+    .documents-container .dashboard-stats-row .ant-statistic-title,
+    .projects-container .dashboard-stats-row .ant-statistic-title,
+    .calendar-container .dashboard-stats-row .ant-statistic-title,
+    .approval-container .dashboard-stats-row .ant-statistic-title,
+    .checklist-container .dashboard-stats-row .ant-statistic-title,
+    .stats-container .ant-statistic-title,
+    .statistics-row .ant-statistic-title {
+      font-size: 7px !important;
+      line-height: 1.0 !important;
+      margin-bottom: 1px !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content,
+    .tasks-container .dashboard-stats-row .ant-statistic-content,
+    .issues-container .dashboard-stats-row .ant-statistic-content,
+    .documents-container .dashboard-stats-row .ant-statistic-content,
+    .projects-container .dashboard-stats-row .ant-statistic-content,
+    .calendar-container .dashboard-stats-row .ant-statistic-content,
+    .approval-container .dashboard-stats-row .ant-statistic-content,
+    .checklist-container .dashboard-stats-row .ant-statistic-content,
+    .stats-container .ant-statistic-content,
+    .statistics-row .ant-statistic-content {
+      font-size: 11px !important;
+      line-height: 1.0 !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content-value,
+    .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+    .issues-container .dashboard-stats-row .ant-statistic-content-value,
+    .documents-container .dashboard-stats-row .ant-statistic-content-value,
+    .projects-container .dashboard-stats-row .ant-statistic-content-value,
+    .calendar-container .dashboard-stats-row .ant-statistic-content-value,
+    .approval-container .dashboard-stats-row .ant-statistic-content-value,
+    .checklist-container .dashboard-stats-row .ant-statistic-content-value,
+    .stats-container .ant-statistic-content-value,
+    .statistics-row .ant-statistic-content-value {
+      font-size: 11px !important;
+    }
+  }
+}
+
+/* ===== TABLET LANDSCAPE RESPONSIVE OVERRIDE (769px-1366px) ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* Title text - Điều chỉnh kích thước chữ cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  
+  /* Value text - Điều chỉnh kích thước chữ cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+  }
+  
+  /* Value number - Điều chỉnh kích thước chữ cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .issues-container .dashboard-stats-row .ant-statistic-content-value,
+  .documents-container .dashboard-stats-row .ant-statistic-content-value,
+  .projects-container .dashboard-stats-row .ant-statistic-content-value,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-value,
+  .approval-container .dashboard-stats-row .ant-statistic-content-value,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-value,
+  .stats-container .ant-statistic-content-value,
+  .statistics-row .ant-statistic-content-value {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+  }
+  
+  /* Icon size - Điều chỉnh kích thước icon cho tablet landscape */
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 16px !important;
+    margin-right: 6px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .stats-container .ant-statistic-content-prefix .anticon,
+  .statistics-row .ant-statistic-content-prefix .anticon {
+    font-size: 16px !important;
+  }
+  
+  /* Tối ưu cho tablet landscape nhỏ hơn */
+  @media (max-width: 1024px) and (orientation: landscape) {
+    .dashboard-stats-row .ant-statistic-title,
+    .tasks-container .dashboard-stats-row .ant-statistic-title,
+    .issues-container .dashboard-stats-row .ant-statistic-title,
+    .documents-container .dashboard-stats-row .ant-statistic-title,
+    .projects-container .dashboard-stats-row .ant-statistic-title,
+    .calendar-container .dashboard-stats-row .ant-statistic-title,
+    .approval-container .dashboard-stats-row .ant-statistic-title,
+    .checklist-container .dashboard-stats-row .ant-statistic-title,
+    .stats-container .ant-statistic-title,
+    .statistics-row .ant-statistic-title {
+      font-size: 10px !important;
+      line-height: 1.1 !important;
+      margin-bottom: 3px !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content,
+    .tasks-container .dashboard-stats-row .ant-statistic-content,
+    .issues-container .dashboard-stats-row .ant-statistic-content,
+    .documents-container .dashboard-stats-row .ant-statistic-content,
+    .projects-container .dashboard-stats-row .ant-statistic-content,
+    .calendar-container .dashboard-stats-row .ant-statistic-content,
+    .approval-container .dashboard-stats-row .ant-statistic-content,
+    .checklist-container .dashboard-stats-row .ant-statistic-content,
+    .stats-container .ant-statistic-content,
+    .statistics-row .ant-statistic-content {
+      font-size: 16px !important;
+      line-height: 1.1 !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content-value,
+    .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+    .issues-container .dashboard-stats-row .ant-statistic-content-value,
+    .documents-container .dashboard-stats-row .ant-statistic-content-value,
+    .projects-container .dashboard-stats-row .ant-statistic-content-value,
+    .calendar-container .dashboard-stats-row .ant-statistic-content-value,
+    .approval-container .dashboard-stats-row .ant-statistic-content-value,
+    .checklist-container .dashboard-stats-row .ant-statistic-content-value,
+    .stats-container .ant-statistic-content-value,
+    .statistics-row .ant-statistic-content-value {
+      font-size: 16px !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content-prefix,
+    .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+    .stats-container .ant-statistic-content-prefix,
+    .statistics-row .ant-statistic-content-prefix {
+      font-size: 14px !important;
+      margin-right: 4px !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+    .stats-container .ant-statistic-content-prefix .anticon,
+    .statistics-row .ant-statistic-content-prefix .anticon {
+      font-size: 14px !important;
+    }
+  }
+}
+
+/* ===== TABLET PORTRAIT RESPONSIVE OVERRIDE (769px-1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  
+  /* Title text - Điều chỉnh kích thước chữ cho tablet portrait */
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 6px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  
+  /* Value text - Điều chỉnh kích thước chữ cho tablet portrait */
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+  }
+  
+  /* Value number - Điều chỉnh kích thước chữ cho tablet portrait */
+  .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .issues-container .dashboard-stats-row .ant-statistic-content-value,
+  .documents-container .dashboard-stats-row .ant-statistic-content-value,
+  .projects-container .dashboard-stats-row .ant-statistic-content-value,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-value,
+  .approval-container .dashboard-stats-row .ant-statistic-content-value,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-value,
+  .stats-container .ant-statistic-content-value,
+  .statistics-row .ant-statistic-content-value {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+  }
+  
+  /* Icon size - Điều chỉnh kích thước icon cho tablet portrait */
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 16px !important;
+    margin-right: 6px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .stats-container .ant-statistic-content-prefix .anticon,
+  .statistics-row .ant-statistic-content-prefix .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* ===== DARK THEME ADJUSTMENTS ===== */
+
+/* Dark theme title adjustments - REMOVED: Let individual color files handle this */
+/* [data-theme="dark"] .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .tasks-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .issues-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .documents-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .projects-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .calendar-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .approval-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .checklist-container .dashboard-stats-row .ant-statistic-title,
+[data-theme="dark"] .stats-container .ant-statistic-title,
+[data-theme="dark"] .statistics-row .ant-statistic-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+} */
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Hardware acceleration for smooth animations */
+.dashboard-stats-row .ant-card,
+.tasks-container .dashboard-stats-row .ant-card,
+.issues-container .dashboard-stats-row .ant-card,
+.documents-container .dashboard-stats-row .ant-card,
+.projects-container .dashboard-stats-row .ant-card,
+.calendar-container .dashboard-stats-row .ant-card,
+.approval-container .dashboard-stats-row .ant-card,
+.checklist-container .dashboard-stats-row .ant-card,
+.stats-container .ant-card,
+.statistics-row .ant-card {
+  will-change: transform, box-shadow !important;
+  backface-visibility: hidden !important;
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+
+/* Focus states for keyboard navigation */
+.dashboard-stats-row .ant-card:focus,
+.tasks-container .dashboard-stats-row .ant-card:focus,
+.issues-container .dashboard-stats-row .ant-card:focus,
+.documents-container .dashboard-stats-row .ant-card:focus,
+.projects-container .dashboard-stats-row .ant-card:focus,
+.calendar-container .dashboard-stats-row .ant-card:focus,
+.approval-container .dashboard-stats-row .ant-card:focus,
+.checklist-container .dashboard-stats-row .ant-card:focus,
+.stats-container .ant-card:focus,
+.statistics-row .ant-card:focus {
+  outline: 3px solid #1890ff !important;
+  outline-offset: 2px !important;
+}

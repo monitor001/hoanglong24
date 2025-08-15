@@ -1,0 +1,45 @@
+{
+  "name": "MiniCDE Frontend",
+  "description": "Frontend for MiniCDE BIM ISO 19650 system",
+  "repository": "https://github.com/your-username/minicde-bim-iso19650",
+  "logo": "https://qlda.hoanglong24.com/hoang_long_24_logo.svg",
+  "keywords": ["bim", "iso19650", "cde", "react", "typescript", "antd"],
+  "website": "https://qlda.hoanglong24.com",
+  "success_url": "/",
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment (production/development)",
+      "value": "production",
+      "required": true
+    },
+    "REACT_APP_API_URL": {
+      "description": "Backend API URL",
+      "value": "https://minicde-production-589be4b0d52b.herokuapp.com/api",
+      "required": true
+    },
+    "REACT_APP_ENVIRONMENT": {
+      "description": "Application environment",
+      "value": "production",
+      "required": true
+    },
+    "GENERATE_SOURCEMAP": {
+      "description": "Generate source maps for debugging",
+      "value": "false",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "echo 'Frontend deployed successfully!'"
+  }
+} 

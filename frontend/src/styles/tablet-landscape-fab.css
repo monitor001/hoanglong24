@@ -1,0 +1,153 @@
+/* Tablet Landscape FAB Optimizations */
+
+/* Enhanced FAB styling for tablet landscape */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  /* FAB positioning and sizing */
+  .ant-btn[class*="floating-action"] {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 24px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  /* FAB hover effects */
+  .ant-btn[class*="floating-action"]:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* FAB active effects */
+  .ant-btn[class*="floating-action"]:active {
+    transform: scale(0.95) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* FAB positioning adjustments */
+  .ant-btn[class*="floating-action"] {
+    bottom: 24px !important;
+    right: 24px !important;
+    z-index: 1000 !important;
+  }
+
+  /* FAB icon sizing */
+  .ant-btn[class*="floating-action"] .anticon {
+    font-size: 24px !important;
+    line-height: 1 !important;
+  }
+
+  /* Dark mode adjustments */
+  [data-theme="dark"] .ant-btn[class*="floating-action"] {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  [data-theme="dark"] .ant-btn[class*="floating-action"]:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* FAB tooltip positioning */
+  .ant-tooltip {
+    z-index: 1001 !important;
+  }
+
+  /* FAB accessibility */
+  .ant-btn[class*="floating-action"]:focus {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px !important;
+  }
+
+  /* FAB animation for new items */
+  @keyframes fab-pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .ant-btn[class*="floating-action"].fab-pulse {
+    animation: fab-pulse 2s ease-in-out infinite !important;
+  }
+
+  /* FAB responsive adjustments */
+  @media (max-height: 600px) {
+    .ant-btn[class*="floating-action"] {
+      bottom: 16px !important;
+      right: 16px !important;
+      width: 56px !important;
+      height: 56px !important;
+      font-size: 20px !important;
+    }
+  }
+
+  /* FAB for specific pages */
+  .projects-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+  }
+
+  .tasks-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%) !important;
+  }
+
+  .issues-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #ff4d4f 0%, #cf1322 100%) !important;
+  }
+
+  .notes-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #faad14 0%, #d48806 100%) !important;
+  }
+
+  .calendar-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #722ed1 0%, #531dab 100%) !important;
+  }
+
+  .users-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #722ed1 0%, #531dab 100%) !important;
+  }
+
+  .approval-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #13c2c2 0%, #08979c 100%) !important;
+  }
+
+  .documents-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #fa8c16 0%, #d46b08 100%) !important;
+  }
+
+  .todo-page .ant-btn[class*="floating-action"] {
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%) !important;
+  }
+}
+
+/* Mobile FAB adjustments */
+@media (max-width: 768px) {
+  .ant-btn[class*="floating-action"] {
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 20px !important;
+    bottom: 80px !important;
+    right: 20px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .ant-btn[class*="floating-action"]:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+/* Desktop FAB adjustments */
+@media (min-width: 1367px) {
+  .ant-btn[class*="floating-action"] {
+    display: none !important;
+  }
+}

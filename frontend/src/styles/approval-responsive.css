@@ -1,0 +1,235 @@
+/* Approval Kanban Responsive Styles */
+
+/* Tablet Landscape Optimizations for Approval Kanban */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  /* Force 2 columns per row */
+  .approval-kanban .ant-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  /* Optimize Kanban column styling */
+  .kanban-column {
+    height: calc(100vh - 350px) !important;
+    margin-bottom: 16px !important;
+  }
+
+  .kanban-column .ant-card-head {
+    padding: 8px 12px !important;
+    min-height: 40px !important;
+  }
+
+  .kanban-column .ant-card-head-title {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  .kanban-column .ant-card-body {
+    padding: 8px !important;
+    height: calc(100% - 40px) !important;
+    overflow: hidden !important;
+  }
+
+  /* Optimize droppable area */
+  .droppable-area {
+    height: calc(100vh - 420px) !important;
+    padding: 8px !important;
+    overflow-y: auto !important;
+  }
+
+  /* Optimize Kanban cards */
+  .kanban-card {
+    margin-bottom: 8px !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+  }
+
+  .kanban-card .ant-card-head {
+    padding: 4px 8px !important;
+    min-height: 32px !important;
+  }
+
+  .kanban-card .ant-card-head-title {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  .kanban-card .ant-card-body {
+    padding: 6px 8px !important;
+  }
+
+  /* Increase icon sizes and reduce padding */
+  .kanban-card .ant-btn {
+    padding: 4px 6px !important;
+    font-size: 14px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+  }
+
+  .kanban-card .ant-btn-icon-only {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .kanban-card .anticon {
+    font-size: 14px !important;
+  }
+
+  /* Optimize action buttons */
+  .kanban-card .card-actions {
+    gap: 4px !important;
+    margin-top: 6px !important;
+  }
+
+  .kanban-card .card-actions .ant-btn {
+    padding: 2px 4px !important;
+    font-size: 12px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+  }
+
+  /* Optimize tags */
+  .kanban-card .ant-tag {
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    line-height: 14px !important;
+    margin: 2px !important;
+  }
+
+  /* Optimize text sizes */
+  .kanban-card .ant-typography {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  .kanban-card .card-title {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .kanban-card .card-description {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .kanban-card .card-meta {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Optimize statistics cards */
+  .approval-kanban .ant-col .ant-card {
+    margin-bottom: 8px !important;
+  }
+
+  .approval-kanban .ant-statistic-title {
+    font-size: 12px !important;
+  }
+
+  .approval-kanban .ant-statistic-content {
+    font-size: 18px !important;
+  }
+
+  /* Dark theme adjustments */
+  .dark .kanban-card {
+    background-color: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  .dark .kanban-card .ant-card-head {
+    background-color: #141414 !important;
+    border-bottom-color: #303030 !important;
+  }
+
+  .dark .droppable-area {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  /* Ensure full width container */
+  .approval-container {
+    padding: 12px !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Mobile kanban optimizations */
+  .kanban-column {
+    margin-bottom: 12px !important;
+    border-radius: 6px !important;
+  }
+  
+  .kanban-column .ant-card-head {
+    padding: 8px 12px !important;
+  }
+  
+  .kanban-column .ant-card-head-title {
+    font-size: 13px !important;
+  }
+  
+  .kanban-column .ant-card-body {
+    padding: 6px !important;
+    height: auto !important;
+    max-height: 300px !important;
+  }
+  
+  /* Mobile kanban card optimizations */
+  .kanban-card {
+    margin-bottom: 6px !important;
+    border-radius: 4px !important;
+  }
+  
+  .kanban-card .ant-card-body {
+    padding: 6px !important;
+  }
+  
+  .kanban-card .ant-card-head-title {
+    font-size: 11px !important;
+  }
+  
+  .kanban-card .ant-card-body .ant-typography {
+    font-size: 10px !important;
+  }
+  
+  .kanban-card .ant-tag {
+    font-size: 8px !important;
+    padding: 0 2px !important;
+    margin: 0 1px !important;
+  }
+  
+  /* Mobile card actions */
+  .kanban-card .ant-btn {
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+  }
+  
+  .kanban-card .ant-btn .anticon {
+    font-size: 8px !important;
+  }
+  
+  /* Mobile droppable area */
+  .droppable-area {
+    min-height: 150px !important;
+    padding: 4px !important;
+  }
+  
+  /* Mobile empty state */
+  .ant-empty {
+    padding: 16px !important;
+  }
+  
+  .ant-empty-image {
+    height: 30px !important;
+  }
+  
+  .ant-empty-description {
+    font-size: 11px !important;
+  }
+}

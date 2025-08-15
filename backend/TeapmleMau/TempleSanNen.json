@@ -1,0 +1,706 @@
+{
+  "checklist": {
+    "id": "fb897303-6e78-47fd-87f1-8206c817a721",
+    "name": "Kiểm tra hồ sơ giao thông",
+    "projectId": "d26c351a-9429-4a53-b298-db57f032b2d8",
+    "description": "checklist",
+    "createdById": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+    "createdAt": "2025-08-07T08:08:04.841Z",
+    "updatedAt": "2025-08-07T08:08:04.841Z",
+    "project": {
+      "id": "d26c351a-9429-4a53-b298-db57f032b2d8",
+      "name": "Dự án 1",
+      "code": "PRJ-DN1-754205"
+    },
+    "createdBy": {
+      "id": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+      "name": "NguyenThanh",
+      "email": "nguyenthanhvc@gmail.com"
+    },
+    "items": [
+      {
+        "id": "8213b8e9-fa00-408c-93d4-09981051fa07",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Kiểm tra các số liệu đầu vào",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "bc550336-5843-4784-a5a7-d88b89cb9dba",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Hạng mục & Diễn giải công việc",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "3344877a-03a3-4456-b21f-b23a95475a18",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9bc6ef03-62de-44c2-b8de-22c2c18283f1",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9fd042fb-61b4-4837-8335-4ee0376be352",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      }
+    ],
+    "_count": {
+      "items": 5
+    }
+  },
+  "currentTab": "San Nền",
+  "items": [
+    {
+      "id": "bc550336-5843-4784-a5a7-d88b89cb9dba",
+      "category": "San Nền",
+      "content": "Hạng mục & Diễn giải công việc",
+      "isChecked": false,
+      "order": 1,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.9688572332440283-1",
+      "category": "San Nền",
+      "content": "Thuyết minh",
+      "order": 2,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.8775534114936125-2",
+      "category": "San Nền",
+      "content": "Giới thiệu chung",
+      "order": 3,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.49927358675671896-3",
+      "category": "San Nền",
+      "content": "Hiện trạng khu vực (địa hình, địa chất, thủy văn…)",
+      "order": 4,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.9056972827179004-4",
+      "category": "San Nền",
+      "content": "Quy mô công trình (phân cấp, phân hạng…)",
+      "order": 5,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.5896847317898882-5",
+      "category": "San Nền",
+      "content": "Cơ sở thiết kế",
+      "order": 6,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.5387010540692193-6",
+      "category": "San Nền",
+      "content": "Nguyên tắc thiết kế",
+      "order": 7,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.017914904070085336-7",
+      "category": "San Nền",
+      "content": "Các quy chuẩn, tiêu chuẩn áp dụng",
+      "order": 8,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.9062827106031341-8",
+      "category": "San Nền",
+      "content": "Tóm tắt sơ lược nội dung TKCS được duyệt,; các nội dung đề xuất, thay đổi bước BVTC (nếu có); ",
+      "order": 9,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.7417849681548757-9",
+      "category": "San Nền",
+      "content": "Giải pháp thiết kế",
+      "order": 10,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.7439069652887111-10",
+      "category": "San Nền",
+      "content": "Căn cứ lựa chọn cao độ xây dựng",
+      "order": 11,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.038621907337191286-11",
+      "category": "San Nền",
+      "content": "Giải pháp san nền khu vực xây mới",
+      "order": 12,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.2938173993685065-12",
+      "category": "San Nền",
+      "content": "Giải pháp san nền khu vực hiện trạng (đặc biệt các khu vực lấn sông rạch, các vị trí đào đắp cao)",
+      "order": 13,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.787820046523958-13",
+      "category": "San Nền",
+      "content": "Giải pháp chuẩn bị kỹ thuật khác",
+      "order": 14,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.42272948412335365-14",
+      "category": "San Nền",
+      "content": "Giải pháp xử lý nền trước khi đắp (phạm vi nền đường, công trình,…)",
+      "order": 15,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.21435124579607545-15",
+      "category": "San Nền",
+      "content": "Giải pháp đào hồ",
+      "order": 16,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.9713751833267051-16",
+      "category": "San Nền",
+      "content": "Tính toán khối lượng san nền",
+      "order": 17,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.5561625063774037-17",
+      "category": "San Nền",
+      "content": "Phương pháp tính",
+      "order": 18,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.12704376424046993-18",
+      "category": "San Nền",
+      "content": "Tổng hợp khối lượng san nền",
+      "order": 19,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.16162032248938618-19",
+      "category": "San Nền",
+      "content": "Giải pháp cân bằng đào đắp ",
+      "order": 20,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.2162778668716443-20",
+      "category": "San Nền",
+      "content": "Vật liệu đắp (trường hợp tận dụng vật liệu đào chuyển sang đắp, cần đánh giá chỉ tiêu cơ lý của đất theo số liệu khảo sát địa chất).",
+      "order": 21,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.5127013461940725-21",
+      "category": "San Nền",
+      "content": "Độ đầm chặt",
+      "order": 22,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.3552291313781716-22",
+      "category": "San Nền",
+      "content": "Đường công vụ (nếu có), rào chắn …..",
+      "order": 23,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.6912105573636536-23",
+      "category": "San Nền",
+      "content": "Giải pháp thoát nước tạm trong giai đoạn san nền (nếu có)",
+      "order": 24,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.30003889221606117-24",
+      "category": "San Nền",
+      "content": "Giải pháp quan trắc chuyển vị, lún (nếu có)",
+      "order": 25,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.18312654777658255-25",
+      "category": "San Nền",
+      "content": "Biện pháp thi công chủ đạo",
+      "order": 26,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.7406002132810292-26",
+      "category": "San Nền",
+      "content": "Bãi đổ, thải (nếu có)",
+      "order": 27,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.16158434477124906-27",
+      "category": "San Nền",
+      "content": "Phụ lục tính toán: ổn định, tính lún (bao gồm tính bù lún), bản tính các giải pháp đào / đắp giáp ranh;  quy mô tuyến thoát nước tạm…",
+      "order": 28,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.39471113018576365-28",
+      "category": "San Nền",
+      "content": "Bản vẽ",
+      "order": 29,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.9198877397788856-29",
+      "category": "San Nền",
+      "content": "Ghi chú",
+      "order": 30,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.7467541924507216-30",
+      "category": "San Nền",
+      "content": "Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết để có thể tham chiếu thông tin làm cơ sở thi công tại công trường",
+      "order": 31,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.35187125870036484-31",
+      "category": "San Nền",
+      "content": "Mặt bằng xử lý nền hiện trạng",
+      "order": 32,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.7712690980677245-32",
+      "category": "San Nền",
+      "content": "Đánh giá, khoanh vùng, tổng hợp các khu vực: vét bùn, vét hữu cơ, đào nền công trình hiện hữu, chặt phá cây…..",
+      "order": 33,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.019251061385524126-33",
+      "category": "San Nền",
+      "content": "Phạm vi dọn dẹp mặt bằng",
+      "order": 34,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.08400605065489275-34",
+      "category": "San Nền",
+      "content": "Mặt bằng san nền + đường công vụ (nếu có)",
+      "order": 35,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.26827804267144384-35",
+      "category": "San Nền",
+      "content": "Tuân thủ TKCS được duyệt",
+      "order": 36,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.663140651273412-36",
+      "category": "San Nền",
+      "content": "Cao độ thiết kế nút giao thông + các điểm đặc biệt khống chế",
+      "order": 37,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118604-0.8085084127166446-37",
+      "category": "San Nền",
+      "content": "Độ dốc + chiều dài đường",
+      "order": 38,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.12874749665995877-38",
+      "category": "San Nền",
+      "content": "Đường đồng mức thiết kế",
+      "order": 39,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.9046558186382884-39",
+      "category": "San Nền",
+      "content": "Thiết kế đường đồng mức",
+      "order": 40,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.01252171599278007-40",
+      "category": "San Nền",
+      "content": "Cao độ đường đồng mức",
+      "order": 41,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.006529437859185805-41",
+      "category": "San Nền",
+      "content": "Độ dốc san nền",
+      "order": 42,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.9811121196059885-42",
+      "category": "San Nền",
+      "content": "Cao độ đường đồng mức phù hợp với cao độ hè đường, mặt đường ( thể hiện Đường đồng mức đường trong bản vẽ)",
+      "order": 43,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.3302529668631571-43",
+      "category": "San Nền",
+      "content": "Đào hồ",
+      "order": 44,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.4012819272964163-44",
+      "category": "San Nền",
+      "content": "Cao độ bờ hồ, đáy hồ, mực nước thường xuyên, max, min",
+      "order": 45,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.8622218289157506-45",
+      "category": "San Nền",
+      "content": "Kè hồ: đường đỉnh kè, chân kè, cao độ",
+      "order": 46,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.3954295959456059-46",
+      "category": "San Nền",
+      "content": "Giải pháp chuẩn bị kỹ thuật khác",
+      "order": 47,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.19499260579160915-47",
+      "category": "San Nền",
+      "content": "Xứ lý chênh cao độ các vị trí trong và ngoài dự án",
+      "order": 48,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.32199943379864326-48",
+      "category": "San Nền",
+      "content": "Kè: kè sông, kênh, mương, kè biển…",
+      "order": 49,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.17751673560276748-49",
+      "category": "San Nền",
+      "content": "Tường chắn đất",
+      "order": 50,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.9913524998524541-50",
+      "category": "San Nền",
+      "content": "Đắp đê",
+      "order": 51,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.5393697551267607-51",
+      "category": "San Nền",
+      "content": "Taluy",
+      "order": 52,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.5441936762927818-52",
+      "category": "San Nền",
+      "content": "Giải pháp khác bảo vệ khu đất",
+      "order": 53,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.2443085013935954-53",
+      "category": "San Nền",
+      "content": "Mặt cắt điển hình tại các vị trí xử lý chênh cao bằng giải pháp taluy hoặc kè, tường chắn",
+      "order": 54,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.301178213560204-54",
+      "category": "San Nền",
+      "content": "Định vị lô đất, bảng tổng hợp tọa độ định vị các lô đất. Nên để chung cùng vị trí bản vẽ các lô đất",
+      "order": 55,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.4002850157706809-55",
+      "category": "San Nền",
+      "content": "Thuyết minh giải pháp thiết kế",
+      "order": 56,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.98986516428124-56",
+      "category": "San Nền",
+      "content": "Ghi chú, ký hiệu",
+      "order": 57,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.4505540022093292-57",
+      "category": "San Nền",
+      "content": "Bản vẽ tính toán khối lượng",
+      "order": 58,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.2302207596943906-58",
+      "category": "San Nền",
+      "content": "Tính toán khối lượng san nền lưới ô vuông 10x10",
+      "order": 59,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.01091519531346552-59",
+      "category": "San Nền",
+      "content": "Lưới ô vuông song song với cạnh dài của lô đất",
+      "order": 60,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.3905771206339732-60",
+      "category": "San Nền",
+      "content": "Ghi chú, ký hiệu",
+      "order": 61,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.3996150528447989-61",
+      "category": "San Nền",
+      "content": "Tính toán KL theo tuyến: Áp dụng cho các khu đất kéo dài có chiều rộng ô đất <10m",
+      "order": 62,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.031131149403822778-62",
+      "category": "San Nền",
+      "content": "Trắc ngang điển hình, 1 số mặt cắt chi chi tiết trong trường hợp san nền giật cấp (nếu có)",
+      "order": 63,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.12836137479712528-63",
+      "category": "San Nền",
+      "content": "Trắc dọc tuyến: Bình đồ, vị trí tuyến, trắc dọc",
+      "order": 64,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.6196711927307946-64",
+      "category": "San Nền",
+      "content": "Ghi chú, ký hiệu",
+      "order": 65,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.626502527907468-65",
+      "category": "San Nền",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 66,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.04778566350259705-66",
+      "category": "San Nền",
+      "content": "Các bản vẽ chi tiết",
+      "order": 67,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.9175384373998907-67",
+      "category": "San Nền",
+      "content": "Bản vẽ chi tiết kè, tường chắn, taluy, gia cố taluy…",
+      "order": 68,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.4833492773556608-68",
+      "category": "San Nền",
+      "content": "Chi tiết kết cấu",
+      "order": 69,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.500942238320044-69",
+      "category": "San Nền",
+      "content": "Trắc dọc, trắc ngang chi tiết",
+      "order": 70,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.2587953478815985-70",
+      "category": "San Nền",
+      "content": "Tổng hợp chi tiết khối lượng",
+      "order": 71,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.8563505528800469-71",
+      "category": "San Nền",
+      "content": "Bản vẽ chi tiết kè hồ",
+      "order": 72,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.35543760821038217-72",
+      "category": "San Nền",
+      "content": "Chi tiết kết cấu",
+      "order": 73,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.35121594005106926-73",
+      "category": "San Nền",
+      "content": "Trắc dọc, trắc ngang chi tiết",
+      "order": 74,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.4912273282346812-74",
+      "category": "San Nền",
+      "content": "Tổng hợp chi tiết khối lượng",
+      "order": 75,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.6869069989505356-75",
+      "category": "San Nền",
+      "content": "Bản vẽ tọa độ ranh mốc",
+      "order": 76,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.7034651516261334-76",
+      "category": "San Nền",
+      "content": "Bảng vẽ phân vùng đào đắp, đầm chặt",
+      "order": 77,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "San Nền-1754554118605-0.7456522757064856-77",
+      "category": "San Nền",
+      "content": "Các bản vẽ chi tiết khác (đường công vụ, thoát nước tạm, mặt bằng bố trí và chi tiết thiết bị quan trắc, tổ chức thi công và an toàn lao động….)",
+      "order": 78,
+      "isChecked": false,
+      "notes": ""
+    }
+  ],
+  "columns": [
+    "STT",
+    "Hạng mục",
+    "Check",
+    "Ghi chú"
+  ],
+  "exportDate": "2025-08-07T08:09:28.354Z",
+  "version": "1.0"
+}

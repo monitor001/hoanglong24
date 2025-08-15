@@ -1,0 +1,415 @@
+/* Tasks Mobile Height Optimization
+ * Tối ưu hóa chiều cao container chứa các thẻ thống kê cho mobile
+ * Giải quyết vấn đề container có chiều cao lớn trên mobile
+ */
+
+/* ===== MOBILE OPTIMIZATION (≤ 768px) ===== */
+@media (max-width: 768px) {
+  /* Giảm chiều cao container chính */
+  .tasks-container {
+    padding: 12px !important;
+  }
+  
+  /* Tối ưu chiều cao cho dashboard stats row */
+  .tasks-container .dashboard-stats-row {
+    margin-bottom: 12px !important;
+  }
+  
+  /* Xử lý trường hợp container lồng nhau */
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Đảm bảo container con không có padding thừa */
+  .tasks-container .tasks-container {
+    padding: 0 !important;
+  }
+  
+  /* Fix vấn đề chiều cao container lồng nhau */
+  .tasks-container .tasks-container {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+  
+  /* Giảm margin-bottom của row trong container lồng nhau */
+  .tasks-container .dashboard-stats-row .ant-row {
+    margin-bottom: 8px !important;
+  }
+  
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin-bottom: 4px !important;
+  }
+  
+  /* Fix vấn đề chiều cao 832px - Override tất cả height rules */
+  .tasks-container,
+  .tasks-container .tasks-container,
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Đảm bảo row không có height cố định */
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Giảm chiều cao các card thống kê */
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    margin-bottom: 4px !important;
+    border-radius: 6px !important;
+  }
+  
+  /* Tối ưu padding cho card body */
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 6px 8px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Tối ưu font size cho mobile */
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-title {
+    font-size: 9px !important;
+    line-height: 1.0 !important;
+    margin-bottom: 2px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content {
+    font-size: 14px !important;
+    line-height: 1.0 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-value {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix {
+    font-size: 10px !important;
+    margin-right: 2px !important;
+  }
+  
+  /* Tối ưu icon size */
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon {
+    font-size: 12px !important;
+  }
+  
+  /* Giảm gutter cho Row */
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -2px !important;
+    row-gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-col,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-col {
+    padding: 0 2px !important;
+  }
+  
+  /* Override tất cả inline styles có thể gây vấn đề */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Override margin-left và margin-right */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+  }
+  
+  /* Đảm bảo không có khoảng trống thừa */
+  .tasks-container .dashboard-stats-row:empty,
+  .tasks-container .tasks-container .dashboard-stats-row:empty {
+    display: none !important;
+  }
+  
+  /* Fix khoảng cách giữa statistics cards và filters */
+  .tasks-container .dashboard-stats-row + * {
+    margin-top: 12px !important;
+  }
+}
+
+/* ===== SMALL MOBILE OPTIMIZATION (≤ 480px) ===== */
+@media (max-width: 480px) {
+  /* Giảm thêm chiều cao cho màn hình nhỏ */
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 55px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  /* Giảm padding cho card body */
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 4px 6px !important;
+  }
+  
+  /* Giảm font size cho màn hình nhỏ */
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-title {
+    font-size: 8px !important;
+    line-height: 0.9 !important;
+    margin-bottom: 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content {
+    font-size: 12px !important;
+    line-height: 0.9 !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-value {
+    font-size: 12px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix {
+    font-size: 9px !important;
+    margin-right: 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon {
+    font-size: 10px !important;
+  }
+  
+  /* Giảm gutter cho màn hình nhỏ */
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -1px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-col,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-col {
+    padding: 0 1px !important;
+  }
+  
+  /* Override inline styles cho màn hình nhỏ */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+    margin-right: -1px !important;
+  }
+  
+  /* Fix khoảng cách cho màn hình nhỏ */
+  .tasks-container .dashboard-stats-row + * {
+    margin-top: 8px !important;
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE OPTIMIZATION (≤ 360px) ===== */
+@media (max-width: 360px) {
+  /* Tối ưu cho màn hình rất nhỏ */
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 3px 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-title {
+    font-size: 7px !important;
+    line-height: 0.8 !important;
+    margin-bottom: 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content {
+    font-size: 11px !important;
+    line-height: 0.8 !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-value {
+    font-size: 11px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix {
+    font-size: 8px !important;
+    margin-right: 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon {
+    font-size: 9px !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Tối ưu cho mobile landscape */
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 4px 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-title {
+    font-size: 8px !important;
+    line-height: 0.9 !important;
+    margin-bottom: 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content {
+    font-size: 12px !important;
+    line-height: 0.9 !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-value,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-value {
+    font-size: 12px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix {
+    font-size: 9px !important;
+    margin-right: 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-statistic-content-prefix .anticon {
+    font-size: 10px !important;
+  }
+  
+  /* Override inline styles cho landscape */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+  }
+  
+  /* Fix khoảng cách cho landscape */
+  .tasks-container .dashboard-stats-row + * {
+    margin-top: 8px !important;
+  }
+}
+
+/* ===== DARK THEME ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card,
+  [data-theme="dark"] .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+  
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:hover,
+  [data-theme="dark"] .tasks-container .tasks-container .dashboard-stats-row .ant-card:hover {
+    border-color: #434343 !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2) !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    will-change: transform, box-shadow !important;
+    backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card:hover,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card:hover {
+    transform: translateY(-1px) translateZ(0) !important;
+    transition: all 0.2s ease !important;
+  }
+}
+
+/* ===== OVERRIDE EXISTING RULES ===== */
+@media (max-width: 768px) {
+  /* Override các rule từ file khác có thể ảnh hưởng */
+  .dashboard-stats-row .ant-card {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+  }
+  
+  .dashboard-stats-row .ant-card-body {
+    padding: 6px 8px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title {
+    font-size: 9px !important;
+    line-height: 1.0 !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content {
+    font-size: 14px !important;
+    line-height: 1.0 !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-value {
+    font-size: 14px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix {
+    font-size: 10px !important;
+    margin-right: 2px !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon {
+    font-size: 12px !important;
+  }
+}

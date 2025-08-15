@@ -1,0 +1,662 @@
+/* ===== PROJECT DETAIL MOBILE OPTIMIZATION ===== */
+@import './unified-breakpoints.css';
+
+/* Mobile Project Detail Container */
+.mobile-project-detail-container {
+  padding: 0 !important;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Mobile Project Detail Header */
+.mobile-project-detail-header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  border-radius: 0 0 12px 12px;
+}
+
+.mobile-project-detail-header .ant-btn {
+  height: 40px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+}
+
+.mobile-project-detail-header .back-button {
+  background: #f0f0f0 !important;
+  border: 1px solid #d9d9d9 !important;
+  color: #666 !important;
+}
+
+.mobile-project-detail-header .action-buttons {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.mobile-project-detail-header .action-buttons .ant-btn {
+  flex: 1 !important;
+  min-width: 0 !important;
+  font-size: 12px !important;
+  padding: 0 8px !important;
+}
+
+.mobile-project-detail-header .action-buttons .ant-btn .anticon {
+  font-size: 14px !important;
+}
+
+/* Mobile Project Title Section */
+.mobile-project-title-section {
+  margin-bottom: 16px;
+}
+
+.mobile-project-title-section .ant-typography {
+  margin: 0 !important;
+}
+
+.mobile-project-title-section .ant-typography h2 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 4px !important;
+  color: #262626 !important;
+}
+
+.mobile-project-title-section .ant-typography-text {
+  font-size: 14px !important;
+  color: #666 !important;
+  line-height: 1.4 !important;
+}
+
+/* Mobile Project Overview Cards */
+.mobile-project-overview {
+  padding: 16px;
+}
+
+.mobile-project-info-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+  margin-bottom: 16px !important;
+}
+
+.mobile-project-info-card .ant-card-body {
+  padding: 16px !important;
+}
+
+.mobile-project-info-card .ant-card-head {
+  padding: 0 16px !important;
+  min-height: 48px !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.mobile-project-info-card .ant-card-head-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #262626 !important;
+}
+
+/* Mobile Project Progress Card */
+.mobile-project-progress-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+  margin-bottom: 16px !important;
+}
+
+.mobile-project-progress-card .ant-card-body {
+  padding: 20px !important;
+  text-align: center !important;
+}
+
+.mobile-project-progress-card .ant-progress-circle {
+  width: 120px !important;
+  height: 120px !important;
+  margin: 0 auto 16px !important;
+}
+
+.mobile-project-progress-card .ant-progress-text {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #1890ff !important;
+}
+
+.mobile-project-progress-card .progress-label {
+  font-size: 14px !important;
+  color: #666 !important;
+  margin-top: 8px !important;
+}
+
+/* Mobile Statistics Cards */
+.mobile-statistics-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.mobile-statistics-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+  background: #fff !important;
+}
+
+.mobile-statistics-card .ant-card-body {
+  padding: 16px !important;
+  text-align: center !important;
+}
+
+.mobile-statistics-card .ant-statistic-title {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.2 !important;
+}
+
+.mobile-statistics-card .ant-statistic-content {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+.mobile-statistics-card .ant-statistic-content-prefix {
+  font-size: 16px !important;
+  margin-right: 4px !important;
+}
+
+/* Mobile Tabs */
+.mobile-project-tabs {
+  padding: 0 16px 16px !important;
+}
+
+.mobile-project-tabs .ant-tabs-nav {
+  margin-bottom: 16px !important;
+  background: #fff !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important;
+}
+
+.mobile-project-tabs .ant-tabs-tab {
+  flex: 1 !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.mobile-project-tabs .ant-tabs-tab-active {
+  background: #1890ff !important;
+  color: #fff !important;
+}
+
+.mobile-project-tabs .ant-tabs-content-holder {
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  overflow: hidden !important;
+}
+
+.mobile-project-tabs .ant-tabs-tabpane {
+  padding: 16px !important;
+}
+
+/* Mobile Table Optimizations */
+.mobile-project-table {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.mobile-project-table .ant-table {
+  font-size: 12px !important;
+}
+
+.mobile-project-table .ant-table-thead > tr > th {
+  padding: 12px 8px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: #fafafa !important;
+}
+
+.mobile-project-table .ant-table-tbody > tr > td {
+  padding: 12px 8px !important;
+  font-size: 12px !important;
+}
+
+.mobile-project-table .ant-table-tbody > tr:hover > td {
+  background: #f5f5f5 !important;
+}
+
+/* Mobile Avatar and User Info */
+.mobile-user-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.mobile-user-info .ant-avatar {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.mobile-user-info .user-details {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.mobile-user-info .user-name {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #262626 !important;
+  line-height: 1.2 !important;
+}
+
+.mobile-user-info .user-email {
+  font-size: 10px !important;
+  color: #666 !important;
+  line-height: 1.2 !important;
+}
+
+/* Mobile Tags */
+.mobile-project-tags .ant-tag {
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  margin: 0 2px 2px 0 !important;
+  font-weight: 500 !important;
+}
+
+/* Mobile Comments */
+.mobile-comments-section {
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  overflow: hidden !important;
+}
+
+.mobile-comments-section .ant-list-item {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.mobile-comments-section .ant-list-item:last-child {
+  border-bottom: none !important;
+}
+
+.mobile-comments-section .ant-list-item-meta-avatar {
+  margin-right: 12px !important;
+}
+
+.mobile-comments-section .ant-list-item-meta-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  margin-bottom: 4px !important;
+}
+
+.mobile-comments-section .ant-list-item-meta-description {
+  font-size: 12px !important;
+  color: #666 !important;
+}
+
+.mobile-comments-section .comment-content {
+  background: #f8f9fa !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  margin-top: 8px !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  color: #262626 !important;
+}
+
+.mobile-comments-section .comment-time {
+  font-size: 10px !important;
+  color: #999 !important;
+}
+
+/* Mobile Empty States */
+.mobile-empty-state {
+  text-align: center !important;
+  padding: 40px 20px !important;
+  color: #999 !important;
+}
+
+.mobile-empty-state .ant-empty-description {
+  font-size: 14px !important;
+  color: #999 !important;
+}
+
+/* Mobile Responsive Breakpoints */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  
+  /* Header optimizations */
+  .mobile-project-detail-header {
+    padding: 12px !important;
+  }
+  
+  .mobile-project-detail-header .action-buttons {
+    gap: 6px !important;
+  }
+  
+  .mobile-project-detail-header .action-buttons .ant-btn {
+    font-size: 11px !important;
+    padding: 0 6px !important;
+  }
+  
+  /* Title optimizations */
+  .mobile-project-title-section .ant-typography h2 {
+    font-size: 18px !important;
+  }
+  
+  .mobile-project-title-section .ant-typography-text {
+    font-size: 13px !important;
+  }
+  
+  /* Overview optimizations */
+  .mobile-project-overview {
+    padding: 12px !important;
+  }
+  
+  .mobile-project-info-card .ant-card-body,
+  .mobile-project-progress-card .ant-card-body {
+    padding: 12px !important;
+  }
+  
+  /* Statistics optimizations */
+  .mobile-statistics-grid {
+    gap: 8px !important;
+  }
+  
+  .mobile-statistics-card .ant-card-body {
+    padding: 12px !important;
+  }
+  
+  .mobile-statistics-card .ant-statistic-title {
+    font-size: 11px !important;
+  }
+  
+  .mobile-statistics-card .ant-statistic-content {
+    font-size: 18px !important;
+  }
+  
+  /* Tabs optimizations */
+  .mobile-project-tabs {
+    padding: 0 12px 12px !important;
+  }
+  
+  .mobile-project-tabs .ant-tabs-tab {
+    font-size: 13px !important;
+    padding: 6px 8px !important;
+  }
+  
+  .mobile-project-tabs .ant-tabs-tabpane {
+    padding: 12px !important;
+  }
+  
+  /* Table optimizations */
+  .mobile-project-table .ant-table-thead > tr > th,
+  .mobile-project-table .ant-table-tbody > tr > td {
+    padding: 8px 6px !important;
+    font-size: 11px !important;
+  }
+  
+  /* User info optimizations */
+  .mobile-user-info .ant-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+  }
+  
+  .mobile-user-info .user-name {
+    font-size: 11px !important;
+  }
+  
+  .mobile-user-info .user-email {
+    font-size: 9px !important;
+  }
+  
+  /* Tags optimizations */
+  .mobile-project-tags .ant-tag {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+  }
+  
+  /* Comments optimizations */
+  .mobile-comments-section .ant-list-item {
+    padding: 10px 12px !important;
+  }
+  
+  .mobile-comments-section .ant-list-item-meta-title {
+    font-size: 12px !important;
+  }
+  
+  .mobile-comments-section .ant-list-item-meta-description {
+    font-size: 11px !important;
+  }
+  
+  .mobile-comments-section .comment-content {
+    font-size: 11px !important;
+    padding: 10px !important;
+  }
+  
+  .mobile-comments-section .comment-time {
+    font-size: 9px !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .mobile-project-detail-header {
+    padding: 10px !important;
+  }
+  
+  .mobile-project-title-section .ant-typography h2 {
+    font-size: 16px !important;
+  }
+  
+  .mobile-project-title-section .ant-typography-text {
+    font-size: 12px !important;
+  }
+  
+  .mobile-project-overview {
+    padding: 10px !important;
+  }
+  
+  .mobile-project-info-card .ant-card-body,
+  .mobile-project-progress-card .ant-card-body {
+    padding: 10px !important;
+  }
+  
+  .mobile-statistics-grid {
+    gap: 6px !important;
+  }
+  
+  .mobile-statistics-card .ant-card-body {
+    padding: 10px !important;
+  }
+  
+  .mobile-statistics-card .ant-statistic-title {
+    font-size: 10px !important;
+  }
+  
+  .mobile-statistics-card .ant-statistic-content {
+    font-size: 16px !important;
+  }
+  
+  .mobile-project-tabs {
+    padding: 0 10px 10px !important;
+  }
+  
+  .mobile-project-tabs .ant-tabs-tab {
+    font-size: 12px !important;
+    padding: 5px 6px !important;
+  }
+  
+  .mobile-project-tabs .ant-tabs-tabpane {
+    padding: 10px !important;
+  }
+  
+  .mobile-project-table .ant-table-thead > tr > th,
+  .mobile-project-table .ant-table-tbody > tr > td {
+    padding: 6px 4px !important;
+    font-size: 10px !important;
+  }
+  
+  .mobile-user-info .ant-avatar {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+  
+  .mobile-user-info .user-name {
+    font-size: 10px !important;
+  }
+  
+  .mobile-user-info .user-email {
+    font-size: 8px !important;
+  }
+  
+  .mobile-project-tags .ant-tag {
+    font-size: 8px !important;
+    padding: 0px 3px !important;
+  }
+  
+  .mobile-comments-section .ant-list-item {
+    padding: 8px 10px !important;
+  }
+  
+  .mobile-comments-section .ant-list-item-meta-title {
+    font-size: 11px !important;
+  }
+  
+  .mobile-comments-section .ant-list-item-meta-description {
+    font-size: 10px !important;
+  }
+  
+  .mobile-comments-section .comment-content {
+    font-size: 10px !important;
+    padding: 8px !important;
+  }
+  
+  .mobile-comments-section .comment-time {
+    font-size: 8px !important;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .mobile-project-detail-container {
+  background: #141414 !important;
+}
+
+[data-theme="dark"] .mobile-project-detail-header {
+  background: #1f1f1f !important;
+  border-bottom: 1px solid #303030 !important;
+}
+
+[data-theme="dark"] .mobile-project-detail-header .back-button {
+  background: #303030 !important;
+  border-color: #434343 !important;
+  color: #d9d9d9 !important;
+}
+
+[data-theme="dark"] .mobile-project-title-section .ant-typography h2 {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-project-title-section .ant-typography-text {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-info-card,
+[data-theme="dark"] .mobile-project-progress-card,
+[data-theme="dark"] .mobile-statistics-card,
+[data-theme="dark"] .mobile-project-tabs .ant-tabs-content-holder,
+[data-theme="dark"] .mobile-comments-section {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .mobile-project-info-card .ant-card-head {
+  border-bottom-color: #303030 !important;
+}
+
+[data-theme="dark"] .mobile-project-info-card .ant-card-head-title {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-project-tabs .ant-tabs-nav {
+  background: #1f1f1f !important;
+}
+
+[data-theme="dark"] .mobile-project-table .ant-table-thead > tr > th {
+  background: #262626 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-project-table .ant-table-tbody > tr:hover > td {
+  background: #262626 !important;
+}
+
+[data-theme="dark"] .mobile-user-info .user-name {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-user-info .user-email {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-comments-section .comment-content {
+  background: #262626 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-comments-section .ant-list-item {
+  border-bottom-color: #303030 !important;
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) and (orientation: portrait),
+       (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+  
+  .mobile-project-detail-header .ant-btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .mobile-project-tabs .ant-tabs-tab {
+    min-height: 44px !important;
+  }
+  
+  .mobile-project-table .ant-table-tbody > tr > td {
+    min-height: 44px !important;
+  }
+  
+  /* Better scrolling */
+  .mobile-project-detail-container {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Smooth animations */
+  .mobile-project-info-card,
+  .mobile-project-progress-card,
+  .mobile-statistics-card,
+  .mobile-comments-section {
+    transition: transform 0.2s ease;
+  }
+  
+  .mobile-project-info-card:active,
+  .mobile-project-progress-card:active,
+  .mobile-statistics-card:active,
+  .mobile-comments-section:active {
+    transform: scale(0.98);
+  }
+}

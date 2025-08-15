@@ -1,0 +1,228 @@
+/* Action Buttons Layout Fix - Sửa lại layout từ space-between thành dàn 1 hàng */
+
+/* =========================
+   GLOBAL ACTION BUTTONS FIX
+   ========================= */
+
+/* Sửa lại layout chính của action buttons */
+.action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important; /* Thay đổi từ space-between */
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+/* Loại bỏ justify-content: space-between cho các div con */
+.action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Thay đổi từ space-between */
+  flex-wrap: wrap !important;
+}
+
+/* Đảm bảo tất cả buttons có cùng style */
+.action-buttons .ant-btn {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 0px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important; /* Ngăn button bị co lại */
+  transition: all 0.2s ease !important;
+}
+
+.action-buttons .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+   ========================= */
+
+@media (max-width: 768px) {
+  .action-buttons {
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .action-buttons > div {
+    gap: 6px !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 28px !important;
+    height: 24px !important;
+    padding: 3px !important;
+    min-width: 28px !important;
+    min-height: 24px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 14px !important;
+  }
+}
+
+/* =========================
+   TABLET OPTIMIZATION
+   ========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .action-buttons > div {
+    gap: 8px !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 30px !important;
+    height: 26px !important;
+    padding: 4px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 15px !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .action-buttons > div {
+    gap: 8px !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 32px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+   ========================= */
+
+@media (max-width: 480px) {
+  .action-buttons {
+    gap: 4px !important;
+  }
+  
+  .action-buttons > div {
+    gap: 4px !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 26px !important;
+    height: 22px !important;
+    padding: 2px !important;
+    min-width: 26px !important;
+    min-height: 22px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 12px !important;
+  }
+}
+
+/* =========================
+   HOVER EFFECTS
+   ========================= */
+
+.action-buttons .ant-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.action-buttons .ant-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+[data-theme="dark"] .action-buttons .ant-btn {
+  border-color: #404040 !important;
+}
+
+[data-theme="dark"] .action-buttons .ant-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =========================
+   TOUCH TARGETS & ACCESSIBILITY
+   ========================= */
+
+@media (max-width: 768px) {
+  .action-buttons .ant-btn {
+    min-width: 32px !important;
+    min-height: 32px !important;
+    position: relative !important;
+  }
+  
+  /* Add invisible padding for better touch targets */
+  .action-buttons .ant-btn::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    z-index: -1;
+  }
+}
+
+/* =========================
+   SPECIFIC OVERRIDES
+   ========================= */
+
+/* Override any existing space-between styles */
+.action-buttons[style*="space-between"] {
+  justify-content: flex-start !important;
+}
+
+/* Ensure consistent spacing for project and task cards */
+.mobile-project-card .action-buttons,
+.mobile-task-card .action-buttons,
+.project-actions .action-buttons,
+.task-actions .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+/* Remove any nested div spacing issues */
+.mobile-project-card .action-buttons > div,
+.mobile-task-card .action-buttons > div,
+.project-actions .action-buttons > div,
+.task-actions .action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+}

@@ -1,0 +1,183 @@
+/* Tasks Container Height Fix
+ * Fix vấn đề chiều cao container chứa statistics cards trên mobile
+ * Giải quyết khoảng trống lớn giữa statistics cards và filters
+ */
+
+/* ===== MOBILE CONTAINER HEIGHT FIX (≤ 768px) ===== */
+@media (max-width: 768px) {
+  /* Fix container chính */
+  .tasks-container {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 8px !important;
+  }
+  
+  /* Fix container lồng nhau */
+  .tasks-container .tasks-container {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  
+  /* Fix dashboard stats row */
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Fix row container */
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 -2px !important;
+    row-gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Override tất cả inline styles */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 8px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"] {
+    row-gap: 4px !important;
+  }
+  
+  /* Fix khoảng cách với phần tử tiếp theo */
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 8px !important;
+  }
+  
+  /* Đảm bảo không có khoảng trống thừa */
+  .tasks-container:empty,
+  .tasks-container .dashboard-stats-row:empty,
+  .tasks-container .tasks-container:empty,
+  .tasks-container .tasks-container .dashboard-stats-row:empty {
+    display: none !important;
+  }
+}
+
+/* ===== SMALL MOBILE CONTAINER HEIGHT FIX (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .tasks-container {
+    padding: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -1px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+    margin-right: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 6px !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE CONTAINER HEIGHT FIX ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .tasks-container {
+    padding: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -2px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 6px !important;
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE CONTAINER HEIGHT FIX (≤ 360px) ===== */
+@media (max-width: 360px) {
+  .tasks-container {
+    padding: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -1px !important;
+    row-gap: 2px !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+    margin-right: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 4px !important;
+  }
+}

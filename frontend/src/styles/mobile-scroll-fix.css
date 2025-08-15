@@ -1,0 +1,212 @@
+/* Mobile Scroll Fix for Dashboard and Projects */
+
+/* Ensure body and html can scroll on mobile */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for mobile layout containers */
+@media (max-width: 768px) {
+  /* Main layout fixes */
+  .ant-layout {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .ant-layout-content {
+    min-height: calc(100vh - 70px); /* Account for bottom nav */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 90px !important; /* Increased space for bottom navigation */
+  }
+  
+  /* Dashboard specific fixes */
+  .dashboard-container {
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 30px; /* Increased padding */
+  }
+  
+  /* Projects specific fixes */
+  .projects-container {
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 30px; /* Increased padding */
+  }
+  
+  /* Tasks specific fixes */
+  .tasks-container {
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 30px; /* Increased padding */
+  }
+  
+  /* Issues specific fixes */
+  .issues-container {
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 30px; /* Increased padding */
+  }
+  
+  /* Fix for chart containers */
+  .chart-container {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 200px;
+  }
+  
+  /* Fix for card containers */
+  .ant-card {
+    margin-bottom: 12px;
+  }
+  
+  .ant-card-body {
+    padding: 12px !important;
+  }
+  
+  /* Fix for tabs */
+  .ant-tabs-content-holder {
+    overflow: visible !important;
+  }
+  
+  .ant-tabs-tabpane {
+    overflow: visible !important;
+  }
+  
+  /* Fix for drawer content */
+  .ant-drawer-body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+  
+  /* Fix for modal content */
+  .ant-modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Ensure proper spacing for mobile */
+  .ant-row {
+    margin: 0 !important;
+  }
+  
+  .ant-col {
+    padding: 4px !important;
+  }
+  
+  /* Fix for statistics cards */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  /* Fix for mobile project cards */
+  .mobile-projects-container {
+    max-height: none !important;
+    overflow-y: visible !important;
+    padding: 8px 0;
+  }
+  
+  /* Fix for mobile project cards */
+  .mobile-project-card {
+    margin-bottom: 8px;
+  }
+  
+  /* Fix for responsive table */
+  .responsive-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix for filters */
+  .dashboard-filters {
+    margin-bottom: 16px;
+  }
+  
+  /* Fix for tabs on mobile */
+  .ant-tabs-nav {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Ensure proper viewport height */
+  .ant-layout {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .ant-layout-content {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 90px !important; /* Consistent padding */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 575px) {
+  .ant-layout-content {
+    padding: 8px !important;
+    padding-bottom: 90px !important; /* Ensure bottom padding */
+  }
+  
+  .dashboard-container,
+  .projects-container,
+  .tasks-container,
+  .issues-container {
+    padding: 8px;
+    padding-bottom: 30px; /* Ensure bottom padding */
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .chart-container {
+    min-height: 180px;
+  }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .ant-layout-content {
+    height: calc(100vh - 70px - env(safe-area-inset-bottom));
+    padding-bottom: calc(90px + env(safe-area-inset-bottom)) !important;
+  }
+  
+  .mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Fix for Android Chrome */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .ant-layout-content {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 90px !important;
+  }
+}
+
+/* Dark theme fixes */
+[data-theme="dark"] .ant-layout-content {
+  background-color: #141414;
+}
+
+[data-theme="dark"] .dashboard-container,
+[data-theme="dark"] .projects-container,
+[data-theme="dark"] .tasks-container,
+[data-theme="dark"] .issues-container {
+  background-color: #141414;
+}

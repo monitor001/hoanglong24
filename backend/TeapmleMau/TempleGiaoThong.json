@@ -1,0 +1,1132 @@
+{
+  "checklist": {
+    "id": "851d3898-6d44-4203-9d5b-9d8fbaab3a25",
+    "name": "Kiểm tra hồ sơ giao thông",
+    "projectId": "d26c351a-9429-4a53-b298-db57f032b2d8",
+    "description": "checklist",
+    "createdById": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+    "createdAt": "2025-08-07T07:58:44.981Z",
+    "updatedAt": "2025-08-07T07:58:44.981Z",
+    "project": {
+      "id": "d26c351a-9429-4a53-b298-db57f032b2d8",
+      "name": "Dự án 1",
+      "code": "PRJ-DN1-754205"
+    },
+    "createdBy": {
+      "id": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+      "name": "NguyenThanh",
+      "email": "nguyenthanhvc@gmail.com"
+    },
+    "items": [
+      {
+        "id": "37620859-831e-4d1a-9b8d-8a0fce055137",
+        "category": "Giao Thông",
+        "content": "checklist giao thông",
+        "isChecked": false
+      },
+      {
+        "id": "a57d8aab-0093-48ea-a378-8da9db6065c4",
+        "checklistId": "851d3898-6d44-4203-9d5b-9d8fbaab3a25",
+        "category": "Unknown",
+        "content": "",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      }
+    ],
+    "_count": {
+      "items": 1
+    }
+  },
+  "currentTab": "Giao Thông",
+  "items": [
+    {
+      "id": "a57d8aab-0093-48ea-a378-8da9db6065c4",
+      "category": "Giao Thông",
+      "content": "Kiểm tra các số liệu đầu vào",
+      "isChecked": false,
+      "order": 1,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.3126817826134993-1",
+      "category": "Giao Thông",
+      "content": "Số liệu tim tuyến QH 1/500, tài liệu được CĐT chấp thuận: tim đường phải có cánh tuyến, Bán kính cong phù hợp tiêu chuẩn, bán kính bó vỉa, bãi đậu xe",
+      "order": 2,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.40301025829734083-2",
+      "category": "Giao Thông",
+      "content": "Đấu nối giao thông",
+      "order": 3,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.4111731491920584-3",
+      "category": "Giao Thông",
+      "content": "Đo E nền đường hiện hữu, E nền đoạn lu thử",
+      "order": 4,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.5235554615186874-4",
+      "category": "Giao Thông",
+      "content": "Cao độ khống chế các tuyến GT, cầu, khu Quy hoạch đã duyệt xung quanh dự án",
+      "order": 5,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.565274894209685-5",
+      "category": "Giao Thông",
+      "content": "Cao độ San nền được duyệt",
+      "order": 6,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.5564375635019276-6",
+      "category": "Giao Thông",
+      "content": "Vị trí Lối ra/vào nhà, cao độ ( có thể cập nhật sau cao độ GT)",
+      "order": 7,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.22869445583794434-7",
+      "category": "Giao Thông",
+      "content": "Các mẫu nhà điển hình, Điển hình concept kiến trúc lối ra/vào nhà, bãi đậu xe",
+      "order": 8,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.3952160858711029-8",
+      "category": "Giao Thông",
+      "content": "Tải trọng trục yêu cầu của CĐT cho từng tuyến đường",
+      "order": 9,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.35189509657125595-9",
+      "category": "Giao Thông",
+      "content": "Chủ trương có bàn giao hạ tầng cho cơ quan nhà nước không?",
+      "order": 10,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.9595916022644367-10",
+      "category": "Giao Thông",
+      "content": "Tiến độ mong muốn từng giai đoạn của CĐT và của Tư vấn, cách thức phối hợp.",
+      "order": 11,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.6499054477651811-11",
+      "category": "Giao Thông",
+      "content": "Thống nhất ranh các tuyến đường; ranh phân chia công việc của hạ tầng và các bộ môn liên quan",
+      "order": 12,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.27691067249594703-12",
+      "category": "Giao Thông",
+      "content": "Rà soát san nền dọc ranh dự án, các độ dốc san nền > 10% => để ra giải pháp thực hiện",
+      "order": 13,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.024496066745126943-13",
+      "category": "Giao Thông",
+      "content": "Báo cáo đầu kì giải pháp thiết kế của Tư vấn",
+      "order": 14,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.13729731902102627-14",
+      "category": "Giao Thông",
+      "content": "Đề xuất khung tiêu chuẩn áp dụng cho dự án",
+      "order": 15,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.4732165766256389-15",
+      "category": "Giao Thông",
+      "content": "Thuyết minh",
+      "order": 16,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.44724490144263873-16",
+      "category": "Giao Thông",
+      "content": "Cơ sở thiết kế",
+      "order": 17,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.7645473223588424-17",
+      "category": "Giao Thông",
+      "content": "Nguyên tắc thiết kế",
+      "order": 18,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.49155530895440713-18",
+      "category": "Giao Thông",
+      "content": "Các quy chuẩn, tiêu chuẩn áp dụng",
+      "order": 19,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.24013894940104408-19",
+      "category": "Giao Thông",
+      "content": "Chỉ tiêu thiết kế các tuyến đường theo phân cấp mạng lưới",
+      "order": 20,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.37463881041795566-20",
+      "category": "Giao Thông",
+      "content": "Giải pháp thiết kế",
+      "order": 21,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.5451086653009135-21",
+      "category": "Giao Thông",
+      "content": "Giao thông đối ngoại",
+      "order": 22,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.8572810958481076-22",
+      "category": "Giao Thông",
+      "content": "Giao thông đối nội",
+      "order": 23,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627666-0.17366462785795622-23",
+      "category": "Giao Thông",
+      "content": "Quy mô các tuyến đường",
+      "order": 24,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.23321685787218593-24",
+      "category": "Giao Thông",
+      "content": "Giải pháp mặt cắt ngang",
+      "order": 25,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.7904327947628019-25",
+      "category": "Giao Thông",
+      "content": "Giải pháp xử lý nền đường",
+      "order": 26,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.47788376162358714-26",
+      "category": "Giao Thông",
+      "content": "Trắc dọc",
+      "order": 27,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.3264437781741907-27",
+      "category": "Giao Thông",
+      "content": "Kết cấu mặt đường",
+      "order": 28,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.5288434841879412-28",
+      "category": "Giao Thông",
+      "content": "Kết cấu vỉa hè",
+      "order": 29,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.4328806074967254-29",
+      "category": "Giao Thông",
+      "content": "Kết cấu bó vỉa",
+      "order": 30,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.679027946854549-30",
+      "category": "Giao Thông",
+      "content": "Kết cấu bó nền",
+      "order": 31,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.790079121141874-31",
+      "category": "Giao Thông",
+      "content": "Bán kính bó vỉa, Bãi đậu xe",
+      "order": 32,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.7269767362403232-32",
+      "category": "Giao Thông",
+      "content": "Điển hình giải pháp xử lý nền, kết cấu tường kè",
+      "order": 33,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.7820095682554526-33",
+      "category": "Giao Thông",
+      "content": "Điển hình concept kiến trúc lối ra/vào nhà",
+      "order": 34,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.40622819486504913-34",
+      "category": "Giao Thông",
+      "content": "Kết cấu đan rãnh",
+      "order": 35,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.9420630181630834-35",
+      "category": "Giao Thông",
+      "content": "Cây xanh",
+      "order": 36,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.16788121880302298-36",
+      "category": "Giao Thông",
+      "content": "Bố trí hố trồng cây",
+      "order": 37,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.347022832850322-37",
+      "category": "Giao Thông",
+      "content": "Khoảng cách hố trồng cây",
+      "order": 38,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.11373322419531195-38",
+      "category": "Giao Thông",
+      "content": "Kết cấu hố trồng cây",
+      "order": 39,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.17528514986905397-39",
+      "category": "Giao Thông",
+      "content": "Giải pháp xử lý đối với các tuyến giáp ranh giới dự án",
+      "order": 40,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.42015509042120636-40",
+      "category": "Giao Thông",
+      "content": "Giải pháp xử lý đối với các tuyến giáp ranh khu vực hiện trạng",
+      "order": 41,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.4386599320497717-41",
+      "category": "Giao Thông",
+      "content": "Giải pháp tổ chức giao thông: vạch sơn kẻ đường, biển báo",
+      "order": 42,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.8468996002578182-42",
+      "category": "Giao Thông",
+      "content": "Bố trí vạch sơn, biển báo",
+      "order": 43,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.5760064404295371-43",
+      "category": "Giao Thông",
+      "content": "Chi tiết vạch sơn, biển báo",
+      "order": 44,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.49651303357699117-44",
+      "category": "Giao Thông",
+      "content": "Biện pháp thi công chủ đạo",
+      "order": 45,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.25058433296702065-45",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 46,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.2029352722700114-46",
+      "category": "Giao Thông",
+      "content": "Tổng hợp khối lượng giao thông",
+      "order": 47,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.693999381030295-47",
+      "category": "Giao Thông",
+      "content": "Tổng hợp khối lượng tổ chức giao thông",
+      "order": 48,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.31574199467712394-48",
+      "category": "Giao Thông",
+      "content": "Phụ lục tính toán:",
+      "order": 49,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.6549548240562332-49",
+      "category": "Giao Thông",
+      "content": "Kết cấu áo đường cứng, áo đường mềm",
+      "order": 50,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.4817181286324771-50",
+      "category": "Giao Thông",
+      "content": "Tính toán ổn định nền đường, tính lún",
+      "order": 51,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.17131876532421653-51",
+      "category": "Giao Thông",
+      "content": "Tài liệu pháp lý liên quan:",
+      "order": 52,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.3314087411226203-52",
+      "category": "Giao Thông",
+      "content": "Các quyết định duyệt, chủ trương",
+      "order": 53,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.8761343505590793-53",
+      "category": "Giao Thông",
+      "content": "Bản vẽ",
+      "order": 54,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.5517350703662145-54",
+      "category": "Giao Thông",
+      "content": "Ghi chú",
+      "order": 55,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.011107139120277276-55",
+      "category": "Giao Thông",
+      "content": "Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết để có thể tham chiếu thông tin làm cơ sở thi công tại công trường",
+      "order": 56,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.587111842654575-56",
+      "category": "Giao Thông",
+      "content": "Mặt bằng giao thông",
+      "order": 57,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.013244222836303665-57",
+      "category": "Giao Thông",
+      "content": "Tuân thủ TKCS được duyệt",
+      "order": 58,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.8534688126886399-58",
+      "category": "Giao Thông",
+      "content": "Cao độ thiết kế nút giao thông + các điểm đặc biệt khống chế",
+      "order": 59,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.8946552556432965-59",
+      "category": "Giao Thông",
+      "content": "Độ dốc + chiều dài đường; chiều dài đoạn đổi dốc",
+      "order": 60,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.0500829460341734-60",
+      "category": "Giao Thông",
+      "content": "Phạm vi kết cấu mặt đường, nút giao thông, hè đường, bãi đỗ xe",
+      "order": 61,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627667-0.2586425151313111-61",
+      "category": "Giao Thông",
+      "content": "Ký hiệu mặt cắt đường",
+      "order": 62,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.14182703693717624-62",
+      "category": "Giao Thông",
+      "content": "Kích thước mặt cắt đường",
+      "order": 63,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.23025993841793058-63",
+      "category": "Giao Thông",
+      "content": "Tên tuyến đường",
+      "order": 64,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.35037830800682235-64",
+      "category": "Giao Thông",
+      "content": "Bán kính cong nằm, bán kính bó vỉa",
+      "order": 65,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.10109835613105711-65",
+      "category": "Giao Thông",
+      "content": "Kiểm soát tầm nhìn, mở rộng đường cong",
+      "order": 66,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.8748528508686733-66",
+      "category": "Giao Thông",
+      "content": "Yếu tố đường cong nằm",
+      "order": 67,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.7708969131602781-67",
+      "category": "Giao Thông",
+      "content": "Tọa độ nút giao thông",
+      "order": 68,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.08468759758716438-68",
+      "category": "Giao Thông",
+      "content": "Bảng tọa độ nút giao, cánh tuyến, R-T-P-K điểm chuyển",
+      "order": 69,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.10773525172311293-69",
+      "category": "Giao Thông",
+      "content": "Ghi chú, ký hiệu",
+      "order": 70,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.42069022615170826-70",
+      "category": "Giao Thông",
+      "content": "Khối lượng diện tích , chiều dài trên mặt bằng",
+      "order": 71,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.1684875912122541-71",
+      "category": "Giao Thông",
+      "content": "Mặt bằng cây xanh",
+      "order": 72,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.45560624645968295-72",
+      "category": "Giao Thông",
+      "content": "Bố trí hố trồng cây",
+      "order": 73,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.631960748826934-73",
+      "category": "Giao Thông",
+      "content": "Dim kích thước hố trồng cây",
+      "order": 74,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.9032538171477386-74",
+      "category": "Giao Thông",
+      "content": "Kết cấu hố trồng cây",
+      "order": 75,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.6280447124520597-75",
+      "category": "Giao Thông",
+      "content": "Kết hợp với thiết kế cảnh quan (Bộ phận QLTK cảnh quan, TNR) để thống nhất giải pháp bố trí hố trồng cây",
+      "order": 76,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.02851846846342443-76",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 77,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.9684454577057704-77",
+      "category": "Giao Thông",
+      "content": "Ghi chú, ký hiệu",
+      "order": 78,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.5853807206641229-78",
+      "category": "Giao Thông",
+      "content": "Mặt bằng xử lý nền đất yếu (nếu có)",
+      "order": 79,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.1294210269516456-79",
+      "category": "Giao Thông",
+      "content": "Khoanh vùng, ký hiệu các vị trí cần xử lý",
+      "order": 80,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.9937947143683962-80",
+      "category": "Giao Thông",
+      "content": "Các giải pháp xử lý nền đất yếu",
+      "order": 81,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.9650951811799888-81",
+      "category": "Giao Thông",
+      "content": "Các mặt cắt chi tiết tại các vị trí xử lý đất yếu",
+      "order": 82,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.6746784028629452-82",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 83,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.6706781313230366-83",
+      "category": "Giao Thông",
+      "content": "Ghi chú, ký hiệu",
+      "order": 84,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.21300067822633206-84",
+      "category": "Giao Thông",
+      "content": "Nút giao thông",
+      "order": 85,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.9927248224080487-85",
+      "category": "Giao Thông",
+      "content": "Mặt bằng chi tiết nút giao",
+      "order": 86,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.5455314233033043-86",
+      "category": "Giao Thông",
+      "content": "Bán kính bó vỉa, bán kính cong nằm",
+      "order": 87,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.8295363941442835-87",
+      "category": "Giao Thông",
+      "content": "Các yếu tố cong nằm",
+      "order": 88,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.8347469020124769-88",
+      "category": "Giao Thông",
+      "content": "Dim kích thước nút giao: hè đường, mặt đường, các cạnh nút giao…",
+      "order": 89,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.21396293825046775-89",
+      "category": "Giao Thông",
+      "content": "Định vị nút giao: tọa độ các điểm khống chế trên nút",
+      "order": 90,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.5038556324059302-90",
+      "category": "Giao Thông",
+      "content": "Mặt bằng đường đồng mức thiết kế nút giao",
+      "order": 91,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.42192290454397696-91",
+      "category": "Giao Thông",
+      "content": "Tính toán khối lượng nút",
+      "order": 92,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.7286860153341317-92",
+      "category": "Giao Thông",
+      "content": "Tổng hợp khối lượng nút",
+      "order": 93,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.7890411761890753-93",
+      "category": "Giao Thông",
+      "content": "Mặt bằng cọc giao thông ",
+      "order": 94,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.9448426377871052-94",
+      "category": "Giao Thông",
+      "content": "Vị trí cọc, tên cọc",
+      "order": 95,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.7868473462028824-95",
+      "category": "Giao Thông",
+      "content": "Tên tuyến đường",
+      "order": 96,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.4715438188157042-96",
+      "category": "Giao Thông",
+      "content": "Ghi chú, ký hiệu",
+      "order": 97,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.5128454205410403-97",
+      "category": "Giao Thông",
+      "content": "Mặt bằng tổ chức giao thông",
+      "order": 98,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.6569919976429021-98",
+      "category": "Giao Thông",
+      "content": "Bố trí biển báo hiệu giao thông",
+      "order": 99,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.24678731911279417-99",
+      "category": "Giao Thông",
+      "content": "Số lượng biển báo trong 1 khu vực không nên quá dày, pA 2 biển báo 1 cột.",
+      "order": 100,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.892135077853552-100",
+      "category": "Giao Thông",
+      "content": "Bố trí vạch sơn",
+      "order": 101,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.2517449386608944-101",
+      "category": "Giao Thông",
+      "content": "Xem khoảng cách các lối sang đường đi bộ (loại thẳng, chéo). Không bố trí quá gần",
+      "order": 102,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.15959710478572342-102",
+      "category": "Giao Thông",
+      "content": "Xem vị trí vạch dọc theo làn đường. Đúng kích thước làn đường",
+      "order": 103,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.5715382075748573-103",
+      "category": "Giao Thông",
+      "content": "Định vị vị trí các vạch kẻ trên bản vẽ",
+      "order": 104,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.2615165675413954-104",
+      "category": "Giao Thông",
+      "content": "Bố trí hạ hè cho người tàn tật",
+      "order": 105,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.4323396375681001-105",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 106,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.23408986241377205-106",
+      "category": "Giao Thông",
+      "content": "Ghi chú, ký hiệu",
+      "order": 107,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.7716272551513786-107",
+      "category": "Giao Thông",
+      "content": "Mặt cắt ngang điển hình",
+      "order": 108,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.7298930011424326-108",
+      "category": "Giao Thông",
+      "content": "Mặt cắt điển hình các tuyến giao thông thể hiện đầy đủ kết cấu, bố trí hệ thống HTKT",
+      "order": 109,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627668-0.5027915802697501-109",
+      "category": "Giao Thông",
+      "content": "Mặt cắt điển hình các tuyến giao thông bố trí vạch sơn, biển báo",
+      "order": 110,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.25287021294512046-110",
+      "category": "Giao Thông",
+      "content": "Trắc dọc tuyến",
+      "order": 111,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.6819485941062317-111",
+      "category": "Giao Thông",
+      "content": "Trắc dọc đủ các tuyến đường trên bình đồ",
+      "order": 112,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.9553145294325842-112",
+      "category": "Giao Thông",
+      "content": "Chiều dài tuyến, tên cọc khớp theo bình đồ; điểm đổi dốc, chiều dài đổi dốc",
+      "order": 113,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.7493286010731173-113",
+      "category": "Giao Thông",
+      "content": "Cao độ đường đỏ khớp theo bình đồ",
+      "order": 114,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.5721356687934062-114",
+      "category": "Giao Thông",
+      "content": "Cao độ đường đen khớp theo bình đồ",
+      "order": 115,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.860901110690189-115",
+      "category": "Giao Thông",
+      "content": "Trắc ngang tuyến",
+      "order": 116,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.4814535627735169-116",
+      "category": "Giao Thông",
+      "content": "Trắc ngang các tuyến đường, mức độ thể hiện chi tiết với khoảng cách trung bình 20m/cọc",
+      "order": 117,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.5180062221931241-117",
+      "category": "Giao Thông",
+      "content": "Cao độ đường đỏ, đen khớp với trắc dọc",
+      "order": 118,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.09724830427461606-118",
+      "category": "Giao Thông",
+      "content": "Kết cấu mặt đường/vỉa hè/bó vỉa/bó hè phù hợp với kết cấu điển hình",
+      "order": 119,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.2227160509117494-119",
+      "category": "Giao Thông",
+      "content": "Xử lý nền đường khớp với hiện trạng bình đồ tuyến, xử lý nền đất yếu",
+      "order": 120,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.9377448344434061-120",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng nền đường từng tuyến",
+      "order": 121,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.3400426647250283-121",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng các tuyến",
+      "order": 122,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.4872827360593326-122",
+      "category": "Giao Thông",
+      "content": "Bản vẽ chi tiết",
+      "order": 123,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.17214978096593292-123",
+      "category": "Giao Thông",
+      "content": "Các chi tiết các kết cấu giao thông",
+      "order": 124,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.813439548279738-124",
+      "category": "Giao Thông",
+      "content": "Chi tiết từng loại kết cấu",
+      "order": 125,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.22877797798513644-125",
+      "category": "Giao Thông",
+      "content": "Khối lượng chi tiết từng kết cấu",
+      "order": 126,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.6580760790302187-126",
+      "category": "Giao Thông",
+      "content": "Các chi tiết tổ chức giao thông",
+      "order": 127,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.7385797723932516-127",
+      "category": "Giao Thông",
+      "content": "Chi tiết từng loại kết cấu",
+      "order": 128,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.48761241589111093-128",
+      "category": "Giao Thông",
+      "content": "Khối lượng chi tiết từng kết cấu",
+      "order": 129,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.07644818086875083-129",
+      "category": "Giao Thông",
+      "content": "Tổng hợp khối lượng toàn bộ hạng mục giao thông",
+      "order": 130,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.09712868538083963-130",
+      "category": "Giao Thông",
+      "content": "Khối lượng giao thông",
+      "order": 131,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.028004532862247355-131",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng theo tuyến",
+      "order": 132,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.7278452690847833-132",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng theo nút",
+      "order": 133,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.257415054647838-133",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng chung",
+      "order": 134,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Giao Thông-1754553627669-0.12230979138654652-134",
+      "category": "Giao Thông",
+      "content": "Bảng tổng hợp khối lượng tổ chức giao thông",
+      "order": 135,
+      "isChecked": false,
+      "notes": ""
+    }
+  ],
+  "columns": [
+    "STT",
+    "Hạng mục",
+    "Check",
+    "Ghi chú"
+  ],
+  "exportDate": "2025-08-07T08:01:49.587Z",
+  "version": "1.0"
+}

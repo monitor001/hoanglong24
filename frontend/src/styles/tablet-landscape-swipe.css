@@ -1,0 +1,94 @@
+/* Tablet Landscape Swipe Styles */
+
+/* Tablet landscape specific styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-landscape-swiper {
+    width: 100% !important;
+    height: calc(100vh - 200px) !important;
+    overflow: hidden;
+  }
+
+  .tablet-landscape-swiper .swiper-slide {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tablet-landscape-swiper .swiper-pagination {
+    bottom: 20px;
+  }
+
+  .tablet-landscape-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0.5;
+  }
+
+  .tablet-landscape-swiper .swiper-pagination-bullet-active {
+    background: #1890ff;
+    opacity: 1;
+  }
+
+  /* Ensure 3 cards per row in tablet landscape */
+  .tablet-landscape-swiper .ant-row {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+
+  .tablet-landscape-swiper .ant-col {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+    padding: 0 8px !important;
+  }
+
+  /* Touch-friendly swipe area */
+  .tablet-landscape-swiper-container {
+    touch-action: pan-x;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* Smooth transitions */
+  .tablet-landscape-swiper .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Visual feedback for swipe */
+  .tablet-landscape-swiper .swiper-slide-active {
+    transform: scale(1);
+  }
+
+  .tablet-landscape-swiper .swiper-slide-prev,
+  .tablet-landscape-swiper .swiper-slide-next {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .tablet-landscape-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .tablet-landscape-swiper .swiper-pagination-bullet-active {
+  background: #1890ff;
+}
+
+/* Responsive adjustments */
+@media (min-width: 1025px) {
+  .tablet-landscape-swiper {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .tablet-landscape-swiper {
+    display: none;
+  }
+}

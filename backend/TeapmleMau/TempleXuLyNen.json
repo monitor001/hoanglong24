@@ -1,0 +1,498 @@
+{
+  "checklist": {
+    "id": "fb897303-6e78-47fd-87f1-8206c817a721",
+    "name": "Kiểm tra hồ sơ giao thông",
+    "projectId": "d26c351a-9429-4a53-b298-db57f032b2d8",
+    "description": "checklist",
+    "createdById": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+    "createdAt": "2025-08-07T08:08:04.841Z",
+    "updatedAt": "2025-08-07T08:08:04.841Z",
+    "project": {
+      "id": "d26c351a-9429-4a53-b298-db57f032b2d8",
+      "name": "Dự án 1",
+      "code": "PRJ-DN1-754205"
+    },
+    "createdBy": {
+      "id": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+      "name": "NguyenThanh",
+      "email": "nguyenthanhvc@gmail.com"
+    },
+    "items": [
+      {
+        "id": "8213b8e9-fa00-408c-93d4-09981051fa07",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Kiểm tra các số liệu đầu vào",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "bc550336-5843-4784-a5a7-d88b89cb9dba",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Hạng mục & Diễn giải công việc",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "3344877a-03a3-4456-b21f-b23a95475a18",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9bc6ef03-62de-44c2-b8de-22c2c18283f1",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9fd042fb-61b4-4837-8335-4ee0376be352",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      }
+    ],
+    "_count": {
+      "items": 5
+    }
+  },
+  "currentTab": "Xử lý nền",
+  "items": [
+    {
+      "id": "3344877a-03a3-4456-b21f-b23a95475a18",
+      "category": "Xử lý nền",
+      "content": "",
+      "isChecked": false,
+      "order": 1,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.1757391845738232-1",
+      "category": "Xử lý nền",
+      "content": "Hạng mục & Diễn giải công việc",
+      "order": 2,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.4816955273925959-2",
+      "category": "Xử lý nền",
+      "content": "Thuyết minh",
+      "order": 3,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.2706401436114182-3",
+      "category": "Xử lý nền",
+      "content": "Giới thiệu chung",
+      "order": 4,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.21805227258767523-4",
+      "category": "Xử lý nền",
+      "content": "Hiện trạng khu vực (địa hình, địa chất, thủy văn…): mô tả kỹ các thông số địa chất, thủy văn",
+      "order": 5,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.19914689677825914-5",
+      "category": "Xử lý nền",
+      "content": "Quy mô công trình (phân cấp, phân hạng…)",
+      "order": 6,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.3739345495471492-6",
+      "category": "Xử lý nền",
+      "content": "Cơ sở và thông số thiết kế",
+      "order": 7,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.09011548492820831-7",
+      "category": "Xử lý nền",
+      "content": "Thông số thiết kế nền mặt đường",
+      "order": 8,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.996399368973936-8",
+      "category": "Xử lý nền",
+      "content": "Mực nước ngầm, mực nước thủy văn tính toán",
+      "order": 9,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.06768488573736653-9",
+      "category": "Xử lý nền",
+      "content": "Tiêu chuẩn về độ lún, ổn định",
+      "order": 10,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.32158443149251603-10",
+      "category": "Xử lý nền",
+      "content": "Hệ số an toàn",
+      "order": 11,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.9746863518480098-11",
+      "category": "Xử lý nền",
+      "content": "Hoạt tải (và các tải trọng khác)",
+      "order": 12,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.6723256147443936-12",
+      "category": "Xử lý nền",
+      "content": "Thời gian xử lý",
+      "order": 13,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.48517276797225717-13",
+      "category": "Xử lý nền",
+      "content": "Các thông số khác phục vụ lựa chọn giải pháp thiết kế",
+      "order": 14,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.5656104389971747-14",
+      "category": "Xử lý nền",
+      "content": "Nguyên tắc thiết kế",
+      "order": 15,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.5312108299741024-15",
+      "category": "Xử lý nền",
+      "content": "Các quy chuẩn, tiêu chuẩn áp dụng",
+      "order": 16,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.891236537657605-16",
+      "category": "Xử lý nền",
+      "content": "Tóm tắt sơ lược nội dung TKCS được duyệt,; các nội dung đề xuất, thay đổi bước BVTC (nếu có); ",
+      "order": 17,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.45693684703403503-17",
+      "category": "Xử lý nền",
+      "content": "Giải pháp thiết kế giải pháp xử lý nền",
+      "order": 18,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.6105067788660651-18",
+      "category": "Xử lý nền",
+      "content": "Đánh giá chi tiết điều kiện địa chất, thủy văn khu vực",
+      "order": 19,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.5559905054522895-19",
+      "category": "Xử lý nền",
+      "content": "Đánh giá chi tiết về ổn định và lún khi chưa xử lý",
+      "order": 20,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.16864922326176335-20",
+      "category": "Xử lý nền",
+      "content": "Đánh giá chi tiết nền trước và sau khi được xử lý",
+      "order": 21,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.590378427111577-21",
+      "category": "Xử lý nền",
+      "content": "Ước tính độ lún, độ cố kết đạt được sau xử lý",
+      "order": 22,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.42350945640067705-22",
+      "category": "Xử lý nền",
+      "content": "Giải pháp kết cấu (cọc đất, bấc thấm hút chân không, bấc thấm gia tải tường, cọc cát, đào thay đất….)",
+      "order": 23,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.23176935884586813-23",
+      "category": "Xử lý nền",
+      "content": "Giải pháp xử lý phạm vi giáp nối với các công trình hiện hữu, giữa các giải pháp xử lý…",
+      "order": 24,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.03789065313031326-24",
+      "category": "Xử lý nền",
+      "content": "Quy trình thi công và kiểm soát chất lượng XLN",
+      "order": 25,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.053826957536416975-25",
+      "category": "Xử lý nền",
+      "content": "Trình tự thi công",
+      "order": 26,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.7220693513175047-26",
+      "category": "Xử lý nền",
+      "content": "Kiểm soát chất lượng thi công",
+      "order": 27,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.39169309351511583-27",
+      "category": "Xử lý nền",
+      "content": "Dự báo sự cố và giải pháp khắc phục",
+      "order": 28,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.7092257035324704-28",
+      "category": "Xử lý nền",
+      "content": "Biện pháp quan trắc trước, trong và sau thi công và tần suất quan trắc",
+      "order": 29,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.2175205826736889-29",
+      "category": "Xử lý nền",
+      "content": "Bố trí thiết bị quan trắc trong giai đoạn xử lý nền",
+      "order": 30,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.14534302385765796-30",
+      "category": "Xử lý nền",
+      "content": "Biện pháp thi công chủ đạo",
+      "order": 31,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.536917043808351-31",
+      "category": "Xử lý nền",
+      "content": "Bãi đổ, thải (nếu có)",
+      "order": 32,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127258-0.03822417816092516-32",
+      "category": "Xử lý nền",
+      "content": "Phụ lục tính toán: ổn định, tính lún, tính toán kết cấu giải pháp xử lý nền, bản tính phạm vi ảnh hưởng giáp ranh…",
+      "order": 33,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.9445266059889601-33",
+      "category": "Xử lý nền",
+      "content": "Bản vẽ",
+      "order": 34,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.7665174287966602-34",
+      "category": "Xử lý nền",
+      "content": "Ghi chú",
+      "order": 35,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.3719658156901354-35",
+      "category": "Xử lý nền",
+      "content": "Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết để có thể tham chiếu thông tin làm cơ sở thi công tại công trường",
+      "order": 36,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.6644698610064477-36",
+      "category": "Xử lý nền",
+      "content": "Xử lý nền",
+      "order": 37,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.6277065675577563-37",
+      "category": "Xử lý nền",
+      "content": "Mặt bằng tổng thể giải pháp xử lý nền",
+      "order": 38,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.747989500799881-38",
+      "category": "Xử lý nền",
+      "content": "Mặt bằng chi tiết xử lý nền",
+      "order": 39,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.8059456132452969-39",
+      "category": "Xử lý nền",
+      "content": "Trắc ngang đại diện xử lý nền",
+      "order": 40,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.25041820910176715-40",
+      "category": "Xử lý nền",
+      "content": "Trắc dọc xử lý nền",
+      "order": 41,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.12208861905753443-41",
+      "category": "Xử lý nền",
+      "content": "Trắc ngang đại diện tính toán khối lượng",
+      "order": 42,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.6521660060064753-42",
+      "category": "Xử lý nền",
+      "content": "Trắc ngang chi tiết xử lý nền",
+      "order": 43,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.11703057785144755-43",
+      "category": "Xử lý nền",
+      "content": "Bảng thống kê chi tiết giải pháp xử lý nền, các biểu đồ đắp gia tải, dỡ tải…",
+      "order": 44,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.9026436042369533-44",
+      "category": "Xử lý nền",
+      "content": "Bố trí khoan địa chất, bố trí thiết bị quan trắc",
+      "order": 45,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.9449368766528229-45",
+      "category": "Xử lý nền",
+      "content": "Mặt bằng bố trí thiết bị quan trắc + lỗ khoan địa chất",
+      "order": 46,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.314689788260334-46",
+      "category": "Xử lý nền",
+      "content": "Mặt cắt ngang bố trí thiết bị quan trắc",
+      "order": 47,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.12992173440987087-47",
+      "category": "Xử lý nền",
+      "content": "Cấu tạo chi tiết thiết bị quan trắc",
+      "order": 48,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.44836509368401345-48",
+      "category": "Xử lý nền",
+      "content": "Bảng tổng hợp, thống kê chi tiết",
+      "order": 49,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.01669840132844369-49",
+      "category": "Xử lý nền",
+      "content": "Biện pháp thi công, an toàn lao động",
+      "order": 50,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.46513116434786583-50",
+      "category": "Xử lý nền",
+      "content": "Bản vẽ chi tiết biện pháp, trình tự thi công",
+      "order": 51,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Xử lý nền-1754554127259-0.21623435805592495-51",
+      "category": "Xử lý nền",
+      "content": "Tính toán khối lượng",
+      "order": 52,
+      "isChecked": false,
+      "notes": ""
+    }
+  ],
+  "columns": [
+    "STT",
+    "Hạng mục",
+    "Check",
+    "Ghi chú"
+  ],
+  "exportDate": "2025-08-07T08:09:43.107Z",
+  "version": "1.0"
+}

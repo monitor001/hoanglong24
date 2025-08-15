@@ -1,0 +1,579 @@
+/* Project & Task Mobile Icon Optimization - Consolidated & Deduplicated
+ * Tối ưu hóa và loại bỏ trùng lặp cho icon thẻ dự án và nhiệm vụ mobile
+ * Chuẩn: 32x24px với padding 8px, border-radius 4px
+ * Đồng nhất với thẻ nhiệm vụ (Tasks.tsx) sử dụng mobile-icon-standard
+ */
+
+/* =========================
+   MOBILE PROJECT & TASK CARD ICON STANDARDS
+   ========================= */
+
+/* Base mobile icon standard cho tất cả project và task cards */
+.mobile-project-card .ant-btn,
+.mobile-project-card .action-buttons .ant-btn,
+.mobile-project-card .project-actions .ant-btn,
+.mobile-project-card .project-stats .ant-btn,
+.mobile-task-card .ant-btn,
+.mobile-task-card .action-buttons .ant-btn,
+.mobile-task-card .task-actions .ant-btn,
+.mobile-task-card .task-stats .ant-btn,
+.mobile-icon-standard {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 0px 8px !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  min-width: 32px !important;
+  min-height: 24px !important;
+}
+
+/* Icon size standardization */
+.mobile-project-card .ant-btn .anticon,
+.mobile-project-card .action-buttons .ant-btn .anticon,
+.mobile-project-card .project-actions .ant-btn .anticon,
+.mobile-project-card .project-stats .ant-btn .anticon,
+.mobile-task-card .ant-btn .anticon,
+.mobile-task-card .action-buttons .ant-btn .anticon,
+.mobile-task-card .task-actions .ant-btn .anticon,
+.mobile-task-card .task-stats .ant-btn .anticon,
+.mobile-icon-standard .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   PROJECT & TASK CARD LAYOUT OPTIMIZATION
+   ========================= */
+
+/* Project actions container */
+.mobile-project-card .project-actions,
+.mobile-task-card .task-actions {
+  margin-top: 12px !important;
+}
+
+/* Action buttons layout - Changed from space-between to flex-start */
+.mobile-project-card .action-buttons,
+.mobile-task-card .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important; /* Changed from space-between */
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+/* Remove nested divs and optimize spacing */
+.mobile-project-card .action-buttons > div,
+.mobile-task-card .action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+}
+
+/* Project stats layout */
+.mobile-project-card .project-stats {
+  display: flex !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+
+/* Task stats layout */
+.mobile-task-card .task-stats {
+  display: flex !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+
+/* =========================
+   PROJECT HEADER DROPDOWN
+   ========================= */
+
+.mobile-project-header-dropdown {
+  color: #666 !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 4px !important;
+  min-width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-project-header-dropdown:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #333 !important;
+}
+
+/* =========================
+   HOVER & INTERACTION EFFECTS
+   ========================= */
+
+/* Hover effects cho tất cả project và task buttons */
+.mobile-project-card .ant-btn:hover,
+.mobile-project-card .action-buttons .ant-btn:hover,
+.mobile-project-card .project-actions .ant-btn:hover,
+.mobile-project-card .project-stats .ant-btn:hover,
+.mobile-task-card .ant-btn:hover,
+.mobile-task-card .action-buttons .ant-btn:hover,
+.mobile-task-card .task-actions .ant-btn:hover,
+.mobile-task-card .task-stats .ant-btn:hover,
+.mobile-icon-standard:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Active state */
+.mobile-project-card .ant-btn:active,
+.mobile-project-card .action-buttons .ant-btn:active,
+.mobile-project-card .project-actions .ant-btn:active,
+.mobile-project-card .project-stats .ant-btn:active,
+.mobile-task-card .ant-btn:active,
+.mobile-task-card .action-buttons .ant-btn:active,
+.mobile-task-card .task-actions .ant-btn:active,
+.mobile-task-card .task-stats .ant-btn:active,
+.mobile-icon-standard:active {
+  transform: translateY(0) !important;
+}
+
+/* Focus states for accessibility */
+.mobile-project-card .ant-btn:focus,
+.mobile-project-card .action-buttons .ant-btn:focus,
+.mobile-project-card .project-actions .ant-btn:focus,
+.mobile-project-card .project-stats .ant-btn:focus,
+.mobile-task-card .ant-btn:focus,
+.mobile-task-card .action-buttons .ant-btn:focus,
+.mobile-task-card .task-actions .ant-btn:focus,
+.mobile-task-card .task-stats .ant-btn:focus,
+.mobile-icon-standard:focus,
+.mobile-project-header-dropdown:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+/* =========================
+   TOUCH TARGET OPTIMIZATION
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Tăng kích thước touch target cho mobile */
+  .mobile-project-card .ant-btn,
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-project-card .project-actions .ant-btn,
+  .mobile-project-card .project-stats .ant-btn,
+  .mobile-task-card .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-task-card .task-actions .ant-btn,
+  .mobile-task-card .task-stats .ant-btn,
+  .mobile-icon-standard {
+    min-width: 28px !important;
+    min-height: 24px !important;
+    width: 28px !important;
+    height: 24px !important;
+    padding: 3px !important;
+  }
+
+  /* Tăng icon size cho mobile */
+  .mobile-project-card .ant-btn .anticon,
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-project-card .project-actions .ant-btn .anticon,
+  .mobile-project-card .project-stats .ant-btn .anticon,
+  .mobile-task-card .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .task-actions .ant-btn .anticon,
+  .mobile-task-card .task-stats .ant-btn .anticon,
+  .mobile-icon-standard .anticon {
+    font-size: 14px !important;
+  }
+
+  /* Giảm gap cho mobile */
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons {
+    gap: 6px !important;
+  }
+
+  .mobile-project-card .action-buttons > div,
+  .mobile-task-card .action-buttons > div {
+    gap: 6px !important;
+  }
+
+  /* Tăng dropdown size cho mobile */
+  .mobile-project-header-dropdown {
+    min-width: 28px !important;
+    height: 28px !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .tablet-landscape-project-card .project-actions {
+    margin-top: 16px !important;
+  }
+
+  .tablet-landscape-project-card .action-buttons {
+    gap: 8px !important;
+  }
+
+  .tablet-landscape-project-card .action-buttons > div {
+    gap: 8px !important;
+  }
+
+  /* Tablet landscape button sizes */
+  .tablet-landscape-project-card .ant-btn,
+  .tablet-landscape-project-card .action-buttons .ant-btn,
+  .tablet-landscape-project-card .project-actions .ant-btn {
+    width: 32px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+
+  .tablet-landscape-project-card .ant-btn .anticon,
+  .tablet-landscape-project-card .action-buttons .ant-btn .anticon,
+  .tablet-landscape-project-card .project-actions .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   TABLET PORTRAIT OPTIMIZATION
+   ========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .mobile-project-card .action-buttons > div,
+  .mobile-task-card .action-buttons > div {
+    gap: 8px !important;
+  }
+
+  /* Tablet portrait button sizes */
+  .mobile-project-card .ant-btn,
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-project-card .project-actions .ant-btn,
+  .mobile-task-card .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-task-card .task-actions .ant-btn {
+    width: 30px !important;
+    height: 26px !important;
+    padding: 4px !important;
+  }
+
+  .mobile-project-card .ant-btn .anticon,
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-project-card .project-actions .ant-btn .anticon,
+  .mobile-task-card .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .task-actions .ant-btn .anticon {
+    font-size: 15px !important;
+  }
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+[data-theme="dark"] .mobile-project-card .ant-btn,
+[data-theme="dark"] .mobile-project-card .action-buttons .ant-btn,
+[data-theme="dark"] .mobile-project-card .project-actions .ant-btn,
+[data-theme="dark"] .mobile-project-card .project-stats .ant-btn,
+[data-theme="dark"] .mobile-task-card .ant-btn,
+[data-theme="dark"] .mobile-task-card .action-buttons .ant-btn,
+[data-theme="dark"] .mobile-task-card .task-actions .ant-btn,
+[data-theme="dark"] .mobile-task-card .task-stats .ant-btn,
+[data-theme="dark"] .mobile-icon-standard {
+  border-color: #404040 !important;
+}
+
+[data-theme="dark"] .mobile-project-card .ant-btn:hover,
+[data-theme="dark"] .mobile-project-card .action-buttons .ant-btn:hover,
+[data-theme="dark"] .mobile-project-card .project-actions .ant-btn:hover,
+[data-theme="dark"] .mobile-project-card .project-stats .ant-btn:hover,
+[data-theme="dark"] .mobile-task-card .ant-btn:hover,
+[data-theme="dark"] .mobile-task-card .action-buttons .ant-btn:hover,
+[data-theme="dark"] .mobile-task-card .task-actions .ant-btn:hover,
+[data-theme="dark"] .mobile-task-card .task-stats .ant-btn:hover,
+[data-theme="dark"] .mobile-icon-standard:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-project-header-dropdown {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-header-dropdown:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+/* =========================
+   HIGH DPI DISPLAY OPTIMIZATION
+   ========================= */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mobile-project-card .ant-btn,
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-project-card .project-actions .ant-btn,
+  .mobile-project-card .project-stats .ant-btn,
+  .mobile-task-card .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn,
+  .mobile-task-card .task-actions .ant-btn,
+  .mobile-task-card .task-stats .ant-btn,
+  .mobile-icon-standard,
+  .mobile-project-header-dropdown {
+    border-width: 0.5px !important;
+  }
+}
+
+/* =========================
+   LOADING STATE OPTIMIZATION
+   ========================= */
+
+.mobile-project-card .ant-btn.ant-btn-loading,
+.mobile-project-card .action-buttons .ant-btn.ant-btn-loading,
+.mobile-project-card .project-actions .ant-btn.ant-btn-loading,
+.mobile-project-card .project-stats .ant-btn.ant-btn-loading,
+.mobile-task-card .ant-btn.ant-btn-loading,
+.mobile-task-card .action-buttons .ant-btn.ant-btn-loading,
+.mobile-task-card .task-actions .ant-btn.ant-btn-loading,
+.mobile-task-card .task-stats .ant-btn.ant-btn-loading,
+.mobile-icon-standard.ant-btn-loading {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+}
+
+.mobile-project-card .ant-btn.ant-btn-loading:hover,
+.mobile-project-card .action-buttons .ant-btn.ant-btn-loading:hover,
+.mobile-project-card .project-actions .ant-btn.ant-btn-loading:hover,
+.mobile-project-card .project-stats .ant-btn.ant-btn-loading:hover,
+.mobile-task-card .ant-btn.ant-btn-loading:hover,
+.mobile-task-card .action-buttons .ant-btn.ant-btn-loading:hover,
+.mobile-task-card .task-actions .ant-btn.ant-btn-loading:hover,
+.mobile-task-card .task-stats .ant-btn.ant-btn-loading:hover,
+.mobile-icon-standard.ant-btn-loading:hover {
+  transform: none !important;
+}
+
+/* =========================
+   PERFORMANCE OPTIMIZATIONS
+   ========================= */
+
+.mobile-project-card .ant-btn,
+.mobile-project-card .action-buttons .ant-btn,
+.mobile-project-card .project-actions .ant-btn,
+.mobile-project-card .project-stats .ant-btn,
+.mobile-task-card .ant-btn,
+.mobile-task-card .action-buttons .ant-btn,
+.mobile-task-card .task-actions .ant-btn,
+.mobile-task-card .task-stats .ant-btn,
+.mobile-icon-standard,
+.mobile-project-header-dropdown {
+  will-change: transform, box-shadow !important;
+  backface-visibility: hidden !important;
+}
+
+/* =========================
+   PRINT STYLES
+   ========================= */
+
+@media print {
+  .mobile-project-card .project-actions,
+  .mobile-project-card .action-buttons,
+  .mobile-project-card .project-stats,
+  .mobile-task-card .task-actions,
+  .mobile-task-card .action-buttons,
+  .mobile-task-card .task-stats {
+    display: none !important;
+  }
+}
+
+/* =========================
+   SPECIFIC PROJECT & TASK CARD ELEMENTS
+   ========================= */
+
+/* Project tags optimization */
+.mobile-project-card .project-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin-bottom: 8px !important;
+}
+
+.mobile-project-card .project-tags .ant-tag {
+  margin: 0 !important;
+  font-size: 9px !important;
+  padding: 1px 4px !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+}
+
+/* Project title optimization */
+.mobile-project-card .project-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #262626 !important;
+  margin-bottom: 6px !important;
+  line-height: 1.4 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Project description optimization */
+.mobile-project-card .project-description {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Project manager optimization */
+.mobile-project-card .project-manager {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Project meta optimization */
+.mobile-project-card .project-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 8px !important;
+}
+
+.mobile-project-card .project-dates {
+  font-size: 10px !important;
+  color: #999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Project progress optimization */
+.mobile-project-card .project-progress {
+  margin-bottom: 12px !important;
+}
+
+.mobile-project-card .project-progress .ant-progress {
+  margin: 0 !important;
+}
+
+/* =========================
+   ANIMATION IMPROVEMENTS
+   ========================= */
+
+.mobile-project-card,
+.mobile-task-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.mobile-project-card:hover,
+.mobile-task-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+   ========================= */
+
+/* Extra small devices (phones, 320px and up) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons {
+    gap: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn {
+    width: 26px !important;
+    height: 22px !important;
+    padding: 2px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon {
+    font-size: 12px !important;
+  }
+}
+
+/* Small devices (landscape phones, 481px and up) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons {
+    gap: 6px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn {
+    width: 28px !important;
+    height: 24px !important;
+    padding: 3px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon {
+    font-size: 14px !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mobile-project-card .action-buttons,
+  .mobile-task-card .action-buttons {
+    gap: 8px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn,
+  .mobile-task-card .action-buttons .ant-btn {
+    width: 32px !important;
+    height: 28px !important;
+    padding: 4px !important;
+  }
+  
+  .mobile-project-card .action-buttons .ant-btn .anticon,
+  .mobile-task-card .action-buttons .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   SPECIFIC OVERRIDES
+   ========================= */
+
+/* Override any existing space-between layouts */
+.mobile-project-card .action-buttons[style*="space-between"],
+.mobile-task-card .action-buttons[style*="space-between"] {
+  justify-content: flex-start !important;
+}
+
+/* Ensure consistent spacing across all project cards */
+.mobile-project-card .project-actions,
+.project-actions {
+  margin-top: 12px !important;
+}
+
+.mobile-project-card .action-buttons,
+.project-actions .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}

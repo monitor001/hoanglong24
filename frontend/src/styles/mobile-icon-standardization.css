@@ -1,0 +1,599 @@
+/* Mobile Icon Standardization */
+/* Đồng nhất kích thước icon 32x32 với padding phù hợp cho tất cả mobile cards */
+
+/* =========================
+   MOBILE ICON STANDARDS
+   ========================= */
+
+/* Base mobile icon styles - 32x24 với padding phù hợp */
+.mobile-icon-standard {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-icon-standard .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   MOBILE ICON COLORS WITH THEME SUPPORT
+   ========================= */
+
+/* View/Detail Action - Blue */
+.mobile-icon-view {
+  color: #1890ff !important;
+  border: 1px solid #1890ff !important;
+  background-color: rgba(24, 144, 255, 0.05) !important;
+}
+
+.mobile-icon-view:hover {
+  background-color: rgba(24, 144, 255, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+[data-theme="dark"] .mobile-icon-view {
+  color: #40a9ff !important;
+  border-color: #40a9ff !important;
+  background-color: rgba(64, 169, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-icon-view:hover {
+  background-color: rgba(64, 169, 255, 0.15) !important;
+}
+
+/* Edit Action - Green */
+.mobile-icon-edit {
+  color: #52c41a !important;
+  border: 1px solid #52c41a !important;
+  background-color: rgba(82, 196, 26, 0.05) !important;
+}
+
+.mobile-icon-edit:hover {
+  background-color: rgba(82, 196, 26, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+[data-theme="dark"] .mobile-icon-edit {
+  color: #73d13d !important;
+  border-color: #73d13d !important;
+  background-color: rgba(115, 209, 61, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-icon-edit:hover {
+  background-color: rgba(115, 209, 61, 0.15) !important;
+}
+
+/* Delete Action - Red */
+.mobile-icon-delete {
+  color: #ff4d4f !important;
+  border: 1px solid #ff4d4f !important;
+  background-color: rgba(255, 77, 79, 0.05) !important;
+}
+
+.mobile-icon-delete:hover {
+  background-color: rgba(255, 77, 79, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+[data-theme="dark"] .mobile-icon-delete {
+  color: #ff7875 !important;
+  border-color: #ff7875 !important;
+  background-color: rgba(255, 120, 117, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-icon-delete:hover {
+  background-color: rgba(255, 120, 117, 0.15) !important;
+}
+
+/* Comment Action - Orange */
+.mobile-icon-comment {
+  color: #fa8c16 !important;
+  border: 1px solid #fa8c16 !important;
+  background-color: rgba(250, 140, 22, 0.05) !important;
+}
+
+.mobile-icon-comment:hover {
+  background-color: rgba(250, 140, 22, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+[data-theme="dark"] .mobile-icon-comment {
+  color: #faad14 !important;
+  border-color: #faad14 !important;
+  background-color: rgba(250, 173, 20, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-icon-comment:hover {
+  background-color: rgba(250, 173, 20, 0.15) !important;
+}
+
+/* =========================
+   ACTION BUTTONS LAYOUT FIX
+   ========================= */
+
+/* Sửa lại layout action buttons từ space-between thành dàn 1 hàng */
+.action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important; /* Thay đổi từ space-between thành flex-start */
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important; /* Cho phép wrap nếu cần */
+}
+
+/* Đảm bảo tất cả icon buttons trong action-buttons có cùng style */
+.action-buttons .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  margin: 0 !important; /* Loại bỏ margin */
+  transition: all 0.2s ease !important;
+}
+
+.action-buttons .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Loại bỏ justify-content: space-between cho các div con */
+.action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Thay đổi từ space-between */
+}
+
+/* =========================
+   MOBILE OPTIMIZATION FOR ACTION BUTTONS
+   ========================= */
+
+@media (max-width: 768px) {
+  .action-buttons {
+    justify-content: flex-start !important;
+    gap: 6px !important; /* Giảm gap trên mobile */
+    flex-wrap: wrap !important;
+  }
+  
+  .action-buttons > div {
+    gap: 6px !important;
+    justify-content: flex-start !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 28px !important; /* Giảm kích thước trên mobile */
+    height: 28px !important;
+    padding: 3px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 14px !important;
+  }
+}
+
+/* =========================
+   TABLET OPTIMIZATION FOR ACTION BUTTONS
+   ========================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .action-buttons {
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+  
+  .action-buttons > div {
+    gap: 8px !important;
+    justify-content: flex-start !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 4px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 15px !important;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE OPTIMIZATION FOR ACTION BUTTONS
+   ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .action-buttons {
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+  
+  .action-buttons > div {
+    gap: 8px !important;
+    justify-content: flex-start !important;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 4px !important;
+  }
+  
+  .action-buttons .ant-btn .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================
+   MOBILE APPROVAL CARDS
+   ========================= */
+
+/* Approval card action buttons */
+.mobile-approval-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-approval-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Specific approval action buttons */
+.mobile-approval-card .approval-actions .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+}
+
+/* Comments and attachments indicators */
+.mobile-approval-card .comments-indicator .ant-btn,
+.mobile-approval-card .attachments-indicator .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}
+
+.mobile-approval-card .comments-indicator .anticon,
+.mobile-approval-card .attachments-indicator .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   MOBILE USER CARDS
+   ========================= */
+
+.mobile-user-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-user-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* User info icons */
+.mobile-user-card .user-info .anticon {
+  font-size: 16px !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* =========================
+   MOBILE DOCUMENT CARDS
+   ========================= */
+
+.mobile-document-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-document-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Document action icons */
+.mobile-document-card .document-actions .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}
+
+/* =========================
+   MOBILE CALENDAR CARDS
+   ========================= */
+
+.mobile-calendar-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-calendar-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Calendar event icons */
+.mobile-calendar-card .event-actions .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}   
+
+/* =========================
+   MOBILE TASK CARDS
+   ========================= */
+
+.mobile-task-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-task-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Task action buttons */
+.mobile-task-card .task-actions .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}
+
+/* =========================
+   MOBILE ISSUE CARDS
+   ========================= */
+
+.mobile-issue-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-issue-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Issue action buttons */
+.mobile-issue-card .issue-actions .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}
+
+/* =========================
+   MOBILE PROJECT CARDS
+   ========================= */
+
+.mobile-project-card .ant-btn {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-project-card .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* =========================
+   SPECIFIC OVERRIDES FOR PROJECT CARDS
+   ========================= */
+
+/* Đảm bảo project cards sử dụng layout mới */
+.mobile-project-card .action-buttons,
+.project-actions .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.mobile-project-card .action-buttons > div,
+.project-actions .action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+/* =========================
+   SPECIFIC OVERRIDES FOR TASK CARDS
+   ========================= */
+
+/* Đảm bảo task cards sử dụng layout mới */
+.mobile-task-card .action-buttons,
+.task-actions .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.mobile-task-card .action-buttons > div,
+.task-actions .action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+/* =========================
+   SPECIFIC OVERRIDES FOR ISSUE CARDS
+   ========================= */
+
+/* Đảm bảo issue cards sử dụng layout mới */
+.mobile-issue-card .action-buttons,
+.issue-actions .action-buttons {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.mobile-issue-card .action-buttons > div,
+.issue-actions .action-buttons > div {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+/* =========================
+   TOUCH TARGETS & ACCESSIBILITY
+   ========================= */
+
+/* Ensure minimum touch target size for accessibility */
+@media (max-width: 768px) {
+  .mobile-icon-standard,
+  .mobile-approval-card .ant-btn,
+  .mobile-user-card .ant-btn,
+  .mobile-document-card .ant-btn,
+  .mobile-calendar-card .ant-btn,
+  .mobile-task-card .ant-btn,
+  .mobile-issue-card .ant-btn,
+  .mobile-project-card .ant-btn {
+    min-width: 32px !important;
+    min-height: 32px !important;
+    /* Ensure good touch target while maintaining visual consistency */
+    position: relative !important;
+  }
+  
+  /* Add invisible padding for better touch targets */
+  .mobile-icon-standard::before,
+  .mobile-approval-card .ant-btn::before,
+  .mobile-user-card .ant-btn::before,
+  .mobile-document-card .ant-btn::before,
+  .mobile-calendar-card .ant-btn::before,
+  .mobile-task-card .ant-btn::before,
+  .mobile-issue-card .ant-btn::before,
+  .mobile-project-card .ant-btn::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    z-index: -1;
+  }
+}
+
+/* =========================
+   HOVER EFFECTS
+   ========================= */
+
+.mobile-icon-standard:hover,
+.mobile-approval-card .ant-btn:hover,
+.mobile-user-card .ant-btn:hover,
+.mobile-document-card .ant-btn:hover,
+.mobile-calendar-card .ant-btn:hover,
+.mobile-task-card .ant-btn:hover,
+.mobile-issue-card .ant-btn:hover,
+.mobile-project-card .ant-btn:hover {
+  transform: scale(1.05) !important;
+  transition: transform 0.2s ease !important;
+}
+
+/* =========================
+   DARK THEME SUPPORT
+   ========================= */
+
+[data-theme="dark"] .mobile-icon-standard,
+[data-theme="dark"] .mobile-approval-card .ant-btn,
+[data-theme="dark"] .mobile-user-card .ant-btn,
+[data-theme="dark"] .mobile-document-card .ant-btn,
+[data-theme="dark"] .mobile-calendar-card .ant-btn,
+[data-theme="dark"] .mobile-task-card .ant-btn,
+[data-theme="dark"] .mobile-issue-card .ant-btn,
+[data-theme="dark"] .mobile-project-card .ant-btn {
+  border-color: #404040 !important;
+}
+
+[data-theme="dark"] .mobile-icon-standard:hover,
+[data-theme="dark"] .mobile-approval-card .ant-btn:hover,
+[data-theme="dark"] .mobile-user-card .ant-btn:hover,
+[data-theme="dark"] .mobile-document-card .ant-btn:hover,
+[data-theme="dark"] .mobile-calendar-card .ant-btn:hover,
+[data-theme="dark"] .mobile-task-card .ant-btn:hover,
+[data-theme="dark"] .mobile-issue-card .ant-btn:hover,
+[data-theme="dark"] .mobile-project-card .ant-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =========================
+   SPECIFIC OVERRIDES
+   ========================= */
+
+/* Override any existing 44x44 buttons */
+.mobile-approval-card .ant-btn[style*="44px"] {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}
+
+/* Override desktop icon standardization for mobile */
+@media (max-width: 768px) {
+  .desktop-icon-standard {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 4px !important;
+  }
+  
+  .desktop-icon-standard .anticon {
+    font-size: 16px !important;
+  }
+}
+
+/* Badge adjustments for new icon sizes */
+.mobile-approval-card .ant-badge,
+.mobile-user-card .ant-badge,
+.mobile-document-card .ant-badge,
+.mobile-calendar-card .ant-badge,
+.mobile-task-card .ant-badge,
+.mobile-issue-card .ant-badge,
+.mobile-project-card .ant-badge {
+  line-height: 1 !important;
+}
+
+.mobile-approval-card .ant-badge .ant-badge-count,
+.mobile-user-card .ant-badge .ant-badge-count,
+.mobile-document-card .ant-badge .ant-badge-count,
+.mobile-calendar-card .ant-badge .ant-badge-count,
+.mobile-task-card .ant-badge .ant-badge-count,
+.mobile-issue-card .ant-badge .ant-badge-count,
+.mobile-project-card .ant-badge .ant-badge-count {
+  font-size: 10px !important;
+  min-width: 16px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+}

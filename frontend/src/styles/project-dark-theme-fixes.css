@@ -1,0 +1,591 @@
+/* Project Dark Theme Fixes - Icon Container Optimization */
+
+/* =========================
+   PROJECT CARD ICON CONTAINER FIXES
+   ========================= */
+
+/* Fix for project card icon containers in dark theme */
+[data-theme="dark"] .project-card .ant-btn,
+[data-theme="dark"] .mobile-project-card .ant-btn,
+[data-theme="dark"] .project-card .action-buttons .ant-btn,
+[data-theme="dark"] .mobile-project-card .action-buttons .ant-btn {
+  background: transparent !important;
+  border-color: #404040 !important;
+}
+
+/* Fix for project status icon containers */
+[data-theme="dark"] .project-card .ant-tag .anticon,
+[data-theme="dark"] .mobile-project-card .ant-tag .anticon,
+[data-theme="dark"] .project-detail .ant-tag .anticon {
+  color: inherit !important;
+}
+
+/* Fix for project action button backgrounds */
+[data-theme="dark"] .project-card .ant-btn[style*="rgba(24, 144, 255, 0.1)"],
+[data-theme="dark"] .mobile-project-card .ant-btn[style*="rgba(24, 144, 255, 0.1)"],
+[data-theme="dark"] .project-detail .ant-btn[style*="rgba(24, 144, 255, 0.1)"] {
+  background: rgba(64, 169, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn[style*="rgba(82, 196, 26, 0.1)"],
+[data-theme="dark"] .mobile-project-card .ant-btn[style*="rgba(82, 196, 26, 0.1)"],
+[data-theme="dark"] .project-detail .ant-btn[style*="rgba(82, 196, 26, 0.1)"] {
+  background: rgba(115, 209, 61, 0.1) !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn[style*="rgba(250, 173, 20, 0.1)"],
+[data-theme="dark"] .mobile-project-card .ant-btn[style*="rgba(250, 173, 20, 0.1)"],
+[data-theme="dark"] .project-detail .ant-btn[style*="rgba(250, 173, 20, 0.1)"] {
+  background: rgba(255, 197, 61, 0.1) !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn[style*="rgba(255, 77, 79, 0.1)"],
+[data-theme="dark"] .mobile-project-card .ant-btn[style*="rgba(255, 77, 79, 0.1)"],
+[data-theme="dark"] .project-detail .ant-btn[style*="rgba(255, 77, 79, 0.1)"] {
+  background: rgba(255, 120, 117, 0.1) !important;
+}
+
+/* Fix for light theme button backgrounds */
+[data-theme="light"] .project-card .ant-btn[style*="rgba(24, 144, 255, 0.1)"],
+[data-theme="light"] .mobile-project-card .ant-btn[style*="rgba(24, 144, 255, 0.1)"],
+[data-theme="light"] .project-detail .ant-btn[style*="rgba(24, 144, 255, 0.1)"] {
+  background: rgba(24, 144, 255, 0.05) !important;
+}
+
+[data-theme="light"] .project-card .ant-btn[style*="rgba(82, 196, 26, 0.1)"],
+[data-theme="light"] .mobile-project-card .ant-btn[style*="rgba(82, 196, 26, 0.1)"],
+[data-theme="light"] .project-detail .ant-btn[style*="rgba(82, 196, 26, 0.1)"] {
+  background: rgba(82, 196, 26, 0.05) !important;
+}
+
+[data-theme="light"] .project-card .ant-btn[style*="rgba(250, 173, 20, 0.1)"],
+[data-theme="light"] .mobile-project-card .ant-btn[style*="rgba(250, 173, 20, 0.1)"],
+[data-theme="light"] .project-detail .ant-btn[style*="rgba(250, 173, 20, 0.1)"] {
+  background: rgba(250, 173, 20, 0.05) !important;
+}
+
+[data-theme="light"] .project-card .ant-btn[style*="rgba(255, 77, 79, 0.1)"],
+[data-theme="light"] .mobile-project-card .ant-btn[style*="rgba(255, 77, 79, 0.1)"],
+[data-theme="light"] .project-detail .ant-btn[style*="rgba(255, 77, 79, 0.1)"] {
+  background: rgba(255, 77, 79, 0.05) !important;
+}
+
+/* =========================
+   PROJECT ICON COLOR FIXES
+   ========================= */
+
+/* Fix for calendar icon in project cards */
+[data-theme="dark"] .project-card .anticon-calendar,
+[data-theme="dark"] .mobile-project-card .anticon-calendar,
+[data-theme="dark"] .project-detail .anticon-calendar {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-card .anticon-calendar,
+[data-theme="light"] .mobile-project-card .anticon-calendar,
+[data-theme="light"] .project-detail .anticon-calendar {
+  color: #666 !important;
+}
+
+/* Fix for team icon in project cards */
+[data-theme="dark"] .project-card .anticon-team,
+[data-theme="dark"] .mobile-project-card .anticon-team,
+[data-theme="dark"] .project-detail .anticon-team {
+  color: #aaa !important;
+}
+
+[data-theme="light"] .project-card .anticon-team,
+[data-theme="light"] .mobile-project-card .anticon-team,
+[data-theme="light"] .project-detail .anticon-team {
+  color: #666 !important;
+}
+
+/* Fix for file icon in project cards */
+[data-theme="dark"] .project-card .anticon-file,
+[data-theme="dark"] .mobile-project-card .anticon-file,
+[data-theme="dark"] .project-detail .anticon-file {
+  color: #aaa !important;
+}
+
+[data-theme="light"] .project-card .anticon-file,
+[data-theme="light"] .mobile-project-card .anticon-file,
+[data-theme="light"] .project-detail .anticon-file {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT STATUS ICON FIXES
+   ========================= */
+
+/* Fix for status icons in project cards */
+[data-theme="dark"] .project-card .ant-tag .anticon-check-circle,
+[data-theme="dark"] .mobile-project-card .ant-tag .anticon-check-circle,
+[data-theme="dark"] .project-detail .ant-tag .anticon-check-circle {
+  color: #52c41a !important;
+}
+
+[data-theme="dark"] .project-card .ant-tag .anticon-clock-circle,
+[data-theme="dark"] .mobile-project-card .ant-tag .anticon-clock-circle,
+[data-theme="dark"] .project-detail .ant-tag .anticon-clock-circle {
+  color: #1890ff !important;
+}
+
+[data-theme="dark"] .project-card .ant-tag .anticon-exclamation-circle,
+[data-theme="dark"] .mobile-project-card .ant-tag .anticon-exclamation-circle,
+[data-theme="dark"] .project-detail .ant-tag .anticon-exclamation-circle {
+  color: #faad14 !important;
+}
+
+[data-theme="dark"] .project-card .ant-tag .anticon-close-circle,
+[data-theme="dark"] .mobile-project-card .ant-tag .anticon-close-circle,
+[data-theme="dark"] .project-detail .ant-tag .anticon-close-circle {
+  color: #8c8c8c !important;
+}
+
+/* =========================
+   PROJECT ACTION ICON FIXES
+   ========================= */
+
+/* Fix for action button icons in project cards */
+[data-theme="dark"] .project-card .ant-btn .anticon-eye,
+[data-theme="dark"] .mobile-project-card .ant-btn .anticon-eye,
+[data-theme="dark"] .project-detail .ant-btn .anticon-eye {
+  color: #40a9ff !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn .anticon-edit,
+[data-theme="dark"] .mobile-project-card .ant-btn .anticon-edit,
+[data-theme="dark"] .project-detail .ant-btn .anticon-edit {
+  color: #52c41a !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn .anticon-message,
+[data-theme="dark"] .mobile-project-card .ant-btn .anticon-message,
+[data-theme="dark"] .project-detail .ant-btn .anticon-message {
+  color: #faad14 !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn .anticon-delete,
+[data-theme="dark"] .mobile-project-card .ant-btn .anticon-delete,
+[data-theme="dark"] .project-detail .ant-btn .anticon-delete {
+  color: #ff7875 !important;
+}
+
+[data-theme="dark"] .project-card .ant-btn .anticon-download,
+[data-theme="dark"] .mobile-project-card .ant-btn .anticon-download,
+[data-theme="dark"] .project-detail .ant-btn .anticon-download {
+  color: #1890ff !important;
+}
+
+/* =========================
+   PROJECT FORM ICON FIXES
+   ========================= */
+
+/* Fix for form icons in project edit modal */
+[data-theme="dark"] .project-form .ant-form-item-label > label .anticon,
+[data-theme="dark"] .mobile-edit-form .ant-form-item-label > label .anticon,
+[data-theme="dark"] .tablet-landscape-edit-form .ant-form-item-label > label .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-form .ant-form-item-label > label .anticon,
+[data-theme="light"] .mobile-edit-form .ant-form-item-label > label .anticon,
+[data-theme="light"] .tablet-landscape-edit-form .ant-form-item-label > label .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT FILTER ICON FIXES
+   ========================= */
+
+/* Fix for filter icons in project filters */
+[data-theme="dark"] .mobile-filter-button .anticon,
+[data-theme="dark"] .mobile-filter-drawer .anticon,
+[data-theme="dark"] .responsive-collapsible-filters .anticon {
+  color: #fff !important;
+}
+
+[data-theme="light"] .mobile-filter-button .anticon,
+[data-theme="light"] .mobile-filter-drawer .anticon,
+[data-theme="light"] .responsive-collapsible-filters .anticon {
+  color: #fff !important;
+}
+
+/* =========================
+   PROJECT DROPDOWN ICON FIXES
+   ========================= */
+
+/* Fix for dropdown icons in project cards */
+[data-theme="dark"] .mobile-project-header-dropdown .anticon,
+[data-theme="dark"] .project-card .ant-dropdown-trigger .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .mobile-project-header-dropdown .anticon,
+[data-theme="light"] .project-card .ant-dropdown-trigger .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT AVATAR ICON FIXES
+   ========================= */
+
+/* Fix for avatar icons in project cards */
+[data-theme="dark"] .project-card .ant-avatar .anticon,
+[data-theme="dark"] .mobile-project-card .ant-avatar .anticon,
+[data-theme="dark"] .project-detail .ant-avatar .anticon {
+  color: #fff !important;
+}
+
+[data-theme="light"] .project-card .ant-avatar .anticon,
+[data-theme="light"] .mobile-project-card .ant-avatar .anticon,
+[data-theme="light"] .project-detail .ant-avatar .anticon {
+  color: #fff !important;
+}
+
+/* =========================
+   PROJECT PROGRESS ICON FIXES
+   ========================= */
+
+/* Fix for progress icons in project cards */
+[data-theme="dark"] .project-card .ant-progress .ant-progress-text,
+[data-theme="dark"] .mobile-project-card .ant-progress .ant-progress-text,
+[data-theme="dark"] .project-detail .ant-progress .ant-progress-text {
+  color: #fff !important;
+}
+
+[data-theme="light"] .project-card .ant-progress .ant-progress-text,
+[data-theme="light"] .mobile-project-card .ant-progress .ant-progress-text,
+[data-theme="light"] .project-detail .ant-progress .ant-progress-text {
+  color: #000 !important;
+}
+
+/* =========================
+   PROJECT MODAL ICON FIXES
+   ========================= */
+
+/* Fix for modal icons in project modals */
+[data-theme="dark"] .ant-modal .ant-modal-header .anticon,
+[data-theme="dark"] .ant-modal .ant-modal-footer .anticon {
+  color: #fff !important;
+}
+
+[data-theme="light"] .ant-modal .ant-modal-header .anticon,
+[data-theme="light"] .ant-modal .ant-modal-footer .anticon {
+  color: #000 !important;
+}
+
+/* =========================
+   PROJECT DRAWER ICON FIXES
+   ========================= */
+
+/* Fix for drawer icons in project drawers */
+[data-theme="dark"] .ant-drawer .ant-drawer-header .anticon,
+[data-theme="dark"] .ant-drawer .ant-drawer-body .anticon {
+  color: #fff !important;
+}
+
+[data-theme="light"] .ant-drawer .ant-drawer-header .anticon,
+[data-theme="light"] .ant-drawer .ant-drawer-body .anticon {
+  color: #000 !important;
+}
+
+/* =========================
+   PROJECT TABLE ICON FIXES
+   ========================= */
+
+/* Fix for table icons in project tables */
+[data-theme="dark"] .projects-table-container .ant-table .anticon,
+[data-theme="dark"] .projects-table-container .ant-pagination .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .projects-table-container .ant-table .anticon,
+[data-theme="light"] .projects-table-container .ant-pagination .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT STATISTICS ICON FIXES
+   ========================= */
+
+/* Fix for statistics icons in project statistics */
+[data-theme="dark"] .project-statistics .ant-statistic .anticon,
+[data-theme="dark"] .mobile-project-statistics .ant-statistic .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-statistics .ant-statistic .anticon,
+[data-theme="light"] .mobile-project-statistics .ant-statistic .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT COMMENT ICON FIXES
+   ========================= */
+
+/* Fix for comment icons in project comments */
+[data-theme="dark"] .project-comments .anticon,
+[data-theme="dark"] .comment-drawer .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-comments .anticon,
+[data-theme="light"] .comment-drawer .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT MEMBER ICON FIXES
+   ========================= */
+
+/* Fix for member icons in project members */
+[data-theme="dark"] .project-members .anticon,
+[data-theme="dark"] .member-drawer .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-members .anticon,
+[data-theme="light"] .member-drawer .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT PERMISSION ICON FIXES
+   ========================= */
+
+/* Fix for permission icons in project permissions */
+[data-theme="dark"] .project-permissions .anticon,
+[data-theme="dark"] .permission-drawer .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-permissions .anticon,
+[data-theme="light"] .permission-drawer .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT INFO ICON FIXES
+   ========================= */
+
+/* Fix for info icons in project info */
+[data-theme="dark"] .project-info .anticon,
+[data-theme="dark"] .info-modal .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-info .anticon,
+[data-theme="light"] .info-modal .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT EXPORT ICON FIXES
+   ========================= */
+
+/* Fix for export icons in project export */
+[data-theme="dark"] .project-export .anticon,
+[data-theme="dark"] .export-modal .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-export .anticon,
+[data-theme="light"] .export-modal .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT SHARE ICON FIXES
+   ========================= */
+
+/* Fix for share icons in project share */
+[data-theme="dark"] .project-share .anticon,
+[data-theme="dark"] .share-modal .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-share .anticon,
+[data-theme="light"] .share-modal .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT SEARCH ICON FIXES
+   ========================= */
+
+/* Fix for search icons in project search */
+[data-theme="dark"] .project-search .anticon,
+[data-theme="dark"] .search-input .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-search .anticon,
+[data-theme="light"] .search-input .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT SORT ICON FIXES
+   ========================= */
+
+/* Fix for sort icons in project sort */
+[data-theme="dark"] .project-sort .anticon,
+[data-theme="dark"] .sort-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-sort .anticon,
+[data-theme="light"] .sort-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT REFRESH ICON FIXES
+   ========================= */
+
+/* Fix for refresh icons in project refresh */
+[data-theme="dark"] .project-refresh .anticon,
+[data-theme="dark"] .refresh-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-refresh .anticon,
+[data-theme="light"] .refresh-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT SETTINGS ICON FIXES
+   ========================= */
+
+/* Fix for settings icons in project settings */
+[data-theme="dark"] .project-settings .anticon,
+[data-theme="dark"] .settings-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-settings .anticon,
+[data-theme="light"] .settings-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT HELP ICON FIXES
+   ========================= */
+
+/* Fix for help icons in project help */
+[data-theme="dark"] .project-help .anticon,
+[data-theme="dark"] .help-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-help .anticon,
+[data-theme="light"] .help-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT NOTIFICATION ICON FIXES
+   ========================= */
+
+/* Fix for notification icons in project notifications */
+[data-theme="dark"] .project-notification .anticon,
+[data-theme="dark"] .notification-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-notification .anticon,
+[data-theme="light"] .notification-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT USER ICON FIXES
+   ========================= */
+
+/* Fix for user icons in project user */
+[data-theme="dark"] .project-user .anticon,
+[data-theme="dark"] .user-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-user .anticon,
+[data-theme="light"] .user-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT LOGOUT ICON FIXES
+   ========================= */
+
+/* Fix for logout icons in project logout */
+[data-theme="dark"] .project-logout .anticon,
+[data-theme="dark"] .logout-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-logout .anticon,
+[data-theme="light"] .logout-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT THEME ICON FIXES
+   ========================= */
+
+/* Fix for theme icons in project theme */
+[data-theme="dark"] .project-theme .anticon,
+[data-theme="dark"] .theme-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-theme .anticon,
+[data-theme="light"] .theme-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT LANGUAGE ICON FIXES
+   ========================= */
+
+/* Fix for language icons in project language */
+[data-theme="dark"] .project-language .anticon,
+[data-theme="dark"] .language-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-language .anticon,
+[data-theme="light"] .language-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT BELL ICON FIXES
+   ========================= */
+
+/* Fix for bell icons in project bell */
+[data-theme="dark"] .project-bell .anticon,
+[data-theme="dark"] .bell-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-bell .anticon,
+[data-theme="light"] .bell-button .anticon {
+  color: #666 !important;
+}
+
+/* =========================
+   PROJECT PERSON ICON FIXES
+   ========================= */
+
+/* Fix for person icons in project person */
+[data-theme="dark"] .project-person .anticon,
+[data-theme="dark"] .person-button .anticon {
+  color: #bbb !important;
+}
+
+[data-theme="light"] .project-person .anticon,
+[data-theme="light"] .person-button .anticon {
+  color: #666 !important;
+}

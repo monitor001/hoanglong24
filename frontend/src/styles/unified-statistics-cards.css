@@ -1,0 +1,296 @@
+/* Unified Statistics Cards
+ * Đồng nhất kích thước và style cho tất cả các thẻ thống kê trên tablet landscape và desktop
+ * Mobile rules đã được xử lý trong unified-mobile-cards.css
+ */
+
+/* ===== GLOBAL STATISTICS CARDS STYLING ===== */
+
+/* Container cho tất cả statistics cards */
+.dashboard-stats-row,
+.tasks-container .dashboard-stats-row,
+.issues-container .dashboard-stats-row,
+.documents-container .dashboard-stats-row,
+.projects-container .dashboard-stats-row,
+.calendar-container .dashboard-stats-row,
+.approval-container .dashboard-stats-row,
+.checklist-container .dashboard-stats-row,
+.stats-container,
+.statistics-row {
+  margin-bottom: 16px !important;
+}
+
+/* Row container cho statistics cards */
+.dashboard-stats-row .ant-row,
+.tasks-container .dashboard-stats-row .ant-row,
+.issues-container .dashboard-stats-row .ant-row,
+.documents-container .dashboard-stats-row .ant-row,
+.projects-container .dashboard-stats-row .ant-row,
+.calendar-container .dashboard-stats-row .ant-row,
+.approval-container .dashboard-stats-row .ant-row,
+.checklist-container .dashboard-stats-row .ant-row,
+.stats-container .ant-row,
+.statistics-row .ant-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin: 0 -6px !important;
+}
+
+/* Column layout - Responsive grid */
+.dashboard-stats-row .ant-col,
+.tasks-container .dashboard-stats-row .ant-col,
+.issues-container .dashboard-stats-row .ant-col,
+.documents-container .dashboard-stats-row .ant-col,
+.projects-container .dashboard-stats-row .ant-col,
+.calendar-container .dashboard-stats-row .ant-col,
+.approval-container .dashboard-stats-row .ant-col,
+.checklist-container .dashboard-stats-row .ant-col,
+.stats-container .ant-col,
+.statistics-row .ant-col {
+  padding: 0 6px !important;
+  margin-bottom: 12px !important;
+}
+
+/* ===== TABLET LANDSCAPE OPTIMIZATION (769px - 1366px landscape) ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  .dashboard-stats-row .ant-col,
+  .tasks-container .dashboard-stats-row .ant-col,
+  .issues-container .dashboard-stats-row .ant-col,
+  .documents-container .dashboard-stats-row .ant-col,
+  .projects-container .dashboard-stats-row .ant-col,
+  .calendar-container .dashboard-stats-row .ant-col,
+  .approval-container .dashboard-stats-row .ant-col,
+  .checklist-container .dashboard-stats-row .ant-col,
+  .stats-container .ant-col,
+  .statistics-row .ant-col {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+    padding: 0 6px !important;
+  }
+  
+  .dashboard-stats-row .ant-card,
+  .tasks-container .dashboard-stats-row .ant-card,
+  .issues-container .dashboard-stats-row .ant-card,
+  .documents-container .dashboard-stats-row .ant-card,
+  .projects-container .dashboard-stats-row .ant-card,
+  .calendar-container .dashboard-stats-row .ant-card,
+  .approval-container .dashboard-stats-row .ant-card,
+  .checklist-container .dashboard-stats-row .ant-card,
+  .stats-container .ant-card,
+  .statistics-row .ant-card {
+    height: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    margin-bottom: 12px !important;
+    border-radius: 8px !important;
+  }
+  
+  .dashboard-stats-row .ant-card-body,
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .issues-container .dashboard-stats-row .ant-card-body,
+  .documents-container .dashboard-stats-row .ant-card-body,
+  .projects-container .dashboard-stats-row .ant-card-body,
+  .calendar-container .dashboard-stats-row .ant-card-body,
+  .approval-container .dashboard-stats-row .ant-card-body,
+  .checklist-container .dashboard-stats-row .ant-card-body,
+  .stats-container .ant-card-body,
+  .statistics-row .ant-card-body {
+    padding: 12px 10px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 14px !important;
+    margin-right: 6px !important;
+  }
+}
+
+/* ===== DESKTOP OPTIMIZATION (> 1366px) ===== */
+@media (min-width: 1367px) {
+  .dashboard-stats-row .ant-col,
+  .tasks-container .dashboard-stats-row .ant-col,
+  .issues-container .dashboard-stats-row .ant-col,
+  .documents-container .dashboard-stats-row .ant-col,
+  .projects-container .dashboard-stats-row .ant-col,
+  .calendar-container .dashboard-stats-row .ant-col,
+  .approval-container .dashboard-stats-row .ant-col,
+  .checklist-container .dashboard-stats-row .ant-col,
+  .stats-container .ant-col,
+  .statistics-row .ant-col {
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+    padding: 0 8px !important;
+  }
+  
+  .dashboard-stats-row .ant-card,
+  .tasks-container .dashboard-stats-row .ant-card,
+  .issues-container .dashboard-stats-row .ant-card,
+  .documents-container .dashboard-stats-row .ant-card,
+  .projects-container .dashboard-stats-row .ant-card,
+  .calendar-container .dashboard-stats-row .ant-card,
+  .approval-container .dashboard-stats-row .ant-card,
+  .checklist-container .dashboard-stats-row .ant-card,
+  .stats-container .ant-card,
+  .statistics-row .ant-card {
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    margin-bottom: 16px !important;
+    border-radius: 10px !important;
+  }
+  
+  .dashboard-stats-row .ant-card-body,
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .issues-container .dashboard-stats-row .ant-card-body,
+  .documents-container .dashboard-stats-row .ant-card-body,
+  .projects-container .dashboard-stats-row .ant-card-body,
+  .calendar-container .dashboard-stats-row .ant-card-body,
+  .approval-container .dashboard-stats-row .ant-card-body,
+  .checklist-container .dashboard-stats-row .ant-card-body,
+  .stats-container .ant-card-body,
+  .statistics-row .ant-card-body {
+    padding: 16px 12px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-title,
+  .tasks-container .dashboard-stats-row .ant-statistic-title,
+  .issues-container .dashboard-stats-row .ant-statistic-title,
+  .documents-container .dashboard-stats-row .ant-statistic-title,
+  .projects-container .dashboard-stats-row .ant-statistic-title,
+  .calendar-container .dashboard-stats-row .ant-statistic-title,
+  .approval-container .dashboard-stats-row .ant-statistic-title,
+  .checklist-container .dashboard-stats-row .ant-statistic-title,
+  .stats-container .ant-statistic-title,
+  .statistics-row .ant-statistic-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content,
+  .tasks-container .dashboard-stats-row .ant-statistic-content,
+  .issues-container .dashboard-stats-row .ant-statistic-content,
+  .documents-container .dashboard-stats-row .ant-statistic-content,
+  .projects-container .dashboard-stats-row .ant-statistic-content,
+  .calendar-container .dashboard-stats-row .ant-statistic-content,
+  .approval-container .dashboard-stats-row .ant-statistic-content,
+  .checklist-container .dashboard-stats-row .ant-statistic-content,
+  .stats-container .ant-statistic-content,
+  .statistics-row .ant-statistic-content {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix,
+  .tasks-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .issues-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .documents-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .projects-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .calendar-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .approval-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .checklist-container .dashboard-stats-row .ant-statistic-content-prefix,
+  .stats-container .ant-statistic-content-prefix,
+  .statistics-row .ant-statistic-content-prefix {
+    font-size: 16px !important;
+    margin-right: 8px !important;
+  }
+}
+
+/* ===== DARK THEME SUPPORT ===== */
+
+[data-theme="dark"] .dashboard-stats-row .ant-card,
+[data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .issues-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .documents-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .projects-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .approval-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card,
+[data-theme="dark"] .stats-container .ant-card,
+[data-theme="dark"] .statistics-row .ant-card {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .issues-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .documents-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .projects-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .approval-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card-body,
+[data-theme="dark"] .stats-container .ant-card-body,
+[data-theme="dark"] .statistics-row .ant-card-body {
+  background: #1f1f1f !important;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+.dashboard-stats-row .ant-card,
+.tasks-container .dashboard-stats-row .ant-card,
+.issues-container .dashboard-stats-row .ant-card,
+.documents-container .dashboard-stats-row .ant-card,
+.projects-container .dashboard-stats-row .ant-card,
+.calendar-container .dashboard-stats-row .ant-card,
+.approval-container .dashboard-stats-row .ant-card,
+.checklist-container .dashboard-stats-row .ant-card,
+.stats-container .ant-card,
+.statistics-row .ant-card {
+  will-change: transform, box-shadow !important;
+  backface-visibility: hidden !important;
+}

@@ -1,0 +1,113 @@
+/* TabletLandscapeFAB.css */
+.tablet-landscape-fab {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tablet-landscape-fab.single-fab {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tablet-landscape-fab.single-fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tablet-landscape-fab.speed-dial {
+  z-index: 1000;
+}
+
+.tablet-landscape-fab.speed-dial .MuiSpeedDial-fab {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tablet-landscape-fab.speed-dial .MuiSpeedDial-fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tablet-landscape-fab.speed-dial .MuiSpeedDialAction-fab {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tablet-landscape-fab.speed-dial .MuiSpeedDialAction-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tablet-landscape-fab.speed-dial .MuiSpeedDialAction-staticTooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.tablet-landscape-fab.speed-dial .MuiSpeedDialAction-staticTooltipLabel {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for tablet landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .tablet-landscape-fab.speed-dial .MuiSpeedDial-fab {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  .tablet-landscape-fab.speed-dial .MuiSpeedDialAction-fab {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .tablet-landscape-fab.speed-dial .MuiSpeedDialAction-staticTooltip {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .tablet-landscape-fab.speed-dial .MuiSpeedDialAction-staticTooltip {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+}
+
+/* Animation for FAB appearance */
+@keyframes fabAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.tablet-landscape-fab {
+  animation: fabAppear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects for better UX */
+.tablet-landscape-fab.speed-dial .MuiSpeedDialAction-fab:active {
+  transform: scale(0.95);
+}
+
+/* Accessibility improvements */
+.tablet-landscape-fab:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .tablet-landscape-fab.speed-dial .MuiSpeedDialAction-staticTooltip {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+}

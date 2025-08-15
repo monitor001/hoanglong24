@@ -1,0 +1,827 @@
+/* Mobile Filter Optimization */
+/* Tối ưu hóa không gian và trải nghiệm mobile filter */
+
+/* =========================
+   MOBILE FILTER BUTTON
+   ========================= */
+
+.mobile-filter-button {
+  margin-bottom: 8px !important;
+  height: 36px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+  
+  /* Light theme colors */
+  background: linear-gradient(135deg, #1890ff, #40a9ff) !important;
+  border-color: #1890ff !important;
+  color: #fff !important;
+}
+
+.mobile-filter-button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.3) !important;
+  background: linear-gradient(135deg, #40a9ff, #1890ff) !important;
+}
+
+.mobile-filter-button .ant-space {
+  gap: 4px !important;
+}
+
+.mobile-filter-button .ant-typography {
+  color: #fff !important;
+  font-size: 12px !important;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .mobile-filter-button {
+  background: linear-gradient(135deg, #177ddc, #1890ff) !important;
+  border-color: #177ddc !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .mobile-filter-button:hover {
+  background: linear-gradient(135deg, #1890ff, #40a9ff) !important;
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.4) !important;
+}
+
+/* =========================
+   MOBILE FILTER DRAWER
+   ========================= */
+
+.mobile-filter-drawer .ant-drawer-body {
+  padding: 12px !important;
+  background: #f8f9fa !important;
+}
+
+.mobile-filter-drawer .ant-drawer-header {
+  padding: 10px 12px !important;
+  min-height: 44px !important;
+  background: linear-gradient(135deg, #1890ff, #40a9ff) !important;
+  border-bottom: none !important;
+}
+
+.mobile-filter-drawer .ant-drawer-header-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.mobile-filter-drawer .ant-drawer-close {
+  color: #fff !important;
+}
+
+.mobile-filter-drawer-title {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.mobile-filter-badge {
+  background-color: #1890ff !important;
+  color: #fff !important;
+}
+
+/* Dark theme support for drawer */
+[data-theme="dark"] .mobile-filter-drawer .ant-drawer-body {
+  background: #141414 !important;
+}
+
+[data-theme="dark"] .mobile-filter-drawer .ant-drawer-header {
+  background: linear-gradient(135deg, #177ddc, #1890ff) !important;
+}
+
+[data-theme="dark"] .mobile-filter-badge {
+  background-color: #40a9ff !important;
+  color: #fff !important;
+}
+
+/* =========================
+   MOBILE FILTER CONTAINER - OPTIMIZED FOR SPACE
+   ========================= */
+
+.mobile-filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  padding: 0;
+}
+
+/* =========================
+   MOBILE FILTER ITEM - COMPACT LAYOUT
+   ========================= */
+
+.mobile-filter-item {
+  padding: 8px 0;
+  position: relative;
+}
+
+.mobile-filter-item:first-child {
+  padding-top: 0;
+}
+
+.mobile-filter-item:last-child {
+  padding-bottom: 0;
+}
+
+.mobile-filter-label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+  line-height: 1.2 !important;
+  color: #262626 !important;
+  display: block !important;
+}
+
+[data-theme="dark"] .mobile-filter-label {
+  color: #fff !important;
+}
+
+/* =========================
+   MOBILE FILTER INPUTS - COMPACT DESIGN
+   ========================= */
+
+.mobile-filter-input,
+.mobile-filter-select {
+  width: 100% !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  border: 1px solid #d9d9d9 !important;
+  background: #fff !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-filter-input:focus,
+.mobile-filter-input-focused,
+.mobile-filter-select:focus,
+.mobile-filter-select-focused .ant-select-selector {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.mobile-filter-input::placeholder {
+  font-size: 11px !important;
+  color: #bfbfbf !important;
+}
+
+.mobile-filter-input .ant-input-prefix {
+  margin-right: 4px !important;
+}
+
+.mobile-filter-input .ant-input-prefix .anticon {
+  font-size: 12px !important;
+  color: #8c8c8c !important;
+}
+
+/* Select specific styling */
+.mobile-filter-select .ant-select-selector {
+  height: 32px !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  border: 1px solid #d9d9d9 !important;
+  background: #fff !important;
+}
+
+.mobile-filter-select .ant-select-selection-item {
+  font-size: 12px !important;
+  line-height: 20px !important;
+  color: #262626 !important;
+}
+
+.mobile-filter-select .ant-select-selection-placeholder {
+  font-size: 11px !important;
+  line-height: 20px !important;
+  color: #bfbfbf !important;
+}
+
+.mobile-filter-select .ant-select-arrow {
+  color: #8c8c8c !important;
+}
+
+/* Dark theme support for inputs */
+[data-theme="dark"] .mobile-filter-input,
+[data-theme="dark"] .mobile-filter-select .ant-select-selector {
+  background: #2f2f2f !important;
+  border-color: #404040 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-filter-input:focus,
+[data-theme="dark"] .mobile-filter-input-focused,
+[data-theme="dark"] .mobile-filter-select:focus,
+[data-theme="dark"] .mobile-filter-select-focused .ant-select-selector {
+  border-color: #177ddc !important;
+  box-shadow: 0 0 0 2px rgba(23, 125, 220, 0.2) !important;
+}
+
+[data-theme="dark"] .mobile-filter-input::placeholder {
+  color: #8c8c8c !important;
+}
+
+[data-theme="dark"] .mobile-filter-input .ant-input-prefix .anticon {
+  color: #bfbfbf !important;
+}
+
+[data-theme="dark"] .mobile-filter-select .ant-select-selection-item {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-filter-select .ant-select-selection-placeholder {
+  color: #8c8c8c !important;
+}
+
+[data-theme="dark"] .mobile-filter-select .ant-select-arrow {
+  color: #bfbfbf !important;
+}
+
+/* =========================
+   MOBILE FILTER DIVIDER - MINIMAL SPACING
+   ========================= */
+
+.mobile-filter-divider {
+  margin: 6px 0 !important;
+  border-color: #f0f0f0 !important;
+  border-width: 1px !important;
+}
+
+[data-theme="dark"] .mobile-filter-divider {
+  border-color: #303030 !important;
+}
+
+/* =========================
+   MOBILE FILTER ACTIONS - COMPACT DESIGN
+   ========================= */
+
+.mobile-filter-actions {
+  margin-top: 16px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid #f0f0f0 !important;
+  display: flex !important;
+  gap: 8px !important;
+}
+
+[data-theme="dark"] .mobile-filter-actions {
+  border-top-color: #303030 !important;
+}
+
+.mobile-filter-actions .ant-btn {
+  height: 36px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  flex: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-reset-btn {
+  background: linear-gradient(135deg, #f5f5f5, #e8e8e8) !important;
+  border-color: #d9d9d9 !important;
+  color: #666 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mobile-reset-btn:hover {
+  background: linear-gradient(135deg, #e8e8e8, #f5f5f5) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="dark"] .mobile-reset-btn {
+  background: linear-gradient(135deg, #2f2f2f, #404040) !important;
+  border-color: #404040 !important;
+  color: #bfbfbf !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .mobile-reset-btn:hover {
+  background: linear-gradient(135deg, #404040, #2f2f2f) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.mobile-apply-btn {
+  background: linear-gradient(135deg, #1890ff, #40a9ff) !important;
+  border-color: #1890ff !important;
+  color: #fff !important;
+  box-shadow: 0 2px 4px rgba(24, 144, 255, 0.3) !important;
+}
+
+.mobile-apply-btn:hover {
+  background: linear-gradient(135deg, #40a9ff, #1890ff) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.4) !important;
+}
+
+[data-theme="dark"] .mobile-apply-btn {
+  background: linear-gradient(135deg, #177ddc, #1890ff) !important;
+  box-shadow: 0 2px 4px rgba(23, 125, 220, 0.3) !important;
+}
+
+/* =========================
+   ULTRA COMPACT MODE FOR SMALL SCREENS
+   ========================= */
+
+@media (max-height: 600px) {
+  .mobile-filter-drawer {
+    height: 85vh !important;
+  }
+  
+  .mobile-filter-container {
+    gap: 0;
+  }
+  
+  .mobile-filter-item {
+    padding: 6px 0 !important;
+  }
+  
+  .mobile-filter-label {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .mobile-filter-input,
+  .mobile-filter-select {
+    height: 28px !important;
+  }
+  
+  .mobile-filter-select .ant-select-selector {
+    height: 28px !important;
+    padding: 3px 6px !important;
+  }
+  
+  .mobile-filter-select .ant-select-selection-item,
+  .mobile-filter-select .ant-select-selection-placeholder {
+    line-height: 18px !important;
+  }
+  
+  .mobile-filter-actions .ant-btn {
+    height: 32px !important;
+  }
+  
+  .mobile-filter-divider {
+    margin: 6px 0 !important;
+  }
+  
+  .mobile-filter-actions {
+    margin-top: 12px !important;
+    padding-top: 8px !important;
+  }
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS - OPTIMIZED
+   ========================= */
+
+@media (max-width: 360px) {
+  .mobile-filter-drawer .ant-drawer-body {
+    padding: 8px !important;
+  }
+  
+  .mobile-filter-item {
+    padding: 6px 0 !important;
+  }
+  
+  .mobile-filter-label {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .mobile-filter-actions {
+    gap: 4px !important;
+    padding-top: 8px !important;
+  }
+  
+  .mobile-filter-input,
+  .mobile-filter-select {
+    height: 28px !important;
+  }
+  
+  .mobile-filter-select .ant-select-selector {
+    height: 28px !important;
+    padding: 3px 6px !important;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================= */
+
+.mobile-filter-button:focus,
+.mobile-filter-input:focus,
+.mobile-filter-select:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+.mobile-filter-actions .ant-btn:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+/* =========================
+   ANIMATION IMPROVEMENTS
+   ========================= */
+
+.mobile-filter-drawer .ant-drawer-content {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.mobile-filter-item {
+  transition: all 0.2s ease !important;
+}
+
+.mobile-filter-input:hover,
+.mobile-filter-select:hover .ant-select-selector {
+  border-color: #40a9ff !important;
+}
+
+[data-theme="dark"] .mobile-filter-input:hover,
+[data-theme="dark"] .mobile-filter-select:hover .ant-select-selector {
+  border-color: #177ddc !important;
+}
+
+/* =========================
+   BADGE OPTIMIZATIONS
+   ========================= */
+
+.mobile-filter-button .ant-badge {
+  font-size: 9px !important;
+}
+
+.mobile-filter-button .ant-badge .ant-badge-count {
+  min-width: 14px !important;
+  height: 14px !important;
+  line-height: 14px !important;
+  border-radius: 7px !important;
+  font-size: 9px !important;
+  padding: 0 3px !important;
+}
+
+/* =========================
+   SCROLLABLE CONTENT
+   ========================= */
+
+.mobile-filter-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-right: -4px;
+}
+
+.mobile-filter-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-filter-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-filter-scrollable::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 2px;
+}
+
+[data-theme="dark"] .mobile-filter-scrollable::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+.mobile-filter-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+[data-theme="dark"] .mobile-filter-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #595959;
+}
+
+/* =========================
+   DASHBOARD SPECIFIC OPTIMIZATIONS
+   ========================= */
+
+/* Tối ưu hóa cho các bộ lọc trong Dashboard */
+.dashboard-container .mobile-filter-button {
+  margin-bottom: 6px !important;
+  height: 32px !important;
+  font-size: 11px !important;
+}
+
+.dashboard-container .mobile-filter-button .ant-space {
+  gap: 3px !important;
+}
+
+.dashboard-container .mobile-filter-button .ant-typography {
+  font-size: 11px !important;
+}
+
+/* Tối ưu hóa cho các bộ lọc trong các tab */
+.dashboard-task-charts .mobile-filter-button,
+.dashboard-issue-charts .mobile-filter-button {
+  margin-bottom: 4px !important;
+  height: 30px !important;
+  font-size: 10px !important;
+}
+
+.dashboard-task-charts .mobile-filter-button .ant-typography,
+.dashboard-issue-charts .mobile-filter-button .ant-typography {
+  font-size: 10px !important;
+}
+
+/* Tối ưu hóa cho các bộ lọc trong các card */
+.dashboard-chart-card .mobile-filter-button {
+  margin-bottom: 4px !important;
+  height: 28px !important;
+  font-size: 9px !important;
+}
+
+.dashboard-chart-card .mobile-filter-button .ant-typography {
+  font-size: 9px !important;
+}
+
+/* =========================
+   LEGACY CARD STYLES (for backward compatibility)
+   ========================= */
+
+.mobile-filter-card {
+  margin-bottom: 12px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.08) !important;
+  border: 1px solid #e6f7ff !important;
+  background: #fff !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.mobile-filter-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 4px !important;
+  height: 100% !important;
+  background: linear-gradient(180deg, #1890ff, #40a9ff) !important;
+}
+
+.mobile-filter-card .ant-card-body {
+  padding: 16px !important;
+  padding-left: 20px !important;
+}
+
+/* Different colors for different filter types */
+.mobile-filter-card:nth-child(1) {
+  border-color: #e6f7ff !important;
+  background: #f6ffed !important;
+}
+
+.mobile-filter-card:nth-child(1)::before {
+  background: linear-gradient(180deg, #52c41a, #73d13d) !important;
+}
+
+.mobile-filter-card:nth-child(2) {
+  border-color: #fff2e8 !important;
+  background: #fff2e8 !important;
+}
+
+.mobile-filter-card:nth-child(2)::before {
+  background: linear-gradient(180deg, #fa8c16, #ffa940) !important;
+}
+
+.mobile-filter-card:nth-child(3) {
+  border-color: #f9f0ff !important;
+  background: #f9f0ff !important;
+}
+
+.mobile-filter-card:nth-child(3)::before {
+  background: linear-gradient(180deg, #722ed1, #9254de) !important;
+}
+
+.mobile-filter-card:nth-child(4) {
+  border-color: #fff1f0 !important;
+  background: #fff1f0 !important;
+}
+
+.mobile-filter-card:nth-child(4)::before {
+  background: linear-gradient(180deg, #f5222d, #ff4d4f) !important;
+}
+
+.mobile-filter-card:nth-child(5) {
+  border-color: #e6fffb !important;
+  background: #e6fffb !important;
+}
+
+.mobile-filter-card:nth-child(5)::before {
+  background: linear-gradient(180deg, #13c2c2, #36cfc9) !important;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .mobile-filter-card {
+  border-color: #303030 !important;
+  background: #1f1f1f !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .mobile-filter-card:nth-child(1) {
+  background: #162312 !important;
+  border-color: #274916 !important;
+}
+
+[data-theme="dark"] .mobile-filter-card:nth-child(2) {
+  background: #2b1d11 !important;
+  border-color: #613400 !important;
+}
+
+[data-theme="dark"] .mobile-filter-card:nth-child(3) {
+  background: #22075e !important;
+  border-color: #391085 !important;
+}
+
+[data-theme="dark"] .mobile-filter-card:nth-child(4) {
+  background: #2a1215 !important;
+  border-color: #5c2026 !important;
+}
+
+[data-theme="dark"] .mobile-filter-card:nth-child(5) {
+  background: #112123 !important;
+  border-color: #144648 !important;
+}
+
+/* =========================
+   LEGACY ROW STYLES (for backward compatibility)
+   ========================= */
+
+.mobile-filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.mobile-filter-row .mobile-filter-label {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  margin-bottom: 2px !important;
+  line-height: 1.2 !important;
+  color: #262626 !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .mobile-filter-label {
+  color: #fff !important;
+}
+
+.mobile-filter-row .ant-input,
+.mobile-filter-row .ant-select {
+  height: 28px !important;
+  max-height: 28px !important;
+  border-radius: 4px !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  padding: 3px 6px !important;
+  box-sizing: border-box !important;
+}
+
+.mobile-filter-row .ant-input::placeholder {
+  font-size: 10px !important;
+  color: #bfbfbf !important;
+}
+
+.mobile-filter-row .ant-input-prefix {
+  margin-right: 3px !important;
+}
+
+.mobile-filter-row .ant-input-prefix .anticon {
+  font-size: 11px !important;
+  color: #8c8c8c !important;
+}
+
+/* Input and Select styling for better visibility */
+.mobile-filter-row .ant-input {
+  border-color: #d9d9d9 !important;
+  background: #fff !important;
+}
+
+.mobile-filter-row .ant-input:focus,
+.mobile-filter-row .ant-input-focused {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.mobile-filter-row .ant-select-selector {
+  height: 28px !important;
+  max-height: 28px !important;
+  padding: 3px 5px !important;
+  box-sizing: border-box !important;
+  border-color: #d9d9d9 !important;
+  background: #fff !important;
+}
+
+.mobile-filter-row .ant-select-focused .ant-select-selector {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+/* Dark theme support for inputs */
+[data-theme="dark"] .mobile-filter-row .ant-input {
+  background: #2f2f2f !important;
+  border-color: #404040 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-input:focus,
+[data-theme="dark"] .mobile-filter-row .ant-input-focused {
+  border-color: #177ddc !important;
+  box-shadow: 0 0 0 2px rgba(23, 125, 220, 0.2) !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-select-selector {
+  height: 28px !important;
+  max-height: 28px !important;
+  padding: 3px 5px !important;
+  box-sizing: border-box !important;
+  background: #2f2f2f !important;
+  border-color: #404040 !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-select-focused .ant-select-selector {
+  border-color: #177ddc !important;
+  box-shadow: 0 0 0 2px rgba(23, 125, 220, 0.2) !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-input::placeholder {
+  color: #8c8c8c !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-input-prefix .anticon {
+  color: #bfbfbf !important;
+}
+
+/* Select arrow and dropdown styling */
+.mobile-filter-row .ant-select-arrow {
+  color: #8c8c8c !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-select-arrow {
+  color: #bfbfbf !important;
+}
+
+/* Dropdown menu styling */
+.ant-select-dropdown {
+  background: #fff !important;
+  border: 1px solid #d9d9d9 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .ant-select-dropdown {
+  background: #2f2f2f !important;
+  border: 1px solid #404040 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-select-item {
+  color: #262626 !important;
+}
+
+[data-theme="dark"] .ant-select-item {
+  color: #fff !important;
+}
+
+.ant-select-item-option-selected {
+  background: #e6f7ff !important;
+  color: #1890ff !important;
+}
+
+[data-theme="dark"] .ant-select-item-option-selected {
+  background: #111b26 !important;
+  color: #177ddc !important;
+}
+
+.ant-select-item-option-active {
+  background: #f5f5f5 !important;
+}
+
+[data-theme="dark"] .ant-select-item-option-active {
+  background: #404040 !important;
+}
+
+.mobile-filter-row .ant-select-selection-item {
+  font-size: 11px !important;
+  line-height: 20px !important;
+  height: 20px !important;
+  color: #262626 !important;
+}
+
+.mobile-filter-row .ant-select-selection-placeholder {
+  font-size: 10px !important;
+  line-height: 20px !important;
+  height: 20px !important;
+  color: #bfbfbf !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-select-selection-item {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-filter-row .ant-select-selection-placeholder {
+  color: #8c8c8c !important;
+}

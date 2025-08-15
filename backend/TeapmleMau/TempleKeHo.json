@@ -1,0 +1,418 @@
+{
+  "checklist": {
+    "id": "fb897303-6e78-47fd-87f1-8206c817a721",
+    "name": "Kiểm tra hồ sơ giao thông",
+    "projectId": "d26c351a-9429-4a53-b298-db57f032b2d8",
+    "description": "checklist",
+    "createdById": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+    "createdAt": "2025-08-07T08:08:04.841Z",
+    "updatedAt": "2025-08-07T08:08:04.841Z",
+    "project": {
+      "id": "d26c351a-9429-4a53-b298-db57f032b2d8",
+      "name": "Dự án 1",
+      "code": "PRJ-DN1-754205"
+    },
+    "createdBy": {
+      "id": "1e9d0519-6f9d-49e7-915c-645427b908f7",
+      "name": "NguyenThanh",
+      "email": "nguyenthanhvc@gmail.com"
+    },
+    "items": [
+      {
+        "id": "8213b8e9-fa00-408c-93d4-09981051fa07",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Kiểm tra các số liệu đầu vào",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "bc550336-5843-4784-a5a7-d88b89cb9dba",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Hạng mục & Diễn giải công việc",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "3344877a-03a3-4456-b21f-b23a95475a18",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9bc6ef03-62de-44c2-b8de-22c2c18283f1",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      },
+      {
+        "id": "9fd042fb-61b4-4837-8335-4ee0376be352",
+        "checklistId": "fb897303-6e78-47fd-87f1-8206c817a721",
+        "category": "Unknown",
+        "content": "Thuyết minh",
+        "order": 1,
+        "isChecked": false,
+        "notes": ""
+      }
+    ],
+    "_count": {
+      "items": 5
+    }
+  },
+  "currentTab": "Kè hồ",
+  "items": [
+    {
+      "id": "9bc6ef03-62de-44c2-b8de-22c2c18283f1",
+      "category": "Kè hồ",
+      "content": "Thuyết minh",
+      "isChecked": false,
+      "order": 1,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.3485226203311633-1",
+      "category": "Kè hồ",
+      "content": "Các quy chuẩn, tiêu chuẩn áp dụng",
+      "order": 2,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.40247992326152005-2",
+      "category": "Kè hồ",
+      "content": "Giải pháp thiết kế",
+      "order": 3,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.671621511630917-3",
+      "category": "Kè hồ",
+      "content": "Chi tiết kết cấu",
+      "order": 4,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.41359515722199536-4",
+      "category": "Kè hồ",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 5,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.7228208161042569-5",
+      "category": "Kè hồ",
+      "content": "Biện pháp thi công chủ đạo",
+      "order": 6,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.8106305745577902-6",
+      "category": "Kè hồ",
+      "content": "Phụ lục tính toán, kiểm toán",
+      "order": 7,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.8614898519683074-7",
+      "category": "Kè hồ",
+      "content": "Nhiệm vụ thi công và thí nghiệm cọc thử (nếu có)",
+      "order": 8,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.20307709320912148-8",
+      "category": "Kè hồ",
+      "content": "Bản vẽ",
+      "order": 9,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.010355464096544642-9",
+      "category": "Kè hồ",
+      "content": "Mặt bằng",
+      "order": 10,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.8663272767407543-10",
+      "category": "Kè hồ",
+      "content": "Cao độ san nền, đường đồng mức san nền",
+      "order": 11,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.515314860522233-11",
+      "category": "Kè hồ",
+      "content": "Vị trí, phạm vi làm kè, tường chắn, taluy, đắp đê…",
+      "order": 12,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.5500676422328179-12",
+      "category": "Kè hồ",
+      "content": "Đường đỉnh kè, chân kè, cao độ",
+      "order": 13,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.8198664033995094-13",
+      "category": "Kè hồ",
+      "content": "Tuyến mương cải tạo/nắn chỉnh xây mới/hoàn trả",
+      "order": 14,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.9419836607230673-14",
+      "category": "Kè hồ",
+      "content": "Các giải pháp chuẩn bị kỹ thuật khác",
+      "order": 15,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.23419965580165003-15",
+      "category": "Kè hồ",
+      "content": "Thể hiện các thông số: chiều cao, chiều dài, loại kết cấu…",
+      "order": 16,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.345823594526942-16",
+      "category": "Kè hồ",
+      "content": "Mặt cắt điển hình tại các vị trí xử lý chênh cao bằng giải pháp taluy/kè/tường chắn",
+      "order": 17,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.09277480314495057-17",
+      "category": "Kè hồ",
+      "content": "Mặt cắt điển hình tuyến mương cải tạo/nắn chỉnh xây mới/hoàn trả",
+      "order": 18,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.821424080551973-18",
+      "category": "Kè hồ",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 19,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137460-0.19732975542978293-19",
+      "category": "Kè hồ",
+      "content": "Ghi chú, ký hiệu",
+      "order": 20,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.5703602371790619-20",
+      "category": "Kè hồ",
+      "content": "Trắc dọc",
+      "order": 21,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.7773948197793432-21",
+      "category": "Kè hồ",
+      "content": "Trắc dọc các tuyến tuyến kè, tường chắn, đê…",
+      "order": 22,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.031146922602461546-22",
+      "category": "Kè hồ",
+      "content": "Trắc dọc tuyến mương cải tạo/nắn chỉnh xây mới/hoàn trả",
+      "order": 23,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.1865551393567968-23",
+      "category": "Kè hồ",
+      "content": "Cao độ đường đỏ, đen khớp với hiện trạng, bình đồ tuyến",
+      "order": 24,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.8967071537438255-24",
+      "category": "Kè hồ",
+      "content": "Chiều dài tuyến, tên cọc khớp theo bình đồ",
+      "order": 25,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.12660025532420993-25",
+      "category": "Kè hồ",
+      "content": "Thể hiên đầy đủ các chi tiết, kết cấu trên trắc dọc",
+      "order": 26,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.8583947561453906-26",
+      "category": "Kè hồ",
+      "content": "Trắc ngang",
+      "order": 27,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.4576608608442936-27",
+      "category": "Kè hồ",
+      "content": "Trắc ngang chi tiết các tuyến kè, tường chắn, đê…",
+      "order": 28,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.598665621053329-28",
+      "category": "Kè hồ",
+      "content": "Trắc ngang chi tiết tuyến mương cải tạo/nắn chỉnh xây mới/hoàn trả",
+      "order": 29,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.57634907955173-29",
+      "category": "Kè hồ",
+      "content": "Cao độ đường đỏ, đen khớp với trắc dọc và hiện trạng",
+      "order": 30,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.8941044724446673-30",
+      "category": "Kè hồ",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 31,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.1642642239271559-31",
+      "category": "Kè hồ",
+      "content": "Các bản vẽ chi tiết",
+      "order": 32,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.5790581285566665-32",
+      "category": "Kè hồ",
+      "content": "Bản vẽ chi tiết kè, tường chắn, taluy, gia cố taluy…",
+      "order": 33,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.14537901944969955-33",
+      "category": "Kè hồ",
+      "content": "Chi tiết từng loại kết cấu",
+      "order": 34,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.5902224956410203-34",
+      "category": "Kè hồ",
+      "content": "Khối lượng chi tiết từng kết cấu",
+      "order": 35,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.435201747936659-35",
+      "category": "Kè hồ",
+      "content": "Bản vẽ chi tiết mương cải tạo/xây mới",
+      "order": 36,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.12346755336760462-36",
+      "category": "Kè hồ",
+      "content": "Chi tiết từng loại kết cấu",
+      "order": 37,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.9018747313303602-37",
+      "category": "Kè hồ",
+      "content": "Khối lượng chi tiết từng kết cấu",
+      "order": 38,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.5212637763673101-38",
+      "category": "Kè hồ",
+      "content": "Các bản vẽ chi tiết khác",
+      "order": 39,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.6749101650604077-39",
+      "category": "Kè hồ",
+      "content": "Chi tiết từng loại kết cấu",
+      "order": 40,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.13716471691860121-40",
+      "category": "Kè hồ",
+      "content": "Khối lượng chi tiết từng kết cấu",
+      "order": 41,
+      "isChecked": false,
+      "notes": ""
+    },
+    {
+      "id": "Kè hồ-1754554137461-0.840346616218773-41",
+      "category": "Kè hồ",
+      "content": "Bảng tổng hợp khối lượng",
+      "order": 42,
+      "isChecked": false,
+      "notes": ""
+    }
+  ],
+  "columns": [
+    "STT",
+    "Hạng mục",
+    "Check",
+    "Ghi chú"
+  ],
+  "exportDate": "2025-08-07T08:09:53.011Z",
+  "version": "1.0"
+}

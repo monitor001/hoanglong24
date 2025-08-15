@@ -1,0 +1,283 @@
+/* Tasks Mobile Final Fix
+ * Fix tổng hợp tất cả vấn đề chiều cao container trên mobile
+ * Đảm bảo không có khoảng trống thừa giữa statistics cards và filters
+ */
+
+/* ===== GLOBAL MOBILE FIX (≤ 768px) ===== */
+@media (max-width: 768px) {
+  /* Reset tất cả container heights */
+  .tasks-container,
+  .tasks-container .tasks-container,
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Fix padding cho container */
+  .tasks-container {
+    padding: 8px !important;
+  }
+  
+  .tasks-container .tasks-container {
+    padding: 0 !important;
+  }
+  
+  /* Fix margin cho dashboard stats row */
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Fix row container */
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 -2px !important;
+    row-gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Override tất cả inline styles */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 8px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"] {
+    row-gap: 4px !important;
+  }
+  
+  /* Fix khoảng cách với phần tử tiếp theo */
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 8px !important;
+  }
+  
+  /* Đảm bảo không có khoảng trống thừa */
+  .tasks-container:empty,
+  .tasks-container .dashboard-stats-row:empty,
+  .tasks-container .tasks-container:empty,
+  .tasks-container .tasks-container .dashboard-stats-row:empty {
+    display: none !important;
+  }
+  
+  /* Fix column padding */
+  .tasks-container .dashboard-stats-row .ant-col,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-col {
+    padding: 0 2px !important;
+  }
+  
+  /* Fix card heights */
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    margin-bottom: 4px !important;
+  }
+  
+  /* Fix card body */
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 6px 8px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+/* ===== SMALL MOBILE FIX (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .tasks-container {
+    padding: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -1px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+    margin-right: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-col,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-col {
+    padding: 0 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 55px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 4px 6px !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE FIX ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .tasks-container {
+    padding: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -2px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 4px 6px !important;
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE FIX (≤ 360px) ===== */
+@media (max-width: 360px) {
+  .tasks-container {
+    padding: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row {
+    margin: 0 -1px !important;
+    row-gap: 2px !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+    margin-right: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row + *,
+  .tasks-container .tasks-container .dashboard-stats-row + * {
+    margin-top: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-col,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-col {
+    padding: 0 1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card {
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-card-body,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-card-body {
+    padding: 3px 4px !important;
+  }
+}
+
+/* ===== IMPORTANT OVERRIDES ===== */
+@media (max-width: 768px) {
+  /* Override tất cả height rules có thể gây vấn đề */
+  .tasks-container[style*="height"],
+  .tasks-container .tasks-container[style*="height"],
+  .tasks-container .dashboard-stats-row[style*="height"],
+  .tasks-container .tasks-container .dashboard-stats-row[style*="height"] {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+  
+  /* Override tất cả margin rules có thể gây vấn đề */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"] {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Đảm bảo không có transform hoặc position gây vấn đề */
+  .tasks-container,
+  .tasks-container .tasks-container,
+  .tasks-container .dashboard-stats-row,
+  .tasks-container .tasks-container .dashboard-stats-row {
+    transform: none !important;
+    position: static !important;
+  }
+}

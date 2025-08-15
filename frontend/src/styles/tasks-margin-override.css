@@ -1,0 +1,168 @@
+/* Tasks Margin Override
+ * Override tất cả margin-bottom và inline styles gây vấn đề
+ * Đặc biệt xử lý margin-bottom: 24px
+ */
+
+/* ===== MOBILE MARGIN OVERRIDE (≤ 768px) ===== */
+@media (max-width: 768px) {
+  /* Override margin-bottom 24px cụ thể */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"] {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Override margin-bottom với bất kỳ giá trị nào */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Override margin-left và margin-right */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"] {
+    margin-right: -2px !important;
+  }
+  
+  /* Override row-gap */
+  .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"] {
+    row-gap: 4px !important;
+  }
+  
+  /* Override tất cả inline styles có thể gây vấn đề */
+  .tasks-container .dashboard-stats-row .ant-row[style],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style] {
+    margin: 0 -2px !important;
+    row-gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+/* ===== SMALL MOBILE MARGIN OVERRIDE (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"] {
+    margin-right: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"] {
+    row-gap: 3px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style] {
+    margin: 0 -1px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE MARGIN OVERRIDE ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 6px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"] {
+    margin-right: -2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"] {
+    row-gap: 3px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style] {
+    margin: 0 -2px !important;
+    row-gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE MARGIN OVERRIDE (≤ 360px) ===== */
+@media (max-width: 360px) {
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"] {
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom"] {
+    margin-bottom: 4px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-left"] {
+    margin-left: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-right"] {
+    margin-right: -1px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="row-gap"] {
+    row-gap: 2px !important;
+  }
+  
+  .tasks-container .dashboard-stats-row .ant-row[style],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style] {
+    margin: 0 -1px !important;
+    row-gap: 2px !important;
+    margin-bottom: 4px !important;
+  }
+}
+
+/* ===== UNIVERSAL OVERRIDE ===== */
+@media (max-width: 768px) {
+  /* Override tất cả inline styles có thể gây vấn đề */
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 24px"],
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 16px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 16px"],
+  .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 12px"],
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row[style*="margin-bottom: 12px"] {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Đảm bảo không có khoảng trống thừa */
+  .tasks-container .dashboard-stats-row .ant-row:empty,
+  .tasks-container .tasks-container .dashboard-stats-row .ant-row:empty {
+    display: none !important;
+  }
+}

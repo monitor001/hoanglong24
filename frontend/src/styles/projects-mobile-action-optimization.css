@@ -1,0 +1,266 @@
+/* Projects Mobile Action Optimization - Updated to match Tasks pattern */
+
+/* Mobile Project Card Actions - Match Tasks pattern */
+.mobile-project-card .project-actions {
+  margin-top: 12px;
+}
+
+.mobile-project-card .action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-project-card .action-buttons > div {
+  display: flex;
+  gap: 8px;
+}
+
+/* Project action buttons - Match Tasks pattern */
+.mobile-project-card .action-buttons .ant-btn {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 0px 8px !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mobile-project-card .action-buttons .ant-btn .anticon {
+  font-size: 16px !important;
+}
+
+/* Mobile Icon Standardization - Match Tasks pattern */
+.mobile-icon-standard {
+  width: 32px !important;
+  height: 24px !important;
+  padding: 0px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.mobile-icon-standard .anticon {
+  font-size: 16px !important;
+}
+
+.mobile-icon-standard:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mobile-icon-standard:active {
+  transform: translateY(0) !important;
+}
+
+/* Project Header Dropdown */
+.mobile-project-header-dropdown {
+  color: #666 !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 4px !important;
+  min-width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mobile-project-header-dropdown:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #333 !important;
+}
+
+/* Project Tags */
+.mobile-project-card .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.mobile-project-card .project-tags .ant-tag {
+  margin: 0 !important;
+  font-size: 9px !important;
+  padding: 1px 4px !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+}
+
+/* Project Title */
+.mobile-project-card .project-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #262626 !important;
+  margin-bottom: 6px !important;
+  line-height: 1.4 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Project Description */
+.mobile-project-card .project-description {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Project Manager */
+.mobile-project-card .project-manager {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Project Meta */
+.mobile-project-card .project-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 8px !important;
+}
+
+.mobile-project-card .project-dates {
+  font-size: 10px !important;
+  color: #999 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Project Progress */
+.mobile-project-card .project-progress {
+  margin-bottom: 12px !important;
+}
+
+.mobile-project-card .project-progress .ant-progress {
+  margin: 0 !important;
+}
+
+/* Tablet Landscape Optimizations */
+.tablet-landscape-project-card .project-actions {
+  margin-top: 16px;
+}
+
+.tablet-landscape-project-card .action-buttons {
+  gap: 12px;
+}
+
+.tablet-landscape-project-card .action-buttons > div {
+  gap: 12px;
+}
+
+.tablet-landscape-project-card .project-title {
+  font-size: 15px !important;
+}
+
+.tablet-landscape-project-card .project-description {
+  font-size: 13px !important;
+}
+
+.tablet-landscape-project-card .project-dates {
+  font-size: 11px !important;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .mobile-project-card .project-title {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-description {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-card .project-dates {
+  color: #999 !important;
+}
+
+[data-theme="dark"] .mobile-project-header-dropdown {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .mobile-project-header-dropdown:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .mobile-icon-standard {
+    min-width: 36px !important;
+    min-height: 36px !important;
+    font-size: 18px !important;
+  }
+
+  .mobile-project-card .action-buttons {
+    gap: 12px;
+  }
+
+  .mobile-project-card .action-buttons > div {
+    gap: 12px;
+  }
+
+  .mobile-project-header-dropdown {
+    min-width: 28px !important;
+    height: 28px !important;
+  }
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mobile-project-card .project-tags .ant-tag {
+    border-width: 0.5px !important;
+  }
+
+  .mobile-icon-standard {
+    border-width: 0.5px !important;
+  }
+}
+
+/* Focus states for accessibility */
+.mobile-icon-standard:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+.mobile-project-header-dropdown:focus {
+  outline: 2px solid #1890ff !important;
+  outline-offset: 2px !important;
+}
+
+/* Animation improvements */
+.mobile-project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.mobile-project-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Loading state improvements */
+.mobile-icon-standard.ant-btn-loading {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+}
+
+.mobile-icon-standard.ant-btn-loading:hover {
+  transform: none !important;
+}
+
+/* Print styles */
+@media print {
+  .mobile-project-card .project-actions {
+    display: none !important;
+  }
+}

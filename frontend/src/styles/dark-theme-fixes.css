@@ -1,0 +1,508 @@
+/* Dark Theme Fixes - Comprehensive background color fixes */
+
+/* Ant Design Components - Tabs and Segmented */
+[data-theme="dark"] .ant-tabs,
+.ant-theme-dark .ant-tabs {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-nav,
+.ant-theme-dark .ant-tabs .ant-tabs-nav {
+  background: transparent !important;
+  border-bottom-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-nav-wrap,
+.ant-theme-dark .ant-tabs .ant-tabs-nav-wrap {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-nav-list,
+.ant-theme-dark .ant-tabs .ant-tabs-nav-list {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab,
+.ant-theme-dark .ant-tabs .ant-tabs-tab {
+  background: transparent !important;
+  border-color: #303030 !important;
+  color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab:hover,
+.ant-theme-dark .ant-tabs .ant-tabs-tab:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab-active,
+.ant-theme-dark .ant-tabs .ant-tabs-tab-active {
+  background: transparent !important;
+  border-bottom-color: #1890ff !important;
+  color: #1890ff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab-btn,
+.ant-theme-dark .ant-tabs .ant-tabs-tab-btn {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab-btn:hover,
+.ant-theme-dark .ant-tabs .ant-tabs-tab-btn:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn,
+.ant-theme-dark .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  background: transparent !important;
+  color: #1890ff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-content-holder,
+.ant-theme-dark .ant-tabs .ant-tabs-content-holder {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tabpane,
+.ant-theme-dark .ant-tabs .ant-tabs-tabpane {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-ink-bar,
+.ant-theme-dark .ant-tabs .ant-tabs-ink-bar {
+  background: #1890ff !important;
+}
+
+/* Light theme fixes to ensure proper backgrounds */
+[data-theme="light"] .ant-tabs,
+.ant-theme-light .ant-tabs {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-nav,
+.ant-theme-light .ant-tabs .ant-tabs-nav {
+  background: #ffffff !important;
+  border-bottom-color: #f0f0f0 !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-nav-wrap,
+.ant-theme-light .ant-tabs .ant-tabs-nav-wrap {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-nav-list,
+.ant-theme-light .ant-tabs .ant-tabs-nav-list {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tab,
+.ant-theme-light .ant-tabs .ant-tabs-tab {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tab:hover,
+.ant-theme-light .ant-tabs .ant-tabs-tab:hover {
+  background: #f5f5f5 !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tab-active,
+.ant-theme-light .ant-tabs .ant-tabs-tab-active {
+  background: #ffffff !important;
+  color: #1890ff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tab-btn,
+.ant-theme-light .ant-tabs .ant-tabs-tab-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tab-btn:hover,
+.ant-theme-light .ant-tabs .ant-tabs-tab-btn:hover {
+  background: #f5f5f5 !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn,
+.ant-theme-light .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  background: #ffffff !important;
+  color: #1890ff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-content-holder,
+.ant-theme-light .ant-tabs .ant-tabs-content-holder {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-tabpane,
+.ant-theme-light .ant-tabs .ant-tabs-tabpane {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .ant-tabs .ant-tabs-ink-bar,
+.ant-theme-light .ant-tabs .ant-tabs-ink-bar {
+  background: #1890ff !important;
+}
+
+/* Additional specific tab element fixes */
+[data-theme="dark"] .ant-tabs-nav-operations,
+.ant-theme-dark .ant-tabs-nav-operations {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-tabs-nav-more,
+.ant-theme-dark .ant-tabs-nav-more {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] .ant-tabs-dropdown,
+.ant-theme-dark .ant-tabs-dropdown {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-tabs-dropdown-menu-item,
+.ant-theme-dark .ant-tabs-dropdown-menu-item {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] .ant-tabs-dropdown-menu-item:hover,
+.ant-theme-dark .ant-tabs-dropdown-menu-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .ant-tabs-dropdown-menu-item-selected,
+.ant-theme-dark .ant-tabs-dropdown-menu-item-selected {
+  background: rgba(24, 144, 255, 0.1) !important;
+  color: #1890ff !important;
+}
+
+/* Light theme specific tab element fixes */
+[data-theme="light"] .ant-tabs-nav-operations,
+.ant-theme-light .ant-tabs-nav-operations {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .ant-tabs-nav-more,
+.ant-theme-light .ant-tabs-nav-more {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs-dropdown,
+.ant-theme-light .ant-tabs-dropdown {
+  background: #ffffff !important;
+  border-color: #f0f0f0 !important;
+}
+
+[data-theme="light"] .ant-tabs-dropdown-menu-item,
+.ant-theme-light .ant-tabs-dropdown-menu-item {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs-dropdown-menu-item:hover,
+.ant-theme-light .ant-tabs-dropdown-menu-item:hover {
+  background: #f5f5f5 !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .ant-tabs-dropdown-menu-item-selected,
+.ant-theme-light .ant-tabs-dropdown-menu-item-selected {
+  background: rgba(24, 144, 255, 0.1) !important;
+  color: #1890ff !important;
+}
+
+/* Segmented control styles for dark theme (mobile tabs) */
+[data-theme="dark"] .ant-segmented,
+.ant-theme-dark .ant-segmented {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item,
+.ant-theme-dark .ant-segmented .ant-segmented-item {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item:hover,
+.ant-theme-dark .ant-segmented .ant-segmented-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item-selected,
+.ant-theme-dark .ant-segmented .ant-segmented-item-selected {
+  background: #1890ff !important;
+  color: #ffffff !important;
+  border-color: #1890ff !important;
+}
+
+/* Ant Design Cards */
+[data-theme="dark"] .ant-card,
+.ant-theme-dark .ant-card {
+  background: transparent !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-card .ant-card-head,
+.ant-theme-dark .ant-card .ant-card-head {
+  background: transparent !important;
+  border-bottom-color: #303030 !important;
+}
+
+[data-theme="dark"] .ant-card .ant-card-body,
+.ant-theme-dark .ant-card .ant-card-body {
+  background: transparent !important;
+}
+
+/* Exception for note and folder cards - they should keep their background transparent body but maintain card background */
+[data-theme="dark"] .note-item .ant-card-body,
+.ant-theme-dark .note-item .ant-card-body,
+[data-theme="dark"] .folder-item .ant-card-body,
+.ant-theme-dark .folder-item .ant-card-body {
+  background: transparent !important;
+}
+
+/* Remove any background overrides for note and folder cards */
+[data-theme="dark"] .note-item.ant-card,
+.ant-theme-dark .note-item.ant-card,
+[data-theme="dark"] .folder-item.ant-card,
+.ant-theme-dark .folder-item.ant-card {
+  /* Let inline styles with !important take precedence */
+}
+
+[data-theme="dark"] .ant-card .ant-card-head-title,
+.ant-theme-dark .ant-card .ant-card-head-title {
+  color: #e8e8e8 !important;
+}
+
+/* Dashboard specific cards */
+[data-theme="dark"] .dashboard-chart-card,
+.ant-theme-dark .dashboard-chart-card {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .dashboard-chart-card .ant-card-body,
+.ant-theme-dark .dashboard-chart-card .ant-card-body {
+  background: transparent !important;
+}
+
+/* ExcelLikeTable fixes */
+[data-theme="dark"] .excel-table,
+.ant-theme-dark .excel-table {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .excel-table .handsontable,
+.ant-theme-dark .excel-table .handsontable {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .excel-table .handsontable .htCore,
+.ant-theme-dark .excel-table .handsontable .htCore {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .excel-table .handsontable .htCore td,
+.ant-theme-dark .excel-table .handsontable .htCore td {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .excel-table .handsontable .htCore th,
+.ant-theme-dark .excel-table .handsontable .htCore th {
+  background: transparent !important;
+}
+
+/* Rich Text Editor fixes */
+[data-theme="dark"] .ql-editor,
+.ant-theme-dark .ql-editor {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .ql-toolbar,
+.ant-theme-dark .ql-toolbar {
+  background: transparent !important;
+}
+
+/* Handsontable specific fixes */
+[data-theme="dark"] .handsontable,
+.ant-theme-dark .handsontable {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .handsontable .htCore,
+.ant-theme-dark .handsontable .htCore {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .handsontable .htCore td,
+.ant-theme-dark .handsontable .htCore td {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .handsontable .htCore th,
+.ant-theme-dark .handsontable .htCore th {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .handsontable .htContextMenu,
+.ant-theme-dark .handsontable .htContextMenu {
+  background: #1f1f1f !important;
+}
+
+[data-theme="dark"] .handsontable .htContextMenu table tbody tr td,
+.ant-theme-dark .handsontable .htContextMenu table tbody tr td {
+  background: #1f1f1f !important;
+  color: #e8e8e8 !important;
+}
+
+/* Pika date picker fixes */
+[data-theme="dark"] .pika-single,
+.ant-theme-dark .pika-single {
+  background: #1f1f1f !important;
+  color: #e8e8e8 !important;
+  border-color: #303030 !important;
+}
+
+/* Empty state fixes */
+[data-theme="dark"] .empty-state-container,
+.ant-theme-dark .empty-state-container {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .empty-state-illustration,
+.ant-theme-dark .empty-state-illustration {
+  background: transparent !important;
+}
+
+/* Comment section fixes */
+[data-theme="dark"] .comment-section,
+.ant-theme-dark .comment-section {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .comment-item,
+.ant-theme-dark .comment-item {
+  background: transparent !important;
+}
+
+/* Project card fixes */
+[data-theme="dark"] .project-card,
+.ant-theme-dark .project-card {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .project-card .ant-card-body,
+.ant-theme-dark .project-card .ant-card-body {
+  background: transparent !important;
+}
+
+/* Notes fixes - Allow custom colors for note cards */
+[data-theme="dark"] .note-content,
+.ant-theme-dark .note-content {
+  background: transparent !important;
+}
+
+/* Note and folder cards maintain their inline background styles */
+
+/* Task fixes */
+[data-theme="dark"] .task-item,
+.ant-theme-dark .task-item {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .task-content,
+.ant-theme-dark .task-content {
+  background: transparent !important;
+}
+
+/* Issue fixes */
+[data-theme="dark"] .issue-item,
+.ant-theme-dark .issue-item {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .issue-content,
+.ant-theme-dark .issue-content {
+  background: transparent !important;
+}
+
+/* Document fixes */
+[data-theme="dark"] .document-item,
+.ant-theme-dark .document-item {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .document-content,
+.ant-theme-dark .document-content {
+  background: transparent !important;
+}
+
+/* But preserve specific backgrounds that should remain */
+[data-theme="dark"] .ant-btn-primary,
+.ant-theme-dark .ant-btn-primary {
+  background: #1890ff !important;
+}
+
+[data-theme="dark"] .ant-btn-primary:hover,
+.ant-theme-dark .ant-btn-primary:hover {
+  background: #40a9ff !important;
+}
+
+[data-theme="dark"] .ant-segmented .ant-segmented-item-selected,
+.ant-theme-dark .ant-segmented .ant-segmented-item-selected {
+  background: #1890ff !important;
+}
+
+[data-theme="dark"] .ant-tabs .ant-tabs-tab-active,
+.ant-theme-dark .ant-tabs .ant-tabs-tab-active {
+  background: transparent !important;
+}
+
+/* Fix for any inline styles that might override */
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background: #ffffff"],
+[data-theme="dark"] [style*="background-color: #fff"],
+[data-theme="dark"] [style*="background-color: #ffffff"],
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background-color: white"],
+.ant-theme-dark [style*="background: #fff"],
+.ant-theme-dark [style*="background: #ffffff"],
+.ant-theme-dark [style*="background-color: #fff"],
+.ant-theme-dark [style*="background-color: #ffffff"],
+.ant-theme-dark [style*="background: white"],
+.ant-theme-dark [style*="background-color: white"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Fix for rgba white backgrounds */
+[data-theme="dark"] [style*="background: rgba(255,255,255"],
+[data-theme="dark"] [style*="background-color: rgba(255,255,255"],
+.ant-theme-dark [style*="background: rgba(255,255,255"],
+.ant-theme-dark [style*="background-color: rgba(255,255,255"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Specific fixes for ant-tabs elements with inline styles */
+[data-theme="dark"] .ant-tabs [style*="background"],
+.ant-theme-dark .ant-tabs [style*="background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+[data-theme="light"] .ant-tabs [style*="background: transparent"],
+.ant-theme-light .ant-tabs [style*="background: transparent"] {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}

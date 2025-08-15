@@ -1,0 +1,151 @@
+/* Dashboard Card Spacing Fix */
+
+/* Giảm khoảng cách giữa các card thống kê trên mobile */
+@media (max-width: 768px) {
+  /* Giảm gutter cho Row chứa statistics cards */
+  .dashboard-stats-row .ant-row {
+    margin: 0 -3px !important;
+  }
+  
+  .dashboard-stats-row .ant-col {
+    padding: 0 3px !important;
+  }
+  
+  /* Giảm margin bottom cho các card */
+  .dashboard-stats-row .ant-card {
+    margin-bottom: 6px !important;
+    border-radius: 6px !important;
+  }
+  
+  /* Giảm padding cho card body */
+  .dashboard-stats-row .ant-card-body {
+    padding: 4px 6px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Tối ưu font size cho mobile - tăng kích thước chữ để dễ đọc hơn */
+  .dashboard-stats-row .ant-statistic-title {
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+  
+  .dashboard-stats-row .ant-statistic-content-prefix {
+    font-size: 12px !important;
+    margin-right: 3px !important;
+  }
+  
+  /* Tối ưu icon size */
+  .dashboard-stats-row .ant-statistic-content-prefix .anticon {
+    font-size: 14px !important;
+  }
+  
+  /* Tối ưu hiển thị cho màn hình nhỏ */
+  @media (max-width: 480px) {
+    .dashboard-stats-row .ant-statistic-title {
+      font-size: 9px !important;
+      line-height: 1.0 !important;
+      margin-bottom: 1px !important;
+    }
+    
+    .dashboard-stats-row .ant-statistic-content {
+      font-size: 14px !important;
+      line-height: 1.0 !important;
+    }
+    
+    .dashboard-stats-row .ant-card-body {
+      padding: 3px 4px !important;
+    }
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-stats-row .ant-row {
+    margin: 0 -6px !important;
+  }
+  
+  .dashboard-stats-row .ant-col {
+    padding: 0 6px !important;
+  }
+  
+  .dashboard-stats-row .ant-card {
+    margin-bottom: 12px !important;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1025px) {
+  .dashboard-stats-row .ant-row {
+    margin: 0 -8px !important;
+  }
+  
+  .dashboard-stats-row .ant-col {
+    padding: 0 8px !important;
+  }
+  
+  .dashboard-stats-row .ant-card {
+    margin-bottom: 16px !important;
+  }
+}
+
+/* Override gutter cho statistics cards */
+.dashboard-stats-row {
+  --gutter-horizontal: 8px;
+  --gutter-vertical: 8px;
+}
+
+.dashboard-stats-row .ant-row {
+  row-gap: var(--gutter-vertical) !important;
+}
+
+.dashboard-stats-row .ant-col {
+  padding-left: calc(var(--gutter-horizontal) / 2) !important;
+  padding-right: calc(var(--gutter-horizontal) / 2) !important;
+}
+
+/* Responsive gutter adjustments */
+@media (max-width: 768px) {
+  .dashboard-stats-row {
+    --gutter-horizontal: 4px;
+    --gutter-vertical: 4px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-stats-row {
+    --gutter-horizontal: 6px;
+    --gutter-vertical: 6px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .dashboard-stats-row {
+    --gutter-horizontal: 8px;
+    --gutter-vertical: 8px;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .dashboard-stats-row .ant-card {
+  background: #1f1f1f !important;
+  border-color: #303030 !important;
+}
+
+[data-theme="dark"] .dashboard-stats-row .ant-card:hover {
+  border-color: #434343 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}

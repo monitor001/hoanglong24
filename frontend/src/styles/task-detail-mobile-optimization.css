@@ -1,0 +1,784 @@
+/* Task Detail Mobile Optimization CSS */
+
+/* Mobile Task Edit Drawer */
+.mobile-task-edit-drawer {
+  border-radius: 16px 16px 0 0;
+}
+
+.mobile-task-edit-drawer .ant-drawer-header {
+  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+  border-bottom: 2px solid #e8e8e8;
+  min-height: 48px;
+}
+
+.mobile-task-edit-drawer .ant-drawer-body {
+  background: #f8f9fa;
+}
+
+/* Form Sections - Tối ưu khoảng cách */
+.mobile-task-edit-drawer .form-section {
+  margin-bottom: 4px; /* Giảm từ 8px xuống 4px */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-task-edit-drawer .form-section-header {
+  padding: 6px 12px; /* Giảm từ 8px xuống 6px */
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mobile-task-edit-drawer .form-section-content {
+  padding: 6px 12px; /* Giảm từ 8px xuống 6px */
+}
+
+/* Form Items - Tối ưu khoảng cách */
+.mobile-task-edit-drawer .ant-form-item {
+  margin-bottom: 3px; /* Giảm từ 6px xuống 3px */
+}
+
+.mobile-task-edit-drawer .ant-form-item:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-task-edit-drawer .ant-form-item-label {
+  padding-bottom: 1px; /* Giảm từ 2px xuống 1px */
+}
+
+.mobile-task-edit-drawer .ant-form-item-label > label {
+  font-weight: 500;
+  font-size: 12px;
+  color: #262626;
+  height: 16px; /* Giảm từ 18px xuống 16px */
+  line-height: 16px;
+}
+
+.mobile-task-edit-drawer .ant-input,
+.mobile-task-edit-drawer .ant-select-selector,
+.mobile-task-edit-drawer .ant-picker {
+  border-radius: 6px;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s ease;
+  height: 30px; /* Giảm từ 32px xuống 30px */
+  font-size: 13px;
+  padding: 3px 8px; /* Giảm padding top/bottom từ 4px xuống 3px */
+}
+
+.mobile-task-edit-drawer .ant-input:focus,
+.mobile-task-edit-drawer .ant-select-focused .ant-select-selector,
+.mobile-task-edit-drawer .ant-picker-focused {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 1px rgba(24, 144, 255, 0.2);
+}
+
+/* Textarea optimization */
+.mobile-task-edit-drawer .ant-textarea {
+  min-height: 45px; /* Giảm từ 50px xuống 45px */
+  font-size: 13px;
+  padding: 5px 8px; /* Giảm từ 6px xuống 5px */
+}
+
+.mobile-task-edit-drawer .ant-textarea .ant-input {
+  min-height: 45px;
+  padding: 5px 8px;
+}
+
+/* Section Colors */
+.mobile-task-edit-drawer .section-basic {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid #dee2e6;
+}
+
+.mobile-task-edit-drawer .section-project {
+  background: linear-gradient(135deg, #fff7e6 0%, #ffe7ba 100%);
+  border: 1px solid #ffd591;
+}
+
+.mobile-task-edit-drawer .section-status {
+  background: linear-gradient(135deg, #f6ffed 0%, #d9f7be 100%);
+  border: 1px solid #b7eb8f;
+}
+
+.mobile-task-edit-drawer .section-time {
+  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
+  border: 1px solid #91d5ff;
+}
+
+.mobile-task-edit-drawer .section-category {
+  background: linear-gradient(135deg, #fff0f6 0%, #ffd6e7 100%);
+  border: 1px solid #ffadd2;
+}
+
+/* Buttons */
+.mobile-task-edit-drawer .action-buttons {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 6px 0; /* Giảm từ 8px xuống 6px */
+  border-top: 1px solid #f0f0f0;
+  margin-top: 8px; /* Giảm từ 12px xuống 8px */
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn {
+  height: 34px; /* Giảm từ 36px xuống 34px */
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid;
+  transition: all 0.3s ease;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn-default {
+  border-color: #d9d9d9;
+  background: #fff;
+  color: #595959;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn-default:hover {
+  border-color: #40a9ff;
+  color: #40a9ff;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn-primary {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-color: #1890ff;
+  color: #fff;
+}
+
+.mobile-task-edit-drawer .action-buttons .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+  border-color: #40a9ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+/* Scrollbar */
+.mobile-task-edit-drawer .ant-drawer-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-task-edit-drawer .ant-drawer-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.mobile-task-edit-drawer .ant-drawer-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.mobile-task-edit-drawer .ant-drawer-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* MOBILE FORM OPTIMIZATION - Tối ưu hóa form cho mobile */
+@media (max-width: 768px) {
+  /* Tối ưu drawer header */
+  .mobile-task-edit-drawer .ant-drawer-header {
+    padding: 4px 8px !important; /* Giảm từ 6px 10px xuống 4px 8px */
+    border-bottom: 1px solid #e8e8e8 !important;
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-header .ant-drawer-title {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Tối ưu drawer body */
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 4px 8px !important; /* Giảm từ 6px 10px xuống 4px 8px */
+  }
+
+  /* Tối ưu form sections */
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 2px !important; /* Giảm từ 4px xuống 2px */
+    border-radius: 6px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 4px 8px !important; /* Giảm từ 6px 10px xuống 4px 8px */
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 4px 8px !important; /* Giảm từ 6px 10px xuống 4px 8px */
+  }
+
+  /* Tối ưu form items - Bố cục 1 hàng */
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 2px !important; /* Giảm từ 4px xuống 2px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label {
+    padding-bottom: 0px !important; /* Giảm từ 1px xuống 0px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    height: 14px !important; /* Giảm từ 16px xuống 14px */
+    line-height: 14px !important;
+  }
+
+  /* Tối ưu input fields */
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 26px !important; /* Giảm từ 28px xuống 26px */
+    font-size: 12px !important;
+    padding: 2px 6px !important; /* Giảm từ 3px 6px xuống 2px 6px */
+    border-radius: 4px !important;
+    border: 1px solid #d9d9d9 !important;
+  }
+
+  .mobile-task-edit-drawer .ant-input:focus,
+  .mobile-task-edit-drawer .ant-select-focused .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker-focused {
+    border-color: #1890ff !important;
+    box-shadow: 0 0 0 1px rgba(24, 144, 255, 0.15) !important;
+  }
+
+  /* Tối ưu textarea */
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 35px !important; /* Giảm từ 40px xuống 35px */
+    font-size: 12px !important;
+    padding: 3px 6px !important; /* Giảm từ 4px 6px xuống 3px 6px */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea .ant-input {
+    min-height: 35px !important;
+    padding: 3px 6px !important;
+  }
+
+  /* Tối ưu select dropdown */
+  .mobile-task-edit-drawer .ant-select-dropdown {
+    font-size: 12px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-select-item {
+    padding: 3px 6px !important; /* Giảm từ 4px 6px xuống 3px 6px */
+    font-size: 12px !important;
+  }
+
+  /* Tối ưu date picker */
+  .mobile-task-edit-drawer .ant-picker-dropdown {
+    font-size: 12px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-picker-panel {
+    font-size: 12px !important;
+  }
+
+  /* Tối ưu action buttons */
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 4px 0 !important; /* Giảm từ 6px xuống 4px */
+    margin-top: 6px !important; /* Giảm từ 8px xuống 6px */
+    border-top: 1px solid #f0f0f0 !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 30px !important; /* Giảm từ 32px xuống 30px */
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+  }
+
+  /* Tối ưu form container */
+  .mobile-task-edit-drawer .ant-form {
+    padding: 0 1px !important;
+  }
+
+  /* Tối ưu form layout */
+  .mobile-task-edit-drawer .ant-form-vertical .ant-form-item {
+    margin-bottom: 2px !important; /* Giảm từ 4px xuống 2px */
+  }
+}
+
+/* Tối ưu cho màn hình nhỏ hơn */
+@media (max-width: 480px) {
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+  }
+  
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+  }
+  
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+    font-size: 11px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 10px !important;
+    height: 12px !important; /* Giảm từ 14px xuống 12px */
+    line-height: 12px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 24px !important; /* Giảm từ 26px xuống 24px */
+    font-size: 11px !important;
+    padding: 1px 4px !important; /* Giảm từ 2px 5px xuống 1px 4px */
+  }
+  
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 30px !important; /* Giảm từ 35px xuống 30px */
+    font-size: 11px !important;
+    padding: 2px 4px !important; /* Giảm từ 3px 5px xuống 2px 4px */
+  }
+  
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 26px !important; /* Giảm từ 28px xuống 26px */
+    font-size: 11px !important;
+  }
+}
+
+/* Landscape orientation optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-task-edit-drawer {
+    height: 85vh !important;
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+  }
+
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 2px !important; /* Giảm từ 3px xuống 2px */
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+    font-size: 11px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 1px !important; /* Giảm từ 2px xuống 1px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 10px !important;
+    height: 12px !important; /* Giảm từ 14px xuống 12px */
+    line-height: 12px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 22px !important; /* Giảm từ 24px xuống 22px */
+    font-size: 10px !important;
+    padding: 1px 3px !important; /* Giảm từ 2px 4px xuống 1px 3px */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 25px !important; /* Giảm từ 30px xuống 25px */
+    font-size: 10px !important;
+    padding: 1px 3px !important; /* Giảm từ 2px 4px xuống 1px 3px */
+  }
+
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 3px 0 !important; /* Giảm từ 4px xuống 3px */
+    margin-top: 3px !important; /* Giảm từ 4px xuống 3px */
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 24px !important; /* Giảm từ 26px xuống 24px */
+    font-size: 10px !important;
+  }
+}
+
+/* Tablet optimization */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-task-edit-drawer .ant-drawer-header {
+    padding: 6px 10px !important; /* Giảm từ 8px 12px xuống 6px 10px */
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-title {
+    font-size: 15px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 6px 10px !important; /* Giảm từ 8px 12px xuống 6px 10px */
+  }
+
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 4px !important; /* Giảm từ 6px xuống 4px */
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 6px 10px !important; /* Giảm từ 8px 12px xuống 6px 10px */
+    font-size: 13px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 6px 10px !important; /* Giảm từ 8px 12px xuống 6px 10px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 3px !important; /* Giảm từ 4px xuống 3px */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 12px !important;
+    height: 16px !important; /* Giảm từ 18px xuống 16px */
+    line-height: 16px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 28px !important; /* Giảm từ 30px xuống 28px */
+    font-size: 13px !important;
+    padding: 3px 6px !important; /* Giảm từ 4px 8px xuống 3px 6px */
+  }
+
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 40px !important; /* Giảm từ 45px xuống 40px */
+    font-size: 13px !important;
+    padding: 4px 6px !important; /* Giảm từ 5px 8px xuống 4px 6px */
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 32px !important; /* Giảm từ 36px xuống 32px */
+    font-size: 13px !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .mobile-task-edit-drawer .ant-drawer-header {
+    background: linear-gradient(135deg, #1f1f1f 0%, #141414 100%);
+    border-bottom-color: #303030;
+  }
+  
+  .mobile-task-edit-drawer .ant-drawer-body {
+    background: #141414;
+  }
+  
+  .mobile-task-edit-drawer .section-basic {
+    background: linear-gradient(135deg, #1f1f1f 0%, #262626 100%);
+    border-color: #434343;
+  }
+  
+  .mobile-task-edit-drawer .section-project {
+    background: linear-gradient(135deg, #2a1f0a 0%, #3d2b0f 100%);
+    border-color: #5c3a0f;
+  }
+  
+  .mobile-task-edit-drawer .section-status {
+    background: linear-gradient(135deg, #0f1a0a 0%, #1a2e0f 100%);
+    border-color: #2d4a1a;
+  }
+  
+  .mobile-task-edit-drawer .section-time {
+    background: linear-gradient(135deg, #0a1a2a 0%, #0f2a3d 100%);
+    border-color: #1a3d5c;
+  }
+  
+  .mobile-task-edit-drawer .section-category {
+    background: linear-gradient(135deg, #2a0a1f 0%, #3d0f2b 100%);
+    border-color: #5c1a3a;
+  }
+  
+  .mobile-task-edit-drawer .action-buttons {
+    background: #141414;
+    border-top-color: #303030;
+  }
+}
+
+/* TỐI ƯU BỔ SUNG CHO MOBILE - Giảm khoảng cách tối đa */
+@media (max-width: 768px) {
+  /* Tối ưu drawer container */
+  .mobile-task-edit-drawer .ant-drawer-content-wrapper {
+    max-height: 95vh !important;
+  }
+  
+  /* Tối ưu form container spacing */
+  .mobile-task-edit-drawer .ant-form {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Tối ưu section spacing - Giảm tối đa */
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 1px !important; /* Giảm tối đa */
+    border-radius: 4px !important;
+  }
+  
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 3px 6px !important; /* Giảm tối đa */
+    font-size: 11px !important;
+    min-height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 3px 6px !important; /* Giảm tối đa */
+  }
+  
+  /* Tối ưu form items - Khoảng cách tối thiểu */
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 1px !important; /* Khoảng cách tối thiểu */
+  }
+  
+  .mobile-task-edit-drawer .ant-form-item-label {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 10px !important;
+    height: 12px !important;
+    line-height: 12px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-form-item-control {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Tối ưu input fields - Kích thước nhỏ gọn */
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 24px !important; /* Kích thước nhỏ gọn */
+    font-size: 11px !important;
+    padding: 1px 4px !important;
+    border-radius: 3px !important;
+    margin: 0 !important;
+  }
+  
+  /* Tối ưu textarea */
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 28px !important; /* Giảm tối đa */
+    font-size: 11px !important;
+    padding: 2px 4px !important;
+    margin: 0 !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-textarea .ant-input {
+    min-height: 28px !important;
+    padding: 2px 4px !important;
+  }
+  
+  /* Tối ưu select dropdown */
+  .mobile-task-edit-drawer .ant-select-dropdown {
+    font-size: 11px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-select-item {
+    padding: 2px 4px !important;
+    font-size: 11px !important;
+    min-height: 20px !important;
+  }
+  
+  /* Tối ưu date picker */
+  .mobile-task-edit-drawer .ant-picker-dropdown {
+    font-size: 11px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-picker-panel {
+    font-size: 11px !important;
+  }
+  
+  /* Tối ưu action buttons - Gọn gàng */
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 3px 0 !important;
+    margin-top: 4px !important;
+    border-top: 1px solid #f0f0f0 !important;
+  }
+  
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 28px !important; /* Kích thước nhỏ gọn */
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    border-radius: 3px !important;
+    margin: 0 2px !important;
+  }
+  
+  /* Tối ưu form layout - Loại bỏ spacing không cần thiết */
+  .mobile-task-edit-drawer .ant-form-vertical .ant-form-item {
+    margin-bottom: 1px !important;
+  }
+  
+  /* Tối ưu form item control */
+  .mobile-task-edit-drawer .ant-form-item-control-input {
+    min-height: auto !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-form-item-control-input-content {
+    line-height: 1 !important;
+  }
+}
+
+/* Tối ưu cho màn hình rất nhỏ */
+@media (max-width: 360px) {
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 2px 4px !important;
+  }
+  
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 2px 4px !important;
+  }
+  
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 2px 4px !important;
+    font-size: 10px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 9px !important;
+    height: 10px !important;
+    line-height: 10px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 22px !important;
+    font-size: 10px !important;
+    padding: 0px 3px !important;
+  }
+  
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 24px !important;
+    font-size: 10px !important;
+    padding: 1px 3px !important;
+  }
+  
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* Tối ưu cho landscape mode - Tối ưu tối đa */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-task-edit-drawer {
+    height: 80vh !important;
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 2px 4px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 1px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 2px 4px !important;
+    font-size: 10px !important;
+    min-height: 16px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 2px 4px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 0px !important; /* Không có khoảng cách */
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 9px !important;
+    height: 10px !important;
+    line-height: 10px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 20px !important;
+    font-size: 9px !important;
+    padding: 0px 2px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 20px !important;
+    font-size: 9px !important;
+    padding: 0px 2px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons {
+    padding: 2px 0 !important;
+    margin-top: 2px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 20px !important;
+    font-size: 9px !important;
+  }
+}
+
+/* Tối ưu cho tablet - Cân bằng giữa gọn gàng và dễ sử dụng */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-task-edit-drawer .ant-drawer-header {
+    padding: 4px 8px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-title {
+    font-size: 14px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-drawer-body {
+    padding: 4px 8px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section {
+    margin-bottom: 2px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-header {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .mobile-task-edit-drawer .form-section-content {
+    padding: 4px 8px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-form-item-label > label {
+    font-size: 11px !important;
+    height: 14px !important;
+    line-height: 14px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-input,
+  .mobile-task-edit-drawer .ant-select-selector,
+  .mobile-task-edit-drawer .ant-picker {
+    height: 26px !important;
+    font-size: 12px !important;
+    padding: 2px 5px !important;
+  }
+
+  .mobile-task-edit-drawer .ant-textarea {
+    min-height: 35px !important;
+    font-size: 12px !important;
+    padding: 3px 5px !important;
+  }
+
+  .mobile-task-edit-drawer .action-buttons .ant-btn {
+    height: 30px !important;
+    font-size: 12px !important;
+  }
+}
+

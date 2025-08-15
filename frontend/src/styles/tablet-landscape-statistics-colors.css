@@ -1,0 +1,587 @@
+/* Tablet Landscape Statistics Cards - Icon and Value Colors
+ * Áp dụng màu sắc đa dạng cho icon và con số thống kê trên tablet landscape
+ * Mỗi loại thống kê trong mỗi chức năng có màu sắc riêng biệt
+ * Hỗ trợ cả theme sáng và tối
+ * Áp dụng cho chế độ tablet xoay ngang (769px - 1366px landscape)
+ */
+
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== ICON COLORS BY FUNCTION AND STATISTIC TYPE ===== */
+  
+  /* Dashboard - Tổng quan */
+  .dashboard-stats-row .ant-card[data-function="dashboard"] .ant-statistic-content-prefix .anticon,
+  .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important;
+  }
+  
+  /* Tasks - Công việc - Màu sắc đa dạng cho từng trạng thái */
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng cộng - Xanh dương */
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Chờ thực hiện - Xanh dương */
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Đang thực hiện - Vàng cam */
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #fa8c16 !important; /* Đang xem xét - Cam */
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Hoàn thành - Xanh lá */
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-prefix .anticon {
+    color: #cf1322 !important; /* Quá hạn - Đỏ đậm */
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-prefix .anticon {
+    color: #722ed1 !important; /* Sắp đến hạn - Tím */
+  }
+  
+  /* Issues - Vấn đề - Màu sắc đa dạng cho từng trạng thái */
+  .issues-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng cộng - Xanh dương */
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Mới - Xanh lá */
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Đang xử lý - Vàng cam */
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #13c2c2 !important; /* Đã xử lý - Xanh ngọc */
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-prefix .anticon {
+    color: #8c8c8c !important; /* Đã đóng - Xám */
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-prefix .anticon {
+    color: #cf1322 !important; /* Quá hạn - Đỏ đậm */
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-prefix .anticon {
+    color: #fa8c16 !important; /* Sắp đến hạn - Cam */
+  }
+  
+  /* Documents ISO - Tài liệu ISO - Màu sắc đa dạng */
+  .documents-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng Dự Án - Xanh dương */
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #722ed1 !important; /* Tổng Tài Liệu - Tím */
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Đang Xử Lý - Vàng cam */
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #13c2c2 !important; /* Đã Chia Sẻ - Xanh ngọc */
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Đã Phê Duyệt - Xanh lá */
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-prefix .anticon {
+    color: #8c8c8c !important; /* Đã Lưu Trữ - Xám */
+  }
+  
+  /* Projects - Dự án - Màu sắc đa dạng */
+  .projects-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng Dự Án - Xanh dương */
+  }
+  .projects-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Đang Thực Hiện - Xanh lá */
+  }
+  .projects-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #13c2c2 !important; /* Hoàn Thành - Xanh ngọc */
+  }
+  .projects-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Tạm Dừng - Vàng */
+  }
+  
+  /* Calendar - Lịch dự án - Màu sắc đa dạng */
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng cộng - Xanh dương */
+  }
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Họp - Xanh lá */
+  }
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #cf1322 !important; /* Deadline - Đỏ đậm */
+  }
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Milestone - Vàng cam */
+  }
+  
+  /* Approval - Phê duyệt hồ sơ - Màu sắc đa dạng */
+  .approval-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng số hồ sơ - Xanh dương */
+  }
+  .approval-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Chờ xử lý - Vàng cam */
+  }
+  .approval-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Đã phê duyệt - Xanh lá */
+  }
+  .approval-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #cf1322 !important; /* Từ chối - Đỏ đậm */
+  }
+  
+  /* Checklist - Hồ sơ thiết kế - Màu sắc đa dạng */
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #1890ff !important; /* Tổng số Checklist - Xanh dương */
+  }
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #52c41a !important; /* Đã hoàn thành - Xanh lá */
+  }
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #13c2c2 !important; /* Đang thực hiện - Xanh ngọc */
+  }
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #faad14 !important; /* Chưa bắt đầu - Vàng cam */
+  }
+  
+  /* ===== VALUE COLORS BY FUNCTION AND STATISTIC TYPE ===== */
+  
+  /* Dashboard - Tổng quan */
+  .dashboard-stats-row .ant-card[data-function="dashboard"] .ant-statistic-content-value,
+  .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Tasks - Công việc - Màu sắc đa dạng cho từng trạng thái */
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng cộng - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #1890ff !important; /* Chờ thực hiện - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #faad14 !important; /* Đang thực hiện - Vàng cam */
+    font-weight: 600 !important;
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #fa8c16 !important; /* Đang xem xét - Cam */
+    font-weight: 600 !important;
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-value {
+    color: #52c41a !important; /* Hoàn thành - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-value {
+    color: #cf1322 !important; /* Quá hạn - Đỏ đậm */
+    font-weight: 600 !important;
+  }
+  .tasks-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-value {
+    color: #722ed1 !important; /* Sắp đến hạn - Tím */
+    font-weight: 600 !important;
+  }
+  
+  /* Issues - Vấn đề - Màu sắc đa dạng cho từng trạng thái */
+  .issues-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng cộng - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #52c41a !important; /* Mới - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #faad14 !important; /* Đang xử lý - Vàng cam */
+    font-weight: 600 !important;
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #13c2c2 !important; /* Đã xử lý - Xanh ngọc */
+    font-weight: 600 !important;
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-value {
+    color: #8c8c8c !important; /* Đã đóng - Xám */
+    font-weight: 600 !important;
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-value {
+    color: #cf1322 !important; /* Quá hạn - Đỏ đậm */
+    font-weight: 600 !important;
+  }
+  .issues-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-value {
+    color: #fa8c16 !important; /* Sắp đến hạn - Cam */
+    font-weight: 600 !important;
+  }
+  
+  /* Documents ISO - Tài liệu ISO - Màu sắc đa dạng */
+  .documents-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng Dự Án - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #722ed1 !important; /* Tổng Tài Liệu - Tím */
+    font-weight: 600 !important;
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #faad14 !important; /* Đang Xử Lý - Vàng cam */
+    font-weight: 600 !important;
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #13c2c2 !important; /* Đã Chia Sẻ - Xanh ngọc */
+    font-weight: 600 !important;
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-value {
+    color: #52c41a !important; /* Đã Phê Duyệt - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .documents-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-value {
+    color: #8c8c8c !important; /* Đã Lưu Trữ - Xám */
+    font-weight: 600 !important;
+  }
+  
+  /* Projects - Dự án - Màu sắc đa dạng */
+  .projects-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng Dự Án - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .projects-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #52c41a !important; /* Đang Thực Hiện - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .projects-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #13c2c2 !important; /* Hoàn Thành - Xanh ngọc */
+    font-weight: 600 !important;
+  }
+  .projects-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #faad14 !important; /* Tạm Dừng - Vàng */
+    font-weight: 600 !important;
+  }
+  
+  /* Calendar - Lịch dự án - Màu sắc đa dạng */
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng cộng - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #52c41a !important; /* Họp - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #cf1322 !important; /* Deadline - Đỏ đậm */
+    font-weight: 600 !important;
+  }
+  .calendar-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #faad14 !important; /* Milestone - Vàng cam */
+    font-weight: 600 !important;
+  }
+  
+  /* Approval - Phê duyệt hồ sơ - Màu sắc đa dạng */
+  .approval-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng số hồ sơ - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .approval-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #faad14 !important; /* Chờ xử lý - Vàng cam */
+    font-weight: 600 !important;
+  }
+  .approval-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #52c41a !important; /* Đã phê duyệt - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .approval-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #cf1322 !important; /* Từ chối - Đỏ đậm */
+    font-weight: 600 !important;
+  }
+  
+  /* Checklist - Hồ sơ thiết kế - Màu sắc đa dạng */
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #1890ff !important; /* Tổng số Checklist - Xanh dương */
+    font-weight: 600 !important;
+  }
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #52c41a !important; /* Đã hoàn thành - Xanh lá */
+    font-weight: 600 !important;
+  }
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #13c2c2 !important; /* Đang thực hiện - Xanh ngọc */
+    font-weight: 600 !important;
+  }
+  .checklist-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #faad14 !important; /* Chưa bắt đầu - Vàng cam */
+    font-weight: 600 !important;
+  }
+  
+  /* ===== HOVER EFFECTS ===== */
+  
+  /* Hover effect cho icon */
+  .dashboard-stats-row .ant-card:hover .ant-statistic-content-prefix .anticon {
+    transform: scale(1.1) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  /* Hover effect cho value */
+  .dashboard-stats-row .ant-card:hover .ant-statistic-content-value {
+    transform: scale(1.05) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  /* ===== DARK THEME ADJUSTMENTS ===== */
+  
+  /* Dark theme icon colors - tăng độ sáng */
+  [data-theme="dark"] .dashboard-stats-row .ant-card[data-function="dashboard"] .ant-statistic-content-prefix .anticon,
+  [data-theme="dark"] .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  
+  /* Dark theme cho Tasks */
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #ffa940 !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-prefix .anticon {
+    color: #ff7875 !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-prefix .anticon {
+    color: #b37feb !important;
+  }
+  
+  /* Dark theme cho Issues */
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-prefix .anticon {
+    color: #bfbfbf !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-prefix .anticon {
+    color: #ff7875 !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-prefix .anticon {
+    color: #ffa940 !important;
+  }
+  
+  /* Dark theme cho Documents */
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #b37feb !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-prefix .anticon {
+    color: #bfbfbf !important;
+  }
+  
+  /* Dark theme cho Projects */
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  
+  /* Dark theme cho Calendar */
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #ff7875 !important;
+  }
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  
+  /* Dark theme cho Approval */
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #ff7875 !important;
+  }
+  
+  /* Dark theme cho Checklist */
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-prefix .anticon {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-prefix .anticon {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-prefix .anticon {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-prefix .anticon {
+    color: #ffc53d !important;
+  }
+  
+  /* Dark theme value colors - tăng độ sáng */
+  [data-theme="dark"] .dashboard-stats-row .ant-card[data-function="dashboard"] .ant-statistic-content-value,
+  [data-theme="dark"] .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  
+  /* Dark theme cho Tasks values */
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #ffa940 !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-value {
+    color: #ff7875 !important;
+  }
+  [data-theme="dark"] .tasks-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-value {
+    color: #b37feb !important;
+  }
+  
+  /* Dark theme cho Issues values */
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-value {
+    color: #bfbfbf !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-value {
+    color: #ff7875 !important;
+  }
+  [data-theme="dark"] .issues-container .dashboard-stats-row .ant-card:nth-child(7) .ant-statistic-content-value {
+    color: #ffa940 !important;
+  }
+  
+  /* Dark theme cho Documents values */
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #b37feb !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(5) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .documents-container .dashboard-stats-row .ant-card:nth-child(6) .ant-statistic-content-value {
+    color: #bfbfbf !important;
+  }
+  
+  /* Dark theme cho Projects values */
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .projects-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  
+  /* Dark theme cho Calendar values */
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #ff7875 !important;
+  }
+  [data-theme="dark"] .calendar-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  
+  /* Dark theme cho Approval values */
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .approval-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #ff7875 !important;
+  }
+  
+  /* Dark theme cho Checklist values */
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(1) .ant-statistic-content-value {
+    color: #40a9ff !important;
+  }
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(2) .ant-statistic-content-value {
+    color: #73d13d !important;
+  }
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(3) .ant-statistic-content-value {
+    color: #36cfc9 !important;
+  }
+  [data-theme="dark"] .checklist-container .dashboard-stats-row .ant-card:nth-child(4) .ant-statistic-content-value {
+    color: #ffc53d !important;
+  }
+  
+  /* ===== PERFORMANCE OPTIMIZATIONS ===== */
+  
+  /* Hardware acceleration for smooth animations */
+  .dashboard-stats-row .ant-card .ant-statistic-content-prefix .anticon,
+  .dashboard-stats-row .ant-card .ant-statistic-content-value {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+  }
+}

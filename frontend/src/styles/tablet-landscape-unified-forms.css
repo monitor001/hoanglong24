@@ -1,0 +1,1478 @@
+/**
+ * Tablet Landscape Unified Forms CSS
+ * 
+ * Gộp tất cả tablet landscape form styles thành một file duy nhất
+ * Tối ưu margin/padding xuống mức thấp nhất để tiết kiệm không gian
+ * Áp dụng cho: Edit forms, Modal forms, Filter forms
+ */
+
+/* ===== TABLET LANDSCAPE BREAKPOINT ===== */
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+  
+  /* ===== MODAL STYLING - MINIMAL SPACING ===== */
+  
+  /* Modal positioning - Minimal top spacing */
+  .ant-modal-wrap .ant-modal {
+    top: 8px !important;
+  }
+
+  .tablet-landscape-edit-modal {
+    max-width: 95vw !important;
+    width: 90vw !important;
+    margin: 0 auto !important;
+    top: 1vh !important;
+  }
+
+  .tablet-landscape-edit-modal .ant-modal-content,
+  .ant-modal-content {
+    border-radius: 6px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    max-height: calc(100vh - 16px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Modal header - Minimal padding */
+  .tablet-landscape-edit-modal .ant-modal-header,
+  .ant-modal-header {
+    border-bottom: 1px solid #f0f0f0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .tablet-landscape-edit-modal .ant-modal-title,
+  .ant-modal-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #262626 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Modal body - Minimal padding */
+  .tablet-landscape-edit-modal .ant-modal-body,
+  .ant-modal-body {
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    flex: 1 !important;
+  }
+
+  /* Modal footer - Minimal padding */
+  .tablet-landscape-edit-modal .ant-modal-footer,
+  .ant-modal-footer {
+    padding: 2px 12px 4px !important;
+    border-top: 1px solid #f0f0f0 !important;
+    text-align: right !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  .tablet-landscape-edit-modal .ant-modal-footer .ant-btn,
+  .ant-modal-footer .ant-btn {
+    min-width: 60px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+
+  /* ===== FORM LAYOUT OPTIMIZATION FOR TABLET LANDSCAPE ===== */
+  
+  /* Ensure form fields take full width of their container */
+  .ant-modal-body .ant-form .ant-col,
+  .ant-modal-body .ant-form .ant-row .ant-col,
+  .tablet-landscape-edit-form .ant-col,
+  .tablet-landscape-edit-form .ant-row .ant-col {
+    width: 100% !important;
+    flex: 1 !important;
+  }
+
+  /* Specific optimization for 2-column layout (span={12}) */
+  .ant-modal-body .ant-form .ant-col.ant-col-12,
+  .ant-modal-body .ant-form .ant-row .ant-col.ant-col-12,
+  .tablet-landscape-edit-form .ant-col.ant-col-12,
+  .tablet-landscape-edit-form .ant-row .ant-col.ant-col-12 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  /* Specific optimization for 4-column layout (span={6}) */
+  .ant-modal-body .ant-form .ant-col.ant-col-6,
+  .ant-modal-body .ant-form .ant-row .ant-col.ant-col-6,
+  .tablet-landscape-edit-form .ant-col.ant-col-6,
+  .tablet-landscape-edit-form .ant-row .ant-col.ant-col-6 {
+    width: 25% !important;
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
+
+  /* Specific optimization for 3-column layout (span={8}) */
+  .ant-modal-body .ant-form .ant-col.ant-col-8,
+  .ant-modal-body .ant-form .ant-row .ant-col.ant-col-8,
+  .tablet-landscape-edit-form .ant-col.ant-col-8,
+  .tablet-landscape-edit-form .ant-row .ant-col.ant-col-8 {
+    width: 33.333333% !important;
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+  }
+
+  /* Specific optimization for 4-column layout (span={4}) */
+  .ant-modal-body .ant-form .ant-col.ant-col-4,
+  .ant-modal-body .ant-form .ant-row .ant-col.ant-col-4,
+  .tablet-landscape-edit-form .ant-col.ant-col-4,
+  .tablet-landscape-edit-form .ant-row .ant-col.ant-col-4 {
+    width: 16.666667% !important;
+    flex: 0 0 16.666667% !important;
+    max-width: 16.666667% !important;
+  }
+
+  /* Specific optimization for 8-column layout (span={3}) */
+  .ant-modal-body .ant-form .ant-col.ant-col-3,
+  .ant-modal-body .ant-form .ant-row .ant-col.ant-col-3,
+  .tablet-landscape-edit-form .ant-col.ant-col-3,
+  .tablet-landscape-edit-form .ant-row .ant-col.ant-col-3 {
+    width: 12.5% !important;
+    flex: 0 0 12.5% !important;
+    max-width: 12.5% !important;
+  }
+
+  /* Specific optimization for full width (span={24}) */
+  .ant-modal-body .ant-form .ant-col.ant-col-24,
+  .ant-modal-body .ant-form .ant-row .ant-col.ant-col-24,
+  .tablet-landscape-edit-form .ant-col.ant-col-24,
+  .tablet-landscape-edit-form .ant-row .ant-col.ant-col-24 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure form inputs take full width of their column */
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control,
+  .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item-control,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control,
+  .tablet-landscape-edit-form .ant-row .ant-col .ant-form-item-control {
+    width: 100% !important;
+  }
+
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-input,
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-select,
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-picker,
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-input-number,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-input,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-select,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-picker,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-input-number {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* ===== PROJECT FORM STYLING - MINIMAL SPACING ===== */
+  
+  /* Project form container - Minimal gap */
+  .tablet-landscape-edit-form.project-form,
+  .ant-modal-body .ant-form.project-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    height: 100% !important;
+  }
+
+  /* Project form item spacing - Minimal margin */
+  .tablet-landscape-edit-form.project-form .ant-form-item,
+  .ant-modal-body .ant-form.project-form .ant-form-item {
+    margin-bottom: 3px !important;
+  }
+
+  .tablet-landscape-edit-form.project-form .ant-form-item:last-child,
+  .ant-modal-body .ant-form.project-form .ant-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Project form labels - Minimal padding */
+  .tablet-landscape-edit-form.project-form .ant-form-item-label,
+  .ant-modal-body .ant-form.project-form .ant-form-item-label {
+    padding-bottom: 1px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .tablet-landscape-edit-form.project-form .ant-form-item-label > label,
+  .ant-modal-body .ant-form.project-form .ant-form-item-label > label {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #262626 !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Project form item control - No extra spacing */
+  .tablet-landscape-edit-form.project-form .ant-form-item-control,
+  .ant-modal-body .ant-form.project-form .ant-form-item-control {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* ===== TASK FORM STYLING - MINIMAL SPACING ===== */
+  
+  /* Task form container - Minimal gap */
+  .tablet-landscape-edit-form.task-form,
+  .ant-modal-body .ant-form.task-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    height: 100% !important;
+  }
+
+  /* Task form item spacing - Minimal margin */
+  .tablet-landscape-edit-form.task-form .ant-form-item,
+  .ant-modal-body .ant-form.task-form .ant-form-item {
+    margin-bottom: 3px !important;
+  }
+
+  .tablet-landscape-edit-form.task-form .ant-form-item:last-child,
+  .ant-modal-body .ant-form.task-form .ant-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Task form labels - Minimal padding */
+  .tablet-landscape-edit-form.task-form .ant-form-item-label,
+  .ant-modal-body .ant-form.task-form .ant-form-item-label {
+    padding-bottom: 1px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .tablet-landscape-edit-form.task-form .ant-form-item-label > label,
+  .ant-modal-body .ant-form.task-form .ant-form-item-label > label {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #262626 !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Task form item control - No extra spacing */
+  .tablet-landscape-edit-form.task-form .ant-form-item-control,
+  .ant-modal-body .ant-form.task-form .ant-form-item-control {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* ===== ISSUE FORM STYLING - MINIMAL SPACING ===== */
+  
+  /* Issue form container - Minimal gap */
+  .tablet-landscape-edit-form.issue-form,
+  .ant-modal-body .ant-form.issue-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    height: 100% !important;
+  }
+
+  /* Issue form item spacing - Minimal margin */
+  .tablet-landscape-edit-form.issue-form .ant-form-item,
+  .ant-modal-body .ant-form.issue-form .ant-form-item {
+    margin-bottom: 3px !important;
+  }
+
+  .tablet-landscape-edit-form.issue-form .ant-form-item:last-child,
+  .ant-modal-body .ant-form.issue-form .ant-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Issue form labels - Minimal padding */
+  .tablet-landscape-edit-form.issue-form .ant-form-item-label,
+  .ant-modal-body .ant-form.issue-form .ant-form-item-label {
+    padding-bottom: 1px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .tablet-landscape-edit-form.issue-form .ant-form-item-label > label,
+  .ant-modal-body .ant-form.issue-form .ant-form-item-label > label {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #262626 !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Issue form item control - No extra spacing */
+  .tablet-landscape-edit-form.issue-form .ant-form-item-control,
+  .ant-modal-body .ant-form.issue-form .ant-form-item-control {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* ===== PROJECT FORM INPUT FIELDS - COMPACT SIZE ===== */
+  
+  /* Project form input fields - Compact size */
+  .tablet-landscape-edit-form.project-form .ant-input,
+  .tablet-landscape-edit-form.project-form .ant-select,
+  .tablet-landscape-edit-form.project-form .ant-picker,
+  .tablet-landscape-edit-form.project-form .ant-input-number,
+  .ant-modal-body .ant-form.project-form input.ant-input,
+  .ant-modal-body .ant-form.project-form .ant-input,
+  .ant-modal-body .ant-form.project-form .ant-select,
+  .ant-modal-body .ant-form.project-form .ant-picker {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Project form textarea - Compact size */
+  .tablet-landscape-edit-form.project-form .ant-textarea,
+  .ant-modal-body .ant-form.project-form textarea.ant-input {
+    min-height: 60px !important;
+    padding: 2px 8px !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Project form select components - Compact size */
+  .tablet-landscape-edit-form.project-form .ant-select-selector,
+  .ant-modal-body .ant-form.project-form .ant-select-selector {
+    height: 28px !important;
+    padding: 1px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .tablet-landscape-edit-form.project-form .ant-select-selection-placeholder,
+  .tablet-landscape-edit-form.project-form .ant-select-selection-item,
+  .ant-modal-body .ant-form.project-form .ant-select-selection-placeholder,
+  .ant-modal-body .ant-form.project-form .ant-select-selection-item {
+    line-height: 28px !important;
+    font-size: 13px !important;
+  }
+
+  /* Project form date inputs - Compact size */
+  .tablet-landscape-edit-form.project-form .ant-picker-input > input,
+  .ant-modal-body .ant-form.project-form .ant-picker-input > input {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+  }
+
+  /* ===== TASK FORM INPUT FIELDS - COMPACT SIZE ===== */
+  
+  /* Task form input fields - Compact size */
+  .tablet-landscape-edit-form.task-form .ant-input,
+  .tablet-landscape-edit-form.task-form .ant-select,
+  .tablet-landscape-edit-form.task-form .ant-picker,
+  .tablet-landscape-edit-form.task-form .ant-input-number,
+  .ant-modal-body .ant-form.task-form input.ant-input,
+  .ant-modal-body .ant-form.task-form .ant-input,
+  .ant-modal-body .ant-form.task-form .ant-select,
+  .ant-modal-body .ant-form.task-form .ant-picker {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Task form textarea - Compact size */
+  .tablet-landscape-edit-form.task-form .ant-textarea,
+  .ant-modal-body .ant-form.task-form textarea.ant-input {
+    min-height: 60px !important;
+    padding: 2px 8px !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Task form select components - Compact size */
+  .tablet-landscape-edit-form.task-form .ant-select-selector,
+  .ant-modal-body .ant-form.task-form .ant-select-selector {
+    height: 28px !important;
+    padding: 1px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .tablet-landscape-edit-form.task-form .ant-select-selection-placeholder,
+  .tablet-landscape-edit-form.task-form .ant-select-selection-item,
+  .ant-modal-body .ant-form.task-form .ant-select-selection-placeholder,
+  .ant-modal-body .ant-form.task-form .ant-select-selection-item {
+    line-height: 28px !important;
+    font-size: 13px !important;
+  }
+
+  /* Task form date inputs - Compact size */
+  .tablet-landscape-edit-form.task-form .ant-picker-input > input,
+  .ant-modal-body .ant-form.task-form .ant-picker-input > input {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+  }
+
+  /* ===== ISSUE FORM INPUT FIELDS - COMPACT SIZE ===== */
+  
+  /* Issue form input fields - Compact size */
+  .tablet-landscape-edit-form.issue-form .ant-input,
+  .tablet-landscape-edit-form.issue-form .ant-select,
+  .tablet-landscape-edit-form.issue-form .ant-picker,
+  .tablet-landscape-edit-form.issue-form .ant-input-number,
+  .ant-modal-body .ant-form.issue-form input.ant-input,
+  .ant-modal-body .ant-form.issue-form .ant-input,
+  .ant-modal-body .ant-form.issue-form .ant-select,
+  .ant-modal-body .ant-form.issue-form .ant-picker {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Issue form textarea - Compact size */
+  .tablet-landscape-edit-form.issue-form .ant-textarea,
+  .ant-modal-body .ant-form.issue-form textarea.ant-input {
+    min-height: 60px !important;
+    padding: 2px 8px !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Issue form select components - Compact size */
+  .tablet-landscape-edit-form.issue-form .ant-select-selector,
+  .ant-modal-body .ant-form.issue-form .ant-select-selector {
+    height: 28px !important;
+    padding: 1px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .tablet-landscape-edit-form.issue-form .ant-select-selection-placeholder,
+  .tablet-landscape-edit-form.issue-form .ant-select-selection-item,
+  .ant-modal-body .ant-form.issue-form .ant-select-selection-placeholder,
+  .ant-modal-body .ant-form.issue-form .ant-select-selection-item {
+    line-height: 28px !important;
+    font-size: 13px !important;
+  }
+
+  /* Issue form date inputs - Compact size */
+  .tablet-landscape-edit-form.issue-form .ant-picker-input > input,
+  .ant-modal-body .ant-form.issue-form .ant-picker-input > input {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+  }
+
+  /* ===== PROJECT FORM ROW AND COLUMN - MINIMAL SPACING ===== */
+  
+  /* Project form row and column - Minimal spacing */
+  .tablet-landscape-edit-form.project-form .ant-row,
+  .ant-modal-body .ant-form.project-form .ant-row {
+    margin-left: -4px !important;
+    margin-right: -4px !important;
+    row-gap: 6px !important;
+  }
+
+  .tablet-landscape-edit-form.project-form .ant-col,
+  .ant-modal-body .ant-form.project-form .ant-col {
+    padding: 0 4px !important;
+    margin: 0 !important;
+  }
+
+  /* ===== TASK FORM ROW AND COLUMN - MINIMAL SPACING ===== */
+  
+  /* Task form row and column - Minimal spacing */
+  .tablet-landscape-edit-form.task-form .ant-row,
+  .ant-modal-body .ant-form.task-form .ant-row {
+    margin-left: -4px !important;
+    margin-right: -4px !important;
+    row-gap: 6px !important;
+  }
+
+  .tablet-landscape-edit-form.task-form .ant-col,
+  .ant-modal-body .ant-form.task-form .ant-col {
+    padding: 0 4px !important;
+    margin: 0 !important;
+  }
+
+  /* ===== ISSUE FORM ROW AND COLUMN - MINIMAL SPACING ===== */
+  
+  /* Issue form row and column - Minimal spacing */
+  .tablet-landscape-edit-form.issue-form .ant-row,
+  .ant-modal-body .ant-form.issue-form .ant-row {
+    margin-left: -4px !important;
+    margin-right: -4px !important;
+    row-gap: 6px !important;
+  }
+
+  .tablet-landscape-edit-form.issue-form .ant-col,
+  .ant-modal-body .ant-form.issue-form .ant-col {
+    padding: 0 4px !important;
+    margin: 0 !important;
+  }
+
+  /* ===== GENERAL FORM STYLING - MINIMAL SPACING ===== */
+  
+  /* Form container - Minimal gap */
+  .tablet-landscape-edit-form,
+  .ant-modal-body .ant-form {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    height: 100% !important;
+  }
+
+  /* Form Item spacing - Minimal margin */
+  .tablet-landscape-edit-form .ant-form-item,
+  .ant-modal-body .ant-form-item {
+    margin-bottom: 2px !important;
+  }
+
+  .tablet-landscape-edit-form .ant-form-item:last-child,
+  .ant-modal-body .ant-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Label - Compact size */
+  .tablet-landscape-edit-form .ant-form-item-label,
+  .ant-modal-body .ant-form-item-label {
+    padding-bottom: 1px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .tablet-landscape-edit-form .ant-form-item-label > label,
+  .ant-modal-body .ant-form-item-label > label {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #262626 !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Form item control - No extra spacing */
+  .tablet-landscape-edit-form .ant-form-item-control,
+  .ant-modal-body .ant-form-item-control {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .tablet-landscape-edit-form .ant-form-item-control-input,
+  .ant-modal-body .ant-form-item-control-input {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* ===== INPUT FIELDS - COMPACT SIZE ===== */
+  
+  /* Input fields - Compact size */
+  .tablet-landscape-edit-form .ant-input,
+  .tablet-landscape-edit-form .ant-select,
+  .tablet-landscape-edit-form .ant-picker,
+  .tablet-landscape-edit-form .ant-input-number,
+  .ant-modal-body input.ant-input,
+  .ant-modal-body .ant-input,
+  .ant-modal-body .ant-select,
+  .ant-modal-body .ant-picker {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Textarea - Compact size */
+  .tablet-landscape-edit-form .ant-textarea,
+  .ant-modal-body textarea.ant-input {
+    min-height: 60px !important;
+    padding: 2px 8px !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Select components - Compact size */
+  .tablet-landscape-edit-form .ant-select-selector,
+  .ant-modal-body .ant-select-selector {
+    height: 28px !important;
+    padding: 1px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .tablet-landscape-edit-form .ant-select-selection-placeholder,
+  .tablet-landscape-edit-form .ant-select-selection-item,
+  .ant-modal-body .ant-select-selection-placeholder,
+  .ant-modal-body .ant-select-selection-item {
+    line-height: 28px !important;
+    font-size: 13px !important;
+  }
+
+  /* DatePicker - Compact size */
+  .tablet-landscape-edit-form .ant-picker-input > input,
+  .ant-modal-body .ant-picker-input > input {
+    height: 28px !important;
+    font-size: 13px !important;
+    padding: 1px 8px !important;
+  }
+
+  /* ===== ROW AND COLUMN - MINIMAL SPACING ===== */
+  
+  /* Row and Column - Minimal spacing */
+  .tablet-landscape-edit-form .ant-row,
+  .ant-modal-body .ant-row {
+    margin-left: -4px !important;
+    margin-right: -4px !important;
+    row-gap: 4px !important;
+  }
+
+  .tablet-landscape-edit-form .ant-col,
+  .ant-modal-body .ant-col {
+    padding: 0 4px !important;
+    margin: 0 !important;
+  }
+
+  /* ===== FILTER FORMS - MINIMAL SPACING ===== */
+  
+  /* Filter card styling - Minimal padding */
+  .tablet-landscape-filter-card,
+  .tablet-landscape-notes-filter-card,
+  .tablet-landscape-notes-actions-card,
+  .tablet-landscape-calendar-filter-card,
+  .tablet-landscape-collapsible-filter-card {
+    background: #fff !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .tablet-landscape-filter-card .ant-card-body,
+  .tablet-landscape-notes-filter-card .ant-card-body,
+  .tablet-landscape-notes-actions-card .ant-card-body,
+  .tablet-landscape-calendar-filter-card .ant-card-body,
+  .tablet-landscape-collapsible-filter-card .ant-card-body {
+    padding: 4px !important;
+  }
+
+  /* Filter item styling - Minimal gap */
+  .tablet-filter-item,
+  .tablet-notes-filter-item,
+  .tablet-calendar-filter-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+    height: 100% !important;
+  }
+
+  .tablet-filter-label,
+  .tablet-notes-filter-label,
+  .tablet-calendar-filter-label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #262626 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Filter input/select styling - Compact size */
+  .tablet-filter-item .ant-input,
+  .tablet-filter-item .ant-select,
+  .tablet-filter-item .ant-btn,
+  .tablet-notes-filter-item .ant-input,
+  .tablet-notes-filter-item .ant-select,
+  .tablet-notes-filter-item .ant-btn,
+  .tablet-calendar-filter-item .ant-input,
+  .tablet-calendar-filter-item .ant-select,
+  .tablet-calendar-filter-item .ant-btn {
+    height: 28px !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+
+  .tablet-filter-item .ant-input,
+  .tablet-notes-filter-item .ant-input,
+  .tablet-calendar-filter-item .ant-input {
+    padding: 1px 8px !important;
+  }
+
+  .tablet-filter-item .ant-select-selector,
+  .tablet-notes-filter-item .ant-select-selector,
+  .tablet-calendar-filter-item .ant-select-selector {
+    height: 28px !important;
+    padding: 1px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .tablet-filter-item .ant-btn,
+  .tablet-notes-filter-item .ant-btn,
+  .tablet-calendar-filter-item .ant-btn {
+    padding: 1px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* ===== DARK THEME ADJUSTMENTS ===== */
+  
+  /* Dark theme for project form */
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-form-item-label > label,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-form-item-label > label {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-input,
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-select-selector,
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-picker,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-input,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-select-selector,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-picker {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-input::placeholder,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-textarea,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-textarea {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* Dark theme for task form */
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-form-item-label > label,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-form-item-label > label {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-input,
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-select-selector,
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-picker,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-input,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-select-selector,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-picker {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-input::placeholder,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-textarea,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-textarea {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* Dark theme for issue form */
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-form-item-label > label,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-form-item-label > label {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-input,
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-select-selector,
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-picker,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-input,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-select-selector,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-picker {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-input::placeholder,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-textarea,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-textarea {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* Dark theme for modal header and footer */
+  [data-theme="dark"] .tablet-landscape-edit-modal .ant-modal-header,
+  [data-theme="dark"] .ant-modal-header {
+    background: #1f1f1f !important;
+    border-bottom-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-modal .ant-modal-title,
+  [data-theme="dark"] .ant-modal-title {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-modal .ant-modal-body,
+  [data-theme="dark"] .ant-modal-body {
+    background: #141414 !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-modal .ant-modal-footer,
+  [data-theme="dark"] .ant-modal-footer {
+    background: #1f1f1f !important;
+    border-top-color: #303030 !important;
+  }
+
+  /* Dark theme for DatePicker */
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-picker-input > input,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-picker-input > input {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.project-form .ant-picker-input > input::placeholder,
+  [data-theme="dark"] .ant-modal-body .ant-form.project-form .ant-picker-input > input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-picker-input > input,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-picker-input > input {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.task-form .ant-picker-input > input::placeholder,
+  [data-theme="dark"] .ant-modal-body .ant-form.task-form .ant-picker-input > input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-picker-input > input,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-picker-input > input {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-landscape-edit-form.issue-form .ant-picker-input > input::placeholder,
+  [data-theme="dark"] .ant-modal-body .ant-form.issue-form .ant-picker-input > input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  /* Dark theme for filter cards */
+  [data-theme="dark"] .tablet-landscape-filter-card,
+  [data-theme="dark"] .tablet-landscape-notes-filter-card,
+  [data-theme="dark"] .tablet-landscape-notes-actions-card,
+  [data-theme="dark"] .tablet-landscape-calendar-filter-card,
+  [data-theme="dark"] .tablet-landscape-collapsible-filter-card {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .tablet-filter-label,
+  [data-theme="dark"] .tablet-notes-filter-label,
+  [data-theme="dark"] .tablet-calendar-filter-label {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-filter-item .ant-input,
+  [data-theme="dark"] .tablet-filter-item .ant-select-selector,
+  [data-theme="dark"] .tablet-notes-filter-item .ant-input,
+  [data-theme="dark"] .tablet-notes-filter-item .ant-select-selector,
+  [data-theme="dark"] .tablet-calendar-filter-item .ant-input,
+  [data-theme="dark"] .tablet-calendar-filter-item .ant-select-selector {
+    background: #141414 !important;
+    border-color: #434343 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .tablet-filter-item .ant-input::placeholder,
+  [data-theme="dark"] .tablet-notes-filter-item .ant-input::placeholder,
+  [data-theme="dark"] .tablet-calendar-filter-item .ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  [data-theme="dark"] .tablet-filter-item .ant-btn,
+  [data-theme="dark"] .tablet-notes-filter-item .ant-btn,
+  [data-theme="dark"] .tablet-calendar-filter-item .ant-btn {
+    background: #1890ff !important;
+    border-color: #1890ff !important;
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .tablet-filter-item .ant-btn:hover,
+  [data-theme="dark"] .tablet-notes-filter-item .ant-btn:hover,
+  [data-theme="dark"] .tablet-calendar-filter-item .ant-btn:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+  }
+
+  /* ===== DARK THEME TABLE OPTIMIZATION ===== */
+  
+  /* Dark theme table styling */
+  [data-theme="dark"] .ant-table-thead > tr > th {
+    background: #1f1f1f !important;
+    border-bottom-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-table-tbody > tr > td {
+    background: #141414 !important;
+    border-bottom-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-table-tbody > tr:hover > td {
+    background: #1f1f1f !important;
+  }
+
+  [data-theme="dark"] .ant-pagination-item,
+  [data-theme="dark"] .ant-pagination-prev,
+  [data-theme="dark"] .ant-pagination-next {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-pagination-item:hover,
+  [data-theme="dark"] .ant-pagination-prev:hover,
+  [data-theme="dark"] .ant-pagination-next:hover {
+    border-color: #1890ff !important;
+    color: #1890ff !important;
+  }
+
+  /* Dark theme card styling */
+  [data-theme="dark"] .ant-card {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .ant-card-head {
+    background: #1f1f1f !important;
+    border-bottom-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .ant-card-head-title {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-card-body {
+    background: #141414 !important;
+  }
+
+  /* Dark theme button styling */
+  [data-theme="dark"] .ant-btn {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  [data-theme="dark"] .ant-btn:hover {
+    border-color: #1890ff !important;
+    color: #1890ff !important;
+  }
+
+  [data-theme="dark"] .ant-btn-primary {
+    background: #1890ff !important;
+    border-color: #1890ff !important;
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .ant-btn-primary:hover {
+    background: #40a9ff !important;
+    border-color: #40a9ff !important;
+  }
+
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  
+  /* Smaller tablets (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    /* Ensure minimum field widths for smaller tablets */
+    .ant-modal-body .ant-form .ant-col.ant-col-6 .ant-form-item-control .ant-input,
+    .ant-modal-body .ant-form .ant-col.ant-col-6 .ant-form-item-control .ant-select,
+    .ant-modal-body .ant-form .ant-col.ant-col-6 .ant-form-item-control .ant-picker,
+    .tablet-landscape-edit-form .ant-col.ant-col-6 .ant-form-item-control .ant-input,
+    .tablet-landscape-edit-form .ant-col.ant-col-6 .ant-form-item-control .ant-select,
+    .tablet-landscape-edit-form .ant-col.ant-col-6 .ant-form-item-control .ant-picker {
+      min-width: 100px !important;
+    }
+
+    .ant-modal-body .ant-form .ant-col.ant-col-4 .ant-form-item-control .ant-input,
+    .ant-modal-body .ant-form .ant-col.ant-col-4 .ant-form-item-control .ant-select,
+    .ant-modal-body .ant-form .ant-col.ant-col-4 .ant-form-item-control .ant-picker,
+    .tablet-landscape-edit-form .ant-col.ant-col-4 .ant-form-item-control .ant-input,
+    .tablet-landscape-edit-form .ant-col.ant-col-4 .ant-form-item-control .ant-select,
+    .tablet-landscape-edit-form .ant-col.ant-col-4 .ant-form-item-control .ant-picker {
+      min-width: 70px !important;
+    }
+
+    .ant-modal-body .ant-form .ant-col.ant-col-3 .ant-form-item-control .ant-input,
+    .ant-modal-body .ant-form .ant-col.ant-col-3 .ant-form-item-control .ant-select,
+    .ant-modal-body .ant-form .ant-col.ant-col-3 .ant-form-item-control .ant-picker,
+    .tablet-landscape-edit-form .ant-col.ant-col-3 .ant-form-item-control .ant-input,
+    .tablet-landscape-edit-form .ant-col.ant-col-3 .ant-form-item-control .ant-select,
+    .tablet-landscape-edit-form .ant-col.ant-col-3 .ant-form-item-control .ant-picker {
+      min-width: 50px !important;
+    }
+    
+    .tablet-filter-label,
+    .tablet-notes-filter-label,
+    .tablet-calendar-filter-label {
+      font-size: 11px !important;
+    }
+    
+    .tablet-filter-item .ant-input,
+    .tablet-filter-item .ant-select,
+    .tablet-filter-item .ant-btn,
+    .tablet-notes-filter-item .ant-input,
+    .tablet-notes-filter-item .ant-select,
+    .tablet-notes-filter-item .ant-btn,
+    .tablet-calendar-filter-item .ant-input,
+    .tablet-calendar-filter-item .ant-select,
+    .tablet-calendar-filter-item .ant-btn {
+      font-size: 12px !important;
+    }
+    
+         .tablet-landscape-filter-card .ant-card-body,
+     .tablet-landscape-notes-filter-card .ant-card-body,
+     .tablet-landscape-notes-actions-card .ant-card-body,
+     .tablet-landscape-calendar-filter-card .ant-card-body,
+     .tablet-landscape-collapsible-filter-card .ant-card-body {
+       padding: 2px 8px !important;
+     }
+  }
+  
+  /* Larger tablets (1025px - 1366px) */
+  @media (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
+    
+    /* Ensure minimum field widths for larger tablets */
+    .ant-modal-body .ant-form .ant-col.ant-col-6 .ant-form-item-control .ant-input,
+    .ant-modal-body .ant-form .ant-col.ant-col-6 .ant-form-item-control .ant-select,
+    .ant-modal-body .ant-form .ant-col.ant-col-6 .ant-form-item-control .ant-picker,
+    .tablet-landscape-edit-form .ant-col.ant-col-6 .ant-form-item-control .ant-input,
+    .tablet-landscape-edit-form .ant-col.ant-col-6 .ant-form-item-control .ant-select,
+    .tablet-landscape-edit-form .ant-col.ant-col-6 .ant-form-item-control .ant-picker {
+      min-width: 120px !important;
+    }
+
+    .ant-modal-body .ant-form .ant-col.ant-col-4 .ant-form-item-control .ant-input,
+    .ant-modal-body .ant-form .ant-col.ant-col-4 .ant-form-item-control .ant-select,
+    .ant-modal-body .ant-form .ant-col.ant-col-4 .ant-form-item-control .ant-picker,
+    .tablet-landscape-edit-form .ant-col.ant-col-4 .ant-form-item-control .ant-input,
+    .tablet-landscape-edit-form .ant-col.ant-col-4 .ant-form-item-control .ant-select,
+    .tablet-landscape-edit-form .ant-col.ant-col-4 .ant-form-item-control .ant-picker {
+      min-width: 80px !important;
+    }
+
+    .ant-modal-body .ant-form .ant-col.ant-col-3 .ant-form-item-control .ant-input,
+    .ant-modal-body .ant-form .ant-col.ant-col-3 .ant-form-item-control .ant-select,
+    .ant-modal-body .ant-form .ant-col.ant-col-3 .ant-form-item-control .ant-picker,
+    .tablet-landscape-edit-form .ant-col.ant-col-3 .ant-form-item-control .ant-input,
+    .tablet-landscape-edit-form .ant-col.ant-col-3 .ant-form-item-control .ant-select,
+    .tablet-landscape-edit-form .ant-col.ant-col-3 .ant-form-item-control .ant-picker {
+      min-width: 60px !important;
+    }
+    
+    .tablet-filter-label,
+    .tablet-notes-filter-label,
+    .tablet-calendar-filter-label {
+      font-size: 12px !important;
+    }
+    
+    .tablet-filter-item .ant-input,
+    .tablet-filter-item .ant-select,
+    .tablet-filter-item .ant-btn,
+    .tablet-notes-filter-item .ant-input,
+    .tablet-notes-filter-item .ant-select,
+    .tablet-notes-filter-item .ant-btn,
+    .tablet-calendar-filter-item .ant-input,
+    .tablet-calendar-filter-item .ant-select,
+    .tablet-calendar-filter-item .ant-btn {
+      font-size: 13px !important;
+    }
+    
+         .tablet-landscape-filter-card .ant-card-body,
+     .tablet-landscape-notes-filter-card .ant-card-body,
+     .tablet-landscape-notes-actions-card .ant-card-body,
+     .tablet-landscape-calendar-filter-card .ant-card-body,
+     .tablet-landscape-collapsible-filter-card .ant-card-body {
+       padding: 4px 10px !important;
+     }
+  }
+
+  /* ===== FORM FIELD RESPONSIVE BEHAVIOR ===== */
+  
+  /* Ensure form fields are responsive and don't overflow */
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-input,
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-select,
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-picker,
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-input-number,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-input,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-select,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-picker,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-input-number {
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Ensure select dropdowns don't get cut off */
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-select-dropdown,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-select-dropdown {
+    z-index: 1050 !important;
+  }
+
+  /* Ensure date picker popups don't get cut off */
+  .ant-modal-body .ant-form .ant-col .ant-form-item-control .ant-picker-dropdown,
+  .tablet-landscape-edit-form .ant-col .ant-form-item-control .ant-picker-dropdown {
+    z-index: 1050 !important;
+  }
+
+  /* ===== TABLE OPTIMIZATION FOR TABLET LANDSCAPE ===== */
+  
+  /* Table container - Minimal spacing */
+  .ant-table-wrapper,
+  .ant-table {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Table header - Compact */
+  .ant-table-thead > tr > th {
+    padding: 2px 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+
+  /* Table body - Compact */
+  .ant-table-tbody > tr > td {
+    padding: 2px 8px !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Table row hover - Minimal */
+  .ant-table-tbody > tr:hover > td {
+    background: #fafafa !important;
+  }
+
+  /* Table pagination - Compact */
+  .ant-pagination {
+    margin: 4px 0 0 0 !important;
+    padding: 0 !important;
+  }
+
+  .ant-pagination-item,
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    min-width: 28px !important;
+    height: 28px !important;
+    line-height: 26px !important;
+    font-size: 12px !important;
+  }
+
+  /* ===== CARD AND CONTAINER OPTIMIZATION ===== */
+  
+  /* Card containers - Minimal padding */
+  .ant-card {
+    margin-bottom: 4px !important;
+  }
+
+  .ant-card-body {
+    padding: 4px !important;
+  }
+
+  .ant-card-head {
+    padding: 0 8px !important;
+    min-height: 36px !important;
+  }
+
+  .ant-card-head-title {
+    font-size: 14px !important;
+    line-height: 36px !important;
+  }
+
+  /* Container spacing - Minimal */
+  .ant-row {
+    margin-bottom: 2px !important;
+  }
+
+  .ant-col {
+    padding-bottom: 2px !important;
+  }
+
+  /* ===== BUTTON OPTIMIZATION ===== */
+  
+  /* Buttons - Compact size */
+  .ant-btn {
+    height: 28px !important;
+    padding: 1px 8px !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+  }
+
+  .ant-btn-sm {
+    height: 24px !important;
+    padding: 1px 4px !important;
+    font-size: 12px !important;
+  }
+
+  /* Button groups - Minimal spacing */
+  .ant-btn-group .ant-btn {
+    margin-right: 0 !important;
+  }
+
+  /* ===== GENERAL FORM OPTIMIZATION (NON-MODAL FORMS) ===== */
+  
+  /* Apply the same optimizations to forms outside of modals */
+  .ant-form .ant-col,
+  .ant-form .ant-row .ant-col {
+    width: 100% !important;
+    flex: 1 !important;
+  }
+
+  /* Specific optimization for 2-column layout (span={12}) */
+  .ant-form .ant-col.ant-col-12,
+  .ant-form .ant-row .ant-col.ant-col-12 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  /* Specific optimization for 4-column layout (span={6}) */
+  .ant-form .ant-col.ant-col-6,
+  .ant-form .ant-row .ant-col.ant-col-6 {
+    width: 25% !important;
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
+
+  /* Specific optimization for 3-column layout (span={8}) */
+  .ant-form .ant-col.ant-col-8,
+  .ant-form .ant-row .ant-col.ant-col-8 {
+    width: 33.333333% !important;
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+  }
+
+  /* Specific optimization for 4-column layout (span={4}) */
+  .ant-form .ant-col.ant-col-4,
+  .ant-form .ant-row .ant-col.ant-col-4 {
+    width: 16.666667% !important;
+    flex: 0 0 16.666667% !important;
+    max-width: 16.666667% !important;
+  }
+
+  /* Specific optimization for 8-column layout (span={3}) */
+  .ant-form .ant-col.ant-col-3,
+  .ant-form .ant-row .ant-col.ant-col-3 {
+    width: 12.5% !important;
+    flex: 0 0 12.5% !important;
+    max-width: 12.5% !important;
+  }
+
+  /* Specific optimization for full width (span={24}) */
+  .ant-form .ant-col.ant-col-24,
+  .ant-form .ant-row .ant-col.ant-col-24 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure form inputs take full width of their column */
+  .ant-form .ant-col .ant-form-item-control {
+    width: 100% !important;
+  }
+
+  .ant-form .ant-col .ant-form-item-control .ant-input,
+  .ant-form .ant-col .ant-form-item-control .ant-select,
+  .ant-form .ant-col .ant-form-item-control .ant-picker,
+  .ant-form .ant-col .ant-form-item-control .ant-input-number {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* ===== ULTRA-COMPACT FORM OPTIMIZATIONS ===== */
+  
+  /* 1. Tối ưu Line Height và Font Size */
+  /* Giảm line-height cho tất cả text elements */
+  * {
+    line-height: 1.1 !important; /* Thay vì 1.2-1.5 */
+  }
+
+  /* Giảm font-size chung */
+  .ant-form-item-label > label {
+    font-size: 12px !important; /* Từ 13px xuống 12px */
+    height: 24px !important; /* Từ 28px xuống 24px */
+    line-height: 24px !important;
+  }
+
+  /* Input fields nhỏ hơn */
+  .ant-input, .ant-select, .ant-picker {
+    height: 24px !important; /* Từ 28px xuống 24px */
+    font-size: 12px !important; /* Từ 13px xuống 12px */
+    padding: 0 6px !important; /* Từ 1px 8px */
+  }
+
+  /* 2. Loại bỏ hoàn toàn Margin/Padding không cần thiết */
+  /* Reset toàn bộ margin/padding mặc định */
+  .ant-form-item {
+    margin-bottom: 0 !important; /* Thay vì 2-3px */
+  }
+
+  .ant-form-item-label {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .ant-form-item-control {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Giảm row gap */
+  .ant-row {
+    row-gap: 2px !important; /* Từ 4-6px xuống 2px */
+    margin: 0 !important;
+  }
+
+  /* 3. Sử dụng Inline Labels */
+  /* Chuyển label và input thành inline */
+  .tablet-landscape-inline-form .ant-form-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .tablet-landscape-inline-form .ant-form-item-label {
+    flex: 0 0 30% !important; /* Label chiếm 30% */
+    text-align: right !important;
+    padding-right: 8px !important;
+  }
+
+  .tablet-landscape-inline-form .ant-form-item-control {
+    flex: 1 !important; /* Input chiếm 70% */
+  }
+
+  /* 4. Ẩn các elements không quan trọng */
+  /* Ẩn help text và error messages khi không hover */
+  .ant-form-item-explain {
+    display: none !important;
+  }
+
+  .ant-form-item:hover .ant-form-item-explain {
+    display: block !important;
+    position: absolute !important;
+    z-index: 1000 !important;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  }
+
+  /* Ẩn các icon không cần thiết */
+  .ant-form-item-required::before {
+    display: none !important;
+  }
+
+  /* 5. Tối ưu thêm cho Select và Picker components */
+  .ant-select-selector {
+    height: 24px !important;
+    padding: 0 6px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .ant-select-selection-placeholder,
+  .ant-select-selection-item {
+    line-height: 24px !important;
+    font-size: 12px !important;
+  }
+
+  .ant-picker-input > input {
+    height: 24px !important;
+    font-size: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  /* 6. Tối ưu cho Textarea */
+  .ant-textarea {
+    min-height: 48px !important; /* Từ 60px xuống 48px */
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+  }
+
+  /* 7. Tối ưu cho Buttons */
+  .ant-btn {
+    height: 24px !important; /* Từ 28px xuống 24px */
+    padding: 0 6px !important;
+    font-size: 12px !important;
+  }
+
+  .ant-btn-sm {
+    height: 20px !important;
+    padding: 0 4px !important;
+    font-size: 11px !important;
+  }
+
+  /* 8. Tối ưu cho Modal spacing */
+  .ant-modal-body {
+    padding: 2px 8px !important; /* Từ 4px 12px */
+  }
+
+  .ant-modal-header {
+    padding: 1px 8px !important; /* Từ 2px 12px */
+  }
+
+  .ant-modal-footer {
+    padding: 1px 8px 2px !important; /* Từ 2px 12px 4px */
+  }
+
+  /* 9. Tối ưu cho Filter cards */
+  .tablet-landscape-filter-card .ant-card-body,
+  .tablet-landscape-notes-filter-card .ant-card-body,
+  .tablet-landscape-notes-actions-card .ant-card-body,
+  .tablet-landscape-calendar-filter-card .ant-card-body,
+  .tablet-landscape-collapsible-filter-card .ant-card-body {
+    padding: 2px !important; /* Từ 4px */
+  }
+
+  /* 10. Tối ưu cho Table */
+  .ant-table-thead > tr > th {
+    padding: 1px 6px !important; /* Từ 2px 8px */
+    font-size: 12px !important; /* Từ 13px */
+  }
+
+  .ant-table-tbody > tr > td {
+    padding: 1px 6px !important; /* Từ 2px 8px */
+    font-size: 12px !important; /* Từ 13px */
+  }
+
+  /* 11. Dark theme adjustments for ultra-compact */
+  [data-theme="dark"] .ant-form-item:hover .ant-form-item-explain {
+    background: #1f1f1f !important;
+    border: 1px solid #303030 !important;
+  }
+
+  /* 12. Responsive adjustments for ultra-compact */
+  @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .tablet-landscape-inline-form .ant-form-item-label {
+      flex: 0 0 35% !important; /* Tăng label width cho màn hình nhỏ */
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
+    .tablet-landscape-inline-form .ant-form-item-label {
+      flex: 0 0 25% !important; /* Giảm label width cho màn hình lớn */
+    }
+  }
+}

@@ -1,0 +1,220 @@
+/* Mobile Users Styles */
+@media (max-width: 768px) {
+  /* Mobile Filter Button */
+  .mobile-filter-button {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+  }
+
+  /* Mobile Filter Drawer */
+  .mobile-filter-drawer .ant-drawer-body {
+    padding: 16px !important;
+  }
+
+  .mobile-filter-container {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .mobile-filter-card {
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .mobile-filter-row {
+    margin-bottom: 0;
+  }
+
+  /* Dark theme support for Mobile Filters */
+  [data-theme="dark"] .mobile-filter-button {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .mobile-filter-drawer .ant-drawer-content {
+    background: #1f1f1f !important;
+  }
+
+  [data-theme="dark"] .mobile-filter-drawer .ant-drawer-header {
+    background: #1f1f1f !important;
+    border-bottom-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .mobile-filter-card {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .mobile-filter-card .ant-card-body {
+    background: #1f1f1f !important;
+  }
+
+  [data-theme="dark"] .ant-input,
+  [data-theme="dark"] .ant-select-selector {
+    background: #2f2f2f !important;
+    border-color: #404040 !important;
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .ant-select-dropdown {
+    background: #2f2f2f !important;
+  }
+
+  [data-theme="dark"] .ant-select-item {
+    color: #fff !important;
+  }
+
+  [data-theme="dark"] .ant-select-item-option-selected {
+    background: #1890ff !important;
+    color: #fff !important;
+  }
+
+  /* Mobile User Card */
+  .mobile-user-card {
+    border-radius: 8px !important;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .mobile-user-card .ant-card-body {
+    padding: 16px !important;
+  }
+
+  /* Dark theme support for Mobile User Card */
+  [data-theme="dark"] .mobile-user-card {
+    background: #1f1f1f !important;
+    border-color: #303030 !important;
+  }
+
+  [data-theme="dark"] .mobile-user-card .ant-card-body {
+    background: #1f1f1f !important;
+  }
+
+  [data-theme="dark"] .mobile-user-card .ant-typography {
+    color: #fff !important;
+  }
+
+  /* Floating Action Button */
+  .mobile-fab {
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Modal responsive */
+  .ant-modal {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  .ant-modal-content {
+    border-radius: 12px 12px 0 0 !important;
+  }
+
+  /* Form improvements on mobile */
+  .ant-form-item-label > label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+
+  .ant-input-lg,
+  .ant-select-lg .ant-select-selector,
+  .ant-input-password-lg {
+    height: 44px !important;
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* Button improvements */
+  .ant-btn-lg {
+    height: 44px !important;
+    font-size: 16px !important;
+  }
+
+  /* List improvements */
+  .ant-list-item {
+    padding: 0 !important;
+  }
+
+  /* Typography adjustments */
+  .ant-typography h3 {
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .ant-descriptions-small .ant-descriptions-item-label {
+    font-size: 13px !important;
+  }
+
+  .ant-descriptions-small .ant-descriptions-item-content {
+    font-size: 13px !important;
+  }
+
+  /* Avatar adjustments */
+  .ant-avatar {
+    flex-shrink: 0;
+  }
+
+  /* Tag improvements */
+  .ant-tag {
+    margin-right: 4px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Space improvements */
+  .ant-space-item {
+    margin-bottom: 0 !important;
+  }
+
+  /* Tooltip on mobile - make sure it's visible */
+  .ant-tooltip {
+    z-index: 1060 !important;
+  }
+
+  /* Popconfirm improvements */
+  .ant-popover {
+    z-index: 1050 !important;
+  }
+
+  /* Drawer improvements */
+  .ant-drawer-content-wrapper {
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .ant-drawer-header {
+    padding: 16px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+
+  .ant-drawer-close {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+  }
+}
+
+/* Touch improvements for all screen sizes */
+.mobile-touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading state improvements */
+.ant-spin-container {
+  min-height: 200px;
+}
+
+/* Empty state improvements */
+.ant-empty {
+  margin: 40px 0 !important;
+}
+
+.ant-empty-description {
+  color: #999 !important;
+  font-size: 14px !important;
+}
