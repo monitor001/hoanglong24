@@ -462,6 +462,7 @@ const IssueDetail: React.FC = () => {
   const navigate = useNavigate();
   const { token } = theme.useToken();
   const { theme: appTheme, isDarkMode } = useSelector((state: RootState) => state.ui);
+  const { user } = useSelector((state: RootState) => state.auth);
   
   const [issue, setIssue] = useState<any>(null);
   const [comments, setComments] = useState<any[]>([]);
@@ -486,8 +487,8 @@ const IssueDetail: React.FC = () => {
   const [deleteLoading, setDeleteLoading] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<any>(null);
-  const userId = (() => { try { return JSON.parse(localStorage.getItem('user')||'{}').id; } catch { return null; } })();
-  const userRole = (() => { try { return JSON.parse(localStorage.getItem('user')||'{}').role; } catch { return null; } })();
+  const userId = user?.id || null;
+  const userRole = user?.role || null;
   // Removed permission system - always allow delete
   const canDeleteIssues = true;
 

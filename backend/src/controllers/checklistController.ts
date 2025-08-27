@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../db';
 import { authMiddleware } from '../middlewares/auth';
+import { teapmleMauService } from '../services/teapmleMauService';
 
 // Lấy danh sách checklist
 export const getChecklists = async (req: Request, res: Response) => {
@@ -379,7 +380,7 @@ export const getCategories = async (req: Request, res: Response) => {
   }
 };
 
-// Lấy categories với nội dung mặc định
+// Lấy categories với nội dung mặc định từ TeapmleMau files
 export const getCategoriesWithDefaults = async (req: Request, res: Response) => {
   try {
     const categories = await prisma.designChecklistCategory.findMany({
@@ -387,7 +388,7 @@ export const getCategoriesWithDefaults = async (req: Request, res: Response) => 
       orderBy: { name: 'asc' }
     });
 
-    // Đảm bảo luôn có 4 hạng mục chính
+    // Đảm bảo luôn có 5 hạng mục chính từ TeapmleMau
     const requiredCategories = [
       'Giao Thông',
       'San Nền', 
@@ -396,10 +397,20 @@ export const getCategoriesWithDefaults = async (req: Request, res: Response) => 
       'Tường chắn'
     ];
 
+    // Get default content from TeapmleMau files
+    const teapmleMauContent = await teapmleMauService.getDefaultCategoriesWithContent();
+    
     const result = requiredCategories.map(categoryName => {
       const existingCategory = categories.find(cat => cat.name === categoryName);
+      const teapmleMauCategory = teapmleMauContent.find(cat => cat.category === categoryName);
+      
       if (existingCategory) {
-        return existingCategory;
+        // Return existing category with TeapmleMau content if available
+        return {
+          ...existingCategory,
+          defaultContent: teapmleMauCategory?.items || [],
+          hasTeapmleMauContent: !!teapmleMauCategory
+        };
       } else {
         // Tạo category mặc định nếu chưa có
         return {
@@ -407,11 +418,12 @@ export const getCategoriesWithDefaults = async (req: Request, res: Response) => 
           name: categoryName,
           description: `Các hạng mục liên quan đến ${categoryName.toLowerCase()}`,
           color: '#1890ff',
-          defaultContent: [],
+          defaultContent: teapmleMauCategory?.items || [],
           isActive: true,
           createdById: 'system',
           createdAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date(),
+          hasTeapmleMauContent: !!teapmleMauCategory
         };
       }
     });
@@ -505,17 +517,11 @@ export const deleteCategory = async (req: Request, res: Response) => {
   }
 };
 
-// Tạo checklist với nội dung mặc định từ categories
+// Tạo checklist với nội dung mặc định từ TeapmleMau files
 export const createChecklistWithDefaults = async (req: Request, res: Response) => {
   try {
     const { name, description, projectId } = req.body;
     const userId = (req as any).user.id;
-
-    // Lấy tất cả categories với nội dung mặc định
-    const categories = await prisma.designChecklistCategory.findMany({
-      where: { isActive: true },
-      orderBy: { name: 'asc' }
-    });
 
     // Tạo checklist
     const checklist = await prisma.designChecklist.create({
@@ -527,367 +533,20 @@ export const createChecklistWithDefaults = async (req: Request, res: Response) =
       }
     });
 
-    // Tạo items cho từng category với nội dung mặc định
+    // Tạo items với nội dung mặc định từ TeapmleMau files
     const itemsToCreate = [];
     let order = 1;
 
-    // Nội dung mặc định cho từng category (từ tài liệu kỹ thuật)
-    const defaultContentMap = {
-      'Giao Thông': [
-        'I. Kiểm tra các số liệu đầu vào',
-        '   Số liệu tìm tuyến QH 1/500, tài liệu được CĐT chấp thuận: tìm đường phải có cánh tuyến, Bán kính cong phù hợp tiêu chuẩn, bán kính bó vỉa, bãi đậu xe',
-        '   Đầu nối giao thông',
-        '   Đo E nền đường hiện hữu, E nền đoạn lu thứ',
-        '   Cao độ khống chế các tuyến GT, cầu, khu Quy hoạch đã duyệt xung quanh dự án',
-        '   Cao độ San nền được duyệt',
-        '   Vị trí Lối ra/vào nhà, cao độ (có thể cập nhật sau cao độ GT)',
-        '   Các mẫu nhà điển hình, Điển hình concept kiến trúc lối ra/vào nhà, bãi đậu xe',
-        '   Tải trọng trục yêu cầu của CĐT cho từng tuyến đường',
-        '   Chủ trương có bàn giao hạ tầng cho cơ quan nhà nước không?',
-        '   Tiến độ mong muốn từng giai đoạn của CĐT và của Tư vấn, cách thức phối hợp',
-        '   Thống nhất ranh các tuyến đường; ranh phân chia công việc của hạ tầng và các bộ môn liên quan',
-        '   Rà soát san nền dọc ranh dự án, các độ dốc san nền > 10% => đề ra giải pháp thực hiện',
-        '   Báo cáo đầu là giải pháp thiết kế của Tư vấn',
-        '   Đề xuất khung tiêu chuẩn áp dụng cho dự án',
-        'II. Thuyết minh',
-        '   Cơ sở thiết kế',
-        '   Nguyên tắc thiết kế',
-        '   Các quy chuẩn, tiêu chuẩn áp dụng',
-        '   Chỉ tiêu thiết kế các tuyến đường theo phân cấp mạng lưới',
-        '   Giải pháp thiết kế:',
-        '     Giao thông đối ngoại',
-        '     Giao thông đối nội',
-        '     Quy mô các tuyến đường',
-        '     Giải pháp mặt cắt ngang',
-        '     Giải pháp xử lý nền đường',
-        '     Trắc dọc',
-        '     Kết cấu mặt đường',
-        '     Kết cấu vỉa hè',
-        '     Kết cấu bó vỉa',
-        '     Kết cấu bó nền',
-        '     Bán kính bó vỉa, Bãi đậu xe',
-        '     Điển hình giải pháp xử lý nền, kết cấu tường kè',
-        '     Điển hình concept kiến trúc lối ra/vào nhà',
-        '     Kết cấu đan rãnh',
-        '     Cây xanh',
-        '     Bố trí hố trồng cây',
-        '     Khoảng cách hố trồng cây',
-        '     Kết cấu hố trồng cây',
-        '     Giải pháp xử lý đối với các tuyến giáp ranh giới dự án',
-        '     Giải pháp xử lý đối với các tuyến giáp ranh khu vực hiện trạng',
-        '     Giải pháp tổ chức giao thông: vạch sơn kẻ đường, biển báo',
-        '       Bố trí vạch sơn, biển báo',
-        '       Chi tiết vạch sơn, biển báo',
-        '   Biện pháp thi công chủ đạo',
-        '   Bảng tổng hợp khối lượng',
-        '   Tổng hợp khối lượng giao thông',
-        '   Tổng hợp khối lượng tổ chức giao thông',
-        '   Phụ lục tính toán:',
-        '     Kết cấu áo đường cứng, áo đường mềm',
-        '     Tính toán ổn định nền đường, lún',
-        '   Tài liệu pháp lý liên quan:',
-        '     Các quyết định duyệt, chủ trương',
-        'III. Bản vẽ',
-        '   a. Ghi chú',
-        '     Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết để có thể tham chiếu thông tin làm cơ sở thi công tại công trường',
-        '   b. Mặt bằng giao thông',
-        '     Tuân thủ TKCS được duyệt',
-        '     Cao độ thiết kế nút giao thông + các điểm đặc biệt không chế',
-        '     Độ dốc + chiều dài đường; chiều dài đoạn đổi dốc',
-        '     Phạm vi kết cấu mặt đường, nút giao thông, hè đường, bãi đỗ xe',
-        '     Ký hiệu mặt cắt đường',
-        '     Kích thước mặt cắt đường',
-        '     Tên tuyến đường',
-        '     Bán kính cong nằm, bán kính bó vỉa',
-        '     Kiểm soát tầm nhìn, mở rộng đường cong',
-        '     Yếu tố đường cong nằm',
-        '     Tọa độ nút giao thông',
-        '     Bảng tọa độ nút giao, cạnh tuyến, R-T-P-K điểm chuyển',
-        '     Ghi chú, ký hiệu',
-        '     Khối lượng diện tích, chiều dài trên mặt bằng',
-        '   c. Mặt bằng cây xanh',
-        '     Bố trí hố trồng cây',
-        '     Dim kích thước hố trồng cây',
-        '     Kết cấu hố trồng cây',
-        '     Kết hợp với thiết kế cảnh quan (Bộ phận QLTK cảnh quan, TNR) để thống nhất giải pháp bố trí hố trồng cây',
-        '     Bảng tổng hợp khối lượng',
-        '     Ghi chú, ký hiệu',
-        '   d. Mặt bằng xử lý nền đất yếu (nếu có)',
-        '     Khoanh vùng, ký hiệu các vị trí cần xử lý',
-        '     Các giải pháp xử lý nền đất yếu',
-        '     Các mặt cắt chi tiết tại các vị trí xử lý đất yếu',
-        '     Bảng tổng hợp khối lượng',
-        '     Ghi chú, ký hiệu',
-        '   e. Nút giao thông',
-        '     Mặt bằng chi tiết nút giao',
-        '     Bán kính bó vỉa, bán kính cong nằm',
-        '     Các yếu tố cong nằm',
-        '     Dim kích thước nút giao: hè đường, mặt đường, các cạnh nút giao...',
-        '     Định vị nút giao: tọa độ các điểm không chế trên nút',
-        '     Mặt bằng đường đồng mức thiết kế nút giao',
-        '     Tính toán khối lượng nút',
-        '     Tổng hợp khối lượng nút',
-        '   g. Mặt bằng cọc giao thông',
-        '     Vị trí cọc, tên cọc',
-        '     Tên tuyến đường',
-        '     Ghi chú, ký hiệu',
-        '   h. Mặt bằng tổ chức giao thông',
-        '     Bố trí biển báo hiệu giao thông',
-        '       Số lượng biển báo trong 1 khu vực không nên quá dày, PA 2 biển báo 1 cột',
-        '     Bố trí vạch sơn',
-        '       Xem khoảng cách các lối sang đường đi bộ (loại thẳng, chéo). Không bố trí quá gần',
-        '       Xem vị trí vạch dọc theo làn đường. Đúng kích thước làn đường',
-        '       Định vị vị trí các vạch kẻ trên bản vẽ',
-        '     Bố trí hạ hè cho người tàn tật',
-        '     Bảng tổng hợp khối lượng',
-        '     Ghi chú, ký hiệu',
-        '   i. Mặt cắt ngang điển hình',
-        '     Mặt cắt điển hình các tuyến giao thông thể hiện đầy đủ kết cấu, bố trí hạ tầng HTKT',
-        '     Mặt cắt điển hình các tuyến giao thông bố trí vạch sơn, biển báo',
-        '   j. Trắc dọc tuyến',
-        '     Trắc dọc đủ các tuyến đường trên bình đồ',
-        '     Chiều dài tuyến, tên cọc khớp theo bình đồ; điểm đổi dốc, chiều dài đổi dốc',
-        '     Cao độ đường đỏ khớp theo bình đồ',
-        '     Cao độ đường đen khớp theo bình đồ',
-        '   k. Trắc ngang tuyến',
-        '     Trắc ngang các tuyến đường, mức độ thể hiện chi tiết với khoảng cách trung bình 20m/cọc',
-        '     Cao độ đường đỏ, đen khớp với trắc dọc',
-        '     Kết cấu mặt đường/vỉa hè/bó vỉa/bó hè phù hợp với kết cấu điển hình',
-        '     Xử lý nền đường khớp với hiện trạng bình đồ tuyến, xử lý nền đất yếu',
-        '     Bảng tổng hợp khối lượng nền đường từng tuyến',
-        '     Bảng tổng hợp khối lượng các tuyến',
-        '   l. Bản vẽ chi tiết',
-        '     Các chi tiết các kết cấu giao thông',
-        '       Chi tiết từng loại kết cấu',
-        '       Khối lượng chi tiết từng kết cấu',
-        '     Các chi tiết tổ chức giao thông',
-        '       Chi tiết từng loại kết cấu',
-        '       Khối lượng chi tiết từng kết cấu',
-        '   m. Tổng hợp khối lượng toàn bộ hạng mục giao thông',
-        '     Khối lượng giao thông',
-        '     Bảng tổng hợp khối lượng theo tuyến',
-        '     Bảng tổng hợp khối lượng theo nút',
-        '     Bảng tổng hợp khối lượng chung',
-        '     Bảng tổng hợp khối lượng tổ chức giao thông'
-      ],
-      'San Nền': [
-        'I. Kiểm tra các số liệu đầu vào',
-        '   Số liệu tìm tuyến QH 1/500, tài liệu được CĐT chấp thuận',
-        '   Cao độ khống chế các tuyến GT, cầu, khu Quy hoạch đã duyệt xung quanh dự án',
-        '   Cao độ San nền được duyệt',
-        '   Vị trí Lối ra/vào nhà, cao độ',
-        '   Các mẫu nhà điển hình, Điển hình concept kiến trúc lối ra/vào nhà',
-        '   Tiến độ mong muốn từng giai đoạn của CĐT và của Tư vấn',
-        '   Thống nhất ranh các tuyến đường; ranh phân chia công việc',
-        '   Rà soát san nền dọc ranh dự án, các độ dốc san nền > 10%',
-        '   Báo cáo đầu là giải pháp thiết kế của Tư vấn',
-        '   Đề xuất khung tiêu chuẩn áp dụng cho dự án',
-        'II. Thuyết minh',
-        '   Cơ sở thiết kế',
-        '   Nguyên tắc thiết kế',
-        '   Các quy chuẩn, tiêu chuẩn áp dụng',
-        '   Giải pháp thiết kế:',
-        '     Căn cứ lựa chọn cao độ xây dựng',
-        '     Giải pháp san nền khu vực xây mới',
-        '     Giải pháp san nền khu vực hiện trạng (đặc biệt các khu vực lân sống rạch, các vị trí đào đắp cao)',
-        '     Giải pháp chuẩn bị kỹ thuật khác',
-        '     Tính toán khối lượng san nền',
-        '     Tổng hợp khối lượng san nền',
-        '     Đường công vụ (nếu có), rào chắn',
-        '     Giải pháp thoát nước tạm trong giai đoạn san nền (nếu có)',
-        '   Biện pháp thi công chủ đạo',
-        '   Bảng tổng hợp khối lượng',
-        '   Phụ lục tính toán',
-        '   Tài liệu pháp lý liên quan',
-        'III. Bản vẽ',
-        '   a. Ghi chú',
-        '     Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết',
-        '   b. Mặt bằng san nền + đường công vụ (nếu có)',
-        '     Cao độ thiết kế nút giao thông + các điểm đặc biệt khống chế',
-        '     Độ dốc + chiều dài đường',
-        '     Độ dốc san nền',
-        '     Cao độ đường đồng mức phù hợp với cao độ hè đường, mặt đường',
-        '     Bản vẽ tính toán khối lượng',
-        '     Tính toán khối lượng san nền lưới ô vuông 10x10',
-        '     Trắc ngang điển hình, 1 số mặt cắt chỉ chi tiết trong trường hợp san nền giật cấp (nếu có)',
-        '     Các bản vẽ chi tiết khác (đường công vụ, thoát nước tạm, mặt bằng bố trí và chi tiết thiết bị quan trắc, tổ chức thi công và an toàn lao động...)'
-      ],
-      'Xử lý nền': [
-        'I. Kiểm tra các số liệu đầu vào',
-        '   Số liệu địa chất, thủy văn khu vực',
-        '   Mực nước ngầm, mực nước thủy văn tính toán',
-        '   Tiêu chuẩn về độ lún, ổn định',
-        '   Hệ số an toàn',
-        '   Hoạt tải (và các tải trọng khác)',
-        '   Thời gian xử lý',
-        '   Các thông số khác phục vụ lựa chọn giải pháp thiết kế',
-        'II. Thuyết minh',
-        '   Cơ sở và thông số thiết kế:',
-        '     Thông số thiết kế nền mặt đường',
-        '     Mực nước ngầm, mực nước thủy văn tính toán',
-        '     Tiêu chuẩn về độ lún, ổn định',
-        '     Hệ số an toàn',
-        '     Hoạt tải (và các tải trọng khác)',
-        '     Thời gian xử lý',
-        '     Các thông số khác phục vụ lựa chọn giải pháp thiết kế',
-        '   Nguyên tắc thiết kế',
-        '   Các quy chuẩn, tiêu chuẩn áp dụng',
-        '   Tóm tắt sơ lược nội dung TKCS được duyệt, các nội dung đề xuất, thay đổi bước BVTC (nếu có)',
-        '   Giải pháp thiết kế giải pháp xử lý nền:',
-        '     Đánh giá chi tiết điều kiện địa chất, thủy văn khu vực',
-        '     Đánh giá chi tiết về ổn định và lún khi chưa xử lý',
-        '     Đánh giá chi tiết nền trước và sau khi được xử lý',
-        '     Ước tính độ lún, độ cố kết đạt được sau xử lý',
-        '     Giải pháp kết cấu (cọc đất, bấc thấm hút chân không, bấc thấm gia tải tường, cọc cát, đào thay đất....)',
-        '     Giải pháp xử lý phạm vi giáp nối với các công trình hiện hữu, giữa các giải pháp xử lý...',
-        '   Quy trình thi công và kiểm soát chất lượng XLN:',
-        '     Trình tự thi công',
-        '     Kiểm soát chất lượng thi công',
-        '     Dự báo sự cố và giải pháp khắc phục',
-        '     Biện pháp quan trắc trước, trong và sau thi công và tần suất quan trắc',
-        '   Bố trí thiết bị quan trắc trong giai đoạn xử lý nền',
-        '   Biện pháp thi công chủ đạo',
-        '   Bãi đổ, thải (nếu có)',
-        '   Phụ lục tính toán: ổn định, tính lún, tính toán kết cấu giải pháp xử lý nền, bản tính phạm vi ảnh hưởng giáp ranh...',
-        '   Bảng tổng hợp khối lượng',
-        '   Tài liệu pháp lý liên quan',
-        'III. Bản vẽ',
-        '   a. Ghi chú',
-        '     Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết để có thể tham chiếu thông tin làm cơ sở thi công tại công trường',
-        '   b. Xử lý nền:',
-        '     Mặt bằng tổng thể giải pháp xử lý nền',
-        '     Mặt bằng chi tiết xử lý nền',
-        '     Trắc ngang đại diện xử lý nền',
-        '     Trắc dọc xử lý nền',
-        '     Trắc ngang đại diện tính toán khối lượng',
-        '     Trắc ngang chi tiết xử lý nền',
-        '     Bảng thống kê chi tiết giải pháp xử lý nền, các biểu đồ đắp gia tài, dỡ tải...',
-        '   c. Bố trí khoan địa chất, bố trí thiết bị quan trắc:',
-        '     Mặt bằng bố trí thiết bị quan trắc + lỗ khoan địa chất',
-        '     Mặt cắt ngang bố trí thiết bị quan trắc',
-        '     Cấu tạo chi tiết thiết bị quan trắc',
-        '     Bảng tổng hợp, thống kê chi tiết',
-        '   d. Biện pháp thi công, an toàn lao động:',
-        '     Bản vẽ chi tiết biện pháp, trình tự thi công',
-        '   e. Tính toán khối lượng'
-      ],
-      'Kè hồ': [
-        'I. Kiểm tra các số liệu đầu vào',
-        '   Số liệu địa chất, thủy văn khu vực',
-        '   Cao độ khống chế các tuyến GT, cầu, khu Quy hoạch đã duyệt xung quanh dự án',
-        '   Cao độ San nền được duyệt',
-        '   Vị trí Lối ra/vào nhà, cao độ',
-        '   Các mẫu nhà điển hình, Điển hình concept kiến trúc lối ra/vào nhà',
-        '   Tiến độ mong muốn từng giai đoạn của CĐT và của Tư vấn',
-        '   Thống nhất ranh các tuyến đường; ranh phân chia công việc',
-        '   Báo cáo đầu là giải pháp thiết kế của Tư vấn',
-        '   Đề xuất khung tiêu chuẩn áp dụng cho dự án',
-        'II. Thuyết minh',
-        '   Cơ sở thiết kế',
-        '   Nguyên tắc thiết kế',
-        '   Các quy chuẩn, tiêu chuẩn áp dụng',
-        '   Tóm tắt sơ lược nội dung TKCS được duyệt',
-        '   Giải pháp thiết kế:',
-        '     Giải pháp đào hồ',
-        '     Kè hồ: đường đỉnh kè, chân kè, cao độ',
-        '     Kè: kè sông, kênh, mương, kè biến...',
-        '     Mặt cắt điển hình tại các vị trí xử lý chênh cao bằng giải pháp taluy hoặc kè, tường chắn',
-        '   Biện pháp thi công chủ đạo',
-        '   Bảng tổng hợp khối lượng',
-        '   Phụ lục tính toán',
-        '   Tài liệu pháp lý liên quan',
-        'III. Bản vẽ',
-        '   a. Ghi chú',
-        '     Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết',
-        '   b. Mặt bằng xử lý nền hiện trạng',
-        '   c. Mặt bằng san nền + đường công vụ (nếu có)',
-        '   d. Đào hồ',
-        '   e. Kè hồ: đường đỉnh kè, chân kè, cao độ',
-        '   f. Kè: kè sông, kênh, mương, kè biến...',
-        '   g. Mặt cắt điển hình tại các vị trí xử lý chênh cao bằng giải pháp taluy hoặc kè, tường chắn',
-        '   h. Các bản vẽ chi tiết:',
-        '     Bản vẽ chi tiết kè, tường chắn, taluy, gia cố taluy...',
-        '     Bản vẽ chi tiết kè hồ',
-        '     Các bản vẽ chi tiết khác (đường công vụ, thoát nước tạm, mặt bằng bố trí và chi tiết thiết bị quan trắc, tổ chức thi công và an toàn lao động....)',
-        '   i. Khung tên, mẫu chữ có thống nhất không',
-        '   j. Chỉ dẫn vật liệu',
-        '   k. Sơ họa vị trí công trình',
-        '   l. Bình đồ hiện trạng',
-        '   m. Bình đồ thiết kế',
-        '   n. Trắc dọc công trình',
-        '   o. Cắt ngang điển hình',
-        '   p. Mặt cắt ngang chi tiết',
-        '   q. Mặt bằng cọc và đơn nguyên tường, chi tiết cọc (nếu có)',
-        '   r. Biện pháp thi công chi tiết:',
-        '     Mặt bằng thi công',
-        '     Trình tự thi công',
-        '     Biện pháp thi công chi tiết',
-        '     Tiến độ thi công'
-      ],
-      'Tường chắn': [
-        'I. Kiểm tra các số liệu đầu vào',
-        '   Số liệu địa chất, thủy văn khu vực',
-        '   Cao độ khống chế các tuyến GT, cầu, khu Quy hoạch đã duyệt xung quanh dự án',
-        '   Cao độ San nền được duyệt',
-        '   Vị trí Lối ra/vào nhà, cao độ',
-        '   Các mẫu nhà điển hình, Điển hình concept kiến trúc lối ra/vào nhà',
-        '   Tiến độ mong muốn từng giai đoạn của CĐT và của Tư vấn',
-        '   Thống nhất ranh các tuyến đường; ranh phân chia công việc',
-        '   Báo cáo đầu là giải pháp thiết kế của Tư vấn',
-        '   Đề xuất khung tiêu chuẩn áp dụng cho dự án',
-        'II. Thuyết minh',
-        '   Cơ sở thiết kế',
-        '   Nguyên tắc thiết kế',
-        '   Các quy chuẩn, tiêu chuẩn áp dụng',
-        '   Tóm tắt sơ lược nội dung TKCS được duyệt',
-        '   Giải pháp thiết kế:',
-        '     Tường chắn đất',
-        '     Mặt cắt điển hình tại các vị trí xử lý chênh cao bằng giải pháp taluy hoặc kè, tường chắn',
-        '     Điển hình giải pháp xử lý nền, kết cấu tường kè',
-        '   Biện pháp thi công chủ đạo',
-        '   Bảng tổng hợp khối lượng',
-        '   Phụ lục tính toán',
-        '   Tài liệu pháp lý liên quan',
-        'III. Bản vẽ',
-        '   a. Ghi chú',
-        '     Tất cả các bản vẽ phải có ghi chú, chỉ dẫn cần thiết',
-        '   b. Mặt bằng xử lý nền hiện trạng',
-        '   c. Mặt bằng san nền + đường công vụ (nếu có)',
-        '   d. Tường chắn đất',
-        '   e. Mặt cắt điển hình tại các vị trí xử lý chênh cao bằng giải pháp taluy hoặc kè, tường chắn',
-        '   f. Các bản vẽ chi tiết:',
-        '     Bản vẽ chi tiết kè, tường chắn, taluy, gia cố taluy...',
-        '     Bản vẽ chi tiết tường chắn',
-        '     Các bản vẽ chi tiết khác (đường công vụ, thoát nước tạm, mặt bằng bố trí và chi tiết thiết bị quan trắc, tổ chức thi công và an toàn lao động....)',
-        '   g. Khung tên, mẫu chữ có thống nhất không',
-        '   h. Chỉ dẫn vật liệu',
-        '   i. Sơ họa vị trí công trình',
-        '   j. Bình đồ hiện trạng',
-        '   k. Bình đồ thiết kế',
-        '   l. Trắc dọc công trình',
-        '   m. Cắt ngang điển hình',
-        '   n. Mặt cắt ngang chi tiết',
-        '   o. Mặt bằng cọc và đơn nguyên tường, chi tiết cọc (nếu có)',
-        '   p. Biện pháp thi công chi tiết:',
-        '     Mặt bằng thi công',
-        '     Trình tự thi công',
-        '     Biện pháp thi công chi tiết',
-        '     Tiến độ thi công'
-      ]
-    };
-
-    for (const category of categories) {
-      const defaultContent = defaultContentMap[category.name as keyof typeof defaultContentMap] || [
-        'Giới thiệu chung',
-        'Nội dung thiết kế',
-        'Bản vẽ'
-      ];
-      
-      for (const content of defaultContent) {
+    // Get default content from TeapmleMau files
+    const teapmleMauContent = await teapmleMauService.getDefaultCategoriesWithContent();
+    
+    // Create items from TeapmleMau content
+    for (const categoryContent of teapmleMauContent) {
+      for (const item of categoryContent.items) {
         itemsToCreate.push({
           checklistId: checklist.id,
-          category: category.name,
-          content: content,
+          category: categoryContent.category,
+          content: item.content,
           order: order++,
           isChecked: false
         });

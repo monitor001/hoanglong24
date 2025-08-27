@@ -57,16 +57,17 @@ const AuthLayout: React.FC = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px 16px',
+        padding: 0,
         minHeight: 'calc(100vh - 128px)',
         width: '100%',
         maxWidth: '100%',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        background: 'transparent'
       }} className="auth-content">
         <div style={{
-          borderRadius: '8px',
-          background: token.colorBgContainer,
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+          borderRadius: '0px',
+          background: 'transparent',
+          boxShadow: 'none',
           minHeight: 'fit-content',
           width: '100%',
           maxWidth: '100%',

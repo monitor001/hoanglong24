@@ -1,32 +1,38 @@
 import { Router } from 'express';
-import { authMiddleware } from '../middlewares/simpleAuth';
-import { getUserNotifications, markNotificationAsRead } from '../utils/taskNotification';
+import { authMiddleware } from '../middlewares/auth';
+import {
+  getNotifications,
+  markAsRead,
+  markAllAsRead,
+  deleteNotificationController,
+  getNotificationStatistics,
+  createNotificationController,
+  createBulkNotifications
+} from '../controllers/notificationController';
 
 const router = Router();
 
 router.use(authMiddleware);
 
 // Get user notifications
-router.get('/', async (req, res) => {
-  try {
-    const notifications = await getUserNotifications(req.user?.id as string);
-    res.status(200).json(notifications);
-  } catch (error) {
-    console.error('Get notifications error:', error);
-    res.status(500).json({ error: 'Failed to fetch notifications' });
-  }
-});
+router.get('/', getNotifications);
+
+// Get notification statistics
+router.get('/stats', getNotificationStatistics);
 
 // Mark notification as read
-router.put('/:id/read', async (req, res) => {
-  try {
-    const { id } = req.params;
-    await markNotificationAsRead(id, req.user?.id as string);
-    res.status(200).json({ message: 'Notification marked as read' });
-  } catch (error) {
-    console.error('Mark notification as read error:', error);
-    res.status(500).json({ error: 'Failed to mark notification as read' });
-  }
-});
+router.put('/:id/read', markAsRead);
+
+// Mark all notifications as read
+router.put('/read-all', markAllAsRead);
+
+// Delete notification
+router.delete('/:id', deleteNotificationController);
+
+// Create notification (for internal use)
+router.post('/', createNotificationController);
+
+// Bulk create notifications (for system use)
+router.post('/bulk', createBulkNotifications);
 
 export default router; 

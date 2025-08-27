@@ -152,7 +152,7 @@ const Notes: React.FC = () => {
   const [editingFolder, setEditingFolder] = useState<Folder | null>(null);
   const [noteForm] = Form.useForm();
   const [folderForm] = Form.useForm();
-  const [foldersTimeFilter, setFoldersTimeFilter] = useState<string>('week');
+  // Recent folders: always show without time filter
   const [notesTimeFilter, setNotesTimeFilter] = useState<string>('');
   const [searchText, setSearchText] = useState('');
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
@@ -221,15 +221,19 @@ const Notes: React.FC = () => {
     return 3;
   };
 
-  // Bộ màu cho light mode và dark mode
-  const lightColors = ['#FFE5B4', '#B4E5FF', '#FFB4E5', '#B4FFB4'];
-  // Bộ màu mới cho dark mode: nhẹ nhàng, trong suốt cao, nổi bật
-  const darkColors = [
-    'rgba(139, 69, 19, 0.15)',   // Nâu nhẹ trong suốt cao
-    'rgba(70, 130, 180, 0.15)',  // Xanh dương nhẹ trong suốt cao
-    'rgba(147, 112, 219, 0.15)', // Tím nhẹ trong suốt cao
-    'rgba(60, 179, 113, 0.15)'   // Xanh lá nhẹ trong suốt cao
+  // Bộ màu cho light mode và dark mode - màu sáng nhẹ với độ trong suốt cao
+  const lightColors = [
+    'rgba(255, 229, 180, 0.85)',  // Peach nhạt
+    'rgba(180, 229, 255, 0.85)',  // Blue nhạt  
+    'rgba(255, 180, 229, 0.85)',  // Pink nhạt
+    'rgba(180, 255, 180, 0.85)',  // Green nhạt
+    'rgba(255, 218, 185, 0.85)',  // Orange nhạt
+    'rgba(221, 160, 221, 0.85)',  // Purple nhạt
+    'rgba(255, 182, 193, 0.85)',  // Light pink
+    'rgba(173, 216, 230, 0.85)'   // Light blue
   ];
+  // Dark mode dùng cùng bảng màu với light mode
+  const darkColors = lightColors;
 
   const cardColors = isDarkMode ? darkColors : lightColors;
 
@@ -284,7 +288,7 @@ const Notes: React.FC = () => {
   const getTextColorForBackground = (backgroundColor: string) => {
     // Xử lý màu rgba
     if (backgroundColor.startsWith('rgba')) {
-      // Trong dark mode với màu rgba trong suốt, dùng text trắng
+      // Với màu trong suốt, chọn trắng ở dark mode và đen ở light mode
       return isDarkMode ? '#ffffff' : '#000000';
     }
     
@@ -661,12 +665,9 @@ const Notes: React.FC = () => {
     }
   };
 
-  const fetchFolders = async (timeFilter?: string) => {
+  const fetchFolders = async (_timeFilterIgnored?: string) => {
     try {
-      const params = new URLSearchParams();
-      if (timeFilter) params.append('timeFilter', timeFilter);
-
-      const response = await axiosInstance.get(`/folders?${params}`, {
+      const response = await axiosInstance.get(`/folders`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       
@@ -714,7 +715,6 @@ const Notes: React.FC = () => {
   useEffect(() => {
     console.log('useEffect triggered with:', {
       notesTimeFilter,
-      foldersTimeFilter,
       selectedFolder
     });
     
@@ -722,12 +722,12 @@ const Notes: React.FC = () => {
       setLoading(true);
       await Promise.all([
         fetchNotes(notesTimeFilter),
-        fetchFolders(foldersTimeFilter)
+        fetchFolders()
       ]);
       setLoading(false);
     };
     loadData();
-  }, [notesTimeFilter, foldersTimeFilter]); // Bỏ selectedFolder khỏi dependencies
+  }, [notesTimeFilter]); // Bỏ selectedFolder khỏi dependencies
 
   // Fetch users when share modal opens
   useEffect(() => {
@@ -793,7 +793,7 @@ const Notes: React.FC = () => {
       setFolderModalVisible(false);
       setEditingFolder(null);
       folderForm.resetFields();
-      fetchFolders(foldersTimeFilter);
+      fetchFolders();
     } catch (error) {
       console.error('Error saving folder:', error);
       message.error('Không thể lưu thư mục');
@@ -843,7 +843,7 @@ const Notes: React.FC = () => {
           headers: { Authorization: `Bearer ${authToken}` }
         });
         message.success('Xóa thư mục thành công');
-        fetchFolders(foldersTimeFilter);
+        fetchFolders();
       }
     } catch (error) {
       console.error('Error deleting item:', error);
@@ -1146,25 +1146,7 @@ const Notes: React.FC = () => {
           }}>
             Thư mục gần đây
           </Title>
-          <Space size={isMobile ? 4 : 8}>
-            {timeFilterOptions.map(option => (
-              <Button
-                key={option.value}
-                type={foldersTimeFilter === option.value ? 'primary' : 'default'}
-                size={isMobile ? 'small' : 'small'}
-                onClick={() => setFoldersTimeFilter(option.value)}
-                style={{
-                  background: foldersTimeFilter === option.value ? themeToken.colorPrimary : 'transparent',
-                  borderColor: foldersTimeFilter === option.value ? themeToken.colorPrimary : undefined,
-                  fontSize: isMobile ? 11 : undefined,
-                  padding: isMobile ? '2px 8px' : undefined,
-                  height: isMobile ? 24 : undefined
-                }}
-              >
-                {option.label}
-              </Button>
-            ))}
-          </Space>
+          <span />
         </div>
 
         <div style={isMobile ? { 
@@ -1283,13 +1265,19 @@ const Notes: React.FC = () => {
                   </div>
                   {!isMobile && (
                     <Dropdown overlay={folderMenu(folder)} trigger={['click']}>
-                      <Button 
-                        type="text" 
-                        icon={<MoreOutlined />} 
-                        size="small" 
-                        style={{ color: getTextColorForBackground(convertColorBetweenThemes(folder.color) || getRandomColor()) }}
-                        onClick={(e) => e.stopPropagation()}
-                      />
+                                          <Button 
+                      type="text" 
+                      icon={<MoreOutlined />} 
+                      size="small" 
+                      style={{ 
+                        color: getTextColorForBackground(convertColorBetweenThemes(folder.color) || getRandomColor()),
+                        fontSize: '10px',
+                        minWidth: '20px',
+                        height: '20px',
+                        padding: '2px'
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    />
                     </Dropdown>
                   )}
                 </div>
@@ -1776,9 +1764,10 @@ const Notes: React.FC = () => {
                       size="small"
                       style={{ 
                         color: getTextColorForBackground(convertColorBetweenThemes(note.color) || getRandomColor()),
-                        minWidth: '24px',
-                        height: '24px',
-                        padding: 0
+                        fontSize: '10px',
+                        minWidth: '20px',
+                        height: '20px',
+                        padding: '2px'
                       }}
                       onClick={(e) => {
                         e.stopPropagation();
@@ -1848,7 +1837,14 @@ const Notes: React.FC = () => {
                       }
                     }}
                     bodyStyle={{ padding: '16px', height: '100%' }}
-                    onClick={() => isMultiSelectMode && handleNoteSelect(note.id)}
+                    onClick={() => {
+                      if (isMultiSelectMode) {
+                        handleNoteSelect(note.id);
+                      } else {
+                        setSelectedNoteForDetail(note);
+                        setNoteDetailVisible(true);
+                      }
+                    }}
                   >
                     {isMultiSelectMode && (
                       <div style={{ 

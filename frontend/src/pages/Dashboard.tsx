@@ -368,27 +368,8 @@ const Dashboard: React.FC = () => {
 
   // Fetch dashboard data
   const fetchDashboardData = useCallback(async () => {
-    try {
-      setLoading(true);
-      setHasTimeout(false);
-      
-      // Set timeout 10 giây
-      const timeoutId = setTimeout(() => {
-        setHasTimeout(true);
-        setLoading(false);
-      }, 10000);
-      
-      const params = selectedProjectId ? { projectId: selectedProjectId, timeRange } : { timeRange };
-      const response = await axiosInstance.get('/dashboard/comprehensive', { params });
-      
-      clearTimeout(timeoutId);
-      setDashboardData(response.data);
-      setIsUsingFallbackData(false);
-    } catch (error) {
-      console.error('Error fetching dashboard data:', error);
-      
-      // Fallback data khi API không hoạt động
-      const fallbackData: DashboardData = {
+    // Fallback data prepared upfront (accessible in catch as well)
+    const fallbackData: DashboardData = {
         stats: {
           totalProjects: 5,
           activeProjects: 3,
@@ -476,6 +457,26 @@ const Dashboard: React.FC = () => {
           { date: '2024-01-13', type: 'document', description: 'Phê duyệt tài liệu' }
         ]
       };
+    try {
+      setLoading(true);
+      setHasTimeout(false);
+      
+      // Timeout: after 12s, show fallback instead of empty screen
+      const timeoutId = setTimeout(() => {
+        setHasTimeout(true);
+        setIsUsingFallbackData(true);
+        setDashboardData(fallbackData);
+        setLoading(false);
+      }, 12000);
+      
+      const params = selectedProjectId ? { projectId: selectedProjectId, timeRange } : { timeRange };
+      const response = await axiosInstance.get('/dashboard/comprehensive', { params });
+      
+      clearTimeout(timeoutId);
+      setDashboardData(response.data);
+      setIsUsingFallbackData(false);
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error);
       
       setDashboardData(fallbackData);
       setIsUsingFallbackData(true);
@@ -487,7 +488,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     // Fetch dashboard data ngay cả khi không có projects (để lấy overall stats)
     fetchDashboardData();
-  }, [selectedProjectId, timeRange]); // Bỏ fetchDashboardData dependency để tránh re-render liên tục
+  }, [fetchDashboardData]); // Include fetchDashboardData dependency to ensure proper updates
 
   // Chart color schemes - cập nhật để tránh trùng màu
   const colors = useMemo(() => ({

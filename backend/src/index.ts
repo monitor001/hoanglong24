@@ -12,6 +12,7 @@ import {
   sendUpcomingTaskNotifications 
 } from './utils/taskNotification';
 import cron from 'node-cron';
+import { dataMaintenanceService } from './services/dataMaintenanceService';
 
 // Routes
 import authRoutes from './routes/auth';
@@ -37,6 +38,7 @@ import approvalRoutes from './routes/approval';
 import todoRoutes from './routes/todo';
 import permissionsRoutes from './routes/permissions';
 import userPreferencesRoutes from './routes/userPreferences';
+import adminRoutes from './routes/admin';
 
 // Middlewares
 import { errorHandler } from './middlewares/errorHandler';
@@ -487,6 +489,7 @@ app.use('/api/approvals', authMiddleware, approvalRoutes);
 app.use('/api/todos', authMiddleware, todoRoutes);
 app.use('/api/permissions', permissionsRoutes);
 app.use('/api/user-preferences', userPreferencesRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Serve frontend build for Heroku deployment
 // Note: Frontend is now deployed separately, so we don't serve it from backend
@@ -539,9 +542,19 @@ process.on('SIGINT', async () => {
   });
 });
 
+// Initialize data maintenance service
+if (process.env.NODE_ENV === 'production') {
+  dataMaintenanceService.initializeJobs();
+  console.log('Data maintenance service initialized');
+}
+
 // Start server
 const PORT = parseInt(process.env.PORT || '3001');
 server.listen(PORT, '0.0.0.0', () => {
-  }); 
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
+  console.log(`Database: ${process.env.DATABASE_URL ? 'Connected' : 'Not configured'}`);
+  console.log(`Redis: ${process.env.REDIS_URL ? 'Connected' : 'Not configured'}`);
+}); 
 
 // Trigger Heroku rebuild

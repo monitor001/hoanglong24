@@ -1,19 +1,7 @@
 import { prisma } from '../db';
 import { sendMail } from './email';
-import { Server } from 'socket.io';
-
-declare const io: Server;
-
-export interface TaskNotification {
-  id: string;
-  type: 'overdue' | 'upcoming' | 'assigned' | 'completed';
-  taskId: string;
-  userId: string;
-  message: string;
-  priority: 'low' | 'medium' | 'high' | 'critical';
-  createdAt: Date;
-  read: boolean;
-}
+import { createNotification } from '../services/notificationService';
+import { NotificationType, NotificationPriority } from '@prisma/client';
 
 /**
  * Send overdue task notifications
@@ -22,8 +10,12 @@ export const sendOverdueTaskNotifications = async () => {
   try {
     const overdueTasks = await prisma.task.findMany({
       where: {
-        dueDate: { lt: new Date() },
-        status: { notIn: ['COMPLETED'] }
+        dueDate: {
+          lt: new Date()
+        },
+        status: {
+          not: 'COMPLETED'
+        }
       },
       include: {
         assignee: {
@@ -36,8 +28,7 @@ export const sendOverdueTaskNotifications = async () => {
         project: {
           select: {
             id: true,
-            name: true,
-            code: true
+            name: true
           }
         }
       }
@@ -51,7 +42,7 @@ export const sendOverdueTaskNotifications = async () => {
           subject: `🚨 Nhiệm vụ quá hạn: ${task.title}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #ff4d4f;">🚨 Nhiệm vụ quá hạn</h2>
+              <h2 style="color: #f5222d;">🚨 Nhiệm vụ quá hạn</h2>
               <div style="background-color: #fff2f0; border: 1px solid #ffccc7; padding: 15px; border-radius: 5px;">
                 <h3>${task.title}</h3>
                 <p><strong>Dự án:</strong> ${task.project.name}</p>
@@ -62,25 +53,30 @@ export const sendOverdueTaskNotifications = async () => {
                 ${task.description ? `<p><strong>Mô tả:</strong> ${task.description}</p>` : ''}
               </div>
               <p style="margin-top: 20px;">
-                Vui lòng truy cập hệ thống để cập nhật trạng thái nhiệm vụ này.
+                Vui lòng hoàn thành nhiệm vụ này càng sớm càng tốt.
               </p>
             </div>
           `
         });
 
-        // Send real-time notification via Socket.IO
-        io.to(`user_${task.assignee.id}`).emit('taskNotification', {
-          type: 'overdue',
-          taskId: task.id,
+        // Create in-app notification
+        await createNotification({
+          type: NotificationType.TASK_OVERDUE,
+          title: 'Nhiệm vụ quá hạn',
           message: `Nhiệm vụ "${task.title}" đã quá hạn`,
-          priority: 'critical',
-          task: {
-            id: task.id,
-            title: task.title,
-            code: task.code,
-            project: task.project.name,
-            dueDate: task.dueDate
-          }
+          priority: NotificationPriority.CRITICAL,
+          userId: task.assignee.id,
+          relatedId: task.id,
+          relatedType: 'task',
+          data: {
+            taskId: task.id,
+            taskTitle: task.title,
+            taskCode: task.code,
+            projectName: task.project.name,
+            dueDate: task.dueDate,
+            daysOverdue: Math.ceil((new Date().getTime() - task.dueDate!.getTime()) / (1000 * 60 * 60 * 24))
+          },
+          sendEmail: false // Already sent above
         });
       }
     }
@@ -105,7 +101,9 @@ export const sendUpcomingTaskNotifications = async () => {
           gte: new Date(),
           lte: tomorrow
         },
-        status: { notIn: ['COMPLETED'] }
+        status: {
+          not: 'COMPLETED'
+        }
       },
       include: {
         assignee: {
@@ -118,8 +116,7 @@ export const sendUpcomingTaskNotifications = async () => {
         project: {
           select: {
             id: true,
-            name: true,
-            code: true
+            name: true
           }
         }
       }
@@ -152,19 +149,24 @@ export const sendUpcomingTaskNotifications = async () => {
           `
         });
 
-        // Send real-time notification
-        io.to(`user_${task.assignee.id}`).emit('taskNotification', {
-          type: 'upcoming',
-          taskId: task.id,
+        // Create in-app notification
+        await createNotification({
+          type: NotificationType.TASK_UPCOMING,
+          title: 'Nhiệm vụ sắp đến hạn',
           message: `Nhiệm vụ "${task.title}" sắp đến hạn (còn ${hoursUntilDue} giờ)`,
-          priority: hoursUntilDue <= 6 ? 'high' : 'medium',
-          task: {
-            id: task.id,
-            title: task.title,
-            code: task.code,
-            project: task.project.name,
-            dueDate: task.dueDate
-          }
+          priority: hoursUntilDue <= 6 ? NotificationPriority.HIGH : NotificationPriority.MEDIUM,
+          userId: task.assignee.id,
+          relatedId: task.id,
+          relatedType: 'task',
+          data: {
+            taskId: task.id,
+            taskTitle: task.title,
+            taskCode: task.code,
+            projectName: task.project.name,
+            dueDate: task.dueDate,
+            hoursUntilDue
+          },
+          sendEmail: false // Already sent above
         });
       }
     }
@@ -193,21 +195,20 @@ export const sendTaskAssignmentNotification = async (taskId: string, assigneeId:
         project: {
           select: {
             id: true,
-            name: true,
-            code: true
+            name: true
           }
         }
       }
     });
 
-    if (task?.assignee?.email) {
+    if (task && task.assignee?.email) {
       await sendMail({
         to: task.assignee.email,
         subject: `📋 Nhiệm vụ mới được gán: ${task.title}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #1890ff;">📋 Nhiệm vụ mới được gán</h2>
-            <div style="background-color: #f6ffed; border: 1px solid #b7eb8f; padding: 15px; border-radius: 5px;">
+            <h2 style="color: #1890ff;">📋 Nhiệm vụ mới</h2>
+            <div style="background-color: #f0f9ff; border: 1px solid #91d5ff; padding: 15px; border-radius: 5px;">
               <h3>${task.title}</h3>
               <p><strong>Dự án:</strong> ${task.project.name}</p>
               <p><strong>Mã nhiệm vụ:</strong> ${task.code}</p>
@@ -217,25 +218,30 @@ export const sendTaskAssignmentNotification = async (taskId: string, assigneeId:
               ${task.description ? `<p><strong>Mô tả:</strong> ${task.description}</p>` : ''}
             </div>
             <p style="margin-top: 20px;">
-              Vui lòng truy cập hệ thống để xem chi tiết và bắt đầu thực hiện nhiệm vụ.
+              Vui lòng kiểm tra và bắt đầu thực hiện nhiệm vụ này.
             </p>
           </div>
         `
       });
 
-      // Send real-time notification
-      io.to(`user_${task.assignee.id}`).emit('taskNotification', {
-        type: 'assigned',
-        taskId: task.id,
+      // Create in-app notification
+      await createNotification({
+        type: NotificationType.TASK_ASSIGNED,
+        title: 'Nhiệm vụ mới được gán',
         message: `Bạn được gán nhiệm vụ mới: "${task.title}"`,
-        priority: 'medium',
-        task: {
-          id: task.id,
-          title: task.title,
-          code: task.code,
-          project: task.project.name,
-          dueDate: task.dueDate
-        }
+        priority: NotificationPriority.MEDIUM,
+        userId: task.assignee.id,
+        relatedId: task.id,
+        relatedType: 'task',
+        data: {
+          taskId: task.id,
+          taskTitle: task.title,
+          taskCode: task.code,
+          projectName: task.project.name,
+          dueDate: task.dueDate,
+          priority: task.priority
+        },
+        sendEmail: false // Already sent above
       });
     }
   } catch (error) {
@@ -262,17 +268,14 @@ export const sendTaskCompletionNotification = async (taskId: string) => {
           select: {
             id: true,
             name: true,
-            code: true,
             members: {
-              where: {
-                role: { in: ['PROJECT_MANAGER'] }
-              },
               include: {
                 user: {
                   select: {
                     id: true,
                     name: true,
-                    email: true
+                    email: true,
+                    role: true
                   }
                 }
               }
@@ -283,7 +286,9 @@ export const sendTaskCompletionNotification = async (taskId: string) => {
     });
 
     if (task) {
-      const managers = task.project.members.map(m => m.user);
+      const managers = task.project.members
+        .filter(m => ['ADMIN', 'PROJECT_MANAGER'].includes(m.user.role))
+        .map(m => m.user);
       
       for (const manager of managers) {
         if (manager.email) {
@@ -308,19 +313,24 @@ export const sendTaskCompletionNotification = async (taskId: string) => {
             `
           });
 
-          // Send real-time notification
-          io.to(`user_${manager.id}`).emit('taskNotification', {
-            type: 'completed',
-            taskId: task.id,
+          // Create in-app notification
+          await createNotification({
+            type: NotificationType.TASK_COMPLETED,
+            title: 'Nhiệm vụ hoàn thành',
             message: `Nhiệm vụ "${task.title}" đã được hoàn thành bởi ${task.assignee?.name}`,
-            priority: 'low',
-            task: {
-              id: task.id,
-              title: task.title,
-              code: task.code,
-              project: task.project.name,
-              assignee: task.assignee?.name
-            }
+            priority: NotificationPriority.LOW,
+            userId: manager.id,
+            relatedId: task.id,
+            relatedType: 'task',
+            data: {
+              taskId: task.id,
+              taskTitle: task.title,
+              taskCode: task.code,
+              projectName: task.project.name,
+              assigneeName: task.assignee?.name,
+              completedAt: new Date()
+            },
+            sendEmail: false // Already sent above
           });
         }
       }
@@ -344,7 +354,9 @@ export const sendWarningTaskNotifications = async () => {
           gte: new Date(),
           lte: threeDaysFromNow
         },
-        status: { notIn: ['COMPLETED'] }
+        status: {
+          not: 'COMPLETED'
+        }
       },
       include: {
         assignee: {
@@ -357,8 +369,7 @@ export const sendWarningTaskNotifications = async () => {
         project: {
           select: {
             id: true,
-            name: true,
-            code: true
+            name: true
           }
         }
       }
@@ -392,19 +403,24 @@ export const sendWarningTaskNotifications = async () => {
           `
         });
 
-        // Send real-time notification via Socket.IO
-        io.to(`user_${task.assignee.id}`).emit('taskNotification', {
-          type: 'warning',
-          taskId: task.id,
+        // Create in-app notification
+        await createNotification({
+          type: NotificationType.TASK_UPCOMING,
+          title: 'Cảnh báo: Nhiệm vụ sắp đến hạn',
           message: `Nhiệm vụ "${task.title}" sắp đến hạn (còn ${daysUntilDue} ngày)`,
-          priority: 'high',
-          task: {
-            id: task.id,
-            title: task.title,
-            code: task.code,
-            project: task.project.name,
-            dueDate: task.dueDate
-          }
+          priority: NotificationPriority.HIGH,
+          userId: task.assignee.id,
+          relatedId: task.id,
+          relatedType: 'task',
+          data: {
+            taskId: task.id,
+            taskTitle: task.title,
+            taskCode: task.code,
+            projectName: task.project.name,
+            dueDate: task.dueDate,
+            daysUntilDue
+          },
+          sendEmail: false // Already sent above
         });
       }
     }
@@ -422,8 +438,12 @@ export const sendOverdueIssueNotifications = async () => {
   try {
     const overdueIssues = await prisma.issue.findMany({
       where: {
-        dueDate: { lt: new Date() },
-        status: { notIn: ['RESOLVED', 'CLOSED'] }
+        dueDate: {
+          lt: new Date()
+        },
+        status: {
+          not: 'RESOLVED'
+        }
       },
       include: {
         assignee: {
@@ -436,8 +456,7 @@ export const sendOverdueIssueNotifications = async () => {
         project: {
           select: {
             id: true,
-            name: true,
-            code: true
+            name: true
           }
         }
       }
@@ -445,43 +464,46 @@ export const sendOverdueIssueNotifications = async () => {
 
     for (const issue of overdueIssues) {
       if (issue.assignee?.email) {
-        // Send email notification
         await sendMail({
           to: issue.assignee.email,
           subject: `🚨 Vấn đề quá hạn: ${issue.title}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #ff4d4f;">🚨 Vấn đề quá hạn</h2>
+              <h2 style="color: #f5222d;">🚨 Vấn đề quá hạn</h2>
               <div style="background-color: #fff2f0; border: 1px solid #ffccc7; padding: 15px; border-radius: 5px;">
                 <h3>${issue.title}</h3>
-                <p><strong>Dự án:</strong> ${issue.project?.name || 'N/A'}</p>
+                <p><strong>Dự án:</strong> ${issue.project?.name || 'Không xác định'}</p>
                 <p><strong>Mã vấn đề:</strong> ${issue.code}</p>
-                <p><strong>Loại:</strong> ${issue.type}</p>
-                <p><strong>Hạn xử lý:</strong> ${issue.dueDate?.toLocaleDateString('vi-VN')}</p>
+                <p><strong>Hạn giải quyết:</strong> ${issue.dueDate?.toLocaleDateString('vi-VN')}</p>
                 <p><strong>Độ ưu tiên:</strong> ${issue.priority}</p>
                 <p><strong>Trạng thái:</strong> ${issue.status}</p>
                 ${issue.description ? `<p><strong>Mô tả:</strong> ${issue.description}</p>` : ''}
               </div>
               <p style="margin-top: 20px;">
-                Vui lòng truy cập hệ thống để cập nhật trạng thái vấn đề này.
+                Vui lòng giải quyết vấn đề này càng sớm càng tốt.
               </p>
             </div>
           `
         });
 
-        // Send real-time notification via Socket.IO
-        io.to(`user_${issue.assignee.id}`).emit('issueNotification', {
-          type: 'overdue',
-          issueId: issue.id,
+        // Create in-app notification
+        await createNotification({
+          type: NotificationType.ISSUE_OVERDUE,
+          title: 'Vấn đề quá hạn',
           message: `Vấn đề "${issue.title}" đã quá hạn`,
-          priority: 'critical',
-          issue: {
-            id: issue.id,
-            title: issue.title,
-            code: issue.code,
-            project: issue.project?.name,
-            dueDate: issue.dueDate
-          }
+          priority: NotificationPriority.CRITICAL,
+          userId: issue.assignee.id,
+          relatedId: issue.id,
+          relatedType: 'issue',
+          data: {
+            issueId: issue.id,
+            issueTitle: issue.title,
+            issueCode: issue.code,
+            projectName: issue.project?.name,
+            dueDate: issue.dueDate,
+            daysOverdue: Math.ceil((new Date().getTime() - issue.dueDate!.getTime()) / (1000 * 60 * 60 * 24))
+          },
+          sendEmail: false // Already sent above
         });
       }
     }
@@ -506,7 +528,9 @@ export const sendWarningIssueNotifications = async () => {
           gte: new Date(),
           lte: threeDaysFromNow
         },
-        status: { notIn: ['RESOLVED', 'CLOSED'] }
+        status: {
+          not: 'RESOLVED'
+        }
       },
       include: {
         assignee: {
@@ -519,8 +543,7 @@ export const sendWarningIssueNotifications = async () => {
         project: {
           select: {
             id: true,
-            name: true,
-            code: true
+            name: true
           }
         }
       }
@@ -530,7 +553,6 @@ export const sendWarningIssueNotifications = async () => {
       if (issue.assignee?.email) {
         const daysUntilDue = Math.ceil((issue.dueDate!.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
         
-        // Send email notification
         await sendMail({
           to: issue.assignee.email,
           subject: `⚠️ Cảnh báo: Vấn đề sắp đến hạn - ${issue.title}`,
@@ -539,35 +561,39 @@ export const sendWarningIssueNotifications = async () => {
               <h2 style="color: #fa8c16;">⚠️ Cảnh báo: Vấn đề sắp đến hạn</h2>
               <div style="background-color: #fff7e6; border: 1px solid #ffd591; padding: 15px; border-radius: 5px;">
                 <h3>${issue.title}</h3>
-                <p><strong>Dự án:</strong> ${issue.project?.name || 'N/A'}</p>
+                <p><strong>Dự án:</strong> ${issue.project?.name || 'Không xác định'}</p>
                 <p><strong>Mã vấn đề:</strong> ${issue.code}</p>
-                <p><strong>Loại:</strong> ${issue.type}</p>
-                <p><strong>Hạn xử lý:</strong> ${issue.dueDate?.toLocaleDateString('vi-VN')}</p>
+                <p><strong>Hạn giải quyết:</strong> ${issue.dueDate?.toLocaleDateString('vi-VN')}</p>
                 <p><strong>Còn lại:</strong> ${daysUntilDue} ngày</p>
                 <p><strong>Độ ưu tiên:</strong> ${issue.priority}</p>
                 <p><strong>Trạng thái:</strong> ${issue.status}</p>
                 ${issue.description ? `<p><strong>Mô tả:</strong> ${issue.description}</p>` : ''}
               </div>
               <p style="margin-top: 20px;">
-                Vui lòng xử lý vấn đề này trước khi hết hạn để tránh bị quá hạn.
+                Vui lòng giải quyết vấn đề này trước khi hết hạn để tránh bị quá hạn.
               </p>
             </div>
           `
         });
 
-        // Send real-time notification via Socket.IO
-        io.to(`user_${issue.assignee.id}`).emit('issueNotification', {
-          type: 'warning',
-          issueId: issue.id,
+        // Create in-app notification
+        await createNotification({
+          type: NotificationType.ISSUE_OVERDUE,
+          title: 'Cảnh báo: Vấn đề sắp đến hạn',
           message: `Vấn đề "${issue.title}" sắp đến hạn (còn ${daysUntilDue} ngày)`,
-          priority: 'high',
-          issue: {
-            id: issue.id,
-            title: issue.title,
-            code: issue.code,
-            project: issue.project?.name,
-            dueDate: issue.dueDate
-          }
+          priority: NotificationPriority.HIGH,
+          userId: issue.assignee.id,
+          relatedId: issue.id,
+          relatedType: 'issue',
+          data: {
+            issueId: issue.id,
+            issueTitle: issue.title,
+            issueCode: issue.code,
+            projectName: issue.project?.name,
+            dueDate: issue.dueDate,
+            daysUntilDue
+          },
+          sendEmail: false // Already sent above
         });
       }
     }
@@ -575,31 +601,5 @@ export const sendWarningIssueNotifications = async () => {
     console.log(`Sent warning notifications for ${warningIssues.length} issues`);
   } catch (error) {
     console.error('Error sending warning issue notifications:', error);
-  }
-};
-
-/**
- * Get user notifications (placeholder - requires Notification model)
- */
-export const getUserNotifications = async (userId: string) => {
-  try {
-    // TODO: Implement when Notification model is added to schema
-    // For now, return empty array
-    return [];
-  } catch (error) {
-    console.error('Error getting user notifications:', error);
-    return [];
-  }
-};
-
-/**
- * Mark notification as read (placeholder - requires Notification model)
- */
-export const markNotificationAsRead = async (notificationId: string, userId: string) => {
-  try {
-    // TODO: Implement when Notification model is added to schema
-    console.log(`Marking notification ${notificationId} as read for user ${userId}`);
-  } catch (error) {
-    console.error('Error marking notification as read:', error);
   }
 }; 

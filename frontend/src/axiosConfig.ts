@@ -14,14 +14,40 @@ const axiosInstance = axios.create({
   withCredentials: true, // Enable cookies for CORS
 });
 
+// Helper functions to get token and sessionId from Redux store
+function getTokenFromStore(): string | null {
+  try {
+    // Import store dynamically to avoid circular dependency
+    const store = require('./store').store;
+    const state = store.getState();
+    return state.auth.token;
+  } catch (error) {
+    console.warn('Could not get token from store:', error);
+    return null;
+  }
+}
+
+function getSessionIdFromStore(): string | null {
+  try {
+    // Import store dynamically to avoid circular dependency
+    const store = require('./store').store;
+    const state = store.getState();
+    return state.auth.sessionId || null;
+  } catch (error) {
+    console.warn('Could not get sessionId from store:', error);
+    return null;
+  }
+}
+
 // Request interceptor
 axiosInstance.interceptors.request.use(
   (config) => {
-    // Add auth token if available from localStorage, except for dashboard endpoints
+    // Add auth token if available from Redux store, except for dashboard endpoints
     const isDashboardEndpoint = config.url?.includes('/dashboard/');
     if (!isDashboardEndpoint) {
-      const token = localStorage.getItem('token');
-      const sessionId = localStorage.getItem('sessionId');
+      // Lấy token từ Redux store thay vì localStorage
+      const token = getTokenFromStore();
+      const sessionId = getSessionIdFromStore();
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -51,129 +77,47 @@ axiosInstance.interceptors.request.use(
 // Response interceptor
 axiosInstance.interceptors.response.use(
   (response) => {
-    // Log response time for debugging
-    const endTime = new Date();
-    const startTime = (response.config as any).metadata?.startTime;
-    if (startTime) {
-      const duration = endTime.getTime() - startTime.getTime();
-      // Only log in development mode
-      if (getEnvironment() === 'development') {
-        // Log only for slow requests (>1s) or errors
-        if (duration > 1000) {
-          console.warn(`⚠️ Slow API Response (${duration}ms): ${response.config.url}`);
-        }
-      }
-    }
-    
-    // Check if response is HTML instead of JSON
-    const contentType = response.headers['content-type'];
-    if (contentType && contentType.includes('text/html')) {
-      console.error('❌ Received HTML instead of JSON:', response.data);
-      throw new Error('Server returned HTML instead of JSON. This might be a 404 or 500 error page.');
+    // Log successful responses in development
+    if (getEnvironment() === 'development') {
+      const endTime = new Date();
+      const startTime = (response.config as any).metadata?.startTime;
+      const duration = startTime ? endTime.getTime() - startTime.getTime() : 0;
+      
+      console.log(`✅ ${response.config.method?.toUpperCase()} ${response.config.url} - ${response.status} (${duration}ms)`);
     }
     
     return response;
   },
-  async (error) => {
-    const { response, request, message } = error;
+  (error) => {
+    // Log errors
+    const endTime = new Date();
+    const startTime = (error.config as any)?.metadata?.startTime;
+    const duration = startTime ? endTime.getTime() - startTime.getTime() : 0;
     
-    // Log error details
-    console.error('❌ API Error:', {
-      status: response?.status,
-      statusText: response?.statusText,
-      url: error.config?.url,
-      method: error.config?.method,
-      message: message,
-      data: response?.data,
+    console.error(`❌ ${error.config?.method?.toUpperCase()} ${error.config?.url} - ${error.response?.status || 'NETWORK'} (${duration}ms)`, {
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      data: error.response?.data,
+      message: error.message
     });
     
-    if (response) {
-      // Handle different status codes
-      switch (response.status) {
-        case 401:
-          // Unauthorized - check if it's session expired or login failure
-          const errorMessage = response.data?.error || '';
-          const isLoginRequest = error.config?.url?.includes('/auth/login');
-          
-          if (isLoginRequest) {
-            // This is a login failure, don't try to refresh token
-            return Promise.reject(error);
-          }
-          
-          // Check for specific session-related errors
-          if (errorMessage.includes('Session expired') || 
-              errorMessage.includes('Please login again') ||
-              errorMessage.includes('Session expired or invalid')) {
-            
-            // Clear auth data from memory only (not localStorage)
-            // sessionManager.clearAllSessionData();
-            
-            // Show user-friendly message about session expiration
-            if (typeof window !== 'undefined' && window.alert) {
-              window.alert('Phiên đăng nhập đã hết hạn hoặc bạn đã đăng nhập từ thiết bị khác. Vui lòng đăng nhập lại.');
-            }
-            
-            // Redirect to login page
-            if (window.location.pathname !== '/login') {
-              window.location.href = '/login';
-            }
-            return Promise.reject(error);
-          }
-          
-          // Try to refresh token for other 401 errors (only if we have a token)
-          const currentToken = tokenManager.getToken();
-          if (currentToken) {
-            try {
-              await tokenManager.refreshToken();
-              // Retry the original request
-              const originalRequest = error.config;
-              if (originalRequest) {
-                const newToken = tokenManager.getToken();
-                if (newToken) {
-                  originalRequest.headers.Authorization = `Bearer ${newToken}`;
-                  return axiosInstance(originalRequest);
-                }
-              }
-            } catch (refreshError) {
-              // Token refresh failed, clear auth data from memory only
-              // sessionManager.clearAllSessionData();
-              if (window.location.pathname !== '/login') {
-                window.location.href = '/login';
-              }
-            }
-          }
-          break;
-          
-        case 403:
-          // Forbidden - user doesn't have permission
-          console.error('❌ Access forbidden - insufficient permissions');
-          const forbiddenData = response.data;
-          const forbiddenMessage = forbiddenData?.message || 'Bạn chưa được cấp quyền để thực hiện thao tác này!';
-          const forbiddenHint = forbiddenData?.hint || 'Vui lòng liên hệ quản trị viên để được cấp quyền.';
-          
-          message.error(`${forbiddenMessage} ${forbiddenHint}`);
-          break;
-          
-        case 404:
-          // Not found
-          console.error('❌ Resource not found:', error.config?.url);
-          break;
-          
-        case 500:
-          // Server error
-          console.error('❌ Server error:', response.data);
-          break;
-          
-        default:
-          // Other errors
-          console.error('❌ Unexpected error:', response.status, response.data);
-      }
-    } else if (request) {
-      // Network error (no response received)
-      console.error('❌ Network error - no response received');
-    } else {
-      // Other error
-      console.error('❌ Request setup error:', message);
+    // Handle specific error cases
+    if (error.response?.status === 401) {
+      // Unauthorized - redirect to login
+      console.log('🔄 Unauthorized access, redirecting to login...');
+      window.location.href = '/login';
+    } else if (error.response?.status === 403) {
+      // Forbidden - show permission error
+      message.error('Bạn không có quyền thực hiện hành động này');
+    } else if (error.response?.status === 429) {
+      // Rate limited
+      message.error('Quá nhiều yêu cầu. Vui lòng thử lại sau.');
+    } else if (error.response?.status >= 500) {
+      // Server error
+      message.error('Lỗi máy chủ. Vui lòng thử lại sau.');
+    } else if (!error.response) {
+      // Network error
+      message.error('Không thể kết nối đến máy chủ. Vui lòng kiểm tra kết nối mạng.');
     }
     
     return Promise.reject(error);

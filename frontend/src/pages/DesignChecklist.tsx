@@ -33,7 +33,8 @@ import {
   Menu,
   Breadcrumb,
   Spin,
-  notification
+  notification,
+  Alert
 } from 'antd';
 import ResponsiveStatCard from '../components/ResponsiveStatCard';
 import {
@@ -125,6 +126,8 @@ interface Category {
   name: string;
   description?: string;
   color: string;
+  defaultContent?: any[];
+  hasTeapmleMauContent?: boolean;
 }
 
 interface Template {
@@ -1086,8 +1089,29 @@ const DesignChecklist: React.FC = () => {
           setSelectedChecklist(null);
           setModalVisible(true);
           form.resetFields();
-          // Đảm bảo items được khởi tạo với category mặc định nếu có categories
-          if (categories.length > 0) {
+          
+          // Tự động import nội dung mặc định từ TeapmleMau
+          const defaultItems: any[] = [];
+          let order = 1;
+          
+          categories.forEach(category => {
+            if (category.defaultContent && category.defaultContent.length > 0) {
+              category.defaultContent.forEach((item: any) => {
+                defaultItems.push({
+                  category: category.name,
+                  content: item.content,
+                  order: order++
+                });
+              });
+            }
+          });
+          
+          if (defaultItems.length > 0) {
+            form.setFieldsValue({
+              items: defaultItems
+            });
+          } else if (categories.length > 0) {
+            // Fallback: sử dụng category đầu tiên nếu không có nội dung mặc định
             const defaultCategory = categories[0].name;
             form.setFieldsValue({
               items: [{
@@ -1611,66 +1635,85 @@ const DesignChecklist: React.FC = () => {
 
 // Component for checklist items form
 const ChecklistItemsForm: React.FC<{ form: any; categories: Category[] }> = ({ form, categories }) => {
+  const hasTeapmleMauContent = categories.some(cat => cat.hasTeapmleMauContent);
+  
   return (
-    <Form.List name="items">
-      {(fields, { add, remove }) => (
-        <div>
-          {fields.map(({ key, name, ...restField }) => (
-            <Card key={key} style={{ marginBottom: 8 }}>
-              <Row gutter={16}>
-                <Col span={6}>
-                  <Form.Item
-                    {...restField}
-                    name={[name, 'category']}
-                    rules={[{ required: true, message: 'Vui lòng chọn hạng mục' }]}
-                  >
-                    <Select placeholder="Chọn hạng mục" style={{ width: '100%' }}>
-                      {categories.map(category => (
-                        <Option key={category.name} value={category.name}>
-                          <Tag color={category.color}>{category.name}</Tag>
-                        </Option>
-                      ))}
-                    </Select>
-                  </Form.Item>
-                </Col>
-                <Col span={16}>
-                  <Form.Item
-                    {...restField}
-                    name={[name, 'content']}
-                    rules={[{ required: true, message: 'Vui lòng nhập nội dung kiểm tra' }]}
-                  >
-                    <Input placeholder="Nhập nội dung kiểm tra (bắt buộc)" />
-                  </Form.Item>
-                </Col>
-                <Col span={2}>
-                  <Button
-                    type="text"
-                    danger
-                    icon={<DeleteOutlined />}
-                    onClick={() => remove(name)}
-                  />
-                </Col>
-              </Row>
-            </Card>
-          ))}
-          <Button 
-            type="dashed" 
-            onClick={() => {
-              const defaultCategory = categories.length > 0 ? categories[0].name : '';
-              add({
-                category: defaultCategory,
-                content: '',
-                order: fields.length + 1
-              });
-            }} 
-            block 
-            icon={<PlusOutlined />}
-          >
-            Thêm mục kiểm tra
-          </Button>
-        </div>
+    <div>
+      {hasTeapmleMauContent && (
+        <Alert
+          message="Nội dung mặc định từ TeapmleMau"
+          description="Các hạng mục đã được tự động import từ tài liệu kỹ thuật mẫu. Bạn có thể chỉnh sửa hoặc thêm mới."
+          type="info"
+          showIcon
+          style={{ marginBottom: 16 }}
+        />
       )}
-    </Form.List>
+      
+      <Form.List name="items">
+        {(fields, { add, remove }) => (
+          <div>
+            {fields.map(({ key, name, ...restField }) => (
+              <Card key={key} style={{ marginBottom: 8 }}>
+                <Row gutter={16}>
+                  <Col span={6}>
+                    <Form.Item
+                      {...restField}
+                      name={[name, 'category']}
+                      rules={[{ required: true, message: 'Vui lòng chọn hạng mục' }]}
+                    >
+                      <Select placeholder="Chọn hạng mục" style={{ width: '100%' }}>
+                        {categories.map(category => (
+                          <Option key={category.name} value={category.name}>
+                            <Tag color={category.color}>
+                              {category.name}
+                              {category.hasTeapmleMauContent && (
+                                <span style={{ marginLeft: 4, fontSize: '10px' }}>📋</span>
+                              )}
+                            </Tag>
+                          </Option>
+                        ))}
+                      </Select>
+                    </Form.Item>
+                  </Col>
+                  <Col span={16}>
+                    <Form.Item
+                      {...restField}
+                      name={[name, 'content']}
+                      rules={[{ required: true, message: 'Vui lòng nhập nội dung kiểm tra' }]}
+                    >
+                      <Input placeholder="Nhập nội dung kiểm tra (bắt buộc)" />
+                    </Form.Item>
+                  </Col>
+                  <Col span={2}>
+                    <Button
+                      type="text"
+                      danger
+                      icon={<DeleteOutlined />}
+                      onClick={() => remove(name)}
+                    />
+                  </Col>
+                </Row>
+              </Card>
+            ))}
+            <Button 
+              type="dashed" 
+              onClick={() => {
+                const defaultCategory = categories.length > 0 ? categories[0].name : '';
+                add({
+                  category: defaultCategory,
+                  content: '',
+                  order: fields.length + 1
+                });
+              }} 
+              block 
+              icon={<PlusOutlined />}
+            >
+              Thêm mục kiểm tra
+            </Button>
+          </div>
+        )}
+      </Form.List>
+    </div>
   );
 };
 

@@ -8,6 +8,7 @@
 @import './styles/mobile-task-form-spacing-optimization.css';
 @import './styles/project-mobile-optimization-final.css';
 @import './styles/modern-auth.css';
+@import './styles/desktop-sidebar-text-fixes.css';
 
 body {
   margin: 0;

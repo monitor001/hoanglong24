@@ -174,6 +174,7 @@ import '../styles/tablet-landscape-statistics-improvements.css';
 import '../styles/task-form-mobile-optimization.css';
 import '../styles/task-form-specific-optimization.css';
 import '../styles/tablet-landscape-fab.css';
+import '../styles/modal-button-fix.css';
 
 
 // Error Boundary Component for Gantt
@@ -372,6 +373,7 @@ const Tasks: React.FC = () => {
   const [taskToDelete, setTaskToDelete] = useState<any>(null);
   
   const theme = useSelector((state: any) => state.ui.theme);
+  const { token } = useSelector((state: any) => state.auth);
   const isDarkMode = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   // Keyboard shortcuts cho timeline
@@ -740,7 +742,6 @@ const Tasks: React.FC = () => {
 
   const handleAdd = () => {
     // Check if user is authenticated
-    const token = localStorage.getItem('token');
     if (!token) {
       message.error('Vui lòng đăng nhập để tạo nhiệm vụ!');
       return;
@@ -762,7 +763,6 @@ const Tasks: React.FC = () => {
   const handleOk = async () => {
     try {
       // Check if user is authenticated
-      const token = localStorage.getItem('token');
       if (!token) {
         message.error('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!');
         return;
@@ -821,9 +821,6 @@ const Tasks: React.FC = () => {
       // Handle specific authentication errors
       if (e?.response?.status === 401) {
         message.error('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!');
-        // Clear invalid token
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
         return;
       }
       
@@ -4194,8 +4191,23 @@ const Tasks: React.FC = () => {
       <Modal
         title={editingTask ? 'Sửa nhiệm vụ' : 'Thêm nhiệm vụ mới'}
         open={modalOpen}
-        onOk={handleOk}
         onCancel={() => setModalOpen(false)}
+        footer={[
+          <Button 
+            key="cancel" 
+            onClick={() => setModalOpen(false)}
+          >
+            Cancel
+          </Button>,
+          <Button 
+            key="submit" 
+            type="primary" 
+            onClick={handleOk}
+            loading={loading}
+          >
+            OK
+          </Button>
+        ]}
         width={
           isMobile ? '95%' : 
           isTabletLandscape ? '90%' : 

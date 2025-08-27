@@ -179,7 +179,8 @@ const App: React.FC = () => {
 
                   {/* Protected routes */}
                   <Route element={<MainLayout />}>
-                    <Route path="/" element={<DashboardRoute><Dashboard /></DashboardRoute>} />
+                    <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                    <Route path="/dashboard" element={<DashboardRoute><Dashboard /></DashboardRoute>} />
                     
                     <Route path="/projects" element={<PrivateRoute><ProjectsNew /></PrivateRoute>} />
                     <Route path="/projects/:id" element={<PrivateRoute><ProjectDetail /></PrivateRoute>} />

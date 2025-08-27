@@ -131,37 +131,85 @@ const localProductionConfig: BackendConfig = {
   AZURE_REFRESH_TOKEN: process.env.AZURE_REFRESH_TOKEN,
 };
 
+// Shared Hosting Environment (tenten)
+const sharedHostingConfig: BackendConfig = {
+  NODE_ENV: 'production',
+  PORT: parseInt(process.env.PORT || '3001'),
+  DATABASE_URL: process.env.DATABASE_URL || '',
+  JWT_SECRET: process.env.JWT_SECRET || 'minicde_jwt_secret_2024_secure_shared_hosting_key',
+  REDIS_URL: process.env.REDIS_URL || '', // Có thể không có Redis trên shared hosting
+  CORS_ORIGIN: [
+    'https://qlda.hoanglong24.com',
+    'https://www.qlda.hoanglong24.com',
+    'http://localhost:3000',
+    'http://localhost:3001',
+    // Allow all origins for shared hosting to fix CORS issues
+    '*'
+  ],
+  RATE_LIMIT_WINDOW_MS: 900000, // 15 minutes
+  RATE_LIMIT_MAX_REQUESTS: 500, // Giảm xuống cho shared hosting
+  AUTH_RATE_LIMIT_MAX: 100, // Giảm xuống cho shared hosting
+  MAX_FILE_SIZE: 52428800, // 50MB - giảm xuống cho shared hosting
+  ALLOWED_FILE_TYPES: ['pdf', 'dwg', 'rvt', 'ifc', 'docx', 'xlsx', 'jpg', 'png'],
+  REQUEST_TIMEOUT: 30000,
+  RESPONSE_TIMEOUT: 30000,
+  UPLOAD_PATH: './uploads', // Đường dẫn tương đối cho shared hosting
+  ENABLE_PROJECT_STATS: true,
+  ENABLE_PROJECT_EXPORT: true,
+  ENABLE_PROJECT_SHARING: true,
+  TRUST_PROXY: false, // Tắt cho shared hosting
+  DEBUG_MODE: false,
+  AZURE_TENANT_ID: process.env.AZURE_TENANT_ID,
+  AZURE_CLIENT_ID: process.env.AZURE_CLIENT_ID,
+  AZURE_CLIENT_SECRET: process.env.AZURE_CLIENT_SECRET,
+  AZURE_REFRESH_TOKEN: process.env.AZURE_REFRESH_TOKEN,
+};
+
+// Environment detection
+export const getEnvironment = (): string => {
+  const nodeEnv = process.env.NODE_ENV;
+  const hostname = process.env.HOSTNAME || '';
+  const port = process.env.PORT;
+  
+  // Check for shared hosting environment
+  if (process.env.SHARED_HOSTING === 'true' || hostname.includes('tenten') || hostname.includes('shared')) {
+    return 'shared-hosting';
+  }
+  
+  // Check for Heroku environment
+  if (process.env.DYNO || hostname.includes('herokuapp.com')) {
+    return 'heroku';
+  }
+  
+  // Check for local development
+  if (nodeEnv === 'development' || port === '3001') {
+    return 'development';
+  }
+  
+  // Default to production
+  return 'production';
+};
+
 // Get configuration based on environment
-export const getBackendConfig = (): BackendConfig => {
-  const env = process.env.NODE_ENV || 'development';
+export const getConfig = (): BackendConfig => {
+  const env = getEnvironment();
   
   switch (env) {
-    case 'production':
-      return {
-        ...productionConfig,
-        CORS_ORIGIN: process.env.CORS_ORIGIN 
-          ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
-          : productionConfig.CORS_ORIGIN,
-      };
+    case 'shared-hosting':
+      return sharedHostingConfig;
+    case 'heroku':
+      return productionConfig;
+    case 'development':
+      return developmentConfig;
     case 'local-production':
-      return {
-        ...localProductionConfig,
-        CORS_ORIGIN: process.env.CORS_ORIGIN 
-          ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
-          : localProductionConfig.CORS_ORIGIN,
-      };
+      return localProductionConfig;
     default:
-      return {
-        ...developmentConfig,
-        CORS_ORIGIN: process.env.CORS_ORIGIN 
-          ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
-          : developmentConfig.CORS_ORIGIN,
-      };
+      return productionConfig;
   }
 };
 
 // Export current configuration
-export const backendConfig = getBackendConfig();
+export const backendConfig = getConfig();
 
 // Environment info for debugging
 export const backendEnvironmentInfo = {

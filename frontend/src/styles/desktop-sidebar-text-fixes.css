@@ -1,0 +1,803 @@
+/* Desktop Sidebar and Text Fixes
+ * Fixes for sidebar icon alignment and text margin issues on desktop
+ */
+
+@media (min-width: 1367px) {
+  
+  /* ===== SIDEBAR ICON ALIGNMENT FIXES ===== */
+  
+  /* Fix sidebar icon alignment when collapsed */
+  .ant-layout-sider-collapsed .ant-menu-item,
+  .ant-layout-sider-collapsed .ant-menu-submenu {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  /* Ensure icons are properly centered in collapsed sidebar */
+  .ant-layout-sider-collapsed .ant-menu-item .anticon,
+  .ant-layout-sider-collapsed .ant-menu-submenu .anticon {
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Fix menu item padding in collapsed state */
+  .ant-layout-sider-collapsed .ant-menu-item {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 40px !important;
+    line-height: 40px !important;
+  }
+  
+  /* Fix submenu icon alignment */
+  .ant-layout-sider-collapsed .ant-menu-submenu-title {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* ===== TEXT MARGIN AND LINE-HEIGHT FIXES ===== */
+  
+  /* Override the aggressive line-height reduction for desktop */
+  .design-checklist-container *,
+  .projects-container *,
+  .tasks-container *,
+  .issues-container *,
+  .documents-container *,
+  .calendar-container *,
+  .approval-container *,
+  .notes-container *,
+  .todo-list-container * {
+    line-height: 1.5 !important; /* Restore proper line-height for desktop */
+  }
+  
+  /* Ensure proper text spacing for multi-line content */
+  .ant-table-tbody td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix text in cards and containers */
+  .ant-card-body {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-card-body p,
+  .ant-card-body div {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix form labels and descriptions */
+  .ant-form-item-label > label {
+    line-height: 1.5 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .ant-form-item-explain {
+    line-height: 1.5 !important;
+    margin-top: 4px !important;
+  }
+  
+  /* Fix modal content text spacing */
+  .ant-modal-body {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-modal-body p,
+  .ant-modal-body div {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix drawer content text spacing */
+  .ant-drawer-body {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-drawer-body p,
+  .ant-drawer-body div {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix list item text spacing */
+  .ant-list-item {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-list-item-meta-description {
+    line-height: 1.5 !important;
+    margin-top: 4px !important;
+  }
+  
+  /* Fix statistic text spacing */
+  .ant-statistic-title {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .ant-statistic-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix breadcrumb text spacing */
+  .ant-breadcrumb {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-breadcrumb-link,
+  .ant-breadcrumb-separator {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tag text spacing */
+  .ant-tag {
+    line-height: 1.5 !important;
+    margin: 4px !important;
+  }
+  
+  /* Fix button text spacing */
+  .ant-btn {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix input text spacing */
+  .ant-input,
+  .ant-input-affix-wrapper {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix select text spacing */
+  .ant-select-selection-item,
+  .ant-select-selection-placeholder {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tooltip text spacing */
+  .ant-tooltip-inner {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix notification text spacing */
+  .ant-notification-notice-message,
+  .ant-notification-notice-description {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix message text spacing */
+  .ant-message-notice-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix alert text spacing */
+  .ant-alert-message,
+  .ant-alert-description {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix progress text spacing */
+  .ant-progress-text {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix badge text spacing */
+  .ant-badge-count {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix avatar text spacing */
+  .ant-avatar-string {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix typography text spacing */
+  .ant-typography {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-typography h1,
+  .ant-typography h2,
+  .ant-typography h3,
+  .ant-typography h4,
+  .ant-typography h5,
+  .ant-typography h6 {
+    line-height: 1.5 !important;
+    margin: 16px 0 8px 0 !important;
+  }
+  
+  .ant-typography p {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix dropdown menu text spacing */
+  .ant-dropdown-menu-item,
+  .ant-dropdown-menu-submenu-title {
+    line-height: 1.5 !important;
+    padding: 8px 12px !important;
+  }
+  
+  /* Fix menu text spacing */
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tabs text spacing */
+  .ant-tabs-tab {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-tabs-tab-btn {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix pagination text spacing */
+  .ant-pagination-item,
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix steps text spacing */
+  .ant-steps-item-title {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-steps-item-description {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix timeline text spacing */
+  .ant-timeline-item-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix collapse text spacing */
+  .ant-collapse-header {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-collapse-content-box {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tree text spacing */
+  .ant-tree-node-content-wrapper {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix transfer text spacing */
+  .ant-transfer-list-header {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-transfer-list-content-item {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix upload text spacing */
+  .ant-upload-list-item-name {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-upload-list-item-card-actions {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix calendar text spacing */
+  .ant-picker-calendar-date-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix table header text spacing */
+  .ant-table-thead > tr > th {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix table cell text spacing */
+  .ant-table-tbody > tr > td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix table summary text spacing */
+  .ant-table-summary > tr > td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix form item spacing */
+  .ant-form-item {
+    margin-bottom: 16px !important;
+  }
+  
+  .ant-form-item-label {
+    padding-bottom: 4px !important;
+  }
+  
+  /* Fix row and col spacing */
+  .ant-row {
+    margin-bottom: 16px !important;
+  }
+  
+  .ant-col {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Fix space component spacing */
+  .ant-space-item {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Fix divider spacing */
+  .ant-divider {
+    margin: 16px 0 !important;
+  }
+  
+  /* Fix empty component spacing */
+  .ant-empty-description {
+    line-height: 1.5 !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Fix skeleton text spacing */
+  .ant-skeleton-paragraph > li {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Fix spin text spacing */
+  .ant-spin-text {
+    line-height: 1.5 !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Fix result text spacing */
+  .ant-result-title {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .ant-result-subtitle {
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Fix page header text spacing */
+  .ant-page-header-heading-title {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .ant-page-header-heading-sub-title {
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Fix comment text spacing */
+  .ant-comment-content-detail {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-comment-content-author-name {
+    line-height: 1.5 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .ant-comment-content-author-time {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix rate text spacing */
+  .ant-rate-text {
+    line-height: 1.5 !important;
+    margin-left: 8px !important;
+  }
+  
+  /* Fix slider text spacing */
+  .ant-slider-mark-text {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix switch text spacing */
+  .ant-switch-inner {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix checkbox text spacing */
+  .ant-checkbox-wrapper {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix radio text spacing */
+  .ant-radio-wrapper {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix switch text spacing */
+  .ant-switch-inner {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix slider text spacing */
+  .ant-slider-mark-text {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix rate text spacing */
+  .ant-rate-text {
+    line-height: 1.5 !important;
+    margin-left: 8px !important;
+  }
+  
+  /* Fix comment text spacing */
+  .ant-comment-content-detail {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-comment-content-author-name {
+    line-height: 1.5 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .ant-comment-content-author-time {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix page header text spacing */
+  .ant-page-header-heading-title {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .ant-page-header-heading-sub-title {
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Fix result text spacing */
+  .ant-result-title {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .ant-result-subtitle {
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Fix skeleton text spacing */
+  .ant-skeleton-paragraph > li {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Fix spin text spacing */
+  .ant-spin-text {
+    line-height: 1.5 !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Fix empty component spacing */
+  .ant-empty-description {
+    line-height: 1.5 !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Fix divider spacing */
+  .ant-divider {
+    margin: 16px 0 !important;
+  }
+  
+  /* Fix space component spacing */
+  .ant-space-item {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Fix row and col spacing */
+  .ant-row {
+    margin-bottom: 16px !important;
+  }
+  
+  .ant-col {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Fix form item spacing */
+  .ant-form-item {
+    margin-bottom: 16px !important;
+  }
+  
+  .ant-form-item-label {
+    padding-bottom: 4px !important;
+  }
+  
+  /* Fix table cell text spacing */
+  .ant-table-tbody > tr > td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix table header text spacing */
+  .ant-table-thead > tr > th {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix table summary text spacing */
+  .ant-table-summary > tr > td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Fix calendar text spacing */
+  .ant-picker-calendar-date-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix upload text spacing */
+  .ant-upload-list-item-name {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-upload-list-item-card-actions {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix transfer text spacing */
+  .ant-transfer-list-header {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-transfer-list-content-item {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tree text spacing */
+  .ant-tree-node-content-wrapper {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix collapse text spacing */
+  .ant-collapse-header {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-collapse-content-box {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix timeline text spacing */
+  .ant-timeline-item-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix steps text spacing */
+  .ant-steps-item-title {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-steps-item-description {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix pagination text spacing */
+  .ant-pagination-item,
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tabs text spacing */
+  .ant-tabs-tab {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-tabs-tab-btn {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix menu text spacing */
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix dropdown menu text spacing */
+  .ant-dropdown-menu-item,
+  .ant-dropdown-menu-submenu-title {
+    line-height: 1.5 !important;
+    padding: 8px 12px !important;
+  }
+  
+  /* Fix typography text spacing */
+  .ant-typography {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-typography h1,
+  .ant-typography h2,
+  .ant-typography h3,
+  .ant-typography h4,
+  .ant-typography h5,
+  .ant-typography h6 {
+    line-height: 1.5 !important;
+    margin: 16px 0 8px 0 !important;
+  }
+  
+  .ant-typography p {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix avatar text spacing */
+  .ant-avatar-string {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix badge text spacing */
+  .ant-badge-count {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix progress text spacing */
+  .ant-progress-text {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix alert text spacing */
+  .ant-alert-message,
+  .ant-alert-description {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix message text spacing */
+  .ant-message-notice-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix notification text spacing */
+  .ant-notification-notice-message,
+  .ant-notification-notice-description {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tooltip text spacing */
+  .ant-tooltip-inner {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix select text spacing */
+  .ant-select-selection-item,
+  .ant-select-selection-placeholder {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix input text spacing */
+  .ant-input,
+  .ant-input-affix-wrapper {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix button text spacing */
+  .ant-btn {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix tag text spacing */
+  .ant-tag {
+    line-height: 1.5 !important;
+    margin: 4px !important;
+  }
+  
+  /* Fix breadcrumb text spacing */
+  .ant-breadcrumb {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-breadcrumb-link,
+  .ant-breadcrumb-separator {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix statistic text spacing */
+  .ant-statistic-title {
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .ant-statistic-content {
+    line-height: 1.5 !important;
+  }
+  
+  /* Fix list item text spacing */
+  .ant-list-item {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-list-item-meta-description {
+    line-height: 1.5 !important;
+    margin-top: 4px !important;
+  }
+  
+  /* Fix drawer content text spacing */
+  .ant-drawer-body {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-drawer-body p,
+  .ant-drawer-body div {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix modal content text spacing */
+  .ant-modal-body {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-modal-body p,
+  .ant-modal-body div {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix form labels and descriptions */
+  .ant-form-item-label > label {
+    line-height: 1.5 !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .ant-form-item-explain {
+    line-height: 1.5 !important;
+    margin-top: 4px !important;
+  }
+  
+  /* Fix text in cards and containers */
+  .ant-card-body {
+    line-height: 1.5 !important;
+  }
+  
+  .ant-card-body p,
+  .ant-card-body div {
+    line-height: 1.5 !important;
+    margin: 8px 0 !important;
+  }
+  
+  /* Fix table cell text spacing */
+  .ant-table-tbody td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Ensure proper text spacing for multi-line content */
+  .ant-table-tbody td {
+    line-height: 1.5 !important;
+    padding: 12px 8px !important;
+  }
+  
+  /* Override the aggressive line-height reduction for desktop */
+  .design-checklist-container *,
+  .projects-container *,
+  .tasks-container *,
+  .issues-container *,
+  .documents-container *,
+  .calendar-container *,
+  .approval-container *,
+  .notes-container *,
+  .todo-list-container * {
+    line-height: 1.5 !important; /* Restore proper line-height for desktop */
+  }
+}

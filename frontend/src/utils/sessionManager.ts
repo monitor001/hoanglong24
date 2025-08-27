@@ -88,8 +88,8 @@ export class SessionManager {
    * Kiểm tra trạng thái session trên server
    */
   public async checkSessionStatus(): Promise<boolean> {
-    const token = localStorage.getItem('token');
-    const sessionId = localStorage.getItem('sessionId');
+    const token = this.getTokenFromStore();
+    const sessionId = this.getSessionIdFromStore();
     
     if (!token || !sessionId) {
       return false;
@@ -106,6 +106,48 @@ export class SessionManager {
     } catch (error) {
       console.error('❌ Error checking session status:', error);
       return false;
+    }
+  }
+
+  /**
+   * Lấy token từ Redux store
+   */
+  private getTokenFromStore(): string | null {
+    try {
+      const store = require('../store').store;
+      const state = store.getState();
+      return state.auth.token;
+    } catch (error) {
+      console.warn('Could not get token from store:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Lấy sessionId từ Redux store
+   */
+  private getSessionIdFromStore(): string | null {
+    try {
+      const store = require('../store').store;
+      const state = store.getState();
+      return state.auth.sessionId;
+    } catch (error) {
+      console.warn('Could not get sessionId from store:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Lấy user từ Redux store
+   */
+  private getUserFromStore(): any {
+    try {
+      const store = require('../store').store;
+      const state = store.getState();
+      return state.auth.user;
+    } catch (error) {
+      console.warn('Could not get user from store:', error);
+      return null;
     }
   }
 
@@ -224,7 +266,7 @@ export class SessionManager {
   public async forceLogout(): Promise<void> {
     try {
       // Gọi API logout để deactivate session trên server
-      const token = localStorage.getItem('token');
+      const token = this.getTokenFromStore();
       if (token) {
         try {
           const response = await fetch('/api/auth/logout', {
@@ -257,8 +299,8 @@ export class SessionManager {
    * Kiểm tra và dọn dẹp session cũ
    */
   public cleanupOldSessions(): void {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    const token = this.getTokenFromStore();
+    const user = this.getUserFromStore();
     
     if (token && user) {
       try {
@@ -272,8 +314,7 @@ export class SessionManager {
         }
         
         // Kiểm tra user data có hợp lệ không
-        const userData = JSON.parse(user);
-        if (!userData.id || !userData.email) {
+        if (!user.id || !user.email) {
           this.clearAllSessionData();
           return;
         }
@@ -284,21 +325,11 @@ export class SessionManager {
   }
 
   /**
-   * Tạo session mới
+   * Tạo session mới - không cần thiết vì session được quản lý bởi Redux
    */
   public createNewSession(token: string, user: any, sessionId?: string): void {
-    // Xóa session cũ trước
-    this.clearAllSessionData();
-    
-    // Lưu session mới
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-    if (sessionId) {
-      localStorage.setItem('sessionId', sessionId);
-    }
-    
-    // Lưu thời gian tạo session
-    localStorage.setItem('sessionCreated', Date.now().toString());
+    // Session được quản lý bởi Redux store, không cần lưu vào localStorage
+    console.log('Session created in Redux store');
     
     // Bắt đầu kiểm tra session định kỳ
     this.startSessionCheck();
@@ -308,8 +339,8 @@ export class SessionManager {
    * Kiểm tra session có hợp lệ không
    */
   public isSessionValid(): boolean {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    const token = this.getTokenFromStore();
+    const user = this.getUserFromStore();
     
     if (!token || !user) {
       return false;
@@ -323,8 +354,7 @@ export class SessionManager {
         return false;
       }
       
-      const userData = JSON.parse(user);
-      return !!(userData.id && userData.email);
+      return !!(user.id && user.email);
     } catch (error) {
       return false;
     }
@@ -340,9 +370,8 @@ export class SessionManager {
     userEmail?: string;
     sessionAge?: number;
   } {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    const sessionCreated = localStorage.getItem('sessionCreated');
+    const token = this.getTokenFromStore();
+    const user = this.getUserFromStore();
     
     const result = {
       hasToken: !!token,
@@ -363,15 +392,10 @@ export class SessionManager {
     
     if (user) {
       try {
-        const userData = JSON.parse(user);
-        result.userEmail = userData.email;
+        result.userEmail = user.email;
       } catch (error) {
         console.warn('Error parsing user data:', error);
       }
-    }
-    
-    if (sessionCreated) {
-      result.sessionAge = Date.now() - parseInt(sessionCreated);
     }
     
     return result;

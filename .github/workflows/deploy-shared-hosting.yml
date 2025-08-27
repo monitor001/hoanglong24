@@ -1,0 +1,215 @@
+name: Deploy to Shared Hosting
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+        - staging
+        - production
+
+env:
+  NODE_VERSION: '18'
+  BACKEND_PATH: '/var/www/minicde/backend'
+  FRONTEND_PATH: '/var/www/minicde/frontend'
+  UPLOADS_PATH: '/var/www/minicde/uploads'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install backend dependencies
+      working-directory: ./backend
+      run: npm ci
+      
+    - name: Install frontend dependencies
+      working-directory: ./frontend
+      run: npm ci
+      
+    - name: Build backend
+      working-directory: ./backend
+      run: npm run build
+      
+    - name: Build frontend
+      working-directory: ./frontend
+      env:
+        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+        REACT_APP_ENVIRONMENT: ${{ github.event.inputs.environment || 'staging' }}
+        GENERATE_SOURCEMAP: false
+      run: npm run build
+      
+    - name: Run backend tests
+      working-directory: ./backend
+      run: npm test
+      
+    - name: Run frontend tests
+      working-directory: ./frontend
+      run: npm test -- --watchAll=false
+      
+    - name: Create deployment package
+      run: |
+        mkdir -p deployment
+        cp -r backend/dist deployment/backend/
+        cp backend/package.json deployment/backend/
+        cp backend/env.shared-hosting.txt deployment/backend/.env
+        cp -r frontend/build deployment/frontend/
+        cp shared-hosting-setup.md deployment/
+        cp deploy-shared-hosting.sh deployment/
+        
+    - name: Upload deployment artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: deployment-package
+        path: deployment/
+        retention-days: 1
+
+  deploy-to-staging:
+    needs: build-and-test
+    if: github.event.inputs.environment == 'staging' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download deployment artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: deployment-package
+        path: deployment/
+        
+    - name: Deploy to staging server
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.STAGING_HOST }}
+        username: ${{ secrets.STAGING_USERNAME }}
+        key: ${{ secrets.STAGING_SSH_KEY }}
+        port: ${{ secrets.STAGING_PORT }}
+        script: |
+          # Stop existing application
+          pm2 stop minicde-backend || true
+          
+          # Backup current deployment
+          if [ -d "/var/www/minicde" ]; then
+            mv /var/www/minicde /var/www/minicde.backup.$(date +%Y%m%d_%H%M%S)
+          fi
+          
+          # Create new deployment directory
+          mkdir -p /var/www/minicde
+          
+          # Copy new files
+          cp -r deployment/backend/* /var/www/minicde/backend/
+          cp -r deployment/frontend/* /var/www/minicde/frontend/
+          
+          # Set permissions
+          sudo chown -R $USER:$USER /var/www/minicde
+          sudo chmod -R 755 /var/www/minicde
+          
+          # Install dependencies
+          cd /var/www/minicde/backend
+          npm install --production
+          
+          # Generate Prisma client
+          npx prisma generate
+          
+          # Run database migrations
+          npx prisma migrate deploy
+          
+          # Start application
+          pm2 start dist/index.js --name "minicde-backend"
+          pm2 save
+          
+          # Test deployment
+          sleep 10
+          curl -f http://localhost:3001/api/health || exit 1
+          
+          # Cleanup old backup (keep last 3)
+          ls -dt /var/www/minicde.backup.* | tail -n +4 | xargs -r rm -rf
+
+  deploy-to-production:
+    needs: build-and-test
+    if: github.event.inputs.environment == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+    - name: Download deployment artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: deployment-package
+        path: deployment/
+        
+    - name: Deploy to production server
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.PRODUCTION_HOST }}
+        username: ${{ secrets.PRODUCTION_USERNAME }}
+        key: ${{ secrets.PRODUCTION_SSH_KEY }}
+        port: ${{ secrets.PRODUCTION_PORT }}
+        script: |
+          # Stop existing application
+          pm2 stop minicde-backend || true
+          
+          # Backup current deployment
+          if [ -d "/var/www/minicde" ]; then
+            mv /var/www/minicde /var/www/minicde.backup.$(date +%Y%m%d_%H%M%S)
+          fi
+          
+          # Create new deployment directory
+          mkdir -p /var/www/minicde
+          
+          # Copy new files
+          cp -r deployment/backend/* /var/www/minicde/backend/
+          cp -r deployment/frontend/* /var/www/minicde/frontend/
+          
+          # Set permissions
+          sudo chown -R $USER:$USER /var/www/minicde
+          sudo chmod -R 755 /var/www/minicde
+          
+          # Install dependencies
+          cd /var/www/minicde/backend
+          npm install --production
+          
+          # Generate Prisma client
+          npx prisma generate
+          
+          # Run database migrations
+          npx prisma migrate deploy
+          
+          # Start application
+          pm2 start dist/index.js --name "minicde-backend"
+          pm2 save
+          
+          # Test deployment
+          sleep 10
+          curl -f https://qlda.hoanglong24.com/api/health || exit 1
+          
+          # Cleanup old backup (keep last 3)
+          ls -dt /var/www/minicde.backup.* | tail -n +4 | xargs -r rm -rf
+
+  notify-deployment:
+    needs: [deploy-to-staging, deploy-to-production]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Notify deployment status
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        channel: '#deployments'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      if: always()

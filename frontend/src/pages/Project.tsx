@@ -70,6 +70,7 @@ import { debounce } from 'lodash';
 import '../styles/project-dark-theme-fixes.css';
 import '../styles/tablet-landscape-unified-forms.css';
 import '../styles/tablet-landscape-fab.css';
+import '../styles/modal-button-fix.css';
 
 const { Option } = Select;
 const { Title, Text } = Typography;
@@ -104,6 +105,7 @@ const Project: React.FC = () => {
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState<any>(null);
   const isDarkMode = useSelector((state: any) => state.ui.theme === 'dark' || (state.ui.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+  const { token } = useSelector((state: any) => state.auth);
 
   // Removed permission system - always allow all actions
   const canViewProjects = true;
@@ -237,17 +239,12 @@ const Project: React.FC = () => {
   
   // Kiểm tra authentication khi component mount
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    
     console.log('Project component mount - Auth check:', {
       hasToken: !!token,
-      hasUser: !!user,
-      tokenLength: token ? token.length : 0,
-      userData: user ? JSON.parse(user) : null
+      tokenLength: token ? token.length : 0
     });
     
-    if (!token || !user) {
+    if (!token) {
       console.error('Authentication missing in Project component');
       return;
     }
@@ -316,7 +313,6 @@ const Project: React.FC = () => {
       console.log('Fetching projects...');
       
       // Kiểm tra token trước khi gọi API
-      const token = localStorage.getItem('token');
       if (!token) {
         console.error('No token available for API call');
         message.error('Authentication required. Please log in again.');
@@ -472,9 +468,7 @@ const Project: React.FC = () => {
       
       if (error.response?.status === 401) {
         console.log('401 error - redirecting to login');
-        // Clear auth data and redirect
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        // Redirect to login
         window.location.href = '/login';
         return;
       }
@@ -572,7 +566,6 @@ const Project: React.FC = () => {
   const handleOk = async () => {
     try {
       // Kiểm tra authentication trước khi submit
-      const token = localStorage.getItem('token');
       if (!token) {
         console.error('No token available for form submission');
         message.error('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
@@ -675,8 +668,6 @@ const Project: React.FC = () => {
       // Kiểm tra lỗi authentication
       if (e.response?.status === 401) {
         console.log('401 error in form submission - redirecting to login');
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
         message.error('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
         window.location.href = '/login';
         return;
@@ -1577,12 +1568,31 @@ const Project: React.FC = () => {
       <Modal 
         open={modalOpen} 
         title={editingProject ? 'Sửa dự án' : 'Thêm dự án'} 
-        onOk={handleOk} 
         onCancel={() => {
           setModalOpen(false);
           form.resetFields();
           setEditingProject(null);
         }} 
+        footer={[
+          <Button 
+            key="cancel" 
+            onClick={() => {
+              setModalOpen(false);
+              form.resetFields();
+              setEditingProject(null);
+            }}
+          >
+            Cancel
+          </Button>,
+          <Button 
+            key="submit" 
+            type="primary" 
+            onClick={handleOk}
+            loading={loading}
+          >
+            OK
+          </Button>
+        ]}
         destroyOnClose
         width={800}
         className="tablet-landscape-edit-modal"
@@ -1764,7 +1774,7 @@ const Project: React.FC = () => {
               <TabPane tab="Ảnh dự án" key="images">
                 <Upload
                   action={`${axiosInstance.defaults.baseURL}/projects/${detail.id}/image`}
-                  headers={{ Authorization: `Bearer ${localStorage.getItem('token')}` }}
+                  headers={{ Authorization: `Bearer ${token}` }}
                   showUploadList={true}
                   onChange={handleUpload}
                   multiple={false}

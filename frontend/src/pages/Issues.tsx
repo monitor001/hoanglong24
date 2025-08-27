@@ -91,6 +91,7 @@ import '../styles/tablet-icon-standardization.css';
 import '../styles/tablet-landscape-unified-forms.css';
 import '../styles/mobile-icon-standardization.css';
 import '../styles/tablet-landscape-fab.css';
+import '../styles/modal-button-fix.css';
 
 const { Option } = Select;
 const { Text, Title } = Typography;
@@ -1695,7 +1696,6 @@ const Issues = () => {
       <Modal
         title={editingIssue ? 'Sửa vấn đề' : 'Thêm vấn đề'}
         open={modalOpen}
-        onOk={handleOk}
         onCancel={() => {
           setModalOpen(false);
           form.resetFields();
@@ -1704,6 +1704,28 @@ const Issues = () => {
             dueDate: undefined
           });
         }}
+        footer={[
+          <Button 
+            key="cancel" 
+            onClick={() => {
+              setModalOpen(false);
+              form.resetFields();
+              form.setFieldsValue({
+                dueDate: undefined
+              });
+            }}
+          >
+            Cancel
+          </Button>,
+          <Button 
+            key="submit" 
+            type="primary" 
+            onClick={handleOk}
+            loading={loading}
+          >
+            OK
+          </Button>
+        ]}
         width={
           isMobile ? '95%' : 
           isTabletLandscape ? '85%' : 

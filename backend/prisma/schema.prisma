@@ -62,6 +62,8 @@ model User {
   todos          Todo[]
   sessions       UserSession[]    // User sessions for single device login
   preferences    UserPreference[] // User preferences
+  notifications  Notification[]
+  userNotificationPreferences UserNotificationPreference[]
 
   // Permission relations
   rolePermissions RolePermission[] @relation("UserRolePermissions")
@@ -876,5 +878,86 @@ model RolePermission {
   @@index([permissionId])
   @@index([granted])
   @@index([grantedAt])
+  @@index([userId])
+}
+
+// Notification System Models
+model Notification {
+  id          String           @id @default(uuid())
+  type        NotificationType
+  title       String
+  message     String
+  priority    NotificationPriority @default(MEDIUM)
+  read        Boolean          @default(false)
+  data        Json?            // Additional data for the notification
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  relatedId   String?          // ID of related object (task, project, etc.)
+  relatedType String?          // Type of related object (task, project, issue, etc.)
+  expiresAt   DateTime?        // Optional expiration date
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([userId])
+  @@index([type])
+  @@index([read])
+  @@index([priority])
+  @@index([createdAt])
+  @@index([userId, read])
+  @@index([userId, type])
+  @@index([relatedId, relatedType])
+}
+
+enum NotificationType {
+  TASK_ASSIGNED
+  TASK_OVERDUE
+  TASK_UPCOMING
+  TASK_COMPLETED
+  ISSUE_ASSIGNED
+  ISSUE_OVERDUE
+  ISSUE_UPDATED
+  PROJECT_INVITATION
+  DOCUMENT_APPROVED
+  DOCUMENT_REJECTED
+  DOCUMENT_COMMENTED
+  CALENDAR_REMINDER
+  SYSTEM_ANNOUNCEMENT
+  APPROVAL_REQUESTED
+  APPROVAL_COMPLETED
+  COMMENT_MENTION
+  FILE_UPLOADED
+  FILE_DOWNLOADED
+  USER_ACTIVITY
+  CUSTOM
+}
+
+enum NotificationPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// User Notification Preferences
+model UserNotificationPreference {
+  id                    String   @id @default(uuid())
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                String   @unique
+  emailNotifications    Boolean  @default(true)
+  pushNotifications     Boolean  @default(true)
+  inAppNotifications    Boolean  @default(true)
+  taskNotifications     Boolean  @default(true)
+  issueNotifications    Boolean  @default(true)
+  projectNotifications  Boolean  @default(true)
+  documentNotifications Boolean  @default(true)
+  calendarNotifications Boolean  @default(true)
+  systemNotifications   Boolean  @default(true)
+  quietHoursEnabled     Boolean  @default(false)
+  quietHoursStart       String?  @default("22:00") // HH:mm format
+  quietHoursEnd         String?  @default("08:00") // HH:mm format
+  timezone              String?  @default("Asia/Ho_Chi_Minh")
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
   @@index([userId])
 }

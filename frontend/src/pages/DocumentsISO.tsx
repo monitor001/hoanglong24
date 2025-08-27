@@ -113,6 +113,7 @@ import '../styles/tablet-landscape-statistics-improvements.css';
 import '../styles/tablet-icon-standardization.css';
 import '../styles/tablet-landscape-unified-forms.css';
 import '../styles/tablet-landscape-fab.css';
+import '../styles/modal-button-fix.css';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -231,7 +232,7 @@ const DocumentsISO: React.FC = () => {
   const [deleteLoading, setDeleteLoading] = useState(false);
   
   const navigate = useNavigate();
-  const { user } = useSelector((state: RootState) => state.auth);
+  const { user, token } = useSelector((state: RootState) => state.auth);
   const { theme } = useSelector((state: RootState) => state.ui);
   const isDarkMode = theme === 'dark';
   // Removed permission system - always allow all actions
@@ -1331,7 +1332,7 @@ const DocumentsISO: React.FC = () => {
       };
 
       const response = await axiosInstance.post('/issues', issueData, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        headers: { Authorization: `Bearer ${token}` }
       });
 
       if (response.status === 201) {
@@ -2721,8 +2722,22 @@ const DocumentsISO: React.FC = () => {
         }
         open={createIssueModalVisible}
         onCancel={() => setCreateIssueModalVisible(false)}
-        onOk={() => issueForm.submit()}
-        confirmLoading={creatingIssue}
+        footer={[
+          <Button 
+            key="cancel" 
+            onClick={() => setCreateIssueModalVisible(false)}
+          >
+            Cancel
+          </Button>,
+          <Button 
+            key="submit" 
+            type="primary" 
+            onClick={() => issueForm.submit()}
+            loading={creatingIssue}
+          >
+            OK
+          </Button>
+        ]}
         width={600}
         destroyOnClose
       >

@@ -51,6 +51,7 @@ import '../styles/mobile-users.css';
 import '../styles/desktop-icon-standardization.css';
 import '../styles/tablet-landscape-unified-forms.css';
 import '../styles/tablet-landscape-fab.css';
+import '../styles/modal-button-fix.css';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -981,8 +982,23 @@ const Users: React.FC = () => {
       <Modal
         title={editingUser ? 'Chỉnh sửa người dùng' : 'Thêm người dùng mới'}
         open={modalOpen}
-        onOk={handleOk}
         onCancel={() => setModalOpen(false)}
+        footer={[
+          <Button 
+            key="cancel" 
+            onClick={() => setModalOpen(false)}
+          >
+            Cancel
+          </Button>,
+          <Button 
+            key="submit" 
+            type="primary" 
+            onClick={handleOk}
+            loading={loading}
+          >
+            OK
+          </Button>
+        ]}
         width={
           isMobile ? '95%' : 
           isTabletLandscape ? '85%' : 

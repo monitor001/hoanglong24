@@ -22,32 +22,16 @@ class TokenManager {
     return TokenManager.instance;
   }
 
-  // Lưu token vào localStorage
-  saveToken(token: string): void {
-    try {
-      const tokenInfo = this.decodeToken(token);
-      const tokenData: TokenInfo = {
-        token,
-        expiresAt: tokenInfo.exp * 1000, // Convert to milliseconds
-        userId: tokenInfo.id,
-        email: tokenInfo.email,
-        role: tokenInfo.role
-      };
-      localStorage.setItem('token', token);
-      localStorage.setItem('tokenInfo', JSON.stringify(tokenData));
-      localStorage.setItem('user', JSON.stringify({
-        id: tokenInfo.id,
-        email: tokenInfo.email,
-        role: tokenInfo.role
-      }));
-    } catch (error) {
-      console.error('Error saving token:', error);
-    }
-  }
-
-  // Lấy token từ localStorage
+  // Lấy token từ Redux store thay vì localStorage
   getToken(): string | null {
-    return localStorage.getItem('token');
+    try {
+      const store = require('../store').store;
+      const state = store.getState();
+      return state.auth.token;
+    } catch (error) {
+      console.warn('Could not get token from store:', error);
+      return null;
+    }
   }
 
   // Kiểm tra token có hợp lệ không
@@ -70,17 +54,14 @@ class TokenManager {
       return isValid;
     } catch (error) {
       console.error('Error checking token validity:', error);
-      // If we can't decode the token, it's invalid
-      this.clearToken();
       return false;
     }
   }
 
-  // Xóa token
+  // Xóa token - không cần thiết vì không lưu vào localStorage
   clearToken(): void {
-    localStorage.removeItem('token');
-    localStorage.removeItem('tokenInfo');
-    localStorage.removeItem('user');
+    // Token được quản lý bởi Redux store, không cần xóa localStorage
+    console.log('Token cleared from Redux store');
   }
 
   // Decode JWT token
@@ -130,29 +111,27 @@ class TokenManager {
       // or the session has expired completely
       if (!userInfo || !userInfo.email) {
         console.log('No user info available - session expired, requiring re-login');
-        this.clearToken();
         throw new Error('Session expired. Please log in again.');
       }
 
-      // For now, we'll clear the token and require re-login
+      // For now, we'll require re-login
       // In a real application, you would implement a proper refresh token mechanism
       console.log('Token refresh not implemented - requiring re-login');
-      this.clearToken();
       throw new Error('Token refresh requires re-authentication');
     } catch (error) {
       console.error('Error refreshing token:', error);
-      this.clearToken();
       throw error;
     }
   }
 
-  // Lấy thông tin user
+  // Lấy thông tin user từ Redux store
   getUserInfo(): any {
     try {
-      const userStr = localStorage.getItem('user');
-      return userStr ? JSON.parse(userStr) : null;
+      const store = require('../store').store;
+      const state = store.getState();
+      return state.auth.user;
     } catch (error) {
-      console.error('Error getting user info:', error);
+      console.warn('Could not get user info from store:', error);
       return null;
     }
   }

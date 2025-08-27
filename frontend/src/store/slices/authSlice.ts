@@ -15,6 +15,7 @@ interface User {
 interface AuthState {
   user: User | null;
   token: string | null;
+  sessionId: string | null;
   isLoading: boolean;
   error: string | null;
   requireTwoFactor: boolean;
@@ -46,10 +47,11 @@ interface RegisterData {
   organization?: string;
 }
 
-// Initial state
+// Initial state - Không lưu từ localStorage
 const initialState: AuthState = {
-  user: null, // Không lưu user từ localStorage
-  token: null, // Không lưu token từ localStorage
+  user: null,
+  token: null,
+  sessionId: null,
   isLoading: false,
   error: null,
   requireTwoFactor: false,
@@ -73,16 +75,7 @@ export const login = createAsyncThunk<LoginResponse, LoginCredentials>(
         };
       }
       
-      // Store token, user, and sessionId in localStorage
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      if (response.data.sessionId) {
-        localStorage.setItem('sessionId', response.data.sessionId);
-      }
-      
-      // Note: User permissions will be loaded separately after login
-      // to avoid circular dependency issues
-      
+      // KHÔNG lưu vào localStorage - chỉ trả về data
       return response.data;
     } catch (error: any) {
       console.error('❌ Login error:', {
@@ -115,16 +108,7 @@ export const verifyTwoFactor = createAsyncThunk<LoginResponse, TwoFactorVerifyDa
     try {
       const response = await axiosInstance.post('/auth/verify-2fa', data);
       
-      // Store token, user, and sessionId in localStorage
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      if (response.data.sessionId) {
-        localStorage.setItem('sessionId', response.data.sessionId);
-      }
-      
-      // Note: User permissions will be loaded separately after 2FA verification
-      // to avoid circular dependency issues
-      
+      // KHÔNG lưu vào localStorage - chỉ trả về data
       return response.data;
     } catch (error: any) {
       console.error('❌ 2FA verification error:', error);
@@ -139,13 +123,7 @@ export const register = createAsyncThunk<LoginResponse, RegisterData>(
     try {
       const response = await axiosInstance.post('/auth/register', data);
       
-      // Store token, user, and sessionId in localStorage
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      if (response.data.sessionId) {
-        localStorage.setItem('sessionId', response.data.sessionId);
-      }
-      
+      // KHÔNG lưu vào localStorage - chỉ trả về data
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response?.data?.error || 'Registration failed');
@@ -160,19 +138,13 @@ export const logout = createAsyncThunk(
       // Call logout endpoint
       await axiosInstance.post('/auth/logout');
       
-      // Clear session data from localStorage
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      localStorage.removeItem('sessionId');
+      // Clear session data from localStorage (nếu có) - không cần thiết vì không lưu vào localStorage
       
       return { success: true };
     } catch (error: any) {
       console.error('❌ Logout error:', error);
       
-      // Even if logout fails, clear local session data
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      localStorage.removeItem('sessionId');
+      // Even if logout fails, clear local session data - không cần thiết vì không lưu vào localStorage
       
       return rejectWithValue(error.response?.data?.error || 'Logout failed');
     }
@@ -197,23 +169,14 @@ export const refreshToken = createAsyncThunk(
         // Token is expired, try to refresh
         const response = await axiosInstance.post('/auth/refresh-token');
         
-        // Store new token, user, and sessionId in localStorage
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        if (response.data.sessionId) {
-          localStorage.setItem('sessionId', response.data.sessionId);
-        }
-        
+        // KHÔNG lưu vào localStorage - chỉ trả về data
         return response.data;
       }
       
       // Token is still valid
       return { token: auth.token, user: auth.user };
     } catch (error: any) {
-      // Clear token, user, and sessionId from localStorage
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      localStorage.removeItem('sessionId');
+      // Clear token, user, and sessionId from localStorage - không cần thiết vì không lưu vào localStorage
       
       return rejectWithValue(error.response?.data?.error || 'Token refresh failed');
     }
@@ -230,7 +193,7 @@ const authSlice = createSlice({
     },
     updateUser: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
-      localStorage.setItem('user', JSON.stringify(action.payload));
+      // KHÔNG lưu vào localStorage
     },
   },
   extraReducers: (builder) => {
@@ -248,11 +211,10 @@ const authSlice = createSlice({
       } else {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.sessionId = action.payload.sessionId || null;
         state.requireTwoFactor = false;
         state.tempUserId = null;
-        if (action.payload.sessionId) {
-          localStorage.setItem('sessionId', action.payload.sessionId);
-        }
+        // KHÔNG lưu sessionId vào localStorage
       }
     });
     builder.addCase(login.rejected, (state, action) => {
@@ -269,11 +231,10 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.user = action.payload.user;
       state.token = action.payload.token;
+      state.sessionId = action.payload.sessionId || null;
       state.requireTwoFactor = false;
       state.tempUserId = null;
-      if (action.payload.sessionId) {
-        localStorage.setItem('sessionId', action.payload.sessionId);
-      }
+      // KHÔNG lưu sessionId vào localStorage
     });
     builder.addCase(verifyTwoFactor.rejected, (state, action) => {
       state.isLoading = false;
@@ -289,9 +250,8 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.user = action.payload.user;
       state.token = action.payload.token;
-      if (action.payload.sessionId) {
-        localStorage.setItem('sessionId', action.payload.sessionId);
-      }
+      state.sessionId = action.payload.sessionId || null;
+      // KHÔNG lưu sessionId vào localStorage
     });
     builder.addCase(register.rejected, (state, action) => {
       state.isLoading = false;
@@ -302,25 +262,20 @@ const authSlice = createSlice({
     builder.addCase(logout.fulfilled, (state) => {
       state.user = null;
       state.token = null;
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      localStorage.removeItem('sessionId');
+      state.sessionId = null;
     });
     
     // Refresh Token
     builder.addCase(refreshToken.fulfilled, (state, action) => {
       state.token = action.payload.token;
       state.user = action.payload.user;
-      if (action.payload.sessionId) {
-        localStorage.setItem('sessionId', action.payload.sessionId);
-      }
+      state.sessionId = action.payload.sessionId || null;
+      // KHÔNG lưu sessionId vào localStorage
     });
     builder.addCase(refreshToken.rejected, (state) => {
       state.user = null;
       state.token = null;
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      localStorage.removeItem('sessionId');
+      state.sessionId = null;
     });
   },
 });

@@ -32,7 +32,7 @@ const DocumentDetail: React.FC = () => {
   const dispatch = useDispatch();
   
   const { currentDocument, isLoading, error, uploadProgress } = useSelector((state: RootState) => state.documents);
-  const { user } = useSelector((state: RootState) => state.auth);
+  const { user, token } = useSelector((state: RootState) => state.auth);
   const { isDarkMode } = useSelector((state: RootState) => state.ui);
   
   const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
@@ -55,7 +55,7 @@ const DocumentDetail: React.FC = () => {
       try {
         const response = await fetch('/api/users/all', {
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${token}`
           }
         });
         if (response.ok) {
@@ -67,7 +67,7 @@ const DocumentDetail: React.FC = () => {
       }
     };
     fetchUsers();
-  }, []);
+  }, [token]);
   
   // Set form values when document data is loaded
   useEffect(() => {

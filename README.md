@@ -131,7 +131,7 @@ npm start
 
 ## 🌐 Deployment
 
-### Heroku Deployment
+### Heroku Deployment (Current)
 
 Dự án đã được cấu hình để deploy lên Heroku:
 
@@ -139,18 +139,54 @@ Dự án đã được cấu hình để deploy lên Heroku:
 - **Frontend**: https://minicde-frontend-833302d6ab3c.herokuapp.com
 - **Main Site**: https://qlda.hoanglong24.com
 
+### Shared Hosting Deployment (New)
+
+Dự án cũng hỗ trợ deployment lên Shared Hosting (VPS/Cloud):
+
+- **Backend API**: https://qlda.hoanglong24.com/api
+- **Frontend**: https://qlda.hoanglong24.com
+- **Documentation**: [shared-hosting-setup.md](./shared-hosting-setup.md)
+
+#### Quick Start for Shared Hosting:
+
+```bash
+# 1. Prepare migration from Heroku
+./migrate-from-heroku.sh
+
+# 2. Build for shared hosting
+./deploy-shared-hosting.sh
+
+# 3. Follow deployment guide
+# See: shared-hosting-setup.md
+```
+
 ### Environment Variables
 
-#### Backend
+#### Backend (Heroku)
 ```bash
 NODE_ENV=production
 JWT_SECRET=<your-jwt-secret>
 DATABASE_URL=<postgresql-url>
 ```
 
-#### Frontend
+#### Backend (Shared Hosting)
+```bash
+NODE_ENV=production
+SHARED_HOSTING=true
+JWT_SECRET=<your-jwt-secret>
+DATABASE_URL=postgresql://user:password@localhost:5432/minicde_db
+```
+
+#### Frontend (Heroku)
 ```bash
 REACT_APP_API_URL=https://minicde-production-589be4b0d52b.herokuapp.com/api
+NODE_ENV=production
+GENERATE_SOURCEMAP=false
+```
+
+#### Frontend (Shared Hosting)
+```bash
+REACT_APP_API_URL=https://qlda.hoanglong24.com/api
 NODE_ENV=production
 GENERATE_SOURCEMAP=false
 ```

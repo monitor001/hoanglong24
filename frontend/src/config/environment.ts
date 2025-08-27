@@ -49,13 +49,30 @@ const localProductionConfig: EnvironmentConfig = {
   DEBUG_MODE: false,
 };
 
+// Shared Hosting Environment (tenten)
+const sharedHostingConfig: EnvironmentConfig = {
+  API_URL: 'https://qlda.hoanglong24.com/api',
+  SOCKET_URL: 'https://qlda.hoanglong24.com',
+  APP_TITLE: 'Quản lý dự án',
+  ENABLE_PROJECT_CARDS: true,
+  ENABLE_EXPORT: true,
+  ENABLE_SHARING: true,
+  REQUEST_TIMEOUT: 30000,
+  DEBUG_MODE: false,
+};
+
 // Environment detection
 export const getEnvironment = (): string => {
   const hostname = window.location.hostname;
   const protocol = window.location.protocol;
   
+  // Check if running on shared hosting domain
+  if (hostname.includes('qlda.hoanglong24.com') || hostname.includes('tenten')) {
+    return 'shared-hosting';
+  }
+  
   // Check if running on Heroku or production domain
-  if (hostname.includes('herokuapp.com') || hostname.includes('qlda.hoanglong24.com')) {
+  if (hostname.includes('herokuapp.com')) {
     return 'production';
   }
   
@@ -73,6 +90,13 @@ export const getConfig = (): EnvironmentConfig => {
   const env = getEnvironment();
   
   switch (env) {
+    case 'shared-hosting':
+      return {
+        ...sharedHostingConfig,
+        API_URL: process.env.REACT_APP_API_URL || sharedHostingConfig.API_URL,
+        SOCKET_URL: process.env.REACT_APP_SOCKET_URL || sharedHostingConfig.SOCKET_URL,
+        APP_TITLE: process.env.REACT_APP_TITLE || sharedHostingConfig.APP_TITLE,
+      };
     case 'production':
       return {
         ...productionConfig,

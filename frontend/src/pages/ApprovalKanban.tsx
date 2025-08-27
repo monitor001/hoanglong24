@@ -182,6 +182,7 @@ interface KanbanColumn {
   title: string;
   color: string;
   bgColor: string;
+  cardBgColor?: string;
   items: DocumentCard[];
 }
 
@@ -231,28 +232,32 @@ const ApprovalKanban: React.FC = () => {
         id: 'design',
         title: 'Thiết kế',
         color: '#1890ff',
-        bgColor: 'rgba(24, 144, 255, 0.1)',
+        bgColor: 'rgba(24, 144, 255, 0.08)',
+        cardBgColor: 'rgba(24, 144, 255, 0.05)',
         items: []
       },
       {
         id: 'kcs',
         title: 'KCS Nội Bộ',
         color: '#722ed1',
-        bgColor: 'rgba(114, 46, 209, 0.1)',
+        bgColor: 'rgba(114, 46, 209, 0.08)',
+        cardBgColor: 'rgba(114, 46, 209, 0.05)',
         items: []
       },
       {
         id: 'verification',
         title: 'Thẩm tra',
         color: '#13c2c2',
-        bgColor: 'rgba(19, 194, 194, 0.1)',
+        bgColor: 'rgba(19, 194, 194, 0.08)',
+        cardBgColor: 'rgba(19, 194, 194, 0.05)',
         items: []
       },
       {
         id: 'appraisal',
         title: 'Thẩm định',
         color: '#52c41a',
-        bgColor: 'rgba(82, 196, 26, 0.1)',
+        bgColor: 'rgba(82, 196, 26, 0.08)',
+        cardBgColor: 'rgba(82, 196, 26, 0.05)',
         items: []
       }
   ]);
@@ -489,6 +494,21 @@ const ApprovalKanban: React.FC = () => {
         return 'green';
       default:
         return 'blue';
+    }
+  };
+
+  const getColumnColor = (stage: string) => {
+    switch (stage) {
+      case 'design':
+        return '#1890ff';
+      case 'kcs':
+        return '#722ed1';
+      case 'verification':
+        return '#13c2c2';
+      case 'appraisal':
+        return '#52c41a';
+      default:
+        return '#1890ff';
     }
   };
 
@@ -1042,10 +1062,24 @@ const ApprovalKanban: React.FC = () => {
                 border: `2px solid ${getPriorityColor(card.priority)}`,
                 backgroundColor: card.status === 'rejected' 
                   ? (isDarkMode ? '#2a1f1f' : '#fff2f0') 
-                  : (isDarkMode ? '#1f1f1f' : '#fff'),
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  : (isDarkMode 
+                      ? `rgba(${getColumnColor(card.currentStage).replace('#', '').match(/.{2}/g)?.map(x => parseInt(x, 16)).join(', ')}, 0.15)` 
+                      : `rgba(${getColumnColor(card.currentStage).replace('#', '').match(/.{2}/g)?.map(x => parseInt(x, 16)).join(', ')}, 0.08)`),
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
+              {/* Color indicator bar */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '3px',
+                background: `linear-gradient(90deg, ${getColumnColor(card.currentStage)} 0%, ${getPriorityColor(card.priority)} 100%)`,
+                zIndex: 1
+              }} />
               {/* Compact Header with Date */}
               <div className="card-header-compact">
                 <div className="card-header-left">
@@ -1798,7 +1832,11 @@ const ApprovalKanban: React.FC = () => {
               <div style={{ marginBottom: 16 }}>
                 <Row gutter={[8, 8]}>
                   <Col span={12}>
-                    <Card size="small" style={{ borderRadius: 8 }}>
+                    <Card size="small" style={{ 
+                      borderRadius: 8,
+                      background: isDarkMode ? 'rgba(24, 144, 255, 0.1)' : 'rgba(24, 144, 255, 0.05)',
+                      border: `1px solid ${isDarkMode ? 'rgba(24, 144, 255, 0.3)' : 'rgba(24, 144, 255, 0.2)'}`
+                    }}>
                       <Statistic
                         title="Tổng số"
                         value={stats?.total || 0}
@@ -1809,7 +1847,11 @@ const ApprovalKanban: React.FC = () => {
                     </Card>
                   </Col>
                   <Col span={12}>
-                    <Card size="small" style={{ borderRadius: 8 }}>
+                    <Card size="small" style={{ 
+                      borderRadius: 8,
+                      background: isDarkMode ? 'rgba(250, 173, 20, 0.1)' : 'rgba(250, 173, 20, 0.05)',
+                      border: `1px solid ${isDarkMode ? 'rgba(250, 173, 20, 0.3)' : 'rgba(250, 173, 20, 0.2)'}`
+                    }}>
                       <Statistic
                         title="Chờ xử lý"
                         value={stats?.statusStats?.pending || 0}
@@ -1820,7 +1862,11 @@ const ApprovalKanban: React.FC = () => {
                     </Card>
                   </Col>
                   <Col span={12}>
-                    <Card size="small" style={{ borderRadius: 8 }}>
+                    <Card size="small" style={{ 
+                      borderRadius: 8,
+                      background: isDarkMode ? 'rgba(82, 196, 26, 0.1)' : 'rgba(82, 196, 26, 0.05)',
+                      border: `1px solid ${isDarkMode ? 'rgba(82, 196, 26, 0.3)' : 'rgba(82, 196, 26, 0.2)'}`
+                    }}>
                       <Statistic
                         title="Đã duyệt"
                         value={stats?.statusStats?.approved || 0}
@@ -1831,7 +1877,11 @@ const ApprovalKanban: React.FC = () => {
                     </Card>
                   </Col>
                   <Col span={12}>
-                    <Card size="small" style={{ borderRadius: 8 }}>
+                    <Card size="small" style={{ 
+                      borderRadius: 8,
+                      background: isDarkMode ? 'rgba(255, 77, 79, 0.1)' : 'rgba(255, 77, 79, 0.05)',
+                      border: `1px solid ${isDarkMode ? 'rgba(255, 77, 79, 0.3)' : 'rgba(255, 77, 79, 0.2)'}`
+                    }}>
                       <Statistic
                         title="Từ chối"
                         value={stats?.statusStats?.rejected || 0}
@@ -1881,11 +1931,25 @@ const ApprovalKanban: React.FC = () => {
                       border: `2px solid ${getPriorityColor(card.priority) === 'red' ? '#ff4d4f' : getPriorityColor(card.priority) === 'orange' ? '#faad14' : '#52c41a'}`,
                       background: card.status === 'rejected' 
                         ? (isDarkMode ? '#2a1f1f' : '#fff2f0') 
-                        : (isDarkMode ? '#141414' : '#fff'),
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+                        : (isDarkMode 
+                            ? `rgba(${getColumnColor(card.currentStage).replace('#', '').match(/.{2}/g)?.map(x => parseInt(x, 16)).join(', ')}, 0.12)` 
+                            : `rgba(${getColumnColor(card.currentStage).replace('#', '').match(/.{2}/g)?.map(x => parseInt(x, 16)).join(', ')}, 0.06)`),
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                      position: 'relative',
+                      overflow: 'hidden'
                     }}
                     bodyStyle={{ padding: 12 }}
                   >
+                    {/* Color indicator bar for mobile */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '2px',
+                      background: `linear-gradient(90deg, ${getColumnColor(card.currentStage)} 0%, ${getPriorityColor(card.priority) === 'red' ? '#ff4d4f' : getPriorityColor(card.priority) === 'orange' ? '#faad14' : '#52c41a'} 100%)`,
+                      zIndex: 1
+                    }} />
                     {/* Card Header */}
                     <div style={{
                       display: 'flex',

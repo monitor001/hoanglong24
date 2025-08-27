@@ -31,6 +31,7 @@ import { logout } from '../store/slices/authSlice';
 import { toggleSidebar, setLanguage, setTheme } from '../store/slices/uiSlice';
 import { useTheme } from '../hooks/useTheme';
 import io from 'socket.io-client';
+import NotificationCenter from '../components/NotificationCenter';
 
 const { Header, Sider, Content } = Layout;
 const { Text } = Typography;
@@ -48,7 +49,6 @@ const MainLayout: React.FC = () => {
   
   const [mobileDrawerVisible, setMobileDrawerVisible] = useState<boolean>(false);
   const [notificationsVisible, setNotificationsVisible] = useState<boolean>(false);
-  const [notifications, setNotifications] = useState<any[]>([]);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
   
   const socket = io(process.env.REACT_APP_API_URL?.replace('/api', '') || 'http://localhost:3001', {
@@ -98,25 +98,26 @@ const MainLayout: React.FC = () => {
     dispatch(toggleSidebar());
   };
   
-  // Fetch notifications
-  useEffect(() => {
-    // Lắng nghe realtime activity log
-    socket.on('activity:new', (activity: any) => {
-      setNotifications(prev => [
-        {
-          id: activity.id,
-          title: `${activity.user?.name || activity.user?.email || 'Người dùng'} vừa ${activity.action}`,
-          message: activity.description || '',
-          time: new Date(activity.createdAt).toLocaleString(),
-          read: false
-        },
-        ...prev
-      ]);
-    });
-    return () => {
-      socket.off('activity:new');
-    };
-  }, []);
+  // Handle notification click
+  const handleNotificationClick = (notification: any) => {
+    // Navigate to related content based on notification type
+    if (notification.relatedType && notification.relatedId) {
+      switch (notification.relatedType) {
+        case 'task':
+          navigate(`/tasks?taskId=${notification.relatedId}`);
+          break;
+        case 'issue':
+          navigate(`/issues?issueId=${notification.relatedId}`);
+          break;
+        case 'project':
+          navigate(`/projects?projectId=${notification.relatedId}`);
+          break;
+        default:
+          break;
+      }
+    }
+    setNotificationsVisible(false);
+  };
 
   useEffect(() => {
     if (user?.id) {
@@ -271,21 +272,7 @@ const MainLayout: React.FC = () => {
     ]
   };
   
-  // Notification dropdown
-  const notificationMenu: MenuProps = {
-    items: notifications.map(notification => ({
-      key: notification.id,
-      label: (
-        <div>
-          <Text strong>{notification.title}</Text>
-          <br />
-          <Text type="secondary">{notification.message}</Text>
-          <br />
-          <Text type="secondary" style={{ fontSize: '12px' }}>{notification.time}</Text>
-        </div>
-      )
-    }))
-  };
+
   
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -397,11 +384,13 @@ const MainLayout: React.FC = () => {
                 <Button type="text" icon={<GlobalOutlined />} />
               </Dropdown>
               
-              <Dropdown menu={notificationMenu} placement="bottomRight">
-                <Badge count={notifications.filter(n => !n.read).length} size="small">
-                  <Button type="text" icon={<BellOutlined />} />
-                </Badge>
-              </Dropdown>
+              <Badge count={0} size="small">
+                <Button 
+                  type="text" 
+                  icon={<BellOutlined />} 
+                  onClick={() => setNotificationsVisible(true)}
+                />
+              </Badge>
               
               <Dropdown menu={userMenu} placement="bottomRight">
                 <Space>
@@ -486,6 +475,13 @@ const MainLayout: React.FC = () => {
           </div>
         </div>
       )}
+      
+      {/* Notification Center */}
+      <NotificationCenter
+        visible={notificationsVisible}
+        onClose={() => setNotificationsVisible(false)}
+        onNotificationClick={handleNotificationClick}
+      />
     </Layout>
   );
 };
