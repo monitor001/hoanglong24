@@ -6,43 +6,116 @@
   
   /* ===== SIDEBAR ICON ALIGNMENT FIXES ===== */
   
-  /* Fix sidebar icon alignment when collapsed */
-  .ant-layout-sider-collapsed .ant-menu-item,
-  .ant-layout-sider-collapsed .ant-menu-submenu {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-  
-  /* Ensure icons are properly centered in collapsed sidebar */
-  .ant-layout-sider-collapsed .ant-menu-item .anticon,
-  .ant-layout-sider-collapsed .ant-menu-submenu .anticon {
-    margin: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+  /* Reset all sidebar menu styling for proper alignment */
+  .ant-layout-sider-collapsed .ant-menu {
     width: 100% !important;
-    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
   
-  /* Fix menu item padding in collapsed state */
+  /* Fix sidebar menu items when collapsed */
   .ant-layout-sider-collapsed .ant-menu-item {
+    width: 100% !important;
+    height: 48px !important;
+    margin: 4px 0 !important;
     padding: 0 !important;
-    margin: 0 !important;
-    height: 40px !important;
-    line-height: 40px !important;
-  }
-  
-  /* Fix submenu icon alignment */
-  .ant-layout-sider-collapsed .ant-menu-submenu-title {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: 40px !important;
-    line-height: 40px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    border-radius: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+  
+  /* Fix submenu items when collapsed */
+  .ant-layout-sider-collapsed .ant-menu-submenu {
+    width: 100% !important;
+    margin: 4px 0 !important;
+  }
+  
+  .ant-layout-sider-collapsed .ant-menu-submenu-title {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+  
+  /* Ensure icons are perfectly centered */
+  .ant-layout-sider-collapsed .ant-menu-item .anticon,
+  .ant-layout-sider-collapsed .ant-menu-submenu-title .anticon {
+    font-size: 18px !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  /* Fix active menu item styling */
+  .ant-layout-sider-collapsed .ant-menu-item-selected {
+    background-color: #1890ff !important;
+    color: white !important;
+  }
+  
+  .ant-layout-sider-collapsed .ant-menu-item-selected .anticon {
+    color: white !important;
+  }
+  
+  /* Fix hover states */
+  .ant-layout-sider-collapsed .ant-menu-item:hover,
+  .ant-layout-sider-collapsed .ant-menu-submenu-title:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+  }
+  
+  .ant-layout-sider-collapsed .ant-menu-item:hover .anticon,
+  .ant-layout-sider-collapsed .ant-menu-submenu-title:hover .anticon {
+    color: white !important;
+  }
+  
+  /* Fix submenu arrow alignment */
+  .ant-layout-sider-collapsed .ant-menu-submenu-arrow {
+    display: none !important;
+  }
+  
+  /* Fix menu item text (should be hidden in collapsed state) */
+  .ant-layout-sider-collapsed .ant-menu-title-content {
+    display: none !important;
+  }
+  
+  /* Fix submenu content */
+  .ant-layout-sider-collapsed .ant-menu-submenu-popup {
+    display: none !important;
+  }
+  
+  /* Ensure proper spacing between menu items */
+  .ant-layout-sider-collapsed .ant-menu-item + .ant-menu-item,
+  .ant-layout-sider-collapsed .ant-menu-submenu + .ant-menu-item,
+  .ant-layout-sider-collapsed .ant-menu-item + .ant-menu-submenu,
+  .ant-layout-sider-collapsed .ant-menu-submenu + .ant-menu-submenu {
+    margin-top: 4px !important;
+  }
+  
+  /* Fix logo/brand area */
+  .ant-layout-sider-collapsed .ant-layout-sider-children > div:first-child {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 64px !important;
+    padding: 16px 8px !important;
+  }
+  
+  /* Fix menu container */
+  .ant-layout-sider-collapsed .ant-menu {
+    padding: 8px 0 !important;
   }
   
   /* ===== TEXT MARGIN AND LINE-HEIGHT FIXES ===== */
