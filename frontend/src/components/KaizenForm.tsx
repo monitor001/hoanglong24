@@ -26,7 +26,7 @@ import {
 } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
-import { useResponsiveBreakpoint } from '../hooks/useResponsiveBreakpoint';
+import { useResponsiveBreakpoint } from '../hooks/useResponsiveChart';
 
 const { TextArea } = Input;
 const { Option } = Select;

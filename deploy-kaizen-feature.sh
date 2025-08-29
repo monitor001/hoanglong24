@@ -63,27 +63,26 @@ log_info "📦 Bắt đầu deploy Backend..."
 
 cd backend
 
-# Kiểm tra xem có thay đổi trong backend không
-if git diff --quiet HEAD~1 HEAD -- .; then
-    log_warning "Không có thay đổi trong backend, bỏ qua deploy backend"
-else
-    log_info "Có thay đổi trong backend, tiến hành deploy..."
-    
-    # Push code lên Heroku
-    log_info "Pushing code lên Heroku..."
-    git push heroku main
-    
-    # Chạy migration
-    log_info "Chạy database migration..."
-    heroku run npx prisma db push --app $BACKEND_APP
-    
-    # Seed dữ liệu Kaizen
-    log_info "Seed dữ liệu Kaizen..."
-    heroku run node seed-kaizen-tags.js --app $BACKEND_APP
-    heroku run node seed-kaizen-examples.js --app $BACKEND_APP
-    
-    log_success "Backend đã được deploy thành công!"
+# Kiểm tra remote Heroku
+if ! git remote | grep -q heroku; then
+    log_info "Thêm remote Heroku cho backend..."
+    heroku git:remote -a $BACKEND_APP
 fi
+
+# Push code lên Heroku
+log_info "Pushing code lên Heroku..."
+git push heroku master:master
+
+# Chạy migration
+log_info "Chạy database migration..."
+heroku run npx prisma db push --app $BACKEND_APP
+
+# Seed dữ liệu Kaizen
+log_info "Seed dữ liệu Kaizen..."
+heroku run node seed-kaizen-tags.js --app $BACKEND_APP || log_warning "Không thể chạy seed tags"
+heroku run node seed-kaizen-examples.js --app $BACKEND_APP || log_warning "Không thể chạy seed examples"
+
+log_success "Backend đã được deploy thành công!"
 
 cd ..
 
@@ -92,22 +91,21 @@ log_info "📦 Bắt đầu deploy Frontend..."
 
 cd frontend
 
-# Kiểm tra xem có thay đổi trong frontend không
-if git diff --quiet HEAD~1 HEAD -- .; then
-    log_warning "Không có thay đổi trong frontend, bỏ qua deploy frontend"
-else
-    log_info "Có thay đổi trong frontend, tiến hành deploy..."
-    
-    # Build production
-    log_info "Building production..."
-    npm run build
-    
-    # Push code lên Heroku
-    log_info "Pushing code lên Heroku..."
-    git push heroku main
-    
-    log_success "Frontend đã được deploy thành công!"
+# Kiểm tra remote Heroku
+if ! git remote | grep -q heroku; then
+    log_info "Thêm remote Heroku cho frontend..."
+    heroku git:remote -a $FRONTEND_APP
 fi
+
+# Build production
+log_info "Building production..."
+npm run build
+
+# Push code lên Heroku
+log_info "Pushing code lên Heroku..."
+git push heroku master:master
+
+log_success "Frontend đã được deploy thành công!"
 
 cd ..
 
@@ -133,25 +131,18 @@ fi
 # 4. Test API Kaizen
 log_info "🧪 Test API Kaizen..."
 
-# Lấy token từ environment hoặc tạo test token
-TOKEN=$(heroku config:get JWT_SECRET --app $BACKEND_APP)
-
-if [ -n "$TOKEN" ]; then
-    # Test API lấy danh sách Kaizen
-    if curl -f -H "Authorization: Bearer $TOKEN" "$BACKEND_URL/api/kaizen" > /dev/null 2>&1; then
-        log_success "Kaizen API test: OK"
-    else
-        log_warning "Kaizen API test: FAILED"
-    fi
-    
-    # Test API lấy thống kê
-    if curl -f -H "Authorization: Bearer $TOKEN" "$BACKEND_URL/api/kaizen/stats" > /dev/null 2>&1; then
-        log_success "Kaizen Stats API test: OK"
-    else
-        log_warning "Kaizen Stats API test: FAILED"
-    fi
+# Test API lấy danh sách Kaizen
+if curl -f "$BACKEND_URL/api/kaizen" > /dev/null 2>&1; then
+    log_success "Kaizen API test: OK"
 else
-    log_warning "Không thể test API do thiếu JWT token"
+    log_warning "Kaizen API test: FAILED"
+fi
+
+# Test API lấy thống kê
+if curl -f "$BACKEND_URL/api/kaizen/stats" > /dev/null 2>&1; then
+    log_success "Kaizen Stats API test: OK"
+else
+    log_warning "Kaizen Stats API test: FAILED"
 fi
 
 # 5. Hiển thị thông tin

@@ -44,7 +44,7 @@ import {
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { useTheme } from '../hooks/useTheme';
-import { useResponsiveBreakpoint } from '../hooks/useResponsiveBreakpoint';
+import { useResponsiveBreakpoint } from '../hooks/useResponsiveChart';
 import KaizenForm from '../components/KaizenForm';
 import KaizenDetail from '../components/KaizenDetail';
 import KaizenStats from '../components/KaizenStats';
