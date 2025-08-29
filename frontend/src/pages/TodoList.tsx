@@ -2408,77 +2408,68 @@ const TodoList: React.FC = () => {
            isDarkMode={isDarkMode}
          />
        ) : (
-         // Desktop: Original horizontal layout
-         <div className="search-filter-section" style={{ marginBottom: '16px' }}>
-           <Row gutter={[8, 8]} align="middle">
-             <Col xs={24} sm={12} md={8}>
+         // Desktop: Simple horizontal filter layout similar to other pages
+         <Card style={{ marginBottom: '16px' }}>
+           <Row gutter={[16, 16]} align="middle">
+             <Col xs={24} sm={8} md={6}>
                <Input.Search
                  placeholder="Tìm kiếm nhiệm vụ..."
                  value={searchTerm}
                  onChange={(e) => setSearchTerm(e.target.value)}
                  allowClear
-                 size="large"
-                 style={{ width: '100%', height: '40px' }}
+                 size="middle"
                />
              </Col>
-             <Col xs={12} sm={6} md={4}>
+             <Col xs={24} sm={8} md={4}>
                <Select
                  placeholder="Độ ưu tiên"
                  value={priorityFilter}
                  onChange={setPriorityFilter}
                  allowClear
-                 size="large"
-                 style={{ width: '100%', height: '40px' }}
+                 size="middle"
+                 style={{ width: '100%' }}
                >
-                 <Option value="urgent">Khẩn cấp</Option>
-                 <Option value="high">Cao</Option>
-                 <Option value="medium">Trung bình</Option>
-                 <Option value="low">Thấp</Option>
+                 <Option value="urgent">🔥 Khẩn cấp</Option>
+                 <Option value="high">⚠️ Cao</Option>
+                 <Option value="medium">🟦 Trung bình</Option>
+                 <Option value="low">🟢 Thấp</Option>
                </Select>
              </Col>
-             <Col xs={12} sm={6} md={4}>
+             <Col xs={24} sm={8} md={4}>
                <Select
                  placeholder="Trạng thái"
                  value={statusFilter}
                  onChange={setStatusFilter}
                  allowClear
-                 size="large"
-                 style={{ width: '100%', height: '40px' }}
+                 size="middle"
+                 style={{ width: '100%' }}
                >
-                 <Option value="completed">Hoàn thành</Option>
-                 <Option value="pending">Chưa hoàn thành</Option>
+                 <Option value="completed">✅ Hoàn thành</Option>
+                 <Option value="pending">⏳ Chờ xử lý</Option>
                </Select>
              </Col>
-             <Col xs={24} sm={24} md={8}>
-               <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+             <Col xs={24} sm={8} md={4}>
+               <Space>
                  <Button
-                   size="large"
+                   icon={<FilterOutlined />}
                    onClick={() => {
                      setSearchTerm('');
                      setPriorityFilter('');
                      setStatusFilter('');
                    }}
-                   style={{ height: '40px', padding: '0 16px', borderRadius: '6px' }}
+                   size="middle"
                  >
-                   Xóa bộ lọc
+                   Reset
                  </Button>
-                 <div style={{ 
-                   display: 'flex', 
-                   alignItems: 'center', 
-                   gap: '6px',
-                   padding: '8px 16px',
-                   backgroundColor: isDarkMode ? '#262626' : '#f5f5f5',
-                   borderRadius: '6px',
-                   fontSize: '13px',
-                   color: isDarkMode ? 'rgba(255, 255, 255, 0.85)' : 'rgba(0, 0, 0, 0.65)'
-                 }}>
-                   <FilterOutlined />
-                   {dayCards.reduce((total, card) => total + card.todos.length, 0)} nhiệm vụ
-                 </div>
-               </div>
+                 <Badge count={dayCards.reduce((total, card) => total + card.todos.length, 0)}>
+                   <Button size="middle">
+                     Tổng: {dayCards.reduce((total, card) => total + card.todos.length, 0)}
+                   </Button>
+                 </Badge>
+               </Space>
              </Col>
            </Row>
-         </div>
+         </Card>
        )}
 
              {/* Enhanced Navigation Controls */}

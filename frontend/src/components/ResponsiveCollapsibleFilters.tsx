@@ -53,6 +53,16 @@ interface ResponsiveCollapsibleFiltersProps {
   assigneeOptions: FilterOption[];
   onAssigneeChange: (value: string) => void;
   
+  // Type filter (for Issues page)
+  typeValue?: string;
+  typeOptions?: FilterOption[];
+  onTypeChange?: (value: string) => void;
+  
+  // Organization filter (for Users page)
+  organizationValue?: string;
+  organizationOptions?: FilterOption[];
+  onOrganizationChange?: (value: string) => void;
+  
   // Overdue filter
   overdueValue?: boolean;
   onOverdueChange?: (value: boolean) => void;
@@ -88,6 +98,12 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
   assigneeValue,
   assigneeOptions,
   onAssigneeChange,
+  typeValue,
+  typeOptions,
+  onTypeChange,
+  organizationValue,
+  organizationOptions,
+  onOrganizationChange,
   overdueValue = false,
   onOverdueChange,
   onReset,
@@ -104,31 +120,265 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
     return null; // Let parent handle mobile filters
   }
 
-  // Desktop view - use traditional layout
+  // Desktop view - optimized single row layout with proper spacing
   if (!isTabletLandscape) {
     return (
-      <Card style={{ marginBottom: 16 }}>
-        <Row gutter={16}>
-          <Col span={6}>
-            <div style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: 4 }}>Tìm kiếm</div>
+      <>
+                 {/* Custom CSS for desktop selectors */}
+         <style>
+           {`
+             /* Fix all filter elements alignment */
+             .desktop-filter-container {
+               display: flex !important;
+               align-items: center !important;
+               gap: 12px !important;
+               flex-wrap: nowrap !important;
+             }
+             
+             .desktop-filter-select {
+               height: 44px !important;
+               margin: 0 !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             
+             .desktop-filter-select .ant-select-selector {
+               margin: 0 !important;
+               padding: 0 11px !important;
+               height: 44px !important;
+               line-height: 44px !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             .desktop-filter-select .ant-select-selection-search {
+               margin: 0 !important;
+               padding: 0 !important;
+               height: 44px !important;
+               line-height: 44px !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             .desktop-filter-select .ant-select-selection-item {
+               margin: 0 !important;
+               padding: 0 !important;
+               height: 44px !important;
+               line-height: 44px !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             
+             /* Fix input alignment for desktop */
+             .desktop-filter-input {
+               height: 44px !important;
+               margin: 0 !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             
+             .desktop-filter-input .ant-input {
+               height: 44px !important;
+               line-height: 44px !important;
+               padding: 0 11px !important;
+               margin: 0 !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             .desktop-filter-input .ant-input-affix-wrapper {
+               height: 44px !important;
+               line-height: 44px !important;
+               margin: 0 !important;
+               padding: 0 !important;
+               display: flex !important;
+               align-items: center !important;
+             }
+             .desktop-filter-input .ant-input-prefix {
+               margin-right: 8px !important;
+               display: flex !important;
+               align-items: center !important;
+               height: 44px !important;
+             }
+             
+             /* Ensure all filter elements have same baseline */
+             .desktop-filter-item {
+               display: flex !important;
+               align-items: center !important;
+               height: 44px !important;
+               flex-shrink: 0 !important;
+             }
+             
+                           /* Fix button alignment */
+              .desktop-filter-item .ant-btn {
+                height: 44px !important;
+                margin: 0 !important;
+                padding: 0 15px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+              }
+              
+              /* Fix switch alignment for desktop */
+              .desktop-filter-item .ant-switch {
+                height: 44px !important;
+                margin: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              
+              .desktop-filter-item .ant-switch .ant-switch-inner {
+                height: 44px !important;
+                line-height: 44px !important;
+                padding: 0 11px !important;
+                margin: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+             
+                           /* Flexible widths for different filter types */
+              .desktop-filter-search {
+                min-width: 300px !important;
+                max-width: 400px !important;
+                width: 350px !important;
+                flex: none !important;
+              }
+              
+              .desktop-filter-status {
+                min-width: 140px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-priority {
+                min-width: 140px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-project {
+                min-width: 140px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-assignee {
+                min-width: 160px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-organization {
+                min-width: 140px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-type {
+                min-width: 120px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-overdue {
+                min-width: 100px !important;
+                flex: 1 !important;
+              }
+              
+              .desktop-filter-reset {
+                min-width: 100px !important;
+                flex: 1 !important;
+              }
+           `}
+         </style>
+        <Card 
+          style={{ 
+            marginBottom: 16,
+            borderRadius: 8,
+            boxShadow: isDarkMode ? '0 2px 8px rgba(0, 0, 0, 0.3)' : '0 2px 8px rgba(0, 0, 0, 0.1)',
+            backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+            border: isDarkMode ? '1px solid #303030' : '1px solid #f0f0f0'
+          }}
+          bodyStyle={{ 
+            padding: '16px 20px',
+            backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff'
+          }}
+        >
+        {/* Header */}
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          marginBottom: 12,
+          paddingBottom: 8,
+          borderBottom: isDarkMode ? '1px solid #303030' : '1px solid #f0f0f0'
+        }}>
+          <FilterOutlined style={{ 
+            color: isDarkMode ? '#1890ff' : '#1890ff', 
+            marginRight: 8,
+            fontSize: '16px'
+          }} />
+          <span style={{ 
+            fontWeight: 600, 
+            fontSize: '15px',
+            color: isDarkMode ? '#ffffff' : '#262626'
+          }}>
+            {title}
+          </span>
+        </div>
+
+                 {/* Single row layout - flexbox for better control */}
+         <div className="desktop-filter-container">
+                     {/* Search - Flexible width */}
+           <div className="desktop-filter-item desktop-filter-search">
+             <div style={{ 
+               fontSize: '13px', 
+               fontWeight: 500, 
+               marginBottom: 4,
+               color: isDarkMode ? '#d9d9d9' : '#595959'
+             }}>
+               Tìm kiếm
+             </div>
               <Input
+                 className="desktop-filter-input"
                 placeholder={searchPlaceholder}
                 value={searchValue}
                 onChange={(e) => onSearchChange(e.target.value)}
-                prefix={<SearchOutlined />}
+                 prefix={<SearchOutlined style={{ 
+                   color: isDarkMode ? '#8c8c8c' : '#bfbfbf',
+                   fontSize: '14px'
+                 }} />}
+                 style={{ 
+                   borderRadius: 6,
+                   height: '32px',
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   color: isDarkMode ? '#ffffff' : '#262626'
+                 }}
+                 size="small"
               />
             </div>
-          </Col>
-          <Col span={4}>
-            <div style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: 4 }}>Trạng thái</div>
+
+                     {/* Status filter */}
+           <div className="desktop-filter-item desktop-filter-status">
+             <div style={{ 
+               fontSize: '13px', 
+               fontWeight: 500, 
+               marginBottom: 4,
+               color: isDarkMode ? '#d9d9d9' : '#595959'
+             }}>
+               Trạng thái
+             </div>
               <Select
-                placeholder="Tất cả trạng thái"
+                 className="desktop-filter-select"
+                 placeholder="Tất cả"
                 value={statusValue}
                 onChange={onStatusChange}
                 allowClear
-                style={{ width: '100%' }}
+                 style={{ 
+                   width: '100%', 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9'
+                 }}
+                 dropdownStyle={{ 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   margin: 0,
+                   padding: 0
+                 }}
+                 size="small"
               >
                 <Option value="all">Tất cả</Option>
                 {statusOptions.map(option => (
@@ -138,16 +388,37 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
                 ))}
               </Select>
             </div>
-          </Col>
-          <Col span={4}>
-            <div style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: 4 }}>Ưu tiên</div>
+
+                     {/* Priority filter */}
+           <div className="desktop-filter-item desktop-filter-priority">
+             <div style={{ 
+               fontSize: '13px', 
+               fontWeight: 500, 
+               marginBottom: 4,
+               color: isDarkMode ? '#d9d9d9' : '#595959'
+             }}>
+               Ưu tiên
+             </div>
               <Select
-                placeholder="Tất cả ưu tiên"
+                 className="desktop-filter-select"
+                 placeholder="Tất cả"
                 value={priorityValue}
                 onChange={onPriorityChange}
                 allowClear
-                style={{ width: '100%' }}
+                 style={{ 
+                   width: '100%', 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9'
+                 }}
+                 dropdownStyle={{ 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   margin: 0,
+                   padding: 0
+                 }}
+                 size="small"
               >
                 <Option value="all">Tất cả</Option>
                 {priorityOptions.map(option => (
@@ -157,16 +428,37 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
                 ))}
               </Select>
             </div>
-          </Col>
-          <Col span={4}>
-            <div style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: 4 }}>Dự án</div>
+
+                     {/* Project filter */}
+           <div className="desktop-filter-item desktop-filter-project">
+             <div style={{ 
+               fontSize: '13px', 
+               fontWeight: 500, 
+               marginBottom: 4,
+               color: isDarkMode ? '#d9d9d9' : '#595959'
+             }}>
+               Dự án
+             </div>
               <Select
-                placeholder="Tất cả dự án"
+                 className="desktop-filter-select"
+                 placeholder="Tất cả"
                 value={projectValue}
                 onChange={onProjectChange}
                 allowClear
-                style={{ width: '100%' }}
+                 style={{ 
+                   width: '100%', 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9'
+                 }}
+                 dropdownStyle={{ 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   margin: 0,
+                   padding: 0
+                 }}
+                 size="small"
               >
                 <Option value="all">Tất cả</Option>
                 {projectOptions.map(option => (
@@ -176,16 +468,37 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
                 ))}
               </Select>
             </div>
-          </Col>
-          <Col span={4}>
-            <div style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: 4 }}>Người thực hiện</div>
+
+                     {/* Assignee filter */}
+           <div className="desktop-filter-item desktop-filter-assignee">
+             <div style={{ 
+               fontSize: '13px', 
+               fontWeight: 500, 
+               marginBottom: 4,
+               color: isDarkMode ? '#d9d9d9' : '#595959'
+             }}>
+               Người thực hiện
+             </div>
               <Select
-                placeholder="Tất cả người dùng"
+                 className="desktop-filter-select"
+                 placeholder="Tất cả"
                 value={assigneeValue}
                 onChange={onAssigneeChange}
                 allowClear
-                style={{ width: '100%' }}
+                 style={{ 
+                   width: '100%', 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9'
+                 }}
+                 dropdownStyle={{ 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   margin: 0,
+                   padding: 0
+                 }}
+                 size="small"
               >
                 <Option value="all">Tất cả</Option>
                 {assigneeOptions.map(option => (
@@ -195,43 +508,158 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
                 ))}
               </Select>
             </div>
-          </Col>
-          <Col span={2}>
-            <div style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: 4 }}>&nbsp;</div>
-              <Button 
-                icon={<FilterOutlined />}
-                onClick={onReset}
-                style={{ width: '100%' }}
-              >
-                Reset
-              </Button>
+
+                     {/* Organization filter (for Users page) */}
+           {onOrganizationChange && organizationOptions && (
+             <div className="desktop-filter-item desktop-filter-organization">
+               <div style={{ 
+                 fontSize: '13px', 
+                 fontWeight: 500, 
+                 marginBottom: 4,
+                 color: isDarkMode ? '#d9d9d9' : '#595959'
+               }}>
+                 Tổ chức
+               </div>
+               <Select
+                 className="desktop-filter-select"
+                 placeholder="Tất cả"
+                 value={organizationValue}
+                 onChange={onOrganizationChange}
+                 allowClear
+                 style={{ 
+                   width: '100%', 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9'
+                 }}
+                 dropdownStyle={{ 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   margin: 0,
+                   padding: 0
+                 }}
+                 size="small"
+               >
+                 <Option value="all">Tất cả</Option>
+                 {organizationOptions.map(option => (
+                   <Option key={option.value} value={option.value}>
+                     {option.label}
+                   </Option>
+                 ))}
+               </Select>
+             </div>
+           )}
+
+                     {/* Type filter (for Issues page) */}
+           {onTypeChange && typeOptions && (
+             <div className="desktop-filter-item desktop-filter-type">
+               <div style={{ 
+                 fontSize: '13px', 
+                 fontWeight: 500, 
+                 marginBottom: 4,
+                 color: isDarkMode ? '#d9d9d9' : '#595959'
+               }}>
+                 Loại
+               </div>
+               <Select
+                 className="desktop-filter-select"
+                 placeholder="Tất cả"
+                 value={typeValue}
+                 onChange={onTypeChange}
+                 allowClear
+                 style={{ 
+                   width: '100%', 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9'
+                 }}
+                 dropdownStyle={{ 
+                   borderRadius: 6,
+                   backgroundColor: isDarkMode ? '#1f1f1f' : '#ffffff',
+                   border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                   margin: 0,
+                   padding: 0
+                 }}
+                 size="small"
+               >
+                 <Option value="all">Tất cả</Option>
+                 {typeOptions.map(option => (
+                   <Option key={option.value} value={option.value}>
+                     {option.label}
+                   </Option>
+                 ))}
+               </Select>
             </div>
-          </Col>
-        </Row>
+           )}
+
+                     {/* Overdue filter - inline with other filters */}
         {onOverdueChange && (
-          <Row gutter={16} style={{ marginTop: 8 }}>
-            <Col span={6}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <div style={{ fontSize: '14px', fontWeight: 500 }}>Quá hạn:</div>
+             <div className="desktop-filter-item desktop-filter-overdue">
+               <div style={{ 
+                 fontSize: '13px', 
+                 fontWeight: 500, 
+                 marginBottom: 4,
+                 color: isDarkMode ? '#d9d9d9' : '#595959'
+               }}>
+                 Quá hạn
+               </div>
+                               <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: '44px'
+                }}>
                 <Switch
                   checked={overdueValue}
                   onChange={onOverdueChange}
                   checkedChildren="Có"
                   unCheckedChildren="Tất cả"
+                    size="small"
                 />
               </div>
-            </Col>
-          </Row>
-        )}
+             </div>
+           )}
+
+                     {/* Reset button - smaller size and inline */}
+           <div className="desktop-filter-item desktop-filter-reset">
+             <div style={{ 
+               fontSize: '13px', 
+               fontWeight: 500, 
+               marginBottom: 4,
+               color: isDarkMode ? '#d9d9d9' : '#595959'
+             }}>
+               &nbsp;
+             </div>
+             <Button 
+               icon={<FilterOutlined style={{ fontSize: '12px' }} />}
+               onClick={onReset}
+               style={{ 
+                 width: '100%',
+                 borderRadius: 6,
+                 height: '32px',
+                 backgroundColor: isDarkMode ? '#141414' : '#ffffff',
+                 border: isDarkMode ? '1px solid #434343' : '1px solid #d9d9d9',
+                 color: isDarkMode ? '#ffffff' : '#262626',
+                 fontSize: '12px',
+                 padding: '0 8px'
+               }}
+               type="default"
+               size="small"
+             >
+               Reset
+             </Button>
+           </div>
+         </div>
+
+        {/* Additional filters - only if needed */}
         {additionalFilters && (
-          <Row gutter={16} style={{ marginTop: 8 }}>
-            <Col span={24}>
+          <div style={{ marginTop: 12 }}>
               {additionalFilters}
-            </Col>
-          </Row>
+          </div>
         )}
       </Card>
+       </>
     );
   }
 
@@ -366,7 +794,7 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
               </div>
             </Col>
             
-            {/* Row 3: Assignee, Overdue, and Reset */}
+            {/* Row 3: Assignee, Type, and Reset */}
             <Col span={8}>
               <div className="tablet-filter-item">
                 <div className="tablet-filter-label">Người thực hiện</div>
@@ -387,6 +815,50 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
                 </Select>
               </div>
             </Col>
+            {onOrganizationChange && organizationOptions && (
+              <Col span={8}>
+                <div className="tablet-filter-item">
+                  <div className="tablet-filter-label">Tổ chức</div>
+                  <Select
+                    placeholder="Tất cả tổ chức"
+                    value={organizationValue}
+                    onChange={onOrganizationChange}
+                    allowClear
+                    style={{ width: '100%' }}
+                    size="middle"
+                  >
+                    <Option value="all">Tất cả</Option>
+                    {organizationOptions.map(option => (
+                      <Option key={option.value} value={option.value}>
+                        {option.label}
+                      </Option>
+                    ))}
+                  </Select>
+                </div>
+              </Col>
+            )}
+            {onTypeChange && typeOptions && (
+              <Col span={8}>
+                <div className="tablet-filter-item">
+                  <div className="tablet-filter-label">Loại</div>
+                  <Select
+                    placeholder="Tất cả loại"
+                    value={typeValue}
+                    onChange={onTypeChange}
+                    allowClear
+                    style={{ width: '100%' }}
+                    size="middle"
+                  >
+                    <Option value="all">Tất cả</Option>
+                    {typeOptions.map(option => (
+                      <Option key={option.value} value={option.value}>
+                        {option.label}
+                      </Option>
+                    ))}
+                  </Select>
+                </div>
+              </Col>
+            )}
             {onOverdueChange && (
               <Col span={8}>
                 <div className="tablet-filter-item">
@@ -401,7 +873,14 @@ const ResponsiveCollapsibleFilters: React.FC<ResponsiveCollapsibleFiltersProps> 
                 </div>
               </Col>
             )}
-            <Col span={onOverdueChange ? 8 : 16}>
+            <Col span={
+              (onTypeChange && typeOptions ? 1 : 0) + 
+              (onOrganizationChange && organizationOptions ? 1 : 0) + 
+              (onOverdueChange ? 1 : 0) === 0 ? 16 : 
+              (onTypeChange && typeOptions ? 1 : 0) + 
+              (onOrganizationChange && organizationOptions ? 1 : 0) + 
+              (onOverdueChange ? 1 : 0) === 1 ? 8 : 8
+            }>
               <div className="tablet-filter-item">
                 <div className="tablet-filter-label">&nbsp;</div>
                 <Button 

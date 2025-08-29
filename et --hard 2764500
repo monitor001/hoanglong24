@@ -1,0 +1,10 @@
+[33m4d7457b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Remove statistics cards layout modifications and restore original layout
+[33m70ba794[m Fix statistics cards to always show 6 cards per row on desktop mode
+[33m74c7a16[m Update statistics cards layout to support up to 6 cards per row with responsive breakpoints
+[33m1744f8b[m Fix statistics cards layout to ensure even distribution across full screen width in desktop mode
+[33m2764500[m Implement comprehensive filter section UI improvements with enhanced styling, spacing, and accessibility
+[33m1dd02ba[m Fix project filter section alignment and styling for desktop mode
+[33m52b750f[m Fix login form input border and padding issues for desktop mode
+[33m18b971e[m Fix input and dropdown height consistency for desktop mode
+[33m06ae740[m Add tablet-specific sidebar and text fixes for better responsive design
+[33m6854dea[m Fix sidebar icon alignment and spacing for desktop mode

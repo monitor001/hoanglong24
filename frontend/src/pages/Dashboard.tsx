@@ -75,12 +75,7 @@ import {
   FieldTimeOutlined,
   SolutionOutlined,
   ReloadOutlined,
-  ExportOutlined,
-  PrinterOutlined,
-  DownloadOutlined,
-
-  FileExcelOutlined,
-  FilePdfOutlined
+  ExportOutlined
 } from '@ant-design/icons';
 import { 
   Chart as ChartJS, 
@@ -183,8 +178,6 @@ const Dashboard: React.FC = () => {
   // Removed permission system - always allow all actions
   const canViewDashboard = true;
   const canExportDashboard = true;
-  const canPrintReport = true;
-  const canDownloadData = true;
   const permissionsLoading = false;
   
   // Đảm bảo projects luôn là array
@@ -203,7 +196,7 @@ const Dashboard: React.FC = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<string>('');
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [chartView, setChartView] = useState<'overview' | 'tasks' | 'issues' | 'documents' | 'calendar'>('overview');
-  const [timeRange, setTimeRange] = useState<'week' | 'month' | 'quarter' | 'year'>('month');
+
   const [taskFilter, setTaskFilter] = useState<'all' | 'status' | 'priority' | 'projectType'>('all');
   const [taskFilterValue, setTaskFilterValue] = useState<string>('all');
   
@@ -219,8 +212,6 @@ const Dashboard: React.FC = () => {
   
   const [hasTimeout, setHasTimeout] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
-  const [isPrinting, setIsPrinting] = useState(false);
-  const [isDownloading, setIsDownloading] = useState(false);
   const [isUsingFallbackData, setIsUsingFallbackData] = useState(false);
 
   // ✅ Ref cho charts để force update khi theme change
@@ -469,7 +460,7 @@ const Dashboard: React.FC = () => {
         setLoading(false);
       }, 12000);
       
-      const params = selectedProjectId ? { projectId: selectedProjectId, timeRange } : { timeRange };
+      const params = selectedProjectId ? { projectId: selectedProjectId } : {};
       const response = await axiosInstance.get('/dashboard/comprehensive', { params });
       
       clearTimeout(timeoutId);
@@ -483,7 +474,7 @@ const Dashboard: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [selectedProjectId, timeRange]);
+  }, [selectedProjectId]);
 
   useEffect(() => {
     // Fetch dashboard data ngay cả khi không có projects (để lấy overall stats)
@@ -666,7 +657,6 @@ const Dashboard: React.FC = () => {
       setIsExporting(true);
       const response = await axiosInstance.post('/dashboard/export-report', {
         projectId: selectedProjectId || 'all',
-        timeRange,
         reportType: 'comprehensive'
       });
       
@@ -680,49 +670,9 @@ const Dashboard: React.FC = () => {
     } finally {
       setIsExporting(false);
     }
-  }, [selectedProjectId, timeRange]);
-
-  const handlePrintReport = useCallback(async () => {
-    try {
-      setIsPrinting(true);
-      const response = await axiosInstance.post('/dashboard/print-report', {
-        projectId: selectedProjectId || 'all',
-        timeRange,
-        reportType: 'comprehensive'
-      });
-      
-      if (response.data.success) {
-        message.success(response.data.message);
-        // Có thể mở print preview
-      }
-    } catch (error) {
-      console.error('Print error:', error);
-      message.error('Không thể in báo cáo');
-    } finally {
-      setIsPrinting(false);
-    }
-  }, [selectedProjectId, timeRange]);
-
-  const handleDownloadData = useCallback(async (dataType: string, format: string) => {
-    try {
-      setIsDownloading(true);
-      const response = await axiosInstance.post('/dashboard/download-data', {
-        projectId: selectedProjectId || 'all',
-        dataType,
-        format
-      });
-      
-      if (response.data.success) {
-        message.success(response.data.message);
-        // Có thể mở download link
-      }
-    } catch (error) {
-      console.error('Download error:', error);
-      message.error('Không thể tải xuống dữ liệu');
-    } finally {
-      setIsDownloading(false);
-    }
   }, [selectedProjectId]);
+
+
 
 
 
@@ -2090,17 +2040,6 @@ const Dashboard: React.FC = () => {
                 </Option>
               ))}
             </Select>
-            <Segmented
-              options={[
-                { label: t('week'), value: 'week' },
-                { label: t('month'), value: 'month' },
-                { label: t('quarter'), value: 'quarter' },
-                { label: t('year'), value: 'year' },
-              ]}
-              value={timeRange}
-              onChange={(value) => setTimeRange(value as any)}
-              style={{ width: isMobile ? '100%' : 'auto' }}
-            />
             {/* Dashboard Action Buttons */}
             <div className="dashboard-action-buttons">
               {canExportDashboard && (
@@ -2116,31 +2055,6 @@ const Dashboard: React.FC = () => {
                   </Button>
                 </Tooltip>
               )}
-              {canPrintReport && (
-                <Tooltip title="In báo cáo Dashboard">
-                  <Button
-                    icon={<PrinterOutlined />}
-                    loading={isPrinting}
-                    onClick={handlePrintReport}
-                    size={isMobile ? 'small' : 'middle'}
-                  >
-                    {isMobile ? '' : 'In báo cáo'}
-                  </Button>
-                </Tooltip>
-              )}
-              {canDownloadData && (
-                <Tooltip title="Tải xuống dữ liệu">
-                  <Button
-                    icon={<DownloadOutlined />}
-                    loading={isDownloading}
-                    onClick={() => handleDownloadData('all', 'excel')}
-                    size={isMobile ? 'small' : 'middle'}
-                  >
-                    {isMobile ? '' : 'Tải xuống'}
-                  </Button>
-                </Tooltip>
-              )}
-
             </div>
           </Space>
         </Col>

@@ -103,9 +103,9 @@ axiosInstance.interceptors.response.use(
     
     // Handle specific error cases
     if (error.response?.status === 401) {
-      // Unauthorized - redirect to login
-      console.log('🔄 Unauthorized access, redirecting to login...');
-      window.location.href = '/login';
+      // Unauthorized - clear auth state but don't redirect automatically
+      console.log('🔄 Unauthorized access detected');
+      // Let components handle 401 errors themselves
     } else if (error.response?.status === 403) {
       // Forbidden - show permission error
       message.error('Bạn không có quyền thực hiện hành động này');

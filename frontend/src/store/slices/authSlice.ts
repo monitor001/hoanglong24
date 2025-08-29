@@ -47,16 +47,58 @@ interface RegisterData {
   organization?: string;
 }
 
-// Initial state - Không lưu từ localStorage
-const initialState: AuthState = {
-  user: null,
-  token: null,
-  sessionId: null,
-  isLoading: false,
-  error: null,
-  requireTwoFactor: false,
-  tempUserId: null,
+// Helper functions for localStorage
+const saveToLocalStorage = (token: string, user: User, sessionId?: string) => {
+  localStorage.setItem('auth_token', token);
+  localStorage.setItem('auth_user', JSON.stringify(user));
+  if (sessionId) {
+    localStorage.setItem('auth_sessionId', sessionId);
+  }
 };
+
+const clearFromLocalStorage = () => {
+  localStorage.removeItem('auth_token');
+  localStorage.removeItem('auth_user');
+  localStorage.removeItem('auth_sessionId');
+};
+
+// Helper function to get initial state from localStorage
+const getInitialState = (): AuthState => {
+  try {
+    const token = localStorage.getItem('auth_token');
+    const userStr = localStorage.getItem('auth_user');
+    const sessionId = localStorage.getItem('auth_sessionId');
+    
+    let user = null;
+    if (userStr) {
+      user = JSON.parse(userStr);
+    }
+    
+    return {
+      user,
+      token,
+      sessionId,
+      isLoading: false,
+      error: null,
+      requireTwoFactor: false,
+      tempUserId: null,
+    };
+  } catch (error) {
+    console.error('Error loading auth state from localStorage:', error);
+    return {
+      user: null,
+      token: null,
+      sessionId: null,
+      isLoading: false,
+      error: null,
+      requireTwoFactor: false,
+      tempUserId: null,
+    };
+  }
+};
+
+// Initial state - Load from localStorage
+const initialState: AuthState = getInitialState();
 
 // Async thunks
 export const login = createAsyncThunk<LoginResponse, LoginCredentials>(
@@ -214,7 +256,8 @@ const authSlice = createSlice({
         state.sessionId = action.payload.sessionId || null;
         state.requireTwoFactor = false;
         state.tempUserId = null;
-        // KHÔNG lưu sessionId vào localStorage
+        // Lưu vào localStorage để persist session
+        saveToLocalStorage(action.payload.token, action.payload.user, action.payload.sessionId);
       }
     });
     builder.addCase(login.rejected, (state, action) => {
@@ -234,7 +277,8 @@ const authSlice = createSlice({
       state.sessionId = action.payload.sessionId || null;
       state.requireTwoFactor = false;
       state.tempUserId = null;
-      // KHÔNG lưu sessionId vào localStorage
+      // Lưu vào localStorage để persist session
+      saveToLocalStorage(action.payload.token, action.payload.user, action.payload.sessionId);
     });
     builder.addCase(verifyTwoFactor.rejected, (state, action) => {
       state.isLoading = false;
@@ -251,7 +295,8 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.sessionId = action.payload.sessionId || null;
-      // KHÔNG lưu sessionId vào localStorage
+      // Lưu vào localStorage để persist session
+      saveToLocalStorage(action.payload.token, action.payload.user, action.payload.sessionId);
     });
     builder.addCase(register.rejected, (state, action) => {
       state.isLoading = false;
@@ -263,6 +308,8 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
       state.sessionId = null;
+      // Xóa khỏi localStorage
+      clearFromLocalStorage();
     });
     
     // Refresh Token
@@ -270,12 +317,15 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.user = action.payload.user;
       state.sessionId = action.payload.sessionId || null;
-      // KHÔNG lưu sessionId vào localStorage
+      // Cập nhật localStorage với token mới
+      saveToLocalStorage(action.payload.token, action.payload.user, action.payload.sessionId);
     });
     builder.addCase(refreshToken.rejected, (state) => {
       state.user = null;
       state.token = null;
       state.sessionId = null;
+      // Xóa khỏi localStorage khi refresh token thất bại
+      clearFromLocalStorage();
     });
   },
 });

@@ -23,13 +23,15 @@ import {
   CommentOutlined,
   FormOutlined,
   AppstoreOutlined,
-  UnorderedListOutlined
+  UnorderedListOutlined,
+  KeyOutlined
 } from '@ant-design/icons';
 
 import { RootState } from '../store';
 import { logout } from '../store/slices/authSlice';
 import { toggleSidebar, setLanguage, setTheme } from '../store/slices/uiSlice';
 import { useTheme } from '../hooks/useTheme';
+import { ROLES } from '../constants/roles';
 import io from 'socket.io-client';
 import NotificationCenter from '../components/NotificationCenter';
 
@@ -125,7 +127,10 @@ const MainLayout: React.FC = () => {
     }
   }, [user?.id]);
 
-  // Menu items - All enabled without permission checks
+  // Check if user is admin
+  const isAdmin = user?.role === ROLES.ADMIN;
+  
+  // Menu items with admin permission checks
   const menuItems = [
     {
       key: 'dashboard',
@@ -140,13 +145,6 @@ const MainLayout: React.FC = () => {
       label: t('navigation.projects'),
       onClick: () => navigate('/projects'),
       description: 'Quản lý dự án và thông tin chi tiết'
-    },
-    {
-      key: 'documents-iso',
-      icon: <FileTextOutlined />,
-      label: 'Tài liệu ISO 19650',
-      onClick: () => navigate('/documents-iso'),
-      description: 'Quản lý tài liệu theo chuẩn ISO 19650'
     },
     {
       key: 'tasks',
@@ -176,20 +174,6 @@ const MainLayout: React.FC = () => {
       onClick: () => navigate('/notes')
     },
     {
-      key: 'design-checklist',
-      icon: <FormOutlined />,
-      label: 'Hồ sơ Thiết kế',
-      onClick: () => navigate('/design-checklist'),
-      description: 'Quản lý checklist hồ sơ thiết kế'
-    },
-    {
-      key: 'approval-kanban',
-      icon: <AppstoreOutlined />,
-      label: 'Phê duyệt hồ sơ',
-      onClick: () => navigate('/approval-kanban'),
-      description: 'Quản lý quy trình phê duyệt hồ sơ theo dạng Kanban'
-    },
-    {
       key: 'todo-list',
       icon: <UnorderedListOutlined />,
       label: 'Danh sách nhiệm vụ',
@@ -197,25 +181,92 @@ const MainLayout: React.FC = () => {
       description: 'Quản lý nhiệm vụ theo ngày với giao diện album'
     },
     {
-      key: 'reports',
+      key: 'design-checklist',
+      icon: <FormOutlined />,
+      label: 'Hồ sơ Thiết kế',
+      onClick: () => navigate('/design-checklist'),
+      description: 'Quản lý checklist hồ sơ thiết kế',
+      adminOnly: true // Chỉ admin mới thấy
+    },
+    {
+      key: 'approval-kanban',
+      icon: <AppstoreOutlined />,
+      label: 'Phê duyệt hồ sơ',
+      onClick: () => navigate('/approval-kanban'),
+      description: 'Quản lý quy trình phê duyệt hồ sơ theo dạng Kanban',
+      adminOnly: true // Chỉ admin mới thấy
+    },
+    {
+      key: 'kaizen',
+      icon: <BulbOutlined />,
+      label: 'Cải tiến Kaizen',
+      onClick: () => navigate('/kaizen'),
+      description: 'Chia sẻ và quản lý các cải tiến Kaizen',
+      children: [
+        {
+          key: 'kaizen-list',
+          label: 'Danh sách cải tiến',
+          onClick: () => navigate('/kaizen')
+        },
+        {
+          key: 'kaizen-create',
+          label: 'Tạo cải tiến mới',
+          onClick: () => navigate('/kaizen/create')
+        },
+        {
+          key: 'kaizen-stats',
+          label: 'Thống kê',
+          onClick: () => navigate('/kaizen/stats')
+        }
+      ]
+    },
+    {
+      key: 'documents-iso',
       icon: <FileTextOutlined />,
-      label: 'Báo cáo',
-      onClick: () => navigate('/reports'),
-      description: 'Quản lý báo cáo và theo dõi hoạt động hệ thống'
+      label: 'Tài liệu ISO 19650',
+      onClick: () => navigate('/documents-iso'),
+      description: 'Quản lý tài liệu theo chuẩn ISO 19650',
+      adminOnly: true // Chỉ admin mới thấy
+    },
+    {
+      key: 'licenses',
+      icon: <KeyOutlined />,
+      label: 'Quản lý License',
+      onClick: () => navigate('/licenses'),
+      description: 'Quản lý license theo ID máy và thời gian sử dụng',
+      adminOnly: true // Chỉ admin mới thấy
     },
     {
       key: 'users',
       icon: <TeamOutlined />,
       label: t('navigation.users'),
-      onClick: () => navigate('/users')
+      onClick: () => navigate('/users'),
+      adminOnly: true // Chỉ admin mới thấy
+    },
+    {
+      key: 'reports',
+      icon: <FileTextOutlined />,
+      label: 'Báo cáo',
+      onClick: () => navigate('/reports'),
+      description: 'Quản lý báo cáo và theo dõi hoạt động hệ thống',
+      adminOnly: true // Chỉ admin mới thấy
     },
     {
       key: 'settings',
       icon: <SettingOutlined />,
       label: t('navigation.settings'),
-      onClick: () => navigate('/settings')
+      onClick: () => navigate('/settings'),
+      adminOnly: true // Chỉ admin mới thấy
     }
   ];
+  
+  // Filter menu items based on admin permissions
+  const filteredMenuItems = menuItems.filter(item => {
+    if (item.adminOnly && !isAdmin) {
+      return false;
+    }
+    return true;
+  });
   
   // User dropdown menu
   const userMenu: MenuProps = {
@@ -317,7 +368,7 @@ const MainLayout: React.FC = () => {
           theme={actualIsDarkMode ? 'dark' : 'light'}
           mode="inline"
           defaultSelectedKeys={[currentPath]}
-          items={menuItems}
+          items={filteredMenuItems}
           style={{
             background: 'transparent',
             border: 'none'
@@ -339,7 +390,7 @@ const MainLayout: React.FC = () => {
             theme={actualIsDarkMode ? 'dark' : 'light'}
             mode="inline"
             defaultSelectedKeys={[currentPath]}
-            items={menuItems}
+            items={filteredMenuItems}
             style={{
               background: actualIsDarkMode ? '#001529' : '#ffffff',
               border: 'none'
@@ -437,7 +488,7 @@ const MainLayout: React.FC = () => {
               overflowY: 'hidden',
               gap: '8px'
             }}>
-            {menuItems.filter(item => item?.key !== 'divider').map((item: any) => (
+            {filteredMenuItems.filter(item => item?.key !== 'divider').map((item: any) => (
               <div
                 key={item.key}
                 onClick={() => navigate(item.key)}

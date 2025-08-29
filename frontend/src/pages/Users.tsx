@@ -766,24 +766,7 @@ const Users: React.FC = () => {
     // Desktop view
     return (
       <div>
-        {/* Header with title and action buttons for tablet landscape */}
-        {isTabletLandscape && (
-          <Row style={{ marginBottom: 16 }} align="middle" justify="space-between">
-            <Col>
-              <Title level={4} style={{ margin: 0 }}>Quản lý thành viên</Title>
-            </Col>
-            <Col>
-              <Space>
-                <Button icon={<DownloadOutlined />} onClick={handleExportExcel}>
-                  Xuất Excel
-                </Button>
-                <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
-                  Thêm Thành Viên
-                </Button>
-              </Space>
-            </Col>
-          </Row>
-        )}
+        
 
         {/* Filter and Search Bar */}
         <ResponsiveCollapsibleFilters
@@ -814,60 +797,21 @@ const Users: React.FC = () => {
           assigneeValue=""
           assigneeOptions={[]}
           onAssigneeChange={() => {}}
+          organizationValue={selectedOrganization}
+          organizationOptions={[
+            { value: 'all', label: 'Tất cả tổ chức' },
+            ...Array.from(new Set(users.filter(u => u.organization).map(u => u.organization))).map(org => ({
+              value: org,
+              label: org
+            }))
+          ]}
+          onOrganizationChange={setSelectedOrganization}
           onReset={handleFiltersReset}
           title="Bộ lọc thành viên"
           isMobile={isMobile}
           isTabletLandscape={isTabletLandscape}
           isDarkMode={isDarkMode}
-          additionalFilters={
-            <Col span={24}>
-              <Row gutter={16} style={{ marginBottom: 16 }}>
-                <Col span={isMobile ? 24 : isTabletLandscape ? 12 : 6}>
-                  <div style={{ marginBottom: 8 }}>
-                    <Text strong>Tổ chức:</Text>
-                  </div>
-                  <Select
-                    value={selectedOrganization}
-                    onChange={setSelectedOrganization}
-                    placeholder="Chọn tổ chức"
-                    style={{ width: '100%' }}
-                    size={isMobile ? 'large' : 'middle'}
-                  >
-                    <Option value="all">Tất cả tổ chức</Option>
-                    {Array.from(new Set(users.filter(u => u.organization).map(u => u.organization))).map(org => (
-                      <Option key={org} value={org}>{org}</Option>
-                    ))}
-                  </Select>
-                </Col>
-                {!isTabletLandscape && (
-                  <Col span={18}>
-                    <Space>
-                      <Button icon={<DownloadOutlined />} onClick={handleExportExcel}>
-                        Xuất Excel
-                      </Button>
-                      <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
-                        Thêm Thành Viên
-                      </Button>
-                    </Space>
-                  </Col>
-                )}
-              </Row>
-              {isTabletLandscape && (
-                <Row>
-                  <Col span={24}>
-                    <Space>
-                      <Button icon={<DownloadOutlined />} onClick={handleExportExcel}>
-                        Xuất Excel
-                      </Button>
-                      <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
-                        Thêm Thành Viên
-                      </Button>
-                    </Space>
-                  </Col>
-                </Row>
-              )}
-            </Col>
-          }
+          
         />
 
         {/* Users Table */}
@@ -907,18 +851,34 @@ const Users: React.FC = () => {
 
   return (
     <div style={{ padding: isMobile ? '16px 0' : 24 }}>
-      {/* Header */}
-      <div style={{ marginBottom: isMobile ? 16 : 24, padding: isMobile ? '0 16px' : 0 }}>
-        <Title level={isMobile ? 3 : 2} style={{ margin: 0, fontSize: isMobile ? 18 : undefined }}>
-          <TeamOutlined style={{ marginRight: 8 }} />
-          {isMobile ? 'Thành Viên' : 'Thành Viên / Phân Quyền'}
-        </Title>
-        {!isMobile && (
-          <Text type="secondary">
-            Quản lý thành viên, vai trò và phân quyền truy cập hệ thống
-          </Text>
-        )}
-      </div>
+             {/* Header */}
+       <div style={{ marginBottom: isMobile ? 16 : 24, padding: isMobile ? '0 16px' : 0 }}>
+         <Row align="middle" justify="space-between">
+           <Col>
+             <Title level={isMobile ? 3 : 2} style={{ margin: 0, fontSize: isMobile ? 18 : undefined }}>
+               <TeamOutlined style={{ marginRight: 8 }} />
+               {isMobile ? 'Thành Viên' : 'Thành Viên / Phân Quyền'}
+             </Title>
+             {!isMobile && (
+               <Text type="secondary">
+                 Quản lý thành viên, vai trò và phân quyền truy cập hệ thống
+               </Text>
+             )}
+           </Col>
+           {!isMobile && (
+             <Col>
+               <Space>
+                 <Button icon={<DownloadOutlined />} onClick={handleExportExcel}>
+                   Xuất Excel
+                 </Button>
+                 <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
+                   Thêm Thành Viên
+                 </Button>
+               </Space>
+             </Col>
+           )}
+         </Row>
+       </div>
 
       {/* Tabs */}
       {isMobile ? (

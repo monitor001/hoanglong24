@@ -747,8 +747,8 @@ const CalendarPage: React.FC = () => {
                 <Text type="secondary" style={{ fontSize: 16 }}>Quản lý lịch họp, deadline, milestone và các sự kiện dự án</Text>
               </div>
             </div>
-            {/* Move Create Event button to header for tablet landscape */}
-            {isTabletLandscape && (
+            {/* Create Event button in header for all desktop modes */}
+            {!isMobile && (
               <Button
                 type="primary"
                 icon={<PlusOutlined />}
@@ -922,28 +922,6 @@ const CalendarPage: React.FC = () => {
                   color={token.colorWarning}
                 />
               </Col>
-            {/* Only show Create Event button for desktop (not tablet landscape) */}
-            {!isTabletLandscape && (
-              <Col span={4}>
-                <Card>
-                  <Button
-                    type="primary"
-                    icon={<PlusOutlined />}
-                    size="large"
-                    style={{ 
-                      width: '100%', 
-                      height: '100%',
-                      background: `linear-gradient(135deg, ${token.colorPrimary} 0%, ${token.colorPrimaryActive} 100%)`,
-                      border: 'none',
-                      borderRadius: token.borderRadius
-                    }}
-                    onClick={() => openDrawer()}
-                  >
-                    Tạo Sự Kiện
-                  </Button>
-                </Card>
-              </Col>
-            )}
             </Row>
           </div>
         )}
@@ -1174,48 +1152,118 @@ const CalendarPage: React.FC = () => {
             </Col>
             {/* Hide desktop filters in tablet landscape mode */}
             {!isTabletLandscape && (
-              <Col>
-                <Space size="small">
-                  <Input.Search
-                    placeholder="Tìm kiếm sự kiện..."
-                    allowClear
-                    value={search}
-                    onChange={e => setSearch(e.target.value)}
-                    style={{ width: 220 }}
-                    size="small"
-                    prefix={<SearchOutlined />}
-                  />
-                  <Select
-                    placeholder="Tất cả loại"
-                    allowClear
-                    style={{ width: 120 }}
-                    size="small"
-                    value={filterType}
-                    onChange={setFilterType}
-                    prefix={<FilterOutlined />}
-                  >
-                    <Option value="MEETING">Họp</Option>
-                    <Option value="DEADLINE">Deadline</Option>
-                    <Option value="MILESTONE">Milestone</Option>
-                    <Option value="EVENT">Sự kiện khác</Option>
-                  </Select>
-                  <Select
-                    placeholder="Tất cả dự án"
-                    allowClear
-                    style={{ width: 160 }}
-                    size="small"
-                    value={filterProject}
-                    onChange={setFilterProject}
-                    showSearch
-                    optionFilterProp="children"
-                    prefix={<ProjectOutlined />}
-                  >
-                    {Array.isArray(projects) && projects.map((p: any) => (
-                      <Option key={p.id} value={p.id}>{p.name}</Option>
-                    ))}
-                  </Select>
-                </Space>
-              </Col>
+              <>
+                {/* Custom CSS for desktop calendar filters */}
+                <style>
+                  {`
+                    .desktop-calendar-filter-container {
+                      display: flex !important;
+                      align-items: center !important;
+                      gap: 8px !important;
+                    }
+                    .desktop-calendar-filter-container .ant-input-search {
+                      height: 44px !important;
+                      margin: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .desktop-calendar-filter-container .ant-input-search .ant-input {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 11px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .desktop-calendar-filter-container .ant-input-search .ant-input-affix-wrapper {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .desktop-calendar-filter-container .ant-input-search .ant-input-prefix {
+                      margin-right: 8px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      height: 44px !important;
+                    }
+                    .desktop-calendar-filter-container .ant-select {
+                      height: 44px !important;
+                      margin: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .desktop-calendar-filter-container .ant-select .ant-select-selector {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 11px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .desktop-calendar-filter-container .ant-select .ant-select-selection-search {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .desktop-calendar-filter-container .ant-select .ant-select-selection-item {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                  `}
+                </style>
+                <Col>
+                  <div className="desktop-calendar-filter-container">
+                    <Input.Search
+                      placeholder="Tìm kiếm sự kiện..."
+                      allowClear
+                      value={search}
+                      onChange={e => setSearch(e.target.value)}
+                      style={{ width: 220 }}
+                      size="small"
+                      prefix={<SearchOutlined />}
+                    />
+                    <Select
+                      placeholder="Tất cả loại"
+                      allowClear
+                      style={{ width: 120 }}
+                      size="small"
+                      value={filterType}
+                      onChange={setFilterType}
+                      prefix={<FilterOutlined />}
+                    >
+                      <Option value="MEETING">Họp</Option>
+                      <Option value="DEADLINE">Deadline</Option>
+                      <Option value="MILESTONE">Milestone</Option>
+                      <Option value="EVENT">Sự kiện khác</Option>
+                    </Select>
+                    <Select
+                      placeholder="Tất cả dự án"
+                      allowClear
+                      style={{ width: 160 }}
+                      size="small"
+                      value={filterProject}
+                      onChange={setFilterProject}
+                      showSearch
+                      optionFilterProp="children"
+                      prefix={<ProjectOutlined />}
+                    >
+                      {Array.isArray(projects) && projects.map((p: any) => (
+                        <Option key={p.id} value={p.id}>{p.name}</Option>
+                      ))}
+                    </Select>
+                  </div>
+                </Col>
+              </>
             )}
           </Row>
       </Card>

@@ -2747,7 +2747,7 @@ const Tasks: React.FC = () => {
         </div>
       ) : (
         <div style={{ marginBottom: '24px' }}>
-          <Row gutter={16} align="middle" style={{ marginBottom: '16px' }}>
+          <Row gutter={16} align="middle" justify="space-between" style={{ marginBottom: '16px' }}>
             <Col>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <Title level={3} style={{ margin: 0 }}>Quản lý công việc</Title>

@@ -1387,91 +1387,193 @@ const Notes: React.FC = () => {
               )}
             </div>
             {!isMobile && !isTabletLandscape && (
-              <Space>
-                {/* Các filter/search */}
-                <Input
-                  placeholder="Tìm kiếm ghi chú..."
-                  prefix={<SearchOutlined />}
-                  defaultValue={searchText}
-                  onChange={(e) => debouncedSearch(e.target.value)}
-                  style={{ width: '200px' }}
-                  aria-label="Tìm kiếm ghi chú"
-                />
-                <Select
-                  placeholder="Lọc theo thời gian"
-                  value={notesTimeFilter}
-                  onChange={setNotesTimeFilter}
-                  allowClear
-                  style={{ width: '150px' }}
-                >
-                  {timeFilterOptions.map(option => (
-                    <Option key={option.value} value={option.value}>{option.label}</Option>
-                  ))}
-                </Select>
-                <Select
-                  placeholder="Lọc theo thư mục"
-                  value={selectedFolder}
-                  onChange={setSelectedFolder}
-                  allowClear
-                  style={{ width: '150px' }}
-                >
-                  {Array.isArray(folders) && folders.map(folder => (
-                    <Option key={folder.id} value={folder.id}>{folder.name}</Option>
-                  ))}
-                </Select>
-                <Select
-                  mode="multiple"
-                  placeholder="Lọc theo tags"
-                  value={selectedTags}
-                  onChange={setSelectedTags}
-                  allowClear
-                  style={{ width: '150px' }}
-                >
-                  {allTags.map(tag => (
-                    <Option key={tag} value={tag}>{tag}</Option>
-                  ))}
-                </Select>
-                <Button.Group>
-                  <Button
-                    type={viewMode === 'grid' ? 'primary' : 'default'}
-                    icon={<AppstoreOutlined />}
-                    onClick={() => setViewMode('grid')}
-                    title="Xem dạng lưới"
+              <>
+                {/* Custom CSS for desktop notes filters */}
+                <style>
+                  {`
+                    .desktop-notes-filter-container {
+                      display: flex !important;
+                      align-items: center !important;
+                      gap: 8px !important;
+                    }
+                    .desktop-notes-filter-container .ant-input {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 11px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-input-affix-wrapper {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-input-prefix {
+                      margin-right: 8px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-select {
+                      height: 44px !important;
+                      margin: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-select .ant-select-selector {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 11px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-select .ant-select-selection-search {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-select .ant-select-selection-item {
+                      height: 44px !important;
+                      line-height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-btn {
+                      height: 44px !important;
+                      margin: 0 !important;
+                      padding: 0 15px !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-btn-group {
+                      display: flex !important;
+                      align-items: center !important;
+                      height: 44px !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                    .desktop-notes-filter-container .ant-btn-group .ant-btn {
+                      height: 44px !important;
+                      margin: 0 !important;
+                      display: flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      min-height: 44px !important;
+                      max-height: 44px !important;
+                    }
+                  `}
+                </style>
+                <div className="desktop-notes-filter-container">
+                  {/* Các filter/search */}
+                  <Input
+                    placeholder="Tìm kiếm ghi chú..."
+                    prefix={<SearchOutlined />}
+                    defaultValue={searchText}
+                    onChange={(e) => debouncedSearch(e.target.value)}
+                    style={{ width: '200px' }}
+                    aria-label="Tìm kiếm ghi chú"
                   />
+                  <Select
+                    placeholder="Lọc theo thời gian"
+                    value={notesTimeFilter}
+                    onChange={setNotesTimeFilter}
+                    allowClear
+                    style={{ width: '150px' }}
+                  >
+                    {timeFilterOptions.map(option => (
+                      <Option key={option.value} value={option.value}>{option.label}</Option>
+                    ))}
+                  </Select>
+                  <Select
+                    placeholder="Lọc theo thư mục"
+                    value={selectedFolder}
+                    onChange={setSelectedFolder}
+                    allowClear
+                    style={{ width: '150px' }}
+                  >
+                    {Array.isArray(folders) && folders.map(folder => (
+                      <Option key={folder.id} value={folder.id}>{folder.name}</Option>
+                    ))}
+                  </Select>
+                  <Select
+                    mode="multiple"
+                    placeholder="Lọc theo tags"
+                    value={selectedTags}
+                    onChange={setSelectedTags}
+                    allowClear
+                    style={{ width: '150px' }}
+                  >
+                    {allTags.map(tag => (
+                      <Option key={tag} value={tag}>{tag}</Option>
+                    ))}
+                  </Select>
+                  <Button.Group>
+                    <Button
+                      type={viewMode === 'grid' ? 'primary' : 'default'}
+                      icon={<AppstoreOutlined />}
+                      onClick={() => setViewMode('grid')}
+                      title="Xem dạng lưới"
+                    />
+                    <Button
+                      type={viewMode === 'list' ? 'primary' : 'default'}
+                      icon={<UnorderedListOutlined />}
+                      onClick={() => setViewMode('list')}
+                      title="Xem dạng danh sách"
+                    />
+                  </Button.Group>
                   <Button
-                    type={viewMode === 'list' ? 'primary' : 'default'}
-                    icon={<UnorderedListOutlined />}
-                    onClick={() => setViewMode('list')}
-                    title="Xem dạng danh sách"
-                  />
-                </Button.Group>
-                <Button
-                  type={showTrash ? 'primary' : 'default'}
-                  icon={<DeleteIcon />}
-                  onClick={() => setShowTrash(!showTrash)}
-                  title={showTrash ? 'Quay lại ghi chú' : 'Thùng rác'}
-                  aria-label={showTrash ? 'Quay lại ghi chú' : 'Thùng rác'}
-                >
-                  {showTrash ? 'Ghi chú' : 'Thùng rác'}
-                </Button>
-                <Button
-                  type={isMultiSelectMode ? 'primary' : 'default'}
-                  icon={<EditIcon />}
-                  onClick={() => setIsMultiSelectMode(!isMultiSelectMode)}
-                  title="Chọn nhiều"
-                  aria-label="Chế độ chọn nhiều ghi chú"
-                >
-                  Chọn nhiều
-                </Button>
-                <Button
-                  icon={<DownloadOutlined />}
-                  onClick={handleExportNotes}
-                  title="Xuất ghi chú"
-                  aria-label="Xuất ghi chú ra file JSON"
-                >
-                  Xuất
-                </Button>
-              </Space>
+                    type={showTrash ? 'primary' : 'default'}
+                    icon={<DeleteIcon />}
+                    onClick={() => setShowTrash(!showTrash)}
+                    title={showTrash ? 'Quay lại ghi chú' : 'Thùng rác'}
+                    aria-label={showTrash ? 'Quay lại ghi chú' : 'Thùng rác'}
+                  >
+                    {showTrash ? 'Ghi chú' : 'Thùng rác'}
+                  </Button>
+                  <Button
+                    type={isMultiSelectMode ? 'primary' : 'default'}
+                    icon={<EditIcon />}
+                    onClick={() => setIsMultiSelectMode(!isMultiSelectMode)}
+                    title="Chọn nhiều"
+                    aria-label="Chế độ chọn nhiều ghi chú"
+                  >
+                    Chọn nhiều
+                  </Button>
+                  <Button
+                    icon={<DownloadOutlined />}
+                    onClick={handleExportNotes}
+                    title="Xuất ghi chú"
+                    aria-label="Xuất ghi chú ra file JSON"
+                  >
+                    Xuất
+                  </Button>
+                </div>
+              </>
             )}
             
             {/* Tablet Landscape - Separate Filter Container - REMOVED from here */}

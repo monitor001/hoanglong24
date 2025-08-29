@@ -1234,7 +1234,7 @@ const Issues = () => {
   return (
     <div className="issues-container" style={{ padding: '24px' }}>
       <div style={{ marginBottom: '24px' }}>
-        <Row gutter={16} align="middle" style={{ marginBottom: '16px' }}>
+        <Row gutter={16} align="middle" justify="space-between" style={{ marginBottom: '16px' }}>
           <Col>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <Title level={3} style={{ margin: 0 }}>Quản lý vấn đề</Title>
@@ -1590,6 +1590,9 @@ const Issues = () => {
             assigneeValue={filter.assigneeId}
             assigneeOptions={users.map(user => ({ value: user.id, label: user.name }))}
             onAssigneeChange={(value) => handleFilterChange('assigneeId', value)}
+            typeValue={filter.type}
+            typeOptions={typeList}
+            onTypeChange={(value) => handleFilterChange('type', value)}
             onReset={() => {
               setFilter({ search: '', status: '', priority: '', type: '', assigneeId: '', projectId: '' });
               setPagination(prev => ({ ...prev, current: 1 }));
@@ -1598,27 +1601,6 @@ const Issues = () => {
             isMobile={isMobile}
             isTabletLandscape={isTabletLandscape}
             isDarkMode={isDarkMode}
-            additionalFilters={
-              <Col span={12}>
-                <div className="tablet-filter-item">
-                  <div className="tablet-filter-label">Loại</div>
-                  <Select
-                    placeholder="Chọn loại"
-                    value={filter.type}
-                    onChange={(value) => handleFilterChange('type', value)}
-                    allowClear
-                    style={{ width: '100%' }}
-                    size="middle"
-                  >
-                    {typeList.map(type => (
-                      <Option key={type.value} value={type.value}>
-                        {type.label}
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </Col>
-            }
           />
         )}
 

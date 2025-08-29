@@ -2001,68 +2001,115 @@ const DocumentsISO: React.FC = () => {
 
       {/* Search and Filter */}
       <Card style={{ marginBottom: 24 }}>
+        <style>
+          {`
+            /* Desktop-only filter alignment fixes */
+            @media (min-width: 769px) {
+              .desktop-documents-filter-container {
+                display: flex !important;
+                align-items: center !important;
+                gap: 16px !important;
+              }
+              
+              .desktop-documents-filter-container .ant-input,
+              .desktop-documents-filter-container .ant-input-affix-wrapper {
+                height: 44px !important;
+                margin: 0 !important;
+                padding: 0 11px !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              
+              .desktop-documents-filter-container .ant-select {
+                height: 44px !important;
+                margin: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              
+              .desktop-documents-filter-container .ant-select .ant-select-selector {
+                height: 44px !important;
+                margin: 0 !important;
+                padding: 0 11px !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              
+              .desktop-documents-filter-container .ant-select .ant-select-selection-search {
+                height: 44px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              
+              .desktop-documents-filter-container .ant-select .ant-select-selection-item {
+                height: 44px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              
+              .desktop-documents-filter-container .ant-btn {
+                height: 44px !important;
+                margin: 0 !important;
+                padding: 0 15px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+              }
+            }
+          `}
+        </style>
         {!isMobile && !isTabletLandscape ? (
           // Desktop layout
-          <Row gutter={[16, 16]} align="middle">
-            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-              <Input
-                placeholder="Tìm kiếm tài liệu..."
-                prefix={<SearchOutlined />}
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-              />
-            </Col>
-            <Col xs={24} sm={24} md={16} lg={16} xl={16}>
-              <Row gutter={[8, 8]} wrap>
-                <Col xs={12} sm={8} md={6} lg={6} xl={6}>
-                  <Select
-                    value={selectedDiscipline}
-                    onChange={setSelectedDiscipline}
-                    style={{ width: '100%' }}
-                    placeholder="Tất cả chuyên ngành"
-                  >
-                    <Option value="all">Tất cả chuyên ngành</Option>
-                    <Option value="AR">Kiến trúc</Option>
-                    <Option value="ST">Kết cấu</Option>
-                    <Option value="ME">Cơ điện</Option>
-                    <Option value="QS">Định giá</Option>
-                    <Option value="PM">Quản lý dự án</Option>
-                  </Select>
-                </Col>
-                
-                <Col xs={12} sm={8} md={6} lg={6} xl={6}>
-                  <Select
-                    value={selectedProject}
-                    onChange={setSelectedProject}
-                    style={{ width: '100%' }}
-                    placeholder="Tất cả dự án"
-                  >
-                    <Option value="all">Tất cả dự án</Option>
-                    {projects.map(project => (
-                      <Option key={project.id} value={project.id}>
-                        {project.name}
-                      </Option>
-                    ))}
-                  </Select>
-                </Col>
-                
-                <Col xs={24} sm={8} md={12} lg={12} xl={12}>
-                  <Button 
-                    icon={<ClearOutlined />} 
-                    onClick={() => {
-                      setSearchText('');
-                      setSelectedStatus('all');
-                      setSelectedDiscipline('all');
-                      setSelectedProject('all');
-                    }}
-                    style={{ width: '100%' }}
-                  >
-                    Xóa bộ lọc
-                  </Button>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <div className="desktop-documents-filter-container">
+            <Input
+              placeholder="Tìm kiếm tài liệu..."
+              prefix={<SearchOutlined />}
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              style={{ flex: 1 }}
+            />
+            <Select
+              value={selectedDiscipline}
+              onChange={setSelectedDiscipline}
+              style={{ width: 200 }}
+              placeholder="Tất cả chuyên ngành"
+            >
+              <Option value="all">Tất cả chuyên ngành</Option>
+              <Option value="AR">Kiến trúc</Option>
+              <Option value="ST">Kết cấu</Option>
+              <Option value="ME">Cơ điện</Option>
+              <Option value="QS">Định giá</Option>
+              <Option value="PM">Quản lý dự án</Option>
+            </Select>
+            <Select
+              value={selectedProject}
+              onChange={setSelectedProject}
+              style={{ width: 200 }}
+              placeholder="Tất cả dự án"
+            >
+              <Option value="all">Tất cả dự án</Option>
+              {projects.map(project => (
+                <Option key={project.id} value={project.id}>
+                  {project.name}
+                </Option>
+              ))}
+            </Select>
+            <Button 
+              icon={<ClearOutlined />} 
+              onClick={() => {
+                setSearchText('');
+                setSelectedStatus('all');
+                setSelectedDiscipline('all');
+                setSelectedProject('all');
+              }}
+            >
+              Xóa bộ lọc
+            </Button>
+          </div>
         ) : isTabletLandscape ? (
           <ResponsiveCollapsibleFilters
             searchValue={searchText}

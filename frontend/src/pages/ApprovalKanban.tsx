@@ -1453,7 +1453,7 @@ const ApprovalKanban: React.FC = () => {
                 </Text>
               )}
             </Col>
-            <Col xs={24} sm={8} style={{ textAlign: isMobile ? 'center' : 'right' }}>
+            <Col xs={24} sm={8} style={{ textAlign: 'right' }}>
               <Button
                 type="primary"
                 icon={<PlusOutlined />}

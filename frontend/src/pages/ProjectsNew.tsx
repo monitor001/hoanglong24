@@ -1421,101 +1421,94 @@ const ProjectsNew: React.FC = () => {
       </div>
 
       {/* Summary Cards - Responsive Grid */}
-      <div className="projects-summary-grid" style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : (isTabletLandscape ? 'repeat(4, 1fr)' : 'repeat(4, 1fr)'),
-        gap: isMobile ? 8 : (isTabletLandscape ? 12 : 16),
+      <Row gutter={isMobile ? 8 : (isTabletLandscape ? 12 : 16)} style={{ 
         marginBottom: isMobile ? 16 : (isTabletLandscape ? 20 : 24),
         width: '100%'
       }}>
-        <div className="dashboard-stats-row" style={{ width: '100%' }}>
-          <Row gutter={isMobile ? 8 : (isTabletLandscape ? 12 : 16)} style={{ width: '100%' }}>
-          <Col xs={12} sm={6} md={6} lg={6} style={{ width: '100%' }}>
-            <Popover 
-              content={renderProjectList(projects, 10)}
-              title="Tất cả dự án"
-              trigger="hover"
-              placement="bottom"
+        <Col xs={12} sm={6} md={6} lg={6}>
+          <Popover 
+            content={renderProjectList(projects, 10)}
+            title="Tất cả dự án"
+            trigger="hover"
+            placement="bottom"
+          >
+            <div 
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedStatus('all')}
             >
-              <div 
-                style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedStatus('all')}
-              >
-                <ResponsiveStatCard
-                  title="Tổng Dự Án"
-                  value={projects.length}
-                  icon={<FolderOutlined />}
-                  function="projects"
-                />
-              </div>
-            </Popover>
-          </Col>
-          
-          <Col xs={12} sm={6} md={6} lg={6}>
-            <Popover 
-              content={renderProjectList(getProjectsByStatus('ACTIVE'), 5)}
-              title="Dự án đang thực hiện"
-              trigger="hover"
-              placement="bottom"
+              <ResponsiveStatCard
+                title="Tổng Dự Án"
+                value={projects.length}
+                icon={<FolderOutlined />}
+                function="projects"
+              />
+            </div>
+          </Popover>
+        </Col>
+        
+        <Col xs={12} sm={6} md={6} lg={6}>
+          <Popover 
+            content={renderProjectList(getProjectsByStatus('ACTIVE'), 5)}
+            title="Dự án đang thực hiện"
+            trigger="hover"
+            placement="bottom"
+          >
+            <div 
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedStatus('ACTIVE')}
             >
-              <div 
-                style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedStatus('ACTIVE')}
-              >
-                <ResponsiveStatCard
-                  title="Đang Thực Hiện"
-                  value={getStatusCount('ACTIVE')}
-                  icon={<CheckCircleOutlined />}
-                  function="projects"
-                />
-              </div>
-            </Popover>
-          </Col>
-          
-          <Col xs={12} sm={6} md={6} lg={6}>
-            <Popover 
-              content={renderProjectList(getProjectsByStatus('PLANNING'), 5)}
-              title="Dự án lập kế hoạch"
-              trigger="hover"
-              placement="bottom"
+              <ResponsiveStatCard
+                title="Đang Thực Hiện"
+                value={getStatusCount('ACTIVE')}
+                icon={<CheckCircleOutlined />}
+                function="projects"
+              />
+            </div>
+          </Popover>
+        </Col>
+        
+        <Col xs={12} sm={6} md={6} lg={6}>
+          <Popover 
+            content={renderProjectList(getProjectsByStatus('PLANNING'), 5)}
+            title="Dự án lập kế hoạch"
+            trigger="hover"
+            placement="bottom"
+          >
+            <div 
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedStatus('PLANNING')}
             >
-              <div 
-                style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedStatus('PLANNING')}
-              >
-                <ResponsiveStatCard
-                  title="Lập Kế Hoạch"
-                  value={getStatusCount('PLANNING')}
-                  icon={<ClockCircleOutlined />}
-                  function="projects"
-                />
-              </div>
-            </Popover>
-          </Col>
-          
-          <Col xs={12} sm={6} md={6} lg={6}>
-            <Popover 
-              content={renderProjectList(getProjectsByStatus('COMPLETED'), 5)}
-              title="Dự án hoàn thành"
-              trigger="hover"
-              placement="bottom"
+              <ResponsiveStatCard
+                title="Lập Kế Hoạch"
+                value={getStatusCount('PLANNING')}
+                icon={<ClockCircleOutlined />}
+                function="projects"
+              />
+            </div>
+          </Popover>
+        </Col>
+        
+        <Col xs={12} sm={6} md={6} lg={6}>
+          <Popover 
+            content={renderProjectList(getProjectsByStatus('COMPLETED'), 5)}
+            title="Dự án hoàn thành"
+            trigger="hover"
+            placement="bottom"
+          >
+            <div 
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedStatus('COMPLETED')}
             >
-              <div 
-                style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedStatus('COMPLETED')}
-              >
-                <ResponsiveStatCard
-                  title="Hoàn Thành"
-                  value={getStatusCount('COMPLETED')}
-                  icon={<CheckCircleOutlined />}
-                  function="projects"
-                />
-              </div>
-            </Popover>
-          </Col>
-          </Row>
-        </div>
-      </div>
+              <ResponsiveStatCard
+                title="Hoàn Thành"
+                value={getStatusCount('COMPLETED')}
+                icon={<CheckCircleOutlined />}
+                function="projects"
+              />
+            </div>
+          </Popover>
+        </Col>
+      </Row>
 
       {/* Filter and Search - Responsive with Collapsible */}
       {isMobile ? (

@@ -64,6 +64,13 @@ model User {
   preferences    UserPreference[] // User preferences
   notifications  Notification[]
   userNotificationPreferences UserNotificationPreference[]
+  licenses       License[] @relation("LicenseCreatedBy")
+  licenseUpdates License[] @relation("LicenseUpdatedBy")
+  kaizens        Kaizen[] @relation("KaizenAuthor")
+  kaizenComments KaizenComment[] @relation("KaizenCommentAuthor")
+  kaizenLikes    KaizenLike[] @relation("KaizenLikeUser")
+  kaizenShares   KaizenShare[] @relation("KaizenSharedBy")
+  kaizenSharedWith KaizenShare[] @relation("KaizenSharedWith")
 
   // Permission relations
   rolePermissions RolePermission[] @relation("UserRolePermissions")
@@ -105,6 +112,7 @@ model Project {
   projectShares ProjectShare[]
   designChecklists DesignChecklist[]
   approvalDocuments ApprovalDocument[]
+  kaizens     Kaizen[]
 
   @@index([status])
   @@index([priority])
@@ -960,4 +968,175 @@ model UserNotificationPreference {
   updatedAt             DateTime @updatedAt
 
   @@index([userId])
+}
+
+// License Management Models
+model License {
+  id          String   @id @default(uuid())
+  licenseKey  String   @unique // Mã license duy nhất
+  machineId   String   // ID máy tính sử dụng
+  userName    String   // Tên người dùng
+  userPhone   String?  // Số điện thoại người dùng
+  userEmail   String?  // Email người dùng (optional)
+  usageDays   Int      // Số ngày sử dụng
+  status      LicenseStatus @default(ACTIVE)
+  startDate   DateTime @default(now())
+  endDate     DateTime // Ngày hết hạn
+  lastUsed    DateTime? // Lần sử dụng cuối
+  notes       String?  // Ghi chú
+  createdBy   User?    @relation("LicenseCreatedBy", fields: [createdById], references: [id])
+  createdById String?
+  updatedBy   User?    @relation("LicenseUpdatedBy", fields: [updatedById], references: [id])
+  updatedById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([licenseKey])
+  @@index([machineId])
+  @@index([status])
+  @@index([startDate])
+  @@index([endDate])
+  @@index([createdAt])
+  @@index([status, endDate])
+}
+
+enum LicenseStatus {
+  ACTIVE
+  EXPIRED
+  SUSPENDED
+  REVOKED
+}
+
+// Kaizen Improvement Models
+model Kaizen {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  content     String   // Nội dung chi tiết của cải tiến
+  category    String   // Loại cải tiến: PROCESS, QUALITY, SAFETY, EFFICIENCY, COST, OTHER
+  status      KaizenStatus @default(DRAFT)
+  priority    Priority @default(MEDIUM)
+  impact      String?  // Mức độ tác động: LOW, MEDIUM, HIGH, CRITICAL
+  department  String?  // Phòng ban liên quan
+  location    String?  // Vị trí/địa điểm áp dụng
+  beforeImage String?  // URL hình ảnh trước cải tiến
+  afterImage  String?  // URL hình ảnh sau cải tiến
+  attachments Json?    // Danh sách file đính kèm
+  estimatedSavings String? // Ước tính tiết kiệm
+  implementationDate DateTime? // Ngày triển khai
+  completionDate DateTime? // Ngày hoàn thành
+  isPublic    Boolean  @default(false) // Có chia sẻ công khai không
+  viewCount   Int      @default(0) // Số lượt xem
+  likeCount   Int      @default(0) // Số lượt thích
+  commentCount Int     @default(0) // Số lượt bình luận
+  
+  // Relations
+  author      User     @relation("KaizenAuthor", fields: [authorId], references: [id])
+  authorId    String
+  project     Project? @relation(fields: [projectId], references: [id])
+  projectId   String?
+  tags        KaizenTag[]
+  comments    KaizenComment[]
+  likes       KaizenLike[]
+  shares      KaizenShare[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([projectId])
+  @@index([category])
+  @@index([status])
+  @@index([priority])
+  @@index([isPublic])
+  @@index([createdAt])
+  @@index([updatedAt])
+  @@index([status, priority])
+  @@index([category, status])
+}
+
+enum KaizenStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  APPROVED
+  IMPLEMENTED
+  COMPLETED
+  REJECTED
+  ARCHIVED
+}
+
+model KaizenTag {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  nameVi      String   // Tên tiếng Việt
+  color       String   @default("#1890ff") // Màu hiển thị
+  description String?
+  isActive    Boolean  @default(true)
+  usageCount  Int      @default(0) // Số lần sử dụng
+  
+  // Relations
+  kaizens     Kaizen[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+  @@index([isActive])
+  @@index([usageCount])
+}
+
+model KaizenComment {
+  id          String   @id @default(uuid())
+  content     String
+  isInternal  Boolean  @default(false) // Bình luận nội bộ hay công khai
+  
+  // Relations
+  kaizen      Kaizen   @relation(fields: [kaizenId], references: [id], onDelete: Cascade)
+  kaizenId    String
+  author      User     @relation("KaizenCommentAuthor", fields: [authorId], references: [id])
+  authorId    String
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([kaizenId])
+  @@index([authorId])
+  @@index([createdAt])
+}
+
+model KaizenLike {
+  id          String   @id @default(uuid())
+  
+  // Relations
+  kaizen      Kaizen   @relation(fields: [kaizenId], references: [id], onDelete: Cascade)
+  kaizenId    String
+  user        User     @relation("KaizenLikeUser", fields: [userId], references: [id])
+  userId      String
+  
+  createdAt   DateTime @default(now())
+
+  @@unique([kaizenId, userId])
+  @@index([kaizenId])
+  @@index([userId])
+}
+
+model KaizenShare {
+  id          String   @id @default(uuid())
+  message     String?  // Tin nhắn khi chia sẻ
+  
+  // Relations
+  kaizen      Kaizen   @relation(fields: [kaizenId], references: [id], onDelete: Cascade)
+  kaizenId    String
+  sharedBy    User     @relation("KaizenSharedBy", fields: [sharedById], references: [id])
+  sharedById  String
+  sharedWith  User     @relation("KaizenSharedWith", fields: [sharedWithId], references: [id])
+  sharedWithId String
+  
+  createdAt   DateTime @default(now())
+
+  @@index([kaizenId])
+  @@index([sharedById])
+  @@index([sharedWithId])
+  @@index([createdAt])
 }

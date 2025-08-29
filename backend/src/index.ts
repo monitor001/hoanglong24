@@ -39,6 +39,9 @@ import todoRoutes from './routes/todo';
 import permissionsRoutes from './routes/permissions';
 import userPreferencesRoutes from './routes/userPreferences';
 import adminRoutes from './routes/admin';
+import licenseRoutes from './routes/licenseRoutes';
+import kaizenRoutes from './routes/kaizenRoutes';
+import kaizenTagRoutes from './routes/kaizenTagRoutes';
 
 // Middlewares
 import { errorHandler } from './middlewares/errorHandler';
@@ -490,6 +493,9 @@ app.use('/api/todos', authMiddleware, todoRoutes);
 app.use('/api/permissions', permissionsRoutes);
 app.use('/api/user-preferences', userPreferencesRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/licenses', licenseRoutes);
+app.use('/api/kaizen', kaizenRoutes);
+app.use('/api/kaizen-tags', kaizenTagRoutes);
 
 // Serve frontend build for Heroku deployment
 // Note: Frontend is now deployed separately, so we don't serve it from backend

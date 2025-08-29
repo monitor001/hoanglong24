@@ -1126,35 +1126,11 @@ const DesignChecklist: React.FC = () => {
 
       {/* Desktop Header */}
       <div style={{ marginBottom: '24px' }}>
-        <Row gutter={16} align="middle" style={{ marginBottom: '16px' }}>
+        <Row gutter={16} align="middle" justify="space-between" style={{ marginBottom: '16px' }}>
           <Col>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <Title level={3} style={{ margin: 0 }}>Hồ sơ thiết kế</Title>
             </div>
-          </Col>
-          <Col flex="auto">
-            <Space>
-              <Input
-                placeholder="Tìm kiếm checklist..."
-                prefix={<SearchOutlined />}
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                style={{ width: 300 }}
-              />
-              <Select
-                placeholder="Lọc theo dự án"
-                value={selectedProject}
-                onChange={setSelectedProject}
-                allowClear
-                style={{ width: 200 }}
-              >
-                {projects.map(project => (
-                  <Option key={project.id} value={project.id}>
-                    {project.name}
-                  </Option>
-                ))}
-              </Select>
-            </Space>
           </Col>
           <Col>
             <Space>
@@ -1288,6 +1264,44 @@ const DesignChecklist: React.FC = () => {
           </Col>
         </Row>
       </div>
+
+      {/* Desktop Filters - Moved below statistics for desktop */}
+      {!isMobile && !isTabletLandscape && (
+        <ResponsiveCollapsibleFilters
+          searchValue={searchText}
+          searchPlaceholder="Tìm kiếm checklist..."
+          onSearchChange={setSearchText}
+          statusValue=""
+          statusOptions={[
+            { value: '', label: 'Tất cả trạng thái' }
+          ]}
+          onStatusChange={() => {}}
+          priorityValue=""
+          priorityOptions={[
+            { value: '', label: 'Tất cả độ ưu tiên' }
+          ]}
+          onPriorityChange={() => {}}
+          projectValue={selectedProject}
+          projectOptions={[
+            { value: '', label: 'Tất cả dự án' },
+            ...projects.map(project => ({ value: project.id, label: project.name }))
+          ]}
+          onProjectChange={setSelectedProject}
+          assigneeValue=""
+          assigneeOptions={[
+            { value: '', label: 'Tất cả người dùng' }
+          ]}
+          onAssigneeChange={() => {}}
+          onReset={() => {
+            setSearchText('');
+            setSelectedProject('');
+          }}
+          title={`Bộ lọc checklist (${checklists.length})`}
+          isMobile={isMobile}
+          isTabletLandscape={isTabletLandscape}
+          isDarkMode={false}
+        />
+      )}
 
       {/* Mobile Checklist Table */}
       <MobileChecklistTable
