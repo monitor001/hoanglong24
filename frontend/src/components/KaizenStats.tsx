@@ -23,7 +23,7 @@ import {
   EyeOutlined,
   LikeOutlined,
   CommentOutlined,
-  TrendingUpOutlined,
+  RiseOutlined,
   CalendarOutlined
 } from '@ant-design/icons';
 import { Line, Bar, Pie, Column } from '@ant-design/plots';
