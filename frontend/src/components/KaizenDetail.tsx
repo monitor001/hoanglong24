@@ -12,7 +12,6 @@ import {
   Divider,
   Image,
   List,
-  Comment,
   Form,
   Input,
   message,
@@ -369,12 +368,18 @@ const KaizenDetail: React.FC<KaizenDetailProps> = ({ kaizen, onClose, onEdit, on
               dataSource={comments}
               renderItem={(comment: any) => (
                 <List.Item>
-                  <Comment
-                    author={comment.author.name}
-                    avatar={<Avatar>{comment.author.name.charAt(0)}</Avatar>}
-                    content={comment.content}
-                    datetime={new Date(comment.createdAt).toLocaleString('vi-VN')}
-                  />
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12, width: '100%' }}>
+                    <Avatar>{comment.author.name.charAt(0)}</Avatar>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                        <Text strong>{comment.author.name}</Text>
+                        <Text type="secondary" style={{ fontSize: 12 }}>
+                          {new Date(comment.createdAt).toLocaleString('vi-VN')}
+                        </Text>
+                      </div>
+                      <Text>{comment.content}</Text>
+                    </div>
+                  </div>
                 </List.Item>
               )}
             />
